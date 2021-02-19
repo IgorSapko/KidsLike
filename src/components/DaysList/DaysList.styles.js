@@ -1,49 +1,57 @@
-.blockPeopleTask {
-  max-width: 880px;
+import styled from "styled-components";
+
+export const BlockPeopleTask = styled.ul`
+  max-width: 1180px;
   margin: 0 auto;
+  padding: 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-}
 
-.blockPeopleTask_item {
+  @media (max-width: 768px) {
+    max-width: 580px;
+  }
+  @media (max-width: 320px) {
+    max-width: 280px;
+  }
+`;
+
+export const BlockPeopleTask_item = styled.li`
   max-width: 280px;
   margin-bottom: 20px;
   position: relative;
-}
+  list-style: none;
+`;
 
-.blockPeopleTask_item_img {
+export const BlockPeopleTask_img = styled.div`
   border-radius: 6px 6px 0px 0px;
   height: 194px;
   width: 100%;
-}
+`;
 
-
-.blockPeopleTask_item_inform {
+export const BlockPeopleTask_item_inform = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-bottom: 14px;
-}
+`;
 
-.blockPeopleTask_item_inform > p {
-  /* height: 18px; */
+export const BlockPeopleTask_item_inform_pad = styled.p`
+  padding: 0;
+  margin: 0;
   padding: 3px 10px;
   background-color: #5679d7;
   border-radius: 3px;
-
   font-style: normal;
   font-weight: 500;
   font-size: 10px;
-
   text-align: center;
-
   text-transform: uppercase;
-
   color: #ffffff;
-}
-
-.blockPeopleTask_item_text > h2 {
+`;
+export const BlockPeopleTask_item_inform_title = styled.h2`
+  padding: 0;
+  margin: 0;
   padding-top: 14px;
   margin-bottom: 4px;
   text-align: left;
@@ -56,21 +64,10 @@
   text-transform: uppercase;
 
   color: #000000;
-}
+`;
 
-.blockPeopleTask_item_text {
+export const BlockPeopleTask_item_text = styled.div`
   background: #ffbc33;
   padding: 0 10px;
   border-radius: 0px 0px 6px 6px;
-}
-
-@media (max-width: 768px) {
-  .blockPeopleTask {
-    max-width: 580px;
-  }
-}
-@media (max-width: 320px) {
-  .blockPeopleTask {
-    max-width: 280px;
-  }
-}
+`;

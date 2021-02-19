@@ -1,4 +1,6 @@
-.blockAddSwitch {
+import styled from "styled-components";
+
+export const BlockAddSwitch = styled.div`
   cursor: pointer;
   width: 30px;
   height: 30px;
@@ -17,9 +19,9 @@
   text-align: center;
   letter-spacing: 0.04em;
   color: #8ec63f;
+`;
 
-}
-.blockCheckbox {
+export const BlockCheckbox = styled.form`
   bottom: 70px;
   right: -20px;
   position: absolute;
@@ -32,18 +34,18 @@
   background: #3e7adc;
   border-radius: 6px;
   padding-top: 15px;
-}
+`;
 
-.blockCheckbox label {
+export const BlockLabel= styled.label`
   margin-bottom: 7px;
   font-family: Montserrat;
-font-style: normal;
-font-weight: bold;
-font-size: 14px;
-line-height: 17px;
-display: flex;
-align-items: center;
-letter-spacing: 0.02em;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 17px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+`;
 
-color: #FFFFFF;
-}

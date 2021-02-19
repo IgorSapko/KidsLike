@@ -1,115 +1,51 @@
-import style from "./style.module.css";
-import { useState } from "react";
+import React, { Fragment, useState } from 'react';
+//svg
+import PlusSvg from './PlusSvg';
+//style
+import { BlockAddSwitch, BlockCheckbox, BlockLabel } from './SelectDays.styles';
+
 export default function SelectDays() {
-  const [toggle, serToggle] = useState(false);
-  const [listTask, serListTask] = useState([]);
+	const [toggle, serToggle] = useState(false);
+	const [listTask, serListTask] = useState([]);
+	const days = [
+		['ПН', 'Monday'],
+		['ВТ', 'Tuesday'],
+		['СР', 'Wednesday'],
+		['ЧТ', 'Thursday'],
+		['ПТ', 'Friday'],
+		['СБ', 'Saturday'],
+		['ВС', 'Sunday'],
+	];
+	const handlechange = () => serToggle(!toggle);
 
-  const handlechange = () => serToggle(!toggle);
+	const handleInputChange = e => {
+		const selectName = e.target.id;
 
-  const handleInputChange = (e) => {
-    const selectName = e.target.id;
+		serListTask([...listTask, selectName]);
+	};
 
-    serListTask([...listTask, selectName]);
-  };
+	return (
+		<Fragment>
+			{!toggle ? (
+				<BlockAddSwitch onClick={handlechange}>
+					<PlusSvg />
+				</BlockAddSwitch>
+			) : (
+				<div>
+					<BlockAddSwitch onClick={handlechange}>OK</BlockAddSwitch>
 
-  return (
-    <div>
-      {!toggle ? (
-        <div onClick={handlechange} className={style.blockAddSwitch}>
-          <svg
-            width="12"
-            height="12"
-            viewBox="0 0 12 12"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M6 1V11"
-              stroke="#8EC63F"
-              strokeWidth="2"
-              strokeLinecap="round"
-            />
-            <path
-              d="M1 6L11 6"
-              stroke="#8EC63F"
-              strokeWidth="2"
-              strokeLinecap="round"
-            />
-          </svg>
-        </div>
-      ) : (
-        <div>
-          <div onClick={handlechange} className={style.blockAddSwitch}>
-            OK
-          </div>
-
-          <form className={style.blockCheckbox}>
-            <label className={style.checkbox_other}>
-              <input
-                type="checkbox"
-                className={style.regular_checkbox}
-                id="one"
-                onChange={handleInputChange}
-              />
-              ПН
-            </label>
-            <label>
-              <input
-                type="checkbox"
-                className={style.regular_checkbox}
-                id="two"
-                onChange={handleInputChange}
-              />
-              ВТ
-            </label>
-            <label>
-              <input
-                type="checkbox"
-                className={style.regular_checkbox}
-                id="three"
-                onChange={handleInputChange}
-              />
-              СР
-            </label>
-            <label>
-              <input
-                type="checkbox"
-                className={style.regular_checkbox}
-                id="four"
-                onChange={handleInputChange}
-              />
-              ЧВ
-            </label>
-            <label>
-              <input
-                type="checkbox"
-                className={style.regular_checkbox}
-                id="five"
-                onChange={handleInputChange}
-              />
-              ПТ
-            </label>
-            <label>
-              <input
-                type="checkbox"
-                className={style.regular_checkbox}
-                id="six"
-                onChange={handleInputChange}
-              />
-              СБ
-            </label>
-            <label>
-              <input
-                type="checkbox"
-                className={style.regular_checkbox}
-                id="seven"
-                onChange={handleInputChange}
-              />
-              ВС
-            </label>
-          </form>
-        </div>
-      )}
-    </div>
-  );
+					<BlockCheckbox>
+						{days.map(item => {
+							return (
+								<BlockLabel key={item[0]}>
+									<input type="checkbox" id={item[1]} onChange={handleInputChange} />
+									{item[0]}
+								</BlockLabel>
+							);
+						})}
+					</BlockCheckbox>
+				</div>
+			)}
+		</Fragment>
+	);
 }
