@@ -61,10 +61,10 @@ const getCurrentUser = () => (dispatch, getState) => {
 	token.set(existToken);
 	dispatch(authActions.getCurrentUserRequest());
 
-	axios
-		.get('/api/users/current')
-		.then(({ data }) => dispatch(authActions.getCurrentUserSuccess(data)))
-		.catch(error => dispatch(authActions.getCurrentUserFailure(error)));
+	// axios
+	// 	.get('/api/users/current')
+	// 	.then(({ data }) => dispatch(authActions.getCurrentUserSuccess(data)))
+	// 	.catch(error => dispatch(authActions.getCurrentUserFailure(error)));
 };
 
 const authOperations = {
