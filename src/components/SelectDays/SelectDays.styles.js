@@ -1,0 +1,51 @@
+import styled from "styled-components";
+
+export const BlockAddSwitch = styled.div`
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  background: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 15px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.04em;
+  color: #8ec63f;
+`;
+
+export const BlockCheckbox = styled.form`
+  bottom: 70px;
+  right: -20px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 114px;
+  height: auto;
+  background: #3e7adc;
+  border-radius: 6px;
+  padding-top: 15px;
+`;
+
+export const BlockLabel= styled.label`
+  margin-bottom: 7px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 17px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+`;
+
