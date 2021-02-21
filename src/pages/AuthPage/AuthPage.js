@@ -1,15 +1,22 @@
 //Core
 import React from 'react';
 import PropTypes from 'prop-types';
+
 //Components
 
-import { RegContainer, P } from '../styles/auth/authPage';
+import { RegContainer, P, ImgAuth1, ImgAuth2, ImgAuth3, ImgAuth4 } from './authPage.styles';
 
-import AuthForm from './AuthForm';
+import AuthForm from '../../components/Commons/AuthForm/AuthForm';
 
 const AuthPage = () => {
 	return (
 		<div>
+			<div>
+				<ImgAuth1></ImgAuth1>
+				<ImgAuth2></ImgAuth2>
+				<ImgAuth3></ImgAuth3>
+				<ImgAuth4></ImgAuth4>
+			</div>
 			<RegContainer>
 				<P>Выполняй задания, получи классные призы!</P>
 				<AuthForm />
