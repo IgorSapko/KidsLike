@@ -1,40 +1,14 @@
 //styles
-import {
-	BlockPeopleTask,
-	BlockPeopleTask_item,
-	BlockPeopleTask_item_img,
-	BlockPeopleTask_item_inform,
-	BlockPeopleTask_item_inform_pad,
-	BlockPeopleTask_item_inform_title,
-	BlockPeopleTask_item_text,
-} from './Card.modules';
+import { BlockPeopleTask_item } from './Card.modules';
 
-//toggle buttom
-import TaskToggle from './TaskToggle/TaskToggle';
+import CardBody from '../CardBody/CardBody';
+import CardFooter from '../CardFooter/CardFooter';
 
-//json file
-import itemBlock from './item.json';
-
-export default function Stateless() {
+export default function Stateless({ item }) {
 	return (
-		<BlockPeopleTask>
-			{itemBlock.map(item => {
-				return (
-					<BlockPeopleTask_item key={item.img}>
-						<BlockPeopleTask_item_img>
-							<img src={item.img} />
-						</BlockPeopleTask_item_img>
-
-						<BlockPeopleTask_item_text>
-							<BlockPeopleTask_item_inform_title>{item.title}</BlockPeopleTask_item_inform_title>
-							<BlockPeopleTask_item_inform>
-								<BlockPeopleTask_item_inform_pad>{item.ball}</BlockPeopleTask_item_inform_pad>
-								<TaskToggle />
-							</BlockPeopleTask_item_inform>
-						</BlockPeopleTask_item_text>
-					</BlockPeopleTask_item>
-				);
-			})}
-		</BlockPeopleTask>
+		<BlockPeopleTask_item key={item.img}>
+			<CardBody item={item} />
+			<CardFooter item={item} />
+		</BlockPeopleTask_item>
 	);
 }

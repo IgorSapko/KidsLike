@@ -1,50 +1,61 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+//svg
+import PlusSvg from './PlusSvg';
+//style
+import { BlockAddSwitch, BlockCheckbox, BlockLabel, BlockInput } from './DaysList.styles';
 
-import {
-	BlockPeopleTask,
-	BlockPeopleTask_item,
-	BlockPeopleTask_img,
-	BlockPeopleTask_item_inform,
-	BlockPeopleTask_item_inform_pad,
-	BlockPeopleTask_item_inform_title,
-	BlockPeopleTask_item_text,
-} from './DaysList.styles';
+export default function SelectDays({ summNumber, itemball }) {
+	const [toggle, serToggle] = useState(false);
+	const [listTask, serListTask] = useState([]);
+	const days = [
+		['ПН', 'Monday'],
+		['ВТ', 'Tuesday'],
+		['СР', 'Wednesday'],
+		['ЧТ', 'Thursday'],
+		['ПТ', 'Friday'],
+		['СБ', 'Saturday'],
+		['ВС', 'Sunday'],
+	];
 
-import itemBlock from './item.json';
-import SelectDays from '../SelectDays/SelectDays';
+	const handlechange = () => {
+		serToggle(!toggle);
 
-export default function Stateless() {
-	const [numberSelect, setNumberSelect] = useState('0');
-
-	const summNumber = name => {
-		const summSelectDay = name.reduce((min, item) => min + Number(parseInt(item.itemball)), 0);
-
-		setNumberSelect(prev => {
-			return Number(prev) + summSelectDay;
-		});
+		if (toggle) {
+			summNumber(listTask);
+			serListTask([]);
+		}
 	};
-	console.log(numberSelect);
+
+	const handleInputChange = (itemball, item) => {
+		serListTask([...listTask, { itemball, item }]);
+	};
 
 	return (
-		<BlockPeopleTask>
-			{itemBlock.map(item => {
-				return (
-					<BlockPeopleTask_item key={item.img}>
-						<BlockPeopleTask_img>
-							<img src={item.img} />
-						</BlockPeopleTask_img>
+		<div>
+			{!toggle ? (
+				<BlockAddSwitch onClick={handlechange}>
+					<PlusSvg />
+				</BlockAddSwitch>
+			) : (
+				<div>
+					<BlockAddSwitch onClick={handlechange}>OK</BlockAddSwitch>
 
-						<BlockPeopleTask_item_text>
-							<BlockPeopleTask_item_inform_title>{item.title}</BlockPeopleTask_item_inform_title>
-							<BlockPeopleTask_item_inform>
-								<BlockPeopleTask_item_inform_pad>{item.ball}</BlockPeopleTask_item_inform_pad>
-
-								<SelectDays summNumber={summNumber} itemball={item.ball} />
-							</BlockPeopleTask_item_inform>
-						</BlockPeopleTask_item_text>
-					</BlockPeopleTask_item>
-				);
-			})}
-		</BlockPeopleTask>
+					<BlockCheckbox>
+						{days.map(item => {
+							return (
+								<BlockLabel key={item[0]}>
+									<BlockInput
+										type="checkbox"
+										id={item[1]}
+										onChange={() => handleInputChange(itemball, item[0])}
+									/>
+									{item[0]}
+								</BlockLabel>
+							);
+						})}
+					</BlockCheckbox>
+				</div>
+			)}
+		</div>
 	);
 }

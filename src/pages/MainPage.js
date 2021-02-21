@@ -3,14 +3,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 //Components
 //Тимчасово добавлю сюди так як немає навігації
-import Card from '../components/Commons/Card/Card';
-import DaysList from '../components/Commons/DaysList/DaysList';
+import CardList from '../components/Commons/CardList/CardList';
+import DaysList from '../components/Commons/SelectDays/SelectDays';
 
 const MainPage = () => {
 	return (
 		<div className="mainBackgroundColor2">
 			MainPage
-			<Card />
+			<CardList />
 			<DaysList />
 		</div>
 	);
