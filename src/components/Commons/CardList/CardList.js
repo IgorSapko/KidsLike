@@ -15,10 +15,10 @@ export default function CardList() {
 
 		const switcherNumber = switcher
 			? setNumberSelect(prev => {
-					return Number(prev) + Number(parseInt(number));
+					return Number(prev) - Number(parseInt(number));
 			  })
 			: setNumberSelect(prev => {
-					return Number(prev) - Number(parseInt(number));
+					return Number(prev) + Number(parseInt(number));
 			  });
 		return switcherNumber;
 	};
