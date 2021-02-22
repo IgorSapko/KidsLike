@@ -9,13 +9,16 @@ import { Unchecked, Checked } from './SvgIconSwitch';
 export default function TaskToggle({ summNumber, item }) {
 	const [checked, setChecked] = useState(false);
 	return (
-		<div onClick={() => summNumber(item.ball, checked)}>
+		<div>
 			<Switch
 				handleDiameter={14}
 				onColor="#008000"
 				offColor="#ff0000"
 				checked={checked}
-				onChange={() => setChecked(!checked)}
+				onChange={() => {
+					setChecked(!checked);
+					summNumber(item.ball, checked);
+				}}
 				height={18}
 				width={40}
 				uncheckedIcon={

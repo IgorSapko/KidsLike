@@ -11,8 +11,6 @@ export default function CardList() {
 	const [numberSelect, setNumberSelect] = useState('0');
 
 	const summNumber = (number, switcher) => {
-		console.log('switch', switcher);
-
 		const switcherNumber = switcher
 			? setNumberSelect(prev => {
 					return Number(prev) - Number(parseInt(number));

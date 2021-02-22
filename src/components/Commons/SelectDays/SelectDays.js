@@ -17,13 +17,9 @@ export default function Stateless() {
 	const [numberSelect, setNumberSelect] = useState('0');
 
 	const summNumber = name => {
-		const summSelectDay = name.reduce((min, item) => min + Number(parseInt(item.itemball)), 0);
-
-		setNumberSelect(prev => {
-			return Number(prev) + summSelectDay;
-		});
+		setNumberSelect(prev => Number(prev) + name);
 	};
-	console.log(numberSelect);
+	console.log('result number submit', numberSelect);
 
 	return (
 		<BlockPeopleTask>
