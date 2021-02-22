@@ -125,4 +125,11 @@ const P = styled.p`
 	line-height: 15px;
 	letter-spacing: 0.04em;
 `;
-export { Form, Input, Button, Label, P, ButtonContainer, ButtonGoogle };
+
+const NotificationDiv = styled.div`
+	position: absolute;
+	top: 450px;
+	left: 40px;
+`;
+
+export { Form, Input, Button, Label, P, ButtonContainer, ButtonGoogle, NotificationDiv };

@@ -4,7 +4,7 @@ import axios from 'axios';
 import authActions from './authActions';
 
 //Axios defaults config
-axios.defaults.baseURL = `http://localhost:3001`;
+axios.defaults.baseURL = `https://kids-like-backend.herokuapp.com`;
 
 const token = {
 	set(token) {
@@ -22,6 +22,7 @@ const userSignUp = ({ credential }) => dispatch => {
 	axios
 		.post('/api/auth/sign-up', credential)
 		.then(({ data }) => {
+			console.log('data:', data);
 			token.set(data.token);
 			dispatch(authActions.userSignUpSuccess(data));
 		})

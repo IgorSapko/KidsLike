@@ -13,11 +13,12 @@ const RegContainer = styled.div`
 `;
 
 const P = styled.p`
-	font-family: 'Montserrat600';
+	font-family: 'Montserrat600', sans-serif;
 	position: absolute;
+	font-style: normal;
 	font-weight: 600;
-	font-size: 18px;
-	line-height: 22px;
+	font-size: 30px;
+	line-height: 37px;
 	text-align: center;
 	left: 20px;
 	top: 99px;
