@@ -6,11 +6,10 @@ import { UncheckedIconWrapper, CheckedIconWrapper } from './TaskToggle.styles';
 //svg
 import { Unchecked, Checked } from './SvgIconSwitch';
 
-export default function TaskToggle() {
+export default function TaskToggle({ summNumber, item }) {
 	const [checked, setChecked] = useState(false);
-
 	return (
-		<div>
+		<div onClick={() => summNumber(item.ball, checked)}>
 			<Switch
 				handleDiameter={14}
 				onColor="#008000"
