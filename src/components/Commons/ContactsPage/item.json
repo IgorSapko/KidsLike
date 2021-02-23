@@ -1,0 +1,55 @@
+[
+    {
+        "img": "https://i.ibb.co/FwxLcvq/AK.jpg",
+        "name": "Андрей Ковальчук",
+        "qualification": "Developer",
+        "LinkedIn": "https://www.linkedin.com/in/andrii-kovalchuk-b21237103/",
+        "GitHub": "https://github.com/KovalchukAIWE",
+        "Facebook": "https://www.facebook.com/andrii.kovalchuk.92"
+    },
+    {
+        "img": "https://i.ibb.co/B6PdPCB/EK.jpg",
+        "name": "Элина Коваленко",
+        "qualification": "Developer"
+    },
+    {
+        "img": "https://i.ibb.co/5Lv4HhX/IS.jpg",
+        "name": "Игорь Сапко",
+        "qualification": "Developer"
+    },
+    {
+        "img": "https://i.ibb.co/89zRvGw/VD.jpg",
+        "name": "Виталий Дерда",
+        "qualification": "Developer"
+    },
+    {
+        "img": "https://i.ibb.co/4S2x5ZT/ISt.jpg",
+        "name": "Илона Стрыжко",
+        "qualification": "Developer"
+    },
+    {
+        "img": "https://i.ibb.co/54zmHRj/ST.jpg",
+        "name": "Сергей Тымчук",
+        "qualification": "Developer"
+    },
+    {
+        "img": "https://i.ibb.co/M5jVMHf/MM.jpg",
+        "name": "Михаил Матей",
+        "qualification": "Developer"
+    },
+    {
+        "img": "https://i.ibb.co/vdBfnXW/OS.jpg",
+        "name": "Ольга Шостак",
+        "qualification": "Developer"
+    },
+    {
+        "img": "https://i.ibb.co/ryN2p65/ED.jpg",
+        "name": "Евгений Давиденко",
+        "qualification": "Developer"
+    },
+    {
+        "img": "https://i.ibb.co/x5XQ0Dz/MK.jpg",
+        "name": "Михаил Коболев",
+        "qualification": "Developer"
+    }
+]
