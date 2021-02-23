@@ -101,3 +101,9 @@ export const Icons = styled.div`
   position: relative;
   justify-content: space-around;
 `;
+
+export const IconWrapper = styled.a`
+  width: 45px;
+  height: 45px; 
+  cursor: pointer;
+`

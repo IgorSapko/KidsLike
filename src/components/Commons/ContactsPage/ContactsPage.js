@@ -8,8 +8,9 @@ import { Container,
      Name, 
      Qualification, 
      Icons, 
-     Photo } from './ContactsPage.modules';
-import FB from './icons/FB';
+     Photo,
+     IconWrapper } from './ContactsPage.modules';
+import Facebook from './icons/Facebook';
 import GitHub from './icons/GitHub';
 import LinkedIn from './icons/LinkedIn';
 
@@ -30,9 +31,15 @@ import items from './item.json';
                                            <Name>{item.name}</Name>
                                            <Qualification>{item.qualification}</Qualification>
                                            <Icons>
-                                             <FB src={item.Facebook}/>
-                                             <GitHub src={item.GitHub}/>
-                                             <LinkedIn src={item.LinkedIn} />
+                                           <IconWrapper href={item.Facebook}>
+                                                  <Facebook />
+                                             </IconWrapper>
+                                             <IconWrapper href={item.GitHub}>
+                                                  <GitHub/>
+                                             </IconWrapper>
+                                             <IconWrapper href={item.LinkedIn}>
+                                                  <LinkedIn />
+                                             </IconWrapper>
                                            </Icons>
                                         </Cards>
                                     )
