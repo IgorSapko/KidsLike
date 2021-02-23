@@ -4,9 +4,9 @@ import { persistStore, persistReducer } from "redux-persist";
 
 import storage from "redux-persist/lib/storage";
 //Redux
-import { authReducers } from "./auth";
+import authRootReducer from "./auth/authReducers";
 import loaderReducer from "./loader/loaderReducer";
-import {taskReducers} from './task';
+import weekReducer from './week/weekReducers';
 import errorReducer from './error/errorReducer';
 
 
@@ -18,8 +18,8 @@ const authPersistConfig = {
 
 export const store = configureStore({
   reducer: {
-    auth: persistReducer(authPersistConfig, authReducers),
-    task:taskReducers,
+    auth: persistReducer(authPersistConfig, authRootReducer),
+    week: weekReducer,
     error:errorReducer,
     loader: loaderReducer
     

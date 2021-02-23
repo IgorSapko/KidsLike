@@ -38,6 +38,15 @@ const routes = [
 		isNavigate: false,
 		component: lazy(() => import('pages/PlanningPage' /* webpackChunkName: "PlanningPage"*/)),
 	},
+	{
+		path: '/awards',
+		label: 'AwardsPage',
+		exact: true,
+		private: true,
+		restricted: true,
+		isNavigate: false,
+		component: lazy(() => import('pages/AwardsPage' /* webpackChunkName: "AwardsPage"*/)),
+	},
 ];
 
 export default routes;

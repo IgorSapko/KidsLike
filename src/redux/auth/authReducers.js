@@ -47,9 +47,10 @@ const loading = createReducer(false, {
 	[authActions.userSighOutFailure]: () => false,
 });
 
-export default combineReducers({
+const authRootReducer = combineReducers({
 	user,
 	token,
-	// error,
 	loading,
 });
+
+export default authRootReducer ;
