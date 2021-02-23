@@ -7,6 +7,7 @@ import { BlockAddSwitch, BlockCheckbox, BlockLabel, BlockInput } from './DaysLis
 export default function SelectDays({ summNumber, itemball }) {
 	const [toggle, serToggle] = useState(false);
 	const [listTask, serListTask] = useState(0);
+	const [visabiliry, setVisabiliry] = useState('hidden');
 
 	const days = [
 		['ПН', 'Monday'],
@@ -21,11 +22,14 @@ export default function SelectDays({ summNumber, itemball }) {
 	const handlechange = () => {
 		serToggle(!toggle);
 
-		console.log(listTask);
-
 		if (toggle) {
+			setVisabiliry('hidden');
 			summNumber(listTask);
 			serListTask(0);
+		}
+
+		if (!toggle) {
+			setVisabiliry('visible');
 		}
 	};
 
@@ -52,23 +56,22 @@ export default function SelectDays({ summNumber, itemball }) {
 			) : (
 				<div>
 					<BlockAddSwitch onClick={handlechange}>OK</BlockAddSwitch>
-
-					<BlockCheckbox>
-						{days.map(item => {
-							return (
-								<BlockLabel key={item[0]}>
-									<BlockInput
-										onChange={e => handleInputChange(e, itemball)}
-										type="checkbox"
-										id={item[1]}
-									/>
-									{item[0]}
-								</BlockLabel>
-							);
-						})}
-					</BlockCheckbox>
 				</div>
 			)}
+			<BlockCheckbox style={{ visibility: visabiliry }}>
+				{days.map(item => {
+					return (
+						<BlockLabel key={item[0]}>
+							<BlockInput
+								onChange={e => handleInputChange(e, itemball)}
+								type="checkbox"
+								id={item[1]}
+							/>
+							{item[0]}
+						</BlockLabel>
+					);
+				})}
+			</BlockCheckbox>
 		</div>
 	);
 }

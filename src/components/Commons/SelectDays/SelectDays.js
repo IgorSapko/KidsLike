@@ -19,7 +19,7 @@ export default function Stateless() {
 	const summNumber = name => {
 		setNumberSelect(prev => Number(prev) + name);
 	};
-	console.log('result number submit', numberSelect);
+	console.log('result summ number ', numberSelect);
 
 	return (
 		<BlockPeopleTask>
