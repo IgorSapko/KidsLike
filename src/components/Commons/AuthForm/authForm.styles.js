@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { device } from 'index.styles';
 
 const Form = styled.form`
+	width: 280px;
 	height: 500px;
 	display: flex;
 	flex-direction: column;
@@ -11,7 +12,6 @@ const Form = styled.form`
 		max-width: 1280px;
 		width: 400px;
 		height: 500px;
-
 		box-shadow: 4px 6px 15px rgba(0, 0, 0, 0.1);
 		border-radius: 6px;
 		padding: 40px;
@@ -32,7 +32,7 @@ const Input = styled.input`
 	font-size: 14px;
 	line-height: 17px;
 	letter-spacing: 0.04em;
-	width: 320px;
+	width: 280px;
 	height: 42px;
 	background-color: #f6f7fb;
 	box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.15);
@@ -50,6 +50,15 @@ const Input = styled.input`
 	&: focus {
 		outline: 2px solid #ffbc33;
 		color: #000000;
+	}
+
+	@madia ${device.tablet} {
+		max-width: 1280px;
+		width: 320px;
+	}
+
+	@madia ${device.desktop} {
+		width: 320px;
 	}
 `;
 
