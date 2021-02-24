@@ -22,11 +22,11 @@ const userSignUp = ({ credential }) => dispatch => {
 	axios
 		.post('/api/auth/sign-up', credential)
 		.then(({ data }) => {
-			console.log('data:', data);
+			console.log('cred', credential);
 			token.set(data.token);
 			dispatch(authActions.userSignUpSuccess(data));
 		})
-		.catch(error => dispatch(authActions.userSignUpFailure(error)));
+		.catch(error => console.log('error', error));
 };
 
 const userSignIn = credential => dispatch => {

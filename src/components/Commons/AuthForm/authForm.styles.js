@@ -1,11 +1,8 @@
 import styled from 'styled-components';
-import { device } from '../../../index.styles';
+import { device } from 'index.styles';
 
 const Form = styled.form`
-	position: absolute;
-	left: 6vw;
-	top: 25.5vh;
-	height: 400px;
+	height: 500px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -13,9 +10,8 @@ const Form = styled.form`
 	@media ${device.tablet} {
 		max-width: 1280px;
 		width: 400px;
-		height: 479px;
-		left: 24vw;
-		top: 23vh;
+		height: 500px;
+
 		box-shadow: 4px 6px 15px rgba(0, 0, 0, 0.1);
 		border-radius: 6px;
 		padding: 40px;
@@ -23,9 +19,7 @@ const Form = styled.form`
 
 	@media ${device.desktop} {
 		width: 400px;
-		height: 479px;
-		left: 59vw;
-		top: 28vh;
+		height: 500px;
 		box-shadow: 4px 6px 15px rgba(0, 0, 0, 0.1);
 		border-radius: 6px;
 		padding: 40px;
@@ -33,6 +27,11 @@ const Form = styled.form`
 `;
 
 const Input = styled.input`
+	font-family: 'MontserratRegular', sans-serif;
+	font-style: normal;
+	font-size: 14px;
+	line-height: 17px;
+	letter-spacing: 0.04em;
 	width: 320px;
 	height: 42px;
 	background-color: #f6f7fb;
@@ -55,13 +54,20 @@ const Input = styled.input`
 `;
 
 const Button = styled.button`
-	width: 134.99px;
-	height: 48px;
+	font-family: 'MontserratRegular';
 	background-color: #ffbc33;
 	border-radius: 6px;
 	border: 0;
 	color: white;
 	cursor: pointer;
+	width: 134.99px;
+	height: 48px;
+
+	@madia ${device.mobile} {
+		max-width: 768px;
+		width: 134.99px;
+		height: 48px;
+	}
 
 	@madia ${device.tablet} {
 		max-width: 1280px;
@@ -77,8 +83,8 @@ const Button = styled.button`
 
 const ButtonContainer = styled.div`
 	display: flex;
-	width: 278px;
 	justify-content: space-between;
+	width: 278px;
 
 	@madia ${device.tablet} {
 		max-width: 1280px;
@@ -91,6 +97,11 @@ const ButtonContainer = styled.div`
 `;
 
 const ButtonGoogle = styled.button`
+	font-family: 'MontserratRegular';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 17px;
 	width: 150px;
 	height: 42px;
 	background-color: #f6f7fb;
@@ -100,6 +111,10 @@ const ButtonGoogle = styled.button`
 `;
 
 const Label = styled.label`
+	font-family: 'MontserratRegular';
+	font-style: normal;
+	font-size: 12px;
+	line-height: 15px;
 	font-weight: 400;
 	font-size: 12px;
 	line-height: 15px;

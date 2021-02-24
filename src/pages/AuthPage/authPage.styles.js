@@ -10,37 +10,44 @@ const RegContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	position: absolute;
+
+	@media ${device.tablet} {
+		max-width: 1280px;
+		left: 23.8vw;
+		top: 13vh;
+	}
+
+	@media ${device.desktop} {
+		left: 58.6vw;
+		top: 134px;
+	}
 `;
 
 const P = styled.p`
 	font-family: 'Montserrat600', sans-serif;
-	position: absolute;
 	font-style: normal;
 	font-weight: 600;
 	font-size: 30px;
 	line-height: 37px;
 	text-align: center;
-	left: 20px;
-	top: 99px;
 
 	@media ${device.mobile} {
 		max-width: 768px;
 		width: 281px;
 		height: 44px;
-		left: 6vw;
-		top: 13.8vh;
+		margin-bottom: 38px;
 	}
 
 	@media ${device.tablet} {
 		max-width: 1280px;
 		width: 403px;
 		height: 68px;
-		left: 23.8vw;
-		top: 13vh;
 		font-weight: 600;
 		font-size: 28px;
 		line-height: 34px;
 		text-align: center;
+		margin-bottom: 32px;
 	}
 
 	@media ${device.desktop} {
@@ -48,8 +55,6 @@ const P = styled.p`
 		height: 74px;
 		font-size: 30px;
 		line-height: 37px;
-		left: 750px;
-		top: 134px;
 	}
 `;
 
