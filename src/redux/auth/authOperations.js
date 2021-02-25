@@ -4,7 +4,7 @@ import axios from 'axios';
 import authActions from './authActions';
 
 //Axios defaults config
-axios.defaults.baseURL = `https://kids-like-backend.herokuapp.com`;
+axios.defaults.baseURL = `https://kids-like-backend-cloud.herokuapp.com`;
 
 const token = {
 	set(token) {
@@ -22,11 +22,15 @@ const userSignUp = ({ credential }) => dispatch => {
 	axios
 		.post('/api/auth/sign-up', credential)
 		.then(({ data }) => {
-			console.log('cred', credential);
 			token.set(data.token);
 			dispatch(authActions.userSignUpSuccess(data));
 		})
-		.catch(error => console.log('error', error));
+		.catch(error => {
+			const { response } = error;
+			if (response.status === 409) {
+				alert('Provided email already exists');
+			}
+		});
 };
 
 const userSignIn = credential => dispatch => {
@@ -38,7 +42,12 @@ const userSignIn = credential => dispatch => {
 			token.set(data.token);
 			dispatch(authActions.userSignInSuccess(data));
 		})
-		.catch(error => dispatch(authActions.userSignInFailure(error)));
+		.catch(error => {
+			const { response } = error;
+			if (response.status === 400) {
+				alert("Email doesn't exist or password is wrong");
+			}
+		});
 };
 
 const userSighOut = () => dispatch => {

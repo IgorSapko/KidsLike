@@ -18,31 +18,39 @@ import {
 
 const AuthForm = () => {
 	const [email, setEmail] = useState('');
-	const [username, setUserName] = useState('');
 	const [password, setPassword] = useState('');
 	const dispatch = useDispatch();
+
+	const handleLogin = event => {
+		handleSubmit(event);
+	};
+
+	const handleRegistr = event => {
+		handleSubmit(event);
+	};
 
 	const handleSubmit = event => {
 		event.preventDefault();
 
 		const credential = {
-			username: username,
 			email: email,
 			password: password,
 		};
 
 		if (emailValid(email) && password.length >= 4) {
-			dispatch(authOperations.userSignUp({ credential }));
+			if (event.target.id === 'signup') {
+				dispatch(authOperations.userSignUp({ credential }));
+			} else if (event.target.id === 'login') {
+				dispatch(authOperations.userSignIn(credential));
+			}
 		} else {
 			switch (true) {
 				case !emailValid(email):
-					console.log('email');
 					return notification({
 						type: 'warning',
 						message: 'Email is not valid!',
 					});
 				case password.length < 4:
-					console.log('pasw');
 					return notification({
 						type: 'warning',
 						message: 'Password is to short!',
@@ -73,16 +81,6 @@ const AuthForm = () => {
 						onChange={e => setEmail(e.target.value)}
 					/>
 				</Label>
-				<Label htmlFor="name">
-					Name
-					<Input
-						type="text"
-						placeholder="username"
-						id="username"
-						value={username}
-						onChange={e => setUserName(e.target.value)}
-					/>
-				</Label>
 				<Label htmlFor="password">
 					Password
 					<Input
@@ -97,8 +95,12 @@ const AuthForm = () => {
 					<NotificationContainer />
 				</NotificationDiv>
 				<ButtonContainer>
-					<Button>Войти</Button>
-					<Button>Зарегистрироваться</Button>
+					<Button onClick={handleLogin} id="login">
+						Войти
+					</Button>
+					<Button onClick={handleRegistr} id="signup">
+						Зарегистрироваться
+					</Button>
 				</ButtonContainer>
 			</Form>
 		</>

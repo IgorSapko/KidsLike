@@ -7,21 +7,26 @@ import auth_3 from '../../img/auth_3.png';
 import auth_4 from '../../img/auth_4.png';
 
 const RegContainer = styled.div`
-	width: 280px;
 	height: 585px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	margin: 0 auto;
-	margin-bottom: 8vh;
+
+	@media ${device.mobile} {
+		margin-bottom: 8vh;
+		width: 280px;
+	}
 
 	@media ${device.tablet} {
 		max-width: 1280px;
+		position: absolute;
 		left: 23.8vw;
 		top: 13vh;
 	}
 
 	@media ${device.desktop} {
+		position: absolute;
 		left: 58.6vw;
 		top: 134px;
 	}
@@ -34,20 +39,17 @@ const P = styled.p`
 	font-size: 30px;
 	line-height: 37px;
 	text-align: center;
-	margin-top: 8vh;
-	margin-bottom: 5vh;
 
 	@media ${device.mobile} {
-		max-width: 768px;
 		font-family: 'Montserrat600', sans-serif;
 		font-style: normal;
 		font-weight: 600;
 		font-size: 18px;
 		line-height: 22px;
-		max-width: 768px;
 		width: 281px;
 		height: 44px;
-		margin-bottom: 38px;
+		margin-top: 8vh;
+		margin-bottom: 5vh;
 	}
 
 	@media ${device.tablet} {
