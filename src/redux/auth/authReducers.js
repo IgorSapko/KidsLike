@@ -19,10 +19,9 @@ const token = createReducer(null, {
 	[authActions.userSighOutSuccess]: () => null,
 });
 
-
 const authRootReducer = combineReducers({
 	user,
-	token
+	token,
 });
 
-export default authRootReducer ;
+export default authRootReducer;
