@@ -45,6 +45,8 @@ const userSignIn = credential => dispatch => {
 		.catch(error => {
 			const { response } = error;
 			if (response.status === 400) {
+				alert('Wrong email or password');
+			} else if (response.status === 403) {
 				alert("Email doesn't exist or password is wrong");
 			}
 		});
