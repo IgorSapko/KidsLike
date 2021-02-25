@@ -1,18 +1,21 @@
 //Core
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 //Components
+//Тимчасово добавлю сюди так як немає навігації
+import CardList from '../components/Commons/CardList/CardList';
+import DaysList from '../components/Commons/SelectDays/SelectDays';
 
 const MainPage = () => {
-    return (
-        <div className='mainBackgroundColor2'>
-            MainPage
-        </div>
-    )
-}
+	return (
+		<div className="mainBackgroundColor2">
+			MainPage
+			<CardList />
+			<DaysList />
+		</div>
+	);
+};
 
-MainPage.propTypes = {
+MainPage.propTypes = {};
 
-}
-
-export default MainPage
+export default MainPage;

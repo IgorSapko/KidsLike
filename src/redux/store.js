@@ -1,12 +1,22 @@
 //Core
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
-import { persistStore, persistReducer } from 'redux-persist';
+import {
+	persistStore,
+	persistReducer,
+	FLUSH,
+	REHYDRATE,
+	PAUSE,
+	PERSIST,
+	PURGE,
+	REGISTER,
+} from 'redux-persist';
 
 import storage from 'redux-persist/lib/storage';
 //Redux
-import { authReducers } from './auth';
+import authRootReducer from './auth/authReducers';
 import loaderReducer from './loader/loaderReducer';
-import { taskReducers } from './task';
+import weekReducer from './week/weekReducers';
+
 import errorReducer from './error/errorReducer';
 
 const authPersistConfig = {
@@ -17,14 +27,17 @@ const authPersistConfig = {
 
 export const store = configureStore({
 	reducer: {
-		auth: persistReducer(authPersistConfig, authReducers),
-		// startWeekDate:,
-		// endWeekDate: ,
-		// pointsGained: ,
-		// pointsPlanned: ,
-		// task:tasksRootReducer,
+
+		auth: persistReducer(authPersistConfig, authRootReducer),
+		week: weekReducer,
 		error: errorReducer,
 		loader: loaderReducer,
+		middleware: getDefaultMiddleware({
+			serializableCheck: {
+				ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+			},
+		}),
+
 	},
 });
 

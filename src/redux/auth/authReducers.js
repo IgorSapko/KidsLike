@@ -19,37 +19,10 @@ const token = createReducer(null, {
 	[authActions.userSighOutSuccess]: () => null,
 });
 
-//Error reducer
-// const error = createReducer(null, {
-// 	[authActions.getCurrentUserFailure]: (state, { payload }) => payload,
-// 	[authActions.userSignUpFailure]: (state, { payload }) => payload,
-// 	[authActions.userSignInFailure]: (state, { payload }) => payload,
-// 	[authActions.userSighOutFailure]: (state, { payload }) => payload,
-// 	[authActions.unsetErrorMessage]: (state, { payload }) => null,
-// });
 
-//Loading reducer
-const loading = createReducer(false, {
-	[authActions.getCurrentUserRequest]: () => true,
-	[authActions.getCurrentUserSuccess]: () => false,
-	[authActions.getCurrentUserFailure]: () => false,
-
-	[authActions.userSignUpRequest]: () => true,
-	[authActions.userSignUpSuccess]: () => false,
-	[authActions.userSignUpFailure]: () => false,
-
-	[authActions.userSignInRequest]: () => true,
-	[authActions.userSignInSuccess]: () => false,
-	[authActions.userSignInFailure]: () => false,
-
-	[authActions.userSighOutRequest]: () => true,
-	[authActions.userSighOutSuccess]: () => false,
-	[authActions.userSighOutFailure]: () => false,
-});
-
-export default combineReducers({
+const authRootReducer = combineReducers({
 	user,
-	token,
-	// error,
-	loading,
+	token
 });
+
+export default authRootReducer ;
