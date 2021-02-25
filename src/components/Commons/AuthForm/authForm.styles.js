@@ -152,7 +152,7 @@ const P = styled.p`
 
 const NotificationDiv = styled.div`
 	position: absolute;
-	top: 450px;
+	top: 480px;
 	left: 40px;
 `;
 
