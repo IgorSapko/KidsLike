@@ -6,7 +6,7 @@ const routes = [
 		path: '/',
 		label: 'MainPage',
 		exact: true,
-		private: false,
+		private: true,
 		restricted: false,
 		isNavigate: true,
 		component: lazy(() => import('pages/MainPage' /* webpackChunkName: "MainPage" */)),
@@ -27,7 +27,7 @@ const routes = [
 		private: false,
 		restricted: true,
 		isNavigate: false,
-		component: lazy(() => import('pages/AuthPage' /* webpackChunkName: "AuthPage"*/)),
+		component: lazy(() => import('pages/AuthPage/AuthPage' /* webpackChunkName: "AuthPage"*/)),
 	},
 	{
 		path: '/planning',
