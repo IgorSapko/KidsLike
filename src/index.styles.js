@@ -62,9 +62,9 @@ const GlobalStyle = createGlobalStyle`
         }
     }
 
-.mainBackgroundColor1 {background-color:#E5E5E5}
+/* .mainBackgroundColor1 {background-color:#E5E5E5} */
 
-.mainBackgroundColor2 {background-color:#FFBC33}
+/* .mainBackgroundColor2 {background-color:#FFBC33} */
 `;
 
 export default GlobalStyle;
