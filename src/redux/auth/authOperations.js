@@ -5,7 +5,9 @@ import authActions from './authActions';
 import errorActions from '../error/errorActions';
 
 //Axios defaults config
+
 axios.defaults.baseURL = `https://kids-like-backend-cloud.herokuapp.com/`;
+
 
 const token = {
 	set(token) {
@@ -23,10 +25,13 @@ const userSignUp = ({ credential }) => dispatch => {
 	axios
 		.post('/api/auth/sign-up', credential)
 		.then(({ data }) => {
+			console.log('cred', credential);
 			token.set(data.token);
 			dispatch(authActions.userSignUpSuccess(data));
 		})
+
 		.catch(error => dispatch(errorActions.userSignUpFailure(error)));
+
 };
 
 const userSignIn = credential => dispatch => {
@@ -62,10 +67,12 @@ const getCurrentUser = () => (dispatch, getState) => {
 	token.set(existToken);
 	dispatch(authActions.getCurrentUserRequest());
 
+
 	axios
 		.get('/api/user/current')
 		.then(({ data }) => dispatch(authActions.getCurrentUserSuccess(data)))
 		.catch(error => dispatch(errorActions.getCurrentUserFailure(error)));
+
 };
 
 const authOperations = {

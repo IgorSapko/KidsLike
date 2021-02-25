@@ -16,17 +16,18 @@ import storage from 'redux-persist/lib/storage';
 import authRootReducer from './auth/authReducers';
 import loaderReducer from './loader/loaderReducer';
 import weekReducer from './week/weekReducers';
+
 import errorReducer from './error/errorReducer';
 
 const authPersistConfig = {
 	key: 'auth',
 	storage,
 	whitelist: ['token'],
-  version: 1,
 };
 
 export const store = configureStore({
 	reducer: {
+
 		auth: persistReducer(authPersistConfig, authRootReducer),
 		week: weekReducer,
 		error: errorReducer,
@@ -36,6 +37,7 @@ export const store = configureStore({
 				ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
 			},
 		}),
+
 	},
 });
 
