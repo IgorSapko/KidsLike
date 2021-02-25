@@ -71,7 +71,8 @@ const GlobalStyle = createGlobalStyle`
         }
     }
 
-.mainBackgroundColor1 {background-color:#E5E5E5}
+/* .mainBackgroundColor1 {background-color:#E5E5E5} */
+
 
 .mainBackgroundColor2 {background-color:#FFBC33}
 
@@ -107,6 +108,9 @@ const GlobalStyle = createGlobalStyle`
     font-weight: Regular;
     font-style: normal;
 }
+
+/* .mainBackgroundColor2 {background-color:#FFBC33} */
+
 `;
 const size = {
 	mobile: '320px',
