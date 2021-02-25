@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import weekActions from '../../../redux/week/weekActions';
 //svg
 import PlusSvg from './PlusSvg';
 //style
 import { BlockAddSwitch, BlockCheckbox, BlockLabel, BlockInput } from './DaysList.styles';
 
-export default function SelectDays({ summNumber, itemball }) {
+function SelectDays({ addBall, removeBall, itemball, number }) {
 	const [toggle, serToggle] = useState(false);
-	const [listTask, serListTask] = useState(0);
 	const [visabiliry, setVisabiliry] = useState('hidden');
 
 	const days = [
@@ -24,8 +25,6 @@ export default function SelectDays({ summNumber, itemball }) {
 
 		if (toggle) {
 			setVisabiliry('hidden');
-			summNumber(listTask);
-			serListTask(0);
 		}
 
 		if (!toggle) {
@@ -37,16 +36,11 @@ export default function SelectDays({ summNumber, itemball }) {
 		const selectChecked = e.target.checked;
 		const persitNumber = Number(parseInt(itemball));
 
-		const resultSwitchNumber = selectChecked
-			? serListTask(prev => {
-					return Number(prev) + persitNumber;
-			  })
-			: serListTask(prev => {
-					return Number(prev) - persitNumber;
-			  });
+		const resultSwitchNumber = selectChecked ? addBall(persitNumber) : removeBall(persitNumber);
+
 		return resultSwitchNumber;
 	};
-
+	console.log('Total number', number);
 	return (
 		<div>
 			{!toggle ? (
@@ -76,71 +70,13 @@ export default function SelectDays({ summNumber, itemball }) {
 	);
 }
 
-// import React, { useState } from 'react';
-// //svg
-// import PlusSvg from './PlusSvg';
-// //style
-// import { BlockAddSwitch, BlockCheckbox, BlockLabel, BlockInput } from './DaysList.styles';
+const mapStateToProps = state => ({
+	number: state.week.balance,
+});
 
-// export default function SelectDays({ summNumber, itemball }) {
-// 	const [toggle, serToggle] = useState(false);
-// 	const [listTask, serListTask] = useState([]);
-// 	const [check, setCheck] = useState(false);
-// 	const days = [
-// 		['ПН', 'Monday'],
-// 		['ВТ', 'Tuesday'],
-// 		['СР', 'Wednesday'],
-// 		['ЧТ', 'Thursday'],
-// 		['ПТ', 'Friday'],
-// 		['СБ', 'Saturday'],
-// 		['ВС', 'Sunday'],
-// 	];
+const mapDispatchToProps = {
+	addBall: weekActions.addBallSuccess,
+	removeBall: weekActions.removeBallSuccess,
+};
 
-// 	const handlechange = () => {
-// 		serToggle(!toggle);
-
-// 		if (toggle) {
-// 			summNumber(listTask);
-// 			serListTask([]);
-// 		}
-// 	};
-// 	const selectOneCheck = e => {
-// 		const namesSelect = e.target.checked;
-// 		if(namesSelect === true){
-
-// 		}
-
-// 	};
-// 	const handleInputChange = (itemball, item) => {
-// 		serListTask([...listTask, { itemball, item }]);
-// 	};
-
-// 	return (
-// 		<div>
-// 			{!toggle ? (
-// 				<BlockAddSwitch onClick={handlechange}>
-// 					<PlusSvg />
-// 				</BlockAddSwitch>
-// 			) : (
-// 				<div>
-// 					<BlockAddSwitch onClick={handlechange}>OK</BlockAddSwitch>
-
-// 					<BlockCheckbox>
-// 						{days.map(item => {
-// 							return (
-// 								<BlockLabel key={item[0]} onChange={() => handleInputChange(itemball, item[0])}>
-// 									<BlockInput
-// 										onChange={e => sekectOneCheck(e)}
-// 										type="checkbox"
-// 										id={item[1]}
-// 									/>
-// 									{item[0]}
-// 								</BlockLabel>
-// 							);
-// 						})}
-// 					</BlockCheckbox>
-// 				</div>
-// 			)}
-// 		</div>
-// 	);
-// }
+export default connect(mapStateToProps, mapDispatchToProps)(SelectDays);

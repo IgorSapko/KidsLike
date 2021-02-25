@@ -1,10 +1,18 @@
 //Core
-// import { createAction } from '@reduxjs/toolkit';
+import { createAction } from '@reduxjs/toolkit';
 
-// const getCurrentUserWeekSuccess = createAction('week/getCurrentUserWeekSuccess');
+const patchWeekRequest = createAction('week/patchWeekRequest');
+const patchWeekSuccess = createAction('week/patchWeekSuccess');
+const patchWeekFailure = createAction('week/patchWeekFailure');
 
-// const weekActions = {
-// 	getCurrentUserWeekSuccess,
-// };
+const addBallSuccess = createAction('week/addBallSuccess');
+const removeBallSuccess = createAction('week/removeBallSuccess');
 
-// export default weekActions;
+export default {
+	patchWeekRequest,
+	patchWeekSuccess,
+	patchWeekFailure,
+
+	addBallSuccess,
+	removeBallSuccess,
+};

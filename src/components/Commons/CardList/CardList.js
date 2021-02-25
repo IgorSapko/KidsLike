@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+import weekActions from '../../../redux/week/weekActions';
 
 //styles
 import { BlockPeopleTask } from './CardList.module';
@@ -7,22 +9,15 @@ import Card from '../Card/Card';
 //json file
 import itemBlock from './item.json';
 
-export default function CardList() {
-	const [numberSelect, setNumberSelect] = useState('0');
-
+function CardList({ addBall, removeBall, numbers }) {
 	const summNumber = (number, switcher) => {
-		const switcherNumber = switcher
-			? setNumberSelect(prev => {
-					return Number(prev) - Number(parseInt(number));
-			  })
-			: setNumberSelect(prev => {
-					return Number(prev) + Number(parseInt(number));
-			  });
+		const persitNumber = Number(parseInt(number));
+
+		const switcherNumber = switcher ? removeBall(persitNumber) : addBall(persitNumber);
+
 		return switcherNumber;
 	};
-
-	console.log(numberSelect);
-
+	console.log('Total number', numbers);
 	return (
 		<BlockPeopleTask>
 			{itemBlock.map(item => {
@@ -31,3 +26,14 @@ export default function CardList() {
 		</BlockPeopleTask>
 	);
 }
+
+const mapStateToProps = state => ({
+	numbers: state.week.balance,
+});
+
+const mapDispatchToProps = {
+	addBall: weekActions.addBallSuccess,
+	removeBall: weekActions.removeBallSuccess,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CardList);
