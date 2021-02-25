@@ -2,9 +2,10 @@
 import axios from 'axios';
 //Redux
 import authActions from './authActions';
+import errorActions from '../error/errorActions';
 
 //Axios defaults config
-axios.defaults.baseURL = `http://localhost:3001`;
+axios.defaults.baseURL = `https://kids-like-backend-cloud.herokuapp.com/`;
 
 const token = {
 	set(token) {
@@ -25,7 +26,7 @@ const userSignUp = ({ credential }) => dispatch => {
 			token.set(data.token);
 			dispatch(authActions.userSignUpSuccess(data));
 		})
-		.catch(error => dispatch(authActions.userSignUpFailure(error)));
+		.catch(error => dispatch(errorActions.userSignUpFailure(error)));
 };
 
 const userSignIn = credential => dispatch => {
@@ -37,7 +38,7 @@ const userSignIn = credential => dispatch => {
 			token.set(data.token);
 			dispatch(authActions.userSignInSuccess(data));
 		})
-		.catch(error => dispatch(authActions.userSignInFailure(error)));
+		.catch(error => dispatch(errorActions.userSignInFailure(error)));
 };
 
 const userSighOut = () => dispatch => {
@@ -49,7 +50,7 @@ const userSighOut = () => dispatch => {
 			token.unset();
 			dispatch(authActions.userSighOutSuccess());
 		})
-		.catch(error => dispatch(authActions.userSighOutFailure(error)));
+		.catch(error => dispatch(errorActions.userSighOutFailure(error)));
 };
 
 const getCurrentUser = () => (dispatch, getState) => {
@@ -62,9 +63,9 @@ const getCurrentUser = () => (dispatch, getState) => {
 	dispatch(authActions.getCurrentUserRequest());
 
 	axios
-		.get('/api/users/current')
+		.get('/api/user/current')
 		.then(({ data }) => dispatch(authActions.getCurrentUserSuccess(data)))
-		.catch(error => dispatch(authActions.getCurrentUserFailure(error)));
+		.catch(error => dispatch(errorActions.getCurrentUserFailure(error)));
 };
 
 const authOperations = {

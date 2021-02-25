@@ -6,7 +6,7 @@ const routes = [
 		path: '/',
 		label: 'MainPage',
 		exact: true,
-		private: false,
+		private: true,
 		restricted: false,
 		isNavigate: true,
 		component: lazy(() => import('pages/MainPage' /* webpackChunkName: "MainPage" */)),
