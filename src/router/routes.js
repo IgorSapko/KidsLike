@@ -34,8 +34,8 @@ const routes = [
 		label: 'PlanningPage',
 		exact: true,
 		private: true,
-		restricted: true,
-		isNavigate: false,
+		restricted: false,
+		isNavigate: true,
 		component: lazy(() => import('pages/PlanningPage' /* webpackChunkName: "PlanningPage"*/)),
 	},
 	{
