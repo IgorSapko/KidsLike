@@ -11,7 +11,7 @@ const RegContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	margin: 0 auto;
+	margin-top: 100px;
 
 	@media ${device.mobile} {
 		margin-bottom: 8vh;
@@ -21,14 +21,34 @@ const RegContainer = styled.div`
 	@media ${device.tablet} {
 		max-width: 1280px;
 		position: absolute;
+		margin-top: 0px;
 		left: 23.8vw;
 		top: 13vh;
 	}
 
 	@media ${device.desktop} {
+		margin-top: 0px;
 		position: absolute;
 		left: 58.6vw;
 		top: 134px;
+	}
+`;
+
+const ImagesContainer = styled.div`
+	@media ${device.tablet} {
+		max-width: 1280px;
+		position: absolute;
+		width: 768px;
+		top: 797px;
+	}
+
+	@media ${device.desktop} {
+		width: 45.3vw;
+		height: 87.6vh;
+		display: block;
+		position: absolute;
+		left: 4vw;
+		top: 9.7vh;
 	}
 `;
 
@@ -39,17 +59,17 @@ const P = styled.p`
 	font-size: 30px;
 	line-height: 37px;
 	text-align: center;
+	margin: 0 auto 40px auto;
+	font-size: 18px;
+	line-height: 22px;
+	line-height: 22px;
+	width: 281px;
+	height: 44px;
 
 	@media ${device.mobile} {
 		font-family: 'Montserrat600', sans-serif;
 		font-style: normal;
 		font-weight: 600;
-		font-size: 18px;
-		line-height: 22px;
-		width: 281px;
-		height: 44px;
-		margin-top: 8vh;
-		margin-bottom: 5vh;
 	}
 
 	@media ${device.tablet} {
@@ -72,7 +92,6 @@ const P = styled.p`
 `;
 
 const ImgAuth1 = styled.div`
-	position: absolute;
 	background-image: url(${auth_1});
 	background-repeat: no-repeat;
 	background-size: contain;
@@ -80,23 +99,21 @@ const ImgAuth1 = styled.div`
 	margin: 0;
 
 	@media ${device.tablet} {
-		position: fixed;
+		width: 301px;
+		height: 247px;
+		position: absolute;
 		max-width: 1280px;
 		display: block;
-		width: 39vw;
-		height: 24vh;
+		top: 80px;
 		left: 0;
-		top: 86vh;
-		z-index: png;
+		z-index: 1;
 	}
 
 	@media ${device.desktop} {
-		position: fixed;
 		display: block;
-		min-width: 29vw;
-		min-height: 36vh;
-		left: 4vw;
-		top: 10vh;
+		width: 372px;
+		height: 306px;
+		position: absolute;
 		z-index: 1;
 		filter: drop-shadow(4px 6px 15px rgba(0, 0, 0, 0.1));
 		border-radius: 6px;
@@ -104,23 +121,26 @@ const ImgAuth1 = styled.div`
 `;
 
 const ImgAuth2 = styled.div`
-	position: absolute;
 	background-image: url(${auth_2});
 	background-repeat: no-repeat;
 	background-size: contain;
-	display: none;
+	display: block;
 	margin: 0;
+	width: 100%;
+	height: 202px;
+	position: absolute;
+	top: 85vh;
 
 	@media ${device.tablet} {
+		max-width: 1280px;
 		background-image: url(${auth_2});
 		display: block;
+		width: 213px;
+		height: 202px;
+		top: 44px;
+		left: 278px;
 		background-size: contain;
-		position: fixed;
-		max-width: 1280px;
-		width: 28vw;
-		height: 19.7vh;
-		left: 36vw;
-		top: 82.5vh;
+		position: absolute;
 		z-index: 2;
 	}
 
@@ -128,13 +148,12 @@ const ImgAuth2 = styled.div`
 		background-image: url(${auth_2});
 		display: block;
 		background-size: contain;
-		position: fixed;
-		width: 22vw;
-		min-height: 31vh;
-		left: 21vw;
-		top: 29vh;
+		position: absolute;
+		width: 279px;
+		height: 264px;
 		z-index: 2;
-
+		left: 221px;
+		top: 170px;
 		filter: drop-shadow(4px 6px 15px rgba(0, 0, 0, 0.1));
 		border-radius: 6px;
 	}
@@ -143,20 +162,17 @@ const ImgAuth2 = styled.div`
 const ImgAuth3 = styled.div`
 	background-image: url(${auth_3});
 	background-repeat: no-repeat;
-	position: absolute;
 	display: none;
 	background-size: contain;
-	margin: 0;
 
 	@media ${device.desktop} {
-		position: fixed;
 		display: block;
-		min-width: 21.5vw;
-		min-height: 25.7vh;
-		left: 4vw;
-		top: 48vh;
+		width: 276px;
+		height: 219px;
+		position: absolute;
+		left: 0;
+		top: 306px;
 		z-index: 3;
-
 		filter: drop-shadow(4px 6px 15px rgba(0, 0, 0, 0.1));
 		border-radius: 6px;
 	}
@@ -166,27 +182,26 @@ const ImgAuth4 = styled.div`
 	background-image: url(${auth_4});
 	background-repeat: no-repeat;
 	background-size: contain;
-	position: absolute;
+
 	display: none;
-	margin: 0;
 
 	@media ${device.tablet} {
-		position: fixed;
 		max-width: 1280px;
-		height: 23.4vh;
 		display: block;
-		width: 42vw;
-		left: 58vw;
-		top: 76.8vh;
+		width: 297px;
+		height: 240px;
+		position: absolute;
+		left: 476px;
 		z-index: 1;
 	}
 
 	@media ${device.desktop} {
 		display: block;
-		width: 28vw;
-		height: 34vh;
-		left: 20vw;
-		top: 60vh;
+		width: 359px;
+		height: 290px;
+		position: absolute;
+		left: 221px;
+		top: 455px;
 		z-index: 4;
 		filter: drop-shadow(4px 6px 15px rgba(0, 0, 0, 0.1));
 		border-radius: 6px;
@@ -197,18 +212,15 @@ const ImgAuth5 = styled.div`
 	background-image: url(${auth_4});
 	background-repeat: no-repeat;
 	background-size: contain;
-	position: absolute;
+
 	display: none;
-	margin: 0;
 
 	@media ${device.mobile} {
 		background-repeat: no-repeat;
 		background-size: contain;
 		background-image: url(${auth_2_jpg});
 		display: block;
-		width: 100px;
-		heigth: 27px;
 	}
 `;
 
-export { RegContainer, P, ImgAuth1, ImgAuth2, ImgAuth3, ImgAuth4, ImgAuth5 };
+export { RegContainer, P, ImgAuth1, ImgAuth2, ImgAuth3, ImgAuth4, ImgAuth5, ImagesContainer };

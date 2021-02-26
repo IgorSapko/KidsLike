@@ -12,6 +12,7 @@ import {
 	ImgAuth3,
 	ImgAuth4,
 	ImgAuth5,
+	ImagesContainer
 } from './authPage.styles';
 
 import AuthForm from '../../components/Commons/AuthForm/AuthForm';
@@ -19,12 +20,12 @@ import AuthForm from '../../components/Commons/AuthForm/AuthForm';
 const AuthPage = () => {
 	return (
 		<div>
-			<div>
+			<ImagesContainer>
 				<ImgAuth1></ImgAuth1>
 				<ImgAuth2></ImgAuth2>
 				<ImgAuth3></ImgAuth3>
 				<ImgAuth4></ImgAuth4>
-			</div>
+			</ImagesContainer>
 			<RegContainer>
 				<P>Выполняй задания, получи классные призы!</P>
 				<AuthForm />
