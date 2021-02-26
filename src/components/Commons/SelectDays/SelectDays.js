@@ -1,5 +1,5 @@
-import { useState } from 'react';
-
+import React from 'react';
+import { connect } from 'react-redux';
 import {
 	BlockPeopleTask,
 	BlockPeopleTask_item,
@@ -10,32 +10,25 @@ import {
 	BlockPeopleTask_item_text,
 } from './SelectDays.styles';
 
-import itemBlock from './item.json';
 import DaysList from '../DaysList/DaysList';
 
-export default function Stateless() {
-	const [numberSelect, setNumberSelect] = useState('0');
-
-	const summNumber = name => {
-		setNumberSelect(prev => Number(prev) + name);
-	};
-	console.log('result summ number ', numberSelect);
-
+function Stateless({ itemTask }) {
+	
 	return (
 		<BlockPeopleTask>
-			{itemBlock.map(item => {
+			{itemTask.map(item => {
 				return (
-					<BlockPeopleTask_item key={item.img}>
+					<BlockPeopleTask_item id={item._id} key={item._id}>
 						<BlockPeopleTask_img>
-							<img src={item.img} />
+							<img src={item.imageUrl} />
 						</BlockPeopleTask_img>
 
 						<BlockPeopleTask_item_text>
 							<BlockPeopleTask_item_inform_title>{item.title}</BlockPeopleTask_item_inform_title>
 							<BlockPeopleTask_item_inform>
-								<BlockPeopleTask_item_inform_pad>{item.ball}</BlockPeopleTask_item_inform_pad>
+								<BlockPeopleTask_item_inform_pad>{item.reward} Балла</BlockPeopleTask_item_inform_pad>
 
-								<DaysList summNumber={summNumber} itemball={item.ball} />
+								<DaysList id={item._id} itemball={item.reward} />
 							</BlockPeopleTask_item_inform>
 						</BlockPeopleTask_item_text>
 					</BlockPeopleTask_item>
@@ -44,3 +37,9 @@ export default function Stateless() {
 		</BlockPeopleTask>
 	);
 }
+
+const mapStateToProps = state => ({
+	itemTask: state.auth.user.week.tasks,
+});
+
+export default connect(mapStateToProps, null)(Stateless);

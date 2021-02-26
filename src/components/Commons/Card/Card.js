@@ -6,7 +6,7 @@ import CardFooter from '../CardFooter/CardFooter';
 
 export default function Stateless({ item, summNumber }) {
 	return (
-		<BlockPeopleTask_item key={item.img}>
+		<BlockPeopleTask_item >
 			<CardBody item={item} />
 			<CardFooter summNumber={summNumber} item={item} />
 		</BlockPeopleTask_item>

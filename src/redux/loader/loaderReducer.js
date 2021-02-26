@@ -2,6 +2,7 @@ import { createReducer } from '@reduxjs/toolkit';
 // import loaderActions from '../loader/loaderActions';
 
 import authActions from '../auth/authActions';
+import errorActions from '../error/errorActions'
 
 // const initialState = false;
 // const loaderReducer = createReducer(initialState, {
@@ -19,19 +20,19 @@ import authActions from '../auth/authActions';
 const loaderReducer = createReducer(false, {
 	[authActions.getCurrentUserRequest]: () => true,
 	[authActions.getCurrentUserSuccess]: () => false,
-	[authActions.getCurrentUserFailure]: () => false,
+	[errorActions.getCurrentUserFailure]: () => false,
 
 	[authActions.userSignUpRequest]: () => true,
 	[authActions.userSignUpSuccess]: () => false,
-	[authActions.userSignUpFailure]: () => false,
+	[errorActions.userSignUpFailure]: () => false,
 
 	[authActions.userSignInRequest]: () => true,
 	[authActions.userSignInSuccess]: () => false,
-	[authActions.userSignInFailure]: () => false,
+	[errorActions.userSignInFailure]: () => false,
 
 	[authActions.userSighOutRequest]: () => true,
 	[authActions.userSighOutSuccess]: () => false,
-	[authActions.userSighOutFailure]: () => false,
+	[errorActions.userSighOutFailure]: () => false,
 });
 
 export default loaderReducer;

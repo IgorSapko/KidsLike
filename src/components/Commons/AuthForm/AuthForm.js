@@ -39,7 +39,7 @@ const AuthForm = () => {
 
 		if (emailValid(email) && password.length >= 4) {
 			if (event.target.id === 'signup') {
-				dispatch(authOperations.userSignUp({ credential }));
+				dispatch(authOperations.userSignUp(credential));
 			} else if (event.target.id === 'login') {
 				dispatch(authOperations.userSignIn(credential));
 			}

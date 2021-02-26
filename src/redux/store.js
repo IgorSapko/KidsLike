@@ -3,12 +3,7 @@ import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import {
 	persistStore,
 	persistReducer,
-	FLUSH,
-	REHYDRATE,
-	PAUSE,
-	PERSIST,
-	PURGE,
-	REGISTER,
+	
 } from 'redux-persist';
 
 import storage from 'redux-persist/lib/storage';
@@ -16,8 +11,8 @@ import storage from 'redux-persist/lib/storage';
 import authRootReducer from './auth/authReducers';
 import loaderReducer from './loader/loaderReducer';
 import weekReducer from './week/weekReducers';
-
 import errorReducer from './error/errorReducer';
+
 
 const authPersistConfig = {
 	key: 'auth',
@@ -32,13 +27,10 @@ export const store = configureStore({
 		week: weekReducer,
 		error: errorReducer,
 		loader: loaderReducer,
+		},
 		middleware: getDefaultMiddleware({
-			serializableCheck: {
-				ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-			},
+			serializableCheck: false
 		}),
-
-	},
 });
 
 export const persistor = persistStore(store);

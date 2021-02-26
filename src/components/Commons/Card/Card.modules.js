@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const BlockPeopleTask_item = styled.div`
+export const BlockPeopleTask_item = styled.li`
 	max-width: 280px;
 	margin-bottom: 20px;
 	position: relative;

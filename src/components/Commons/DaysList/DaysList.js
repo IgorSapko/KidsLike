@@ -1,72 +1,66 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import switchOperations from '../../../redux/week/weekOperations';
 //svg
 import PlusSvg from './PlusSvg';
 //style
 import { BlockAddSwitch, BlockCheckbox, BlockLabel, BlockInput } from './DaysList.styles';
 
-export default function SelectDays({ summNumber, itemball }) {
+function SelectDays({ id, itemball }) {
 	const [toggle, serToggle] = useState(false);
-	const [listTask, serListTask] = useState(0);
 	const [visabiliry, setVisabiliry] = useState('hidden');
-
+	const dispatch = useDispatch();
 	const days = [
-		['ПН', 'Monday'],
-		['ВТ', 'Tuesday'],
-		['СР', 'Wednesday'],
-		['ЧТ', 'Thursday'],
-		['ПТ', 'Friday'],
-		['СБ', 'Saturday'],
-		['ВС', 'Sunday'],
+		['ПН', false],
+		['ВТ', false],
+		['СР', false],
+		['ЧТ', false],
+		['ПТ', false],
+		['СБ', true],
+		['ВС', false],
 	];
 
-	const handlechange = () => {
+	const handlechange = id => {
 		serToggle(!toggle);
-
+		console.log(id);
 		if (toggle) {
 			setVisabiliry('hidden');
-			summNumber(listTask);
-			serListTask(0);
+			dispatch(switchOperations.patchWeek(id, 'тут має бути масив з true/false'));
 		}
 
 		if (!toggle) {
 			setVisabiliry('visible');
+			dispatch(switchOperations.patchWeek(id, 'тут має бути масив з true/false'));
 		}
 	};
 
-	const handleInputChange = (e, itemball) => {
-		const selectChecked = e.target.checked;
-		const persitNumber = Number(parseInt(itemball));
-
-		const resultSwitchNumber = selectChecked
-			? serListTask(prev => {
-					return Number(prev) + persitNumber;
-			  })
-			: serListTask(prev => {
-					return Number(prev) - persitNumber;
-			  });
-		return resultSwitchNumber;
-	};
+	// const handleInputChange = (i, id) => {
+	// 	console.log('Total number', days[i][1]);
+	// };
 
 	return (
 		<div>
 			{!toggle ? (
-				<BlockAddSwitch onClick={handlechange}>
+				<BlockAddSwitch onClick={() => handlechange(id)}>
 					<PlusSvg />
 				</BlockAddSwitch>
 			) : (
 				<div>
-					<BlockAddSwitch onClick={handlechange}>OK</BlockAddSwitch>
+					<BlockAddSwitch onClick={() => handlechange(id)}>OK</BlockAddSwitch>
 				</div>
 			)}
 			<BlockCheckbox style={{ visibility: visabiliry }}>
-				{days.map(item => {
+				{days.map((item, i) => {
 					return (
-						<BlockLabel key={item[0]}>
+						<BlockLabel key={item}>
 							<BlockInput
-								onChange={e => handleInputChange(e, itemball)}
+								// checked={days[i][1]}
+								// onChange={() => handleInputChange(i, id)}
 								type="checkbox"
-								id={item[1]}
+								id={item}
 							/>
+
 							{item[0]}
 						</BlockLabel>
 					);
@@ -76,71 +70,8 @@ export default function SelectDays({ summNumber, itemball }) {
 	);
 }
 
-// import React, { useState } from 'react';
-// //svg
-// import PlusSvg from './PlusSvg';
-// //style
-// import { BlockAddSwitch, BlockCheckbox, BlockLabel, BlockInput } from './DaysList.styles';
+const mapStateToProps = state => ({
+	number: state.auth.user.user.balance,
+});
 
-// export default function SelectDays({ summNumber, itemball }) {
-// 	const [toggle, serToggle] = useState(false);
-// 	const [listTask, serListTask] = useState([]);
-// 	const [check, setCheck] = useState(false);
-// 	const days = [
-// 		['ПН', 'Monday'],
-// 		['ВТ', 'Tuesday'],
-// 		['СР', 'Wednesday'],
-// 		['ЧТ', 'Thursday'],
-// 		['ПТ', 'Friday'],
-// 		['СБ', 'Saturday'],
-// 		['ВС', 'Sunday'],
-// 	];
-
-// 	const handlechange = () => {
-// 		serToggle(!toggle);
-
-// 		if (toggle) {
-// 			summNumber(listTask);
-// 			serListTask([]);
-// 		}
-// 	};
-// 	const selectOneCheck = e => {
-// 		const namesSelect = e.target.checked;
-// 		if(namesSelect === true){
-
-// 		}
-
-// 	};
-// 	const handleInputChange = (itemball, item) => {
-// 		serListTask([...listTask, { itemball, item }]);
-// 	};
-
-// 	return (
-// 		<div>
-// 			{!toggle ? (
-// 				<BlockAddSwitch onClick={handlechange}>
-// 					<PlusSvg />
-// 				</BlockAddSwitch>
-// 			) : (
-// 				<div>
-// 					<BlockAddSwitch onClick={handlechange}>OK</BlockAddSwitch>
-
-// 					<BlockCheckbox>
-// 						{days.map(item => {
-// 							return (
-// 								<BlockLabel key={item[0]} onChange={() => handleInputChange(itemball, item[0])}>
-// 									<BlockInput
-// 										onChange={e => sekectOneCheck(e)}
-// 										type="checkbox"
-// 										id={item[1]}
-// 									/>
-// 									{item[0]}
-// 								</BlockLabel>
-// 							);
-// 						})}
-// 					</BlockCheckbox>
-// 				</div>
-// 			)}
-// 		</div>
-// 	);
-// }
+export default connect(mapStateToProps, null)(SelectDays);
