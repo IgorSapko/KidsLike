@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 //switch togle
 import Switch from 'react-switch';
 //style
@@ -6,8 +7,23 @@ import { UncheckedIconWrapper, CheckedIconWrapper } from './TaskToggle.styles';
 //svg
 import { Unchecked, Checked } from './SvgIconSwitch';
 
-export default function TaskToggle({ summNumber, item }) {
+import weekOperation from '../../../redux/week/weekOperation';
+
+export default function TaskToggle({ item }) {
 	const [checked, setChecked] = useState(false);
+	const dispatch = useDispatch();
+	// const checked = item.days.
+	const date = {date:'02-03-2021'};
+console.log('item', item)
+	const switchCompleteTask = (number, switcher) => {
+		console.log('number', number);
+		const persitNumber = Number(parseInt(number.reward));
+
+		// const switcherNumber = switcher ? removeBall(persitNumber) : addBall(persitNumber);
+
+		// return switcherNumber;
+	};
+	// console.log('Total number', numbers);
 	return (
 		<div>
 			<Switch
@@ -16,8 +32,8 @@ export default function TaskToggle({ summNumber, item }) {
 				offColor="#ff0000"
 				checked={checked}
 				onChange={() => {
+					dispatch(weekOperation.taskSwitcher(item._id, date));
 					setChecked(!checked);
-					summNumber(item.ball, checked);
 				}}
 				height={18}
 				width={40}

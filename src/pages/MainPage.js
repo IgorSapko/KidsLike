@@ -1,5 +1,6 @@
 //Core
-import React from 'react';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useLocation } from 'react-router-dom';
 import routes from '../router/routes';
 import PropTypes from 'prop-types';
@@ -9,14 +10,18 @@ import CardList from '../components/Commons/CardList/CardList';
 import DaysList from '../components/Commons/SelectDays/SelectDays';
 
 const MainPage = () => {
+	const startWeekDay = useSelector(state=>state.week.startWeekDate)
+	const [currentDay, setcurrentDay] = useState(startWeekDay)
 	return (
 		<>
 		<NavLink to="/planning">
 				<p>PlanningPage</p>
 			</NavLink>
+
+			
 		<div className="mainBackgroundColor2">
 			MainPage
-			<CardList />
+			<CardList currentDay={currentDay}/>
 			<DaysList />
 			
 		</div>

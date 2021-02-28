@@ -2,8 +2,9 @@ import { createReducer } from '@reduxjs/toolkit';
 // import loaderActions from '../loader/loaderActions';
 
 import authActions from '../auth/authActions';
-import errorActions from '../error/errorActions'
-
+import errorActions from '../error/errorActions';
+import weekActions from '../week/weekActions';
+import contactsActions from '../contacts/contactsActions'
 // const initialState = false;
 // const loaderReducer = createReducer(initialState, {
 //   [loaderActions.loaderON]: (state, action) => {
@@ -33,6 +34,16 @@ const loaderReducer = createReducer(false, {
 	[authActions.userSighOutRequest]: () => true,
 	[authActions.userSighOutSuccess]: () => false,
 	[errorActions.userSighOutFailure]: () => false,
+
+	[weekActions.taskSwitcherRequest]: () => true,
+	[weekActions.taskSwitcherSuccess]: () => false,
+	[weekActions.taskSwitcherFailure]: () => false,
+
+	[contactsActions.contactsRequest]: () => true,
+	[contactsActions.contactsSuccess]: () => false,
+	[errorActions.contactsFailure]: () => false,
+
+
 });
 
 export default loaderReducer;

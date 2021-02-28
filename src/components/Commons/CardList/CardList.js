@@ -1,33 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { useSelector } from 'react-redux';
+import weekSelector from '../../../redux/week/weekSelectors';
 
 //styles
 import { BlockPeopleTask } from './CardList.module';
 import Card from '../Card/Card';
 
-//json file
-import itemBlock from './item.json';
-
-export default function CardList() {
-	const [numberSelect, setNumberSelect] = useState('0');
-
-	const summNumber = (number, switcher) => {
-		const switcherNumber = switcher
-			? setNumberSelect(prev => {
-					return Number(prev) - Number(parseInt(number));
-			  })
-			: setNumberSelect(prev => {
-					return Number(prev) + Number(parseInt(number));
-			  });
-		return switcherNumber;
-	};
-
-	console.log(numberSelect);
+function CardList({ currentDay }) {
+	currentDay = 1;
+	const tasks = useSelector(weekSelector.getTasks);
 
 	return (
 		<BlockPeopleTask>
-			{itemBlock.map(item => {
-				return <Card summNumber={summNumber} item={item} />;
+			{tasks.map(task => {
+				if (task.days[currentDay].isActive === true) {
+					return <Card key={task.title} item={task} />;
+				}
 			})}
+			)
 		</BlockPeopleTask>
 	);
 }
+
+export default CardList;

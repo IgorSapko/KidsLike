@@ -15,6 +15,7 @@ import {
 	ButtonGoogle,
 	NotificationDiv,
 } from './authForm.styles';
+import Header from '../../Commons/Header/Header'
 
 const AuthForm = () => {
 	const [email, setEmail] = useState('');
@@ -39,7 +40,7 @@ const AuthForm = () => {
 
 		if (emailValid(email) && password.length >= 4) {
 			if (event.target.id === 'signup') {
-				dispatch(authOperations.userSignUp({ credential }));
+				dispatch(authOperations.userSignUp( credential ));
 			} else if (event.target.id === 'login') {
 				dispatch(authOperations.userSignIn(credential));
 			}
@@ -67,6 +68,7 @@ const AuthForm = () => {
 
 	return (
 		<>
+		<Header></Header>
 			<Form onSubmit={handleSubmit}>
 				<P>Вы можете авторизоваться с помощью Google Account:</P>
 				<ButtonGoogle>Google</ButtonGoogle>
