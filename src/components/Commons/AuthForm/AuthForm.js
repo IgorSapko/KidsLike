@@ -4,7 +4,7 @@ import { emailValid } from '../../../services/validationFront';
 import notification from '../../../services/notification';
 import { NotificationContainer } from 'react-notifications';
 import authOperations from '../../../redux/auth/authOperations';
-import googleLabel from '../../../img/google.svg';
+
 import {
 	Form,
 	Input,
@@ -14,6 +14,7 @@ import {
 	ButtonContainer,
 	ButtonGoogle,
 	NotificationDiv,
+	GoogleLink,
 } from './authForm.styles';
 
 const AuthForm = () => {
@@ -37,7 +38,7 @@ const AuthForm = () => {
 			password: password,
 		};
 
-		if (emailValid(email) && password.length >= 4) {
+		if (emailValid(email) && password.length >= 6) {
 			if (event.target.id === 'signup') {
 				dispatch(authOperations.userSignUp({ credential }));
 			} else if (event.target.id === 'login') {
@@ -48,12 +49,12 @@ const AuthForm = () => {
 				case !emailValid(email):
 					return notification({
 						type: 'warning',
-						message: 'Email is not valid!',
+						message: 'это поле обязательное',
 					});
-				case password.length < 4:
+				case password.length < 6:
 					return notification({
 						type: 'warning',
-						message: 'Password is to short!',
+						message: 'это поле обязательное',
 					});
 
 				default:
@@ -69,7 +70,11 @@ const AuthForm = () => {
 		<>
 			<Form onSubmit={handleSubmit}>
 				<P>Вы можете авторизоваться с помощью Google Account:</P>
-				<ButtonGoogle>Google</ButtonGoogle>
+				<ButtonGoogle>
+					<GoogleLink href="https://kids-like-backend-cloud.herokuapp.com/api/auth/google-auth">
+						Google
+					</GoogleLink>
+				</ButtonGoogle>
 				<P>Или зайти с помощью e-mail и пароля, предварительно зарегистрировавшись:</P>
 				<Label htmlFor="email">
 					Email

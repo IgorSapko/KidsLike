@@ -2,9 +2,50 @@ import styled from 'styled-components';
 import { device } from '../../index.styles';
 import auth_1 from '../../img/auth_1.png';
 import auth_2 from '../../img/auth_2.png';
-import auth_2_jpg from '../../img/auth_2.jpg';
 import auth_3 from '../../img/auth_3.png';
 import auth_4 from '../../img/auth_4.png';
+
+const ContainerAuth = styled.div`
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	
+
+	@media ${device.mobile}{
+		max-width:768px;
+// width: 768px;
+height:890px;
+margin-top:72px;
+flex-direction: column;
+flex-wrap: wrap;
+justify-content: center;
+// margin:0 auto;
+align-items: space-between;
+	}
+
+
+	@media ${device.tablet}{
+max-width:1280px;
+// width: 768px;
+height:890px;
+margin-top:72px;
+flex-direction: row;
+flex-wrap: none;
+justify-content: center;
+// margin:0 auto;
+align-items: space-between;
+	}
+
+	@media ${device.desktop}{
+		width: 1280px;
+		height:890px;
+		flex:direction: row;
+		flex-wrap: none;
+		// justify-content: center;
+		// margin:0 auto;
+		// align-items: space-between;
+			}
+`;
 
 const RegContainer = styled.div`
 	height: 585px;
@@ -12,18 +53,12 @@ const RegContainer = styled.div`
 	flex-direction: column;
 	justify-content: space-between;
 	margin-top: 100px;
+	position: relative;
 
 	@media ${device.mobile} {
+		position: absolute;
 		margin-bottom: 8vh;
 		width: 280px;
-	}
-
-	@media ${device.tablet} {
-		max-width: 1280px;
-		position: absolute;
-		margin-top: 0px;
-		left: 23.8vw;
-		top: 13vh;
 	}
 
 	@media ${device.desktop} {
@@ -35,11 +70,16 @@ const RegContainer = styled.div`
 `;
 
 const ImagesContainer = styled.div`
+	display: block;
+
 	@media ${device.tablet} {
 		max-width: 1280px;
+		display: block;
+		margin: 0 auto;
 		position: absolute;
 		width: 768px;
 		top: 797px;
+		// left: 0;
 	}
 
 	@media ${device.desktop} {
@@ -114,6 +154,7 @@ const ImgAuth1 = styled.div`
 		width: 372px;
 		height: 306px;
 		position: absolute;
+		top: 0;
 		z-index: 1;
 		filter: drop-shadow(4px 6px 15px rgba(0, 0, 0, 0.1));
 		border-radius: 6px;
@@ -126,10 +167,13 @@ const ImgAuth2 = styled.div`
 	background-size: contain;
 	display: block;
 	margin: 0;
-	width: 100%;
+	width: 320px;
 	height: 202px;
-	position: absolute;
-	top: 85vh;
+
+	@media ${device.mobile} {
+		display: block;
+		background-size: cover;
+	}
 
 	@media ${device.tablet} {
 		max-width: 1280px;
@@ -171,7 +215,7 @@ const ImgAuth3 = styled.div`
 		height: 219px;
 		position: absolute;
 		left: 0;
-		top: 306px;
+		top: 326px;
 		z-index: 3;
 		filter: drop-shadow(4px 6px 15px rgba(0, 0, 0, 0.1));
 		border-radius: 6px;
@@ -208,19 +252,4 @@ const ImgAuth4 = styled.div`
 	}
 `;
 
-const ImgAuth5 = styled.div`
-	background-image: url(${auth_4});
-	background-repeat: no-repeat;
-	background-size: contain;
-
-	display: none;
-
-	@media ${device.mobile} {
-		background-repeat: no-repeat;
-		background-size: contain;
-		background-image: url(${auth_2_jpg});
-		display: block;
-	}
-`;
-
-export { RegContainer, P, ImgAuth1, ImgAuth2, ImgAuth3, ImgAuth4, ImgAuth5, ImagesContainer };
+export { RegContainer, P, ImgAuth1, ImgAuth2, ImgAuth3, ImgAuth4, ImagesContainer, ContainerAuth };
