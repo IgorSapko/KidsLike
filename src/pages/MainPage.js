@@ -3,15 +3,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 //Components
 //Тимчасово добавлю сюди так як немає навігації
-import CardList from '../components/Commons/CardList/CardList';
-import DaysList from '../components/Commons/SelectDays/SelectDays';
+// import CardList from '../components/Commons/CardList/CardList';
+// import DaysList from '../components/Commons/SelectDays/SelectDays';
+
+import ModalBackDrop from '../components/Commons/ModalBackDrop/ModalBackDrop'
 
 const MainPage = () => {
 	return (
-		<div className="mainBackgroundColor2">
-			MainPage
-			<CardList />
-			<DaysList />
+		<div >
+		
+			{/* <CardList />
+			<DaysList /> */}
+			<ModalBackDrop/>
 		</div>
 	);
 };
