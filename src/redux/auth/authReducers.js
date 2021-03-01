@@ -17,12 +17,12 @@ const token = createReducer(null, {
 	[authActions.userSignUpSuccess]: (state, { payload }) => payload.token,
 	[authActions.userSignInSuccess]: (state, { payload }) => payload.token,
 	[authActions.userSighOutSuccess]: () => null,
+	[authActions.userSignInGoogleSuccess]: (state, { payload }) => payload,
 });
-
 
 const authRootReducer = combineReducers({
 	user,
-	token
+	token,
 });
 
-export default authRootReducer ;
+export default authRootReducer;

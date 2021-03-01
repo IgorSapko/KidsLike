@@ -83,11 +83,23 @@ const getCurrentUser = () => (dispatch, getState) => {
 		.catch(error => dispatch(errorActions.getCurrentUserFailure(error)));
 };
 
+const userSignInGoogle = accessToken => async dispatch => {
+	dispatch(authActions.userSignInGoogleRequest());
+	try {
+		token.set(accessToken);
+		dispatch(authActions.userSignInGoogleSuccess(accessToken));
+	} catch (error) {
+		console.log('error', error);
+		dispatch(errorActions.userSignInFailure(error));
+	}
+};
+
 const authOperations = {
 	userSignUp,
 	userSignIn,
 	userSighOut,
 	getCurrentUser,
+	userSignInGoogle,
 };
 
 export default authOperations;
