@@ -5,12 +5,13 @@ import PropTypes from 'prop-types';
 //Тимчасово добавлю сюди так як немає навігації
 import CardList from '../components/Commons/CardList/CardList';
 import DaysList from '../components/Commons/SelectDays/SelectDays';
+import CurrentDay from '../components/Commons/CurrentDay/CurrentDay';
 
 const MainPage = () => {
 	return (
 		<div className="mainBackgroundColor2">
 			MainPage
-			<CardList />
+			<CurrentDay />
 			<DaysList />
 		</div>
 	);
