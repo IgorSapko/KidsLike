@@ -22,7 +22,6 @@
 
 .WeekTabContent {
 	display: inline-block;
-	border: 1px black solid;
 	width: 280px;
 	height: 260px;
 	margin-right: 20px;
@@ -31,9 +30,11 @@
 .WeekTabContent_planning {
 	margin: 0 auto;
 	width: 300px;
+
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
+	margin-top: 160px;
 }
 .WeekTabContent_planning_Link {
 	background-color: #ffbc33;
@@ -46,7 +47,7 @@
 .WeekTabContent_list {
 	margin-left: 110px;
 	padding: 0px;
-	margin-top: 40px;
+	margin-top: 200px;
 }
 .WeekTabContent_image {
 	background-image: url('../../img/kidsInMainPage.png');
@@ -54,5 +55,5 @@
 	height: 362px;
 	margin: 0px;
 	padding: 0px;
-	margin-top: 10%;
+	margin-top: 2%;
 }

@@ -21,7 +21,6 @@ export default function WeekTabs(week) {
 		const { pathname } = location;
 		return pathname === '/';
 	};
-	console.log('checkActive', checkActive());
 	return (
 		<>
 			<div>
@@ -36,7 +35,7 @@ export default function WeekTabs(week) {
 								className={styles.notSelected}
 								activeClassName={styles.selected}
 							>
-								Понеділок
+								Понедельник
 							</NavLink>
 						</li>
 						<li>
@@ -48,7 +47,7 @@ export default function WeekTabs(week) {
 								className={styles.notSelected}
 								activeClassName={styles.selected}
 							>
-								Вівторок
+								Вторник
 							</NavLink>
 						</li>
 						<li>
@@ -60,7 +59,7 @@ export default function WeekTabs(week) {
 								className={styles.notSelected}
 								activeClassName={styles.selected}
 							>
-								Середа
+								Среда
 							</NavLink>
 						</li>
 						<li>
@@ -72,7 +71,7 @@ export default function WeekTabs(week) {
 								className={styles.notSelected}
 								activeClassName={styles.selected}
 							>
-								Четвер
+								Четверг
 							</NavLink>
 						</li>
 						<li>
@@ -84,7 +83,7 @@ export default function WeekTabs(week) {
 								className={styles.notSelected}
 								activeClassName={styles.selected}
 							>
-								Пятниця
+								Пятница
 							</NavLink>
 						</li>
 						<li className="">
@@ -96,7 +95,7 @@ export default function WeekTabs(week) {
 								className={styles.notSelected}
 								activeClassName={styles.selected}
 							>
-								Субота
+								Суббота
 							</NavLink>
 						</li>
 						<li>
@@ -108,7 +107,7 @@ export default function WeekTabs(week) {
 								className={styles.notSelected}
 								activeClassName={styles.selected}
 							>
-								Неділя
+								Воскресенье
 							</NavLink>
 						</li>
 					</WeekTabs_list>

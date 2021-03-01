@@ -17,7 +17,7 @@ const WeekTabs_list = styled.ul`
 	list-style: none;
 	margin-top: 0px;
 	margin-left: 50px;
-	padding-top: 140px;
+	padding-top: 150px;
 	padding-left: 0px;
 `;
 

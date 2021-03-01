@@ -1,7 +1,9 @@
 import React from 'react';
 import { useLocation, Link } from 'react-router-dom';
+import dayjs from 'dayjs';
 import { WeekTabContent_container, ContainerForBalanceandInfo } from './MainPage.styled';
 import styles from './Helper.module.css';
+import Card from '../../components/Commons/Card/Card';
 
 export default function WeekTabsContent({ week }) {
 	function useQuery() {
@@ -10,6 +12,7 @@ export default function WeekTabsContent({ week }) {
 	let query = useQuery();
 	let daysQuery = query.get('day');
 	const tasks = week.tasks;
+	const today = dayjs().format('DD-MM-YYYY');
 
 	function todayTasks(daysQuery, tasks) {
 		const returnedTasks = [];
@@ -30,8 +33,10 @@ export default function WeekTabsContent({ week }) {
 		<WeekTabContent_container>
 			<ContainerForBalanceandInfo>
 				<div className="WeekTabContent_WeekInfo">
-					<p>Неділя: 2222 - 2222 Декабря</p>
-					<p>Мої задачі: четверг токойто</p>
+					<p>
+						Неделя: {week.startWeekDate.substring(0, 2)} - {week.endWeekDate.substring(0, 2)}
+					</p>
+					<p>Мои задачи: {today}</p>
 				</div>
 				<div className="WeekTabContent_Balance">А тут баланс</div>
 			</ContainerForBalanceandInfo>
@@ -65,7 +70,7 @@ export default function WeekTabsContent({ week }) {
 			>
 				{todayTasks(daysQuery, tasks).map(el => (
 					<li key={el._id} className={styles.WeekTabContent}>
-						{el.title}
+						<Card key={el.title} item={el} currentDay={daysQuery}></Card>
 					</li>
 				))}
 			</ul>
