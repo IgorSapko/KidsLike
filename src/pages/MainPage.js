@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useLocation } from 'react-router-dom';
 import routes from '../router/routes';
 import PropTypes from 'prop-types';
+
+import AwardsPage from '../components/Commons/AwardsPage/AwardsPage'
 //Components
 //Тимчасово добавлю сюди так як немає навігації
 import CardList from '../components/Commons/CardList/CardList';
@@ -36,6 +38,7 @@ const MainPage = () => {
 			<div className="mainBackgroundColor2">
 				MainPage
 				<CardList currentDay={currentDay} />
+				<AwardsPage />
 			
 			</div>
 		</>
