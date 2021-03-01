@@ -1,13 +1,11 @@
 //Core
-<<<<<<< HEAD
-import React from 'react';
-=======
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
->>>>>>> 4e4b76e7db47c45239b07278c3ae23197a8ab57f
 import { NavLink, useLocation } from 'react-router-dom';
 import routes from '../router/routes';
 import PropTypes from 'prop-types';
+
+import Navigation from '../components/Commons/Navigation/Navigation';
 //Components
 //Тимчасово добавлю сюди так як немає навігації
 import CardList from '../components/Commons/CardList/CardList';
@@ -30,30 +28,15 @@ const MainPage = () => {
 	let arrWithNextDay = arrWithDate;
 	const nextDay = arrWithNextDay.join('-');
 	currentDay = nextDay;
-	
+
 	return (
 		<>
-<<<<<<< HEAD
-		<NavLink to="/planning">
-				<p>PlanningPage</p>
-			</NavLink>
-		<div className="mainBackgroundColor2">
-			MainPage
-			<CardList />
-			<DaysList />
-			
-		</div>
-=======
-			<NavLink to="/planning">
-				<p>PlanningPage</p>
-			</NavLink>
+			<Navigation />
 
 			<div className="mainBackgroundColor2">
 				MainPage
 				<CardList currentDay={currentDay} />
-			
 			</div>
->>>>>>> 4e4b76e7db47c45239b07278c3ae23197a8ab57f
 		</>
 	);
 };

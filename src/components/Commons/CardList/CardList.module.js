@@ -15,12 +15,3 @@ export const BlockPeopleTask = styled.div`
 		max-width: 280px;
 	}
 `;
-
-export const BlockPeopleList = styled.ul`
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	margin: 0;
-	padding: 0;
-`;
-

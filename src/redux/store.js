@@ -14,7 +14,6 @@ import weekReducer from './week/weekReducers';
 import errorReducer from './error/errorReducer';
 import contactsReducer from './contacts/contactsReducer';
 
-
 const authPersistConfig = {
 	key: 'auth',
 	storage,

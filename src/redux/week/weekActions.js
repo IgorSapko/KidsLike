@@ -1,24 +1,12 @@
 //Core
-import { createAction } from '@reduxjs/toolkit';
+// import { createAction } from '@reduxjs/toolkit';
 
-const patchWeekRequest = createAction('week/patchWeekRequest');
-const patchWeekSuccess = createAction('week/patchWeekSuccess');
-const patchWeekFailure = createAction('week/patchWeekFailure');
+// const getCurrentUserWeekSuccess = createAction('week/getCurrentUserWeekSuccess');
 
-const patchSwitchRequest = createAction('week/patchSwitchRequest');
-const patchSwitchSuccess = createAction('week/patchSwitchSuccess');
-const patchSwitchFailure = createAction('week/patchSwitchFailure');
+// const weekActions = {
+// 	getCurrentUserWeekSuccess,
+// };
 
-<<<<<<< HEAD
-export default {
-	patchWeekRequest,
-	patchWeekSuccess,
-	patchWeekFailure,
-
-	patchSwitchRequest,
-	patchSwitchSuccess,
-	patchSwitchFailure,
-=======
 // export default weekActions;
 
 //Core
@@ -39,5 +27,4 @@ export default {
 	taskActiveSwitcherSuccess
 
 
->>>>>>> 4e4b76e7db47c45239b07278c3ae23197a8ab57f
 };

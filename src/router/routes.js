@@ -17,8 +17,10 @@ const routes = [
 		exact: true,
 		private: false,
 		restricted: true,
-		isNavigate: false,
-		component: lazy(() => import('pages/ContactsPage/ContactsPage' /* webpackChunkName: "ContactsPage"*/)),
+		isNavigate: true,
+		component: lazy(() =>
+			import('pages/ContactsPage/ContactsPage' /* webpackChunkName: "ContactsPage"*/),
+		),
 	},
 	{
 		path: '/auth',
@@ -43,8 +45,8 @@ const routes = [
 		label: 'AwardsPage',
 		exact: true,
 		private: true,
-		restricted: true,
-		isNavigate: false,
+		restricted: false,
+		isNavigate: true,
 		component: lazy(() => import('pages/AwardsPage' /* webpackChunkName: "AwardsPage"*/)),
 	},
 ];

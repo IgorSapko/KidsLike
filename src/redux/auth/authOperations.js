@@ -21,10 +21,7 @@ const token = {
 const userSignUp = credential => async dispatch => {
 	dispatch(authActions.userSignUpRequest());
 	try {
-<<<<<<< HEAD
-=======
 		console.log('credential', credential)
->>>>>>> 4e4b76e7db47c45239b07278c3ae23197a8ab57f
 		const { data } = await axios.post('/api/auth/sign-up', credential);
 
 		token.set(data.token);
@@ -56,10 +53,7 @@ const userSignIn = credential => async dispatch => {
 	dispatch(authActions.userSignInRequest());
 	try {
 		const { data } = await axios.post('/api/auth/sign-in', credential);
-<<<<<<< HEAD
-=======
 		console.log('credential',typeof credential)
->>>>>>> 4e4b76e7db47c45239b07278c3ae23197a8ab57f
 		token.set(data.token);
 		dispatch(authActions.userSignInSuccess(data));
 	} catch (error) {
