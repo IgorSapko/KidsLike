@@ -5,7 +5,7 @@ import { Switch } from 'react-router-dom';
 
 //Redux
 import { useDispatch } from 'react-redux';
-import { authOperations } from 'redux/auth';
+import  authOperations  from 'redux/auth/authOperations';
 //Routes
 import routes from 'router';
 import PublicRoute from 'router/PublicRoute';

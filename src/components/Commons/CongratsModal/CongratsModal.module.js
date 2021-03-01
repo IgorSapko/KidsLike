@@ -74,14 +74,18 @@ export const  CongratsModal = styled.div`
 export const PrizesWrapper =styled.div`
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
     margin-top: 202px;
     width: 504px;
     height: 135px;
+// @media (min-width: 768px) {  
+//     flex-direction: row;
+//     }
 `
 export const PrizesWrapper_block = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     width: 100px;
     height: 135px;
 `

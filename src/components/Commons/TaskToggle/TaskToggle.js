@@ -1,13 +1,33 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 //switch togle
 import Switch from 'react-switch';
 //style
 import { UncheckedIconWrapper, CheckedIconWrapper } from './TaskToggle.styles';
 //svg
 import { Unchecked, Checked } from './SvgIconSwitch';
+import weekOperation from '../../../redux/week/weekOperation';
+// import weekSelector from '../../../redux/week/weekSelectors';
 
-export default function TaskToggle({ summNumber, item }) {
+export default function TaskToggle({ item, currentDay }) {
 	const [checked, setChecked] = useState(false);
+	// const tasks = useSelector(weekSelector.getTasks);
+	const dispatch = useDispatch();
+
+useEffect(()=>{setChecked(item.days.find(day => day.date === currentDay).isCompleted)},[])
+	
+	console.log('item', item);
+	console.log('currentDay', currentDay);
+	const switchCompleteTask = (number, switcher) => {
+		console.log('number', number);
+		const persitNumber = Number(parseInt(number.reward));
+
+		// const switcherNumber = switcher ? removeBall(persitNumber) : addBall(persitNumber);
+
+		// return switcherNumber;
+	};
+	// console.log('Total number', numbers);
 	return (
 		<div>
 			<Switch
@@ -16,8 +36,8 @@ export default function TaskToggle({ summNumber, item }) {
 				offColor="#ff0000"
 				checked={checked}
 				onChange={() => {
+					dispatch(weekOperation.taskSwitcher(item._id, currentDay));
 					setChecked(!checked);
-					summNumber(item.ball, checked);
 				}}
 				height={18}
 				width={40}

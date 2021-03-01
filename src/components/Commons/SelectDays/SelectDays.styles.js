@@ -29,6 +29,27 @@ export const BlockPeopleTask_img = styled.div`
 	width: 100%;
 `;
 
+export const BlockAddSwitch = styled.div`
+	cursor: pointer;
+	width: 30px;
+	height: 30px;
+	background: #ffffff;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: bold;
+	font-size: 12px;
+	line-height: 15px;
+	display: flex;
+	align-items: center;
+	text-align: center;
+	letter-spacing: 0.04em;
+	color: #8ec63f;
+`;
+
 export const BlockPeopleTask_item_inform = styled.div`
 	display: flex;
 	justify-content: space-between;
