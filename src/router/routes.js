@@ -18,7 +18,7 @@ const routes = [
 		private: false,
 		restricted: true,
 		isNavigate: false,
-		component: lazy(() => import('pages/ContactsPage' /* webpackChunkName: "ContactsPage"*/)),
+		component: lazy(() => import('pages/ContactsPage/ContactsPage' /* webpackChunkName: "ContactsPage"*/)),
 	},
 	{
 		path: '/auth',

@@ -1,12 +1,17 @@
+<<<<<<< HEAD
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import switchOperations from '../../../redux/week/weekOperations';
+=======
+import React, { useEffect, useState } from 'react';
+>>>>>>> 4e4b76e7db47c45239b07278c3ae23197a8ab57f
 //svg
-import PlusSvg from './PlusSvg';
+
 //style
 import { BlockAddSwitch, BlockCheckbox, BlockLabel, BlockInput } from './DaysList.styles';
 
+<<<<<<< HEAD
 function SelectDays({ id, itemball }) {
 	const [toggle, serToggle] = useState(false);
 	const [visabiliry, setVisabiliry] = useState('hidden');
@@ -62,6 +67,40 @@ function SelectDays({ id, itemball }) {
 							/>
 
 							{item[0]}
+=======
+export default function DaysList({ item, getCheckedTasks }) {
+	const [arrDays, setArrDays] = useState([]);
+	console.log('arrDays', arrDays);
+	useEffect(() => {
+		getCheckedTasks(arrDays);
+	}, [arrDays]);
+
+
+	const days = ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС'];
+
+	const handleInputChange = (e, item, day) => {
+		const isChecked = e.target.checked;
+		// console.log('item event', item)
+		if (isChecked) {
+			setArrDays([...arrDays, day]);
+		} else {
+			setArrDays([...arrDays.filter(uncheckedDay => uncheckedDay !== day)]);
+		}
+	};
+
+	return (
+		<div>
+			<BlockCheckbox>
+				{days.map((day, ind) => {
+					return (
+						<BlockLabel key={day}>
+							<BlockInput
+								onChange={e => handleInputChange(e, item, day)}
+								type="checkbox"
+								id={day}
+							/>
+							{day}
+>>>>>>> 4e4b76e7db47c45239b07278c3ae23197a8ab57f
 						</BlockLabel>
 					);
 				})}
@@ -69,9 +108,12 @@ function SelectDays({ id, itemball }) {
 		</div>
 	);
 }
+<<<<<<< HEAD
 
 const mapStateToProps = state => ({
 	number: state.auth.user.user.balance,
 });
 
 export default connect(mapStateToProps, null)(SelectDays);
+=======
+>>>>>>> 4e4b76e7db47c45239b07278c3ae23197a8ab57f
