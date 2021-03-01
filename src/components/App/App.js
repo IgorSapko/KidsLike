@@ -2,18 +2,18 @@
 import React, { Suspense, useEffect } from 'react';
 import { Switch } from 'react-router-dom';
 //Components
+import Footer from '../../pages/Footer';
 
 //Redux
 import { useDispatch } from 'react-redux';
-import  authOperations  from 'redux/auth/authOperations';
+import authOperations from 'redux/auth/authOperations';
 //Routes
 import routes from 'router';
 import PublicRoute from 'router/PublicRoute';
 import PrivateRoute from 'router/PrivateRoute';
 
 //Components
-import Loader from '../Commons/Loader/Loader'
-
+import Loader from '../Commons/Loader/Loader';
 
 const App = () => {
 	const dispatch = useDispatch();
@@ -34,6 +34,7 @@ const App = () => {
 						),
 					)}
 				</Switch>
+				<Footer />
 			</Suspense>
 		</>
 	);
