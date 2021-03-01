@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import PlusSvg from '../SelectDays/PlusSvg';
 import {
 	BlockPeopleTask,
@@ -8,67 +9,46 @@ import {
 	BlockPeopleTask_item_inform_pad,
 	BlockPeopleTask_item_inform_title,
 	BlockPeopleTask_item_text,
-	BlockAddSwitch
+	BlockAddSwitch,
 } from './SelectDays.styles';
-
-import itemBlock from './item.json';
 import DaysList from '../DaysList/DaysList';
+import weekOperation from '../../../redux/week/weekOperation';
 
-export default function SelectDays() {
-	const [numberSelect, setNumberSelect] = useState('0');
+export default function SelectDays({ item }) {
+	const [checkedTasks, setCheckedTasks] = useState([]);
 	const [toggle, setToggle] = useState(false);
-	const [listTask, setListTask] = useState(0);
-	const [visabiliry, setVisabiliry] = useState('hidden');
-
+	const dispatch = useDispatch();
 
 	const handlechange = () => {
 		setToggle(!toggle);
-
-		if (toggle) {
-			setVisabiliry('hidden');
-			summNumber(listTask);
-			setListTask(0);
-		}
-
-		if (!toggle) {
-			setVisabiliry('visible');
-		}
 	};
 
-	const summNumber = name => {
-		setNumberSelect(prev => Number(prev) + name);
+	const getCheckedTasks = arrDays => {
+		console.log('arrDays from SD', arrDays);
+
+		setCheckedTasks([...arrDays]);
 	};
-	console.log('result summ number ', numberSelect);
 
 	return (
-		<BlockPeopleTask>
-			
-			{itemBlock.map(item => {
-				return (
-					<BlockPeopleTask_item key={item.img}>
-						<BlockPeopleTask_img>
-							<img src={item.img} />
-						</BlockPeopleTask_img>
-
-						<BlockPeopleTask_item_text>
-							<BlockPeopleTask_item_inform_title>{item.title}</BlockPeopleTask_item_inform_title>
-							<BlockPeopleTask_item_inform>
-								<BlockPeopleTask_item_inform_pad>{item.ball}</BlockPeopleTask_item_inform_pad>
-								{!toggle ? (
-				<BlockAddSwitch onClick={handlechange}>
+		<>
+			{!toggle ? (
+				<BlockAddSwitch onClick={() => handlechange()}>
 					<PlusSvg />
 				</BlockAddSwitch>
 			) : (
-				<div>
-					<BlockAddSwitch onClick={handlechange}>OK</BlockAddSwitch>
-				</div>
+				<>
+					<div>
+						<BlockAddSwitch
+							onClick={() => (
+								handlechange(), dispatch(weekOperation.taskActiveSwitcher(item._id, checkedTasks))
+							)}
+						>
+							OK
+						</BlockAddSwitch>
+					</div>
+					<DaysList getCheckedTasks={getCheckedTasks} item={item} />
+				</>
 			)}
-								<DaysList summNumber={summNumber} itemball={item.ball} />
-							</BlockPeopleTask_item_inform>
-						</BlockPeopleTask_item_text>
-					</BlockPeopleTask_item>
-				);
-			})}
-		</BlockPeopleTask>
+		</>
 	);
 }

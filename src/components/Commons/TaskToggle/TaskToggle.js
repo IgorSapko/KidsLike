@@ -1,20 +1,24 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 //switch togle
 import Switch from 'react-switch';
 //style
 import { UncheckedIconWrapper, CheckedIconWrapper } from './TaskToggle.styles';
 //svg
 import { Unchecked, Checked } from './SvgIconSwitch';
-
 import weekOperation from '../../../redux/week/weekOperation';
+// import weekSelector from '../../../redux/week/weekSelectors';
 
-export default function TaskToggle({ item }) {
+export default function TaskToggle({ item, currentDay }) {
 	const [checked, setChecked] = useState(false);
+	// const tasks = useSelector(weekSelector.getTasks);
 	const dispatch = useDispatch();
-	// const checked = item.days.
-	const date = {date:'02-03-2021'};
-console.log('item', item)
+
+useEffect(()=>{setChecked(item.days.find(day => day.date === currentDay).isCompleted)},[])
+	
+	console.log('item', item);
+	console.log('currentDay', currentDay);
 	const switchCompleteTask = (number, switcher) => {
 		console.log('number', number);
 		const persitNumber = Number(parseInt(number.reward));
@@ -32,7 +36,7 @@ console.log('item', item)
 				offColor="#ff0000"
 				checked={checked}
 				onChange={() => {
-					dispatch(weekOperation.taskSwitcher(item._id, date));
+					dispatch(weekOperation.taskSwitcher(item._id, currentDay));
 					setChecked(!checked);
 				}}
 				height={18}

@@ -43,7 +43,9 @@ const loaderReducer = createReducer(false, {
 	[contactsActions.contactsSuccess]: () => false,
 	[errorActions.contactsFailure]: () => false,
 
-
+	[weekActions.taskActiveSwitcherRequest]: () => true,
+	[weekActions.taskActiveSwitcherSuccess]: () => false,
+	[weekActions.taskActiveSwitcherFailure]: () => false,
 });
 
 export default loaderReducer;

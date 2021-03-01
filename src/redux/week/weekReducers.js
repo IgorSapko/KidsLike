@@ -21,13 +21,31 @@ const weekReducer = createReducer(null, {
 				currentTask.days = [...payload.updatedTask.days];
 				return;
 			} else {
-				console.log('task', task);
+				return arrWithoutCurrentTask.push(task);
+			}
+		});
+		return { ...current(state), tasks: [...arrWithoutCurrentTask, currentTask] };
+	},
+
+	[weekActions.taskActiveSwitcherSuccess]: (state, { payload }) => {
+		const tasksArr = [...current(state).tasks];
+		let currentTask;
+		const arrWithoutCurrentTask = [];
+		tasksArr.forEach(task => {
+			if (task._id === payload.updatedTask.id) {
+				currentTask = { ...task };
+				currentTask.days = [...payload.updatedTask.days];
+				return;
+			} else {
 				return arrWithoutCurrentTask.push(task);
 			}
 		});
 		return { ...current(state), tasks: [...arrWithoutCurrentTask, currentTask] };
 	},
 });
+
+
+
 
 // //Items initial state
 // const initialItemsState = [];

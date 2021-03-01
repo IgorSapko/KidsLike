@@ -7,7 +7,9 @@ const userSignInFailure = createAction('auth/userSignInFailure');
 const userSighOutFailure = createAction('auth/userSighOutFailure');
 const unsetErrorMessage = createAction('auth/unsetErrorMessage');
 const taskSwitcherFailure = createAction('week/taskSwitcherFailure');
+const taskActiveSwitcherFailure = createAction('week/taskActiveSwitcherFailure');
 const contactsFailure = createAction('contacts/contactsFailure');
+
 
 
 const errorActions ={
@@ -17,6 +19,7 @@ const errorActions ={
     userSighOutFailure,
     unsetErrorMessage,
     taskSwitcherFailure,
+    taskActiveSwitcherFailure,
     contactsFailure,
 
  };
