@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useLocation } from 'react-router-dom';
 import routes from '../router/routes';
 import PropTypes from 'prop-types';
+
+import Navigation from '../components/Commons/Navigation/Navigation';
 //Components
 //Тимчасово добавлю сюди так як немає навігації
 import CardList from '../components/Commons/CardList/CardList';
@@ -26,17 +28,14 @@ const MainPage = () => {
 	let arrWithNextDay = arrWithDate;
 	const nextDay = arrWithNextDay.join('-');
 	currentDay = nextDay;
-	
+
 	return (
 		<>
-			<NavLink to="/planning">
-				<p>PlanningPage</p>
-			</NavLink>
+			<Navigation />
 
 			<div className="mainBackgroundColor2">
 				MainPage
 				<CardList currentDay={currentDay} />
-			
 			</div>
 		</>
 	);

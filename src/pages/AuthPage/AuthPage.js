@@ -1,7 +1,7 @@
 //Core
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import Header from '../../components/Commons/Header/Header';
 //Components
 
 import {
@@ -19,6 +19,7 @@ import AuthForm from '../../components/Commons/AuthForm/AuthForm';
 const AuthPage = () => {
 	return (
 		<div>
+			<Header />
 			<div>
 				<ImgAuth1></ImgAuth1>
 				<ImgAuth2></ImgAuth2>
