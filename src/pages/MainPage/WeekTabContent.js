@@ -5,6 +5,9 @@ import {
 	WeekTabContent_container,
 	ContainerForBalanceandInfo,
 	WeekTabContent_weekInfo,
+	WeekTabContent_WeekInfo_container,
+	WeekTabContent_weekInfo_p,
+	WeekTabContent_Balance,
 } from './MainPage.styled';
 import styles from './Helper.module.css';
 import Card from '../../components/Commons/Card/Card';
@@ -36,13 +39,13 @@ export default function WeekTabsContent({ week }) {
 	return (
 		<WeekTabContent_container>
 			<ContainerForBalanceandInfo>
-				<div className="WeekTabContent_WeekInfo">
+				<WeekTabContent_WeekInfo_container>
 					<WeekTabContent_weekInfo>
 						Неделя: {week.startWeekDate.substring(0, 2)} - {week.endWeekDate.substring(0, 2)}
 					</WeekTabContent_weekInfo>
-					<p>Мои задачи: {today}</p>
-				</div>
-				<div className="WeekTabContent_Balance">А тут баланс</div>
+					<WeekTabContent_weekInfo_p>Мои задачи: {today}</WeekTabContent_weekInfo_p>
+				</WeekTabContent_WeekInfo_container>
+				<WeekTabContent_Balance>А тут баланс</WeekTabContent_Balance>
 			</ContainerForBalanceandInfo>
 			<div
 				className={

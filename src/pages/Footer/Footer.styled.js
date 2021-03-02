@@ -1,13 +1,29 @@
 import styled from 'styled-components';
+import { device, size } from '../../index.styles';
+// const FooterStyles = styled.div`
+// 	position: fixed;
+// 	right: 0;
+// 	bottom: 40px;
+// 	margin-top: 50px;
+// 	width: calc(100% - 240px);
+// 	color: #858598;
+// 	text-align: end;
+// 	margin-right: 50px;
+// `;
 const FooterStyles = styled.div`
-	position: fixed;
-	right: 0;
-	bottom: 40px;
-	margin-top: 50px;
-	width: calc(100% - 240px);
-	color: #858598;
-	text-align: end;
-	margin-right: 50px;
+	@media (max-width: ${size.desktop}) {
+		height: 50px;
+		text-align: center;
+		background-color: #fafafa;
+		color: #858598;
+	}
+	@media ${device.desktop} {
+		height: 50px;
+		text-align: end;
+		background-color: #fafafa;
+		color: #858598;
+		margin-right: 50px;
+	}
 `;
 const Footer_text = styled.p`
 	margin: 0px;
