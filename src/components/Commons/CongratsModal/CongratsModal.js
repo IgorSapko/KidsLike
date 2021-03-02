@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-// import itemBlock from '../AwardsPage/item.json';
 
 // https://material-ui.com/ru/getting-started/installation/
 import Modal from '@material-ui/core/Modal';
@@ -35,7 +34,7 @@ console.log('giftId',giftId)
       .then(({ data }) => console.log(data))
     }
   };
-  
+
   const body = (
     <CongratsModal>
       <ImgCat src="https://i.ibb.co/p0wx9b1/SimonCat.png"/>

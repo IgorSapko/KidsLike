@@ -15,4 +15,3 @@ export const BlockPeopleTask_Awards = styled.ul`
 		max-width: 280px;
 	}
 `;
-

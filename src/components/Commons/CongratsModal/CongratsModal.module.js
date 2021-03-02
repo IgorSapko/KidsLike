@@ -110,3 +110,18 @@ export const ChosenPrise_name = styled.h2`
     text-transform: uppercase;
     color: #000000;
 `
+
+export const ModalWrapper = styled.div`
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%) }
+`
+
+export const WrapperApasity = styled.div`
+position: absolute;
+height: 100vh;
+width: 100vw;
+background: rgba(0, 0, 0, 0.2);
+`
