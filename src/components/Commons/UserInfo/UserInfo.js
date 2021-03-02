@@ -19,7 +19,7 @@ const UserInfo = ({ email }) => {
 };
 
 const mapStateToProps = state => ({
-	email: state.auth.user.user.email,
+	email: state.auth.user.email,
 });
 
 export default connect(mapStateToProps, null)(UserInfo);

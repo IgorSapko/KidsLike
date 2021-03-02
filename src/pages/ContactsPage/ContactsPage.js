@@ -21,7 +21,7 @@ import contactsOperation from '../../redux/contacts/contactsOperation'
 
      export default function Contacts() {
           const dispatch = useDispatch();
-          // dispatch(contactsOperation.getContacts())
+        
         useEffect(()=>{dispatch(contactsOperation.getContacts())},[]);
       const contacts = useSelector(сontactsSelector.getContacts);
       console.log(contacts)
