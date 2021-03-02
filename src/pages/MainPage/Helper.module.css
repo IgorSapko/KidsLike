@@ -1,17 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
 .notSelected {
 	box-sizing: border-box;
 	color: black;
 	display: inline-block;
-	width: 190px;
-	height: 42px;
-	padding-left: 27px;
-	margin-bottom: 6px;
+	width: 26px;
+	height: 40px;
 	text-decoration: none;
 	background: rgba(255, 255, 255, 0.5);
-
-	padding-top: 12px;
-	border-top-left-radius: 5px;
-	border-bottom-left-radius: 5px;
+	border-radius: 5px;
+	text-align: center;
+	padding-top: 8px;
+	font-family: 'Montserrat';
+	font-size: 12px;
 }
 .selected {
 	background: rgb(255, 255, 255);
@@ -56,4 +57,32 @@
 	margin: 0px;
 	padding: 0px;
 	margin-top: 2%;
+}
+
+/* const size = {
+	mobile: '320px',
+	tablet: '768px',
+	desktop: '1280px',
+}; */
+@media screen and (min-width: 768px) and (max-width: 1280px) {
+}
+@media screen and (min-width: 1280px) {
+	.notSelected {
+		box-sizing: border-box;
+		color: black;
+		display: inline-block;
+		width: 190px;
+		height: 42px;
+		padding-left: 27px;
+		margin-bottom: 6px;
+		text-decoration: none;
+		background: rgba(255, 255, 255, 0.5);
+
+		padding-top: 12px;
+		border-top-left-radius: 5px;
+		border-bottom-left-radius: 5px;
+	}
+	.selected {
+		background: rgb(255, 255, 255);
+	}
 }

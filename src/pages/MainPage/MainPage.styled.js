@@ -5,13 +5,24 @@ body {
 	padding: 0px;
 } */
 import styled from 'styled-components';
+import { device } from '../../index.styles';
 const MainPage_container = styled.div`
 	display: flex;
+	@media ${device.tablet} {
+		display: block;
+	}
 `;
 const WeekTabs_container = styled.div`
 	height: 100vh;
 	width: 240px;
 	background-color: #ffbc33;
+	@media ${device.tablet} {
+		width: 100%;
+		height: 70px;
+		display: flex;
+		justify-content: space-evenly;
+		align-items: center;
+	}
 `;
 const WeekTabs_list = styled.ul`
 	list-style: none;
@@ -19,6 +30,24 @@ const WeekTabs_list = styled.ul`
 	margin-left: 50px;
 	padding-top: 150px;
 	padding-left: 0px;
+	@media ${device.tablet} {
+		display: flex;
+		justify-content: space-between;
+		width: 336px;
+		padding-top: 22px;
+		margin-left: 0px;
+	}
+`;
+const WeekTabs_item_text_desktop = styled.span`
+	display: none;
+	@media ${device.desktop} {
+		display: inline;
+	}
+`;
+const WeekTabs_item_text_mob_tab = styled.span`
+	@media ${device.desktop} {
+		display: none;
+	}
 `;
 
 // const notSelected = styled.a`
@@ -49,12 +78,28 @@ const ContainerForBalanceandInfo = styled.div`
 	margin-left: 110px;
 	margin-right: 50px;
 `;
+
+const WeekTabContent_weekInfo = styled.p`
+	display: none;
+	@media ${device.desktop} {
+		display: inline;
+	}
+`;
+const WeekTabs_weekInfo = styled.p`
+	@media ${device.desktop} {
+		display: none;
+	}
+`;
 export {
 	MainPage_container,
 	WeekTabs_container,
 	WeekTabs_list,
 	WeekTabContent_container,
 	ContainerForBalanceandInfo,
+	WeekTabs_item_text_desktop,
+	WeekTabs_item_text_mob_tab,
+	WeekTabContent_weekInfo,
+	WeekTabs_weekInfo,
 };
 // const WeekTabContent_none = styled.div`
 // 	display: none;

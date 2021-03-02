@@ -1,7 +1,11 @@
 import React from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import dayjs from 'dayjs';
-import { WeekTabContent_container, ContainerForBalanceandInfo } from './MainPage.styled';
+import {
+	WeekTabContent_container,
+	ContainerForBalanceandInfo,
+	WeekTabContent_weekInfo,
+} from './MainPage.styled';
 import styles from './Helper.module.css';
 import Card from '../../components/Commons/Card/Card';
 
@@ -33,9 +37,9 @@ export default function WeekTabsContent({ week }) {
 		<WeekTabContent_container>
 			<ContainerForBalanceandInfo>
 				<div className="WeekTabContent_WeekInfo">
-					<p>
+					<WeekTabContent_weekInfo>
 						Неделя: {week.startWeekDate.substring(0, 2)} - {week.endWeekDate.substring(0, 2)}
-					</p>
+					</WeekTabContent_weekInfo>
 					<p>Мои задачи: {today}</p>
 				</div>
 				<div className="WeekTabContent_Balance">А тут баланс</div>
