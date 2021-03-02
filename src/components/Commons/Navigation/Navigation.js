@@ -29,7 +29,7 @@ import { Logo } from '../Logo/Logo';
 import { ExitLogo } from './LogoSvg.js';
 import authOperations from '../../../redux/auth/authOperations';
 
-const Header = ({ balance }) => {
+const Navigation = ({ balance }) => {
 	const [menumob, setMenumob] = useState(false);
 	const dispatch = useDispatch();
 
@@ -112,7 +112,7 @@ const Header = ({ balance }) => {
 };
 
 const mapStateToProps = state => ({
-	balance: state.auth.user.user.balance,
+	balance: state.auth.user.balance,
 });
 
-export default connect(mapStateToProps, null)(Header);
+export default connect(mapStateToProps, null)(Navigation);

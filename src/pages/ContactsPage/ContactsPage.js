@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import {  useSelector } from 'react-redux';
+import React, { useState,useEffect } from 'react';
+import {  useSelector, useDispatch } from 'react-redux';
 import { Container, 
      MainText, 
      OurTeam, 
@@ -16,10 +16,15 @@ import Facebook from './icons/Facebook';
 import GitHub from './icons/GitHub';
 import LinkedIn from './icons/LinkedIn';
 import сontactsSelector from '../../redux/contacts/contactsSelector';
+import contactsOperation from '../../redux/contacts/contactsOperation'
 
 
      export default function Contacts() {
+          const dispatch = useDispatch();
+          // dispatch(contactsOperation.getContacts())
+        useEffect(()=>{dispatch(contactsOperation.getContacts())},[]);
       const contacts = useSelector(сontactsSelector.getContacts);
+      console.log(contacts)
             return (
                <Container>
                     <MainText>

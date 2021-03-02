@@ -40,7 +40,7 @@ const weekReducer = createReducer(null, {
 				return arrWithoutCurrentTask.push(task);
 			}
 		});
-		return { ...current(state), tasks: [...arrWithoutCurrentTask, currentTask] };
+		return { ...current(state), tasks: [currentTask, ...arrWithoutCurrentTask] };
 	},
 });
 

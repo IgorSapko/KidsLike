@@ -19,15 +19,7 @@ useEffect(()=>{setChecked(item.days.find(day => day.date === currentDay).isCompl
 	
 	console.log('item', item);
 	console.log('currentDay', currentDay);
-	const switchCompleteTask = (number, switcher) => {
-		console.log('number', number);
-		const persitNumber = Number(parseInt(number.reward));
-
-		// const switcherNumber = switcher ? removeBall(persitNumber) : addBall(persitNumber);
-
-		// return switcherNumber;
-	};
-	// console.log('Total number', numbers);
+	
 	return (
 		<div>
 			<Switch

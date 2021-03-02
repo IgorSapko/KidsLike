@@ -9,15 +9,15 @@ const routes = [
 		private: true,
 		restricted: false,
 		isNavigate: true,
-		component: lazy(() => import('pages/MainPage' /* webpackChunkName: "MainPage" */)),
+		component: lazy(() => import('pages/MainPage/MainPage' /* webpackChunkName: "MainPage" */)),
 	},
 	{
 		path: '/contacts',
 		label: 'ContactsPage',
 		exact: true,
-		private: false,
+		private: true,
 		restricted: true,
-		isNavigate: true,
+		isNavigate: false,
 		component: lazy(() =>
 			import('pages/ContactsPage/ContactsPage' /* webpackChunkName: "ContactsPage"*/),
 		),

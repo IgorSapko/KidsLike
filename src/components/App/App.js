@@ -2,6 +2,7 @@
 import React, { Suspense, useEffect } from 'react';
 import { Switch } from 'react-router-dom';
 //Components
+import Footer from '../../pages/Footer';
 
 
 //Redux
@@ -36,6 +37,7 @@ const App = () => {
 						),
 					)}
 				</Switch>
+				<Footer />
 			</Suspense>
 		</>
 	);
