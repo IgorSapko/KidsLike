@@ -26,9 +26,9 @@ const summNumber=(id, checked)=>{
 		setItemsAll(prev=>[...prev,id])
 	}
 	if(checked){
-		
+
 		setidItems(idItems.filter((idItem)=>idItem !==id._id ))
-		setidItems(itemsAll.filter((idItem)=>idItem._id !==id._id ))
+		setItemsAll(itemsAll.filter((idItem)=>idItem._id !==id._id ))
 	}
 
 

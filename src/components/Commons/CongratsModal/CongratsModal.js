@@ -35,10 +35,7 @@ console.log('giftId',giftId)
       .then(({ data }) => console.log(data))
     }
   };
-
-
-
-
+  
   const body = (
     <CongratsModal>
       <ImgCat src="https://i.ibb.co/p0wx9b1/SimonCat.png"/>
