@@ -4,6 +4,7 @@ import dayjs from 'dayjs';
 import { WeekTabContent_container, ContainerForBalanceandInfo } from './MainPage.styled';
 import styles from './Helper.module.css';
 import Card from '../../components/Commons/Card/Card';
+import CurrentDay from '../../components/Commons/CurrentDay/CurrentDay';
 
 export default function WeekTabsContent({ week }) {
 	function useQuery() {
@@ -31,7 +32,8 @@ export default function WeekTabsContent({ week }) {
 	todayTasks(daysQuery, tasks);
 	return (
 		<WeekTabContent_container>
-			<ContainerForBalanceandInfo>
+			<CurrentDay />
+			{/* <ContainerForBalanceandInfo>
 				<div className="WeekTabContent_WeekInfo">
 					<p>
 						Неделя: {week.startWeekDate.substring(0, 2)} - {week.endWeekDate.substring(0, 2)}
@@ -39,7 +41,7 @@ export default function WeekTabsContent({ week }) {
 					<p>Мои задачи: {today}</p>
 				</div>
 				<div className="WeekTabContent_Balance">А тут баланс</div>
-			</ContainerForBalanceandInfo>
+			</ContainerForBalanceandInfo> */}
 			<div
 				className={
 					todayTasks(daysQuery, tasks).length > 0

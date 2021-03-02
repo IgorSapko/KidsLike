@@ -9,8 +9,12 @@ function CurrentDay() {
 	const plan = useSelector(state => state.week.pointsPlanned);
 	const dayStart = useSelector(state => state.week.startWeekDate);
 	const dayEnd = useSelector(state => state.week.endWeekDate);
-
 	const progress = (parseInt(weekPoints) / parseInt(plan)) * 100;
+
+	const month = useSelector(state => state.week.startWeekDate).slice(3, 5);
+
+	console.log('month', month);
+
 	return (
 		<div>
 			<Container>
@@ -41,7 +45,6 @@ function CurrentDay() {
 					</ProgressDiv>
 				</div>
 			</Container>
-			<CardList />
 		</div>
 	);
 }
