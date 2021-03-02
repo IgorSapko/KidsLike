@@ -1,6 +1,6 @@
 //Core
 import React, { Suspense, useEffect } from 'react';
-import { Switch } from 'react-router-dom';
+import { Switch, useLocation } from 'react-router-dom';
 //Components
 import Footer from '../../pages/Footer';
 
@@ -16,12 +16,25 @@ import PrivateRoute from 'router/PrivateRoute';
 //Components
 import Loader from '../Commons/Loader/Loader';
 
+import queryString from 'query-string';
+
 const App = () => {
 	const dispatch = useDispatch();
+	const location = useLocation();
 
 	useEffect(() => {
 		dispatch(authOperations.getCurrentUser());
 	}, [dispatch]);
+
+	useEffect(() => {
+		if (location.search) {
+			const params = queryString.parse(location.search);
+
+			params.token && dispatch(authOperations.userSignInGoogle(params.token));
+		}
+
+		dispatch(authOperations.getCurrentUser());
+	}, [dispatch, location.search]);
 
 	return (
 		<>

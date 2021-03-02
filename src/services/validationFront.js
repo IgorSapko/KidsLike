@@ -1,6 +1,6 @@
 export const passwordValid = password => {
-	if (password.length < 8) return false;
-	const regExp = /(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z])(?=.*[~!^(){}<>%@#&*+.,=_-]).*$/;
+	if (password.length < 6) return false;
+	const regExp = /(?=^.{6,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z])(?=.*[~!^(){}<>%@#&*+.,=_-]).*$/;
 	if (!regExp.test(password)) return false;
 	return true;
 };
