@@ -3,7 +3,8 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import Card from './Card/Card';
 
-import ModalBackDrop from '../CongratsModal/CongratsModal'
+
+import ModalBackDrop from '../../components/Commons/CongratsModal/CongratsModal'
 
 
 

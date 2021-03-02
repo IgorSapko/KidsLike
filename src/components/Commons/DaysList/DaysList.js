@@ -35,17 +35,15 @@ export default function DaysList({ item, getCheckedTasks }) {
 		console.log('isChecked', isChecked);
 		console.log('firstHandleChange',firstHandleChange)
 		if(firstHandleChange){
-			console.log('111');
 			console.log('arrDays from handle',arrDays);
 			console.log('arrOfDefaultDays from handle',arrOfDefaultDays)
 			setArrDays([...arrOfDefaultDays,...arrDays, day]);
 			console.log('firstHandleChange from handle',firstHandleChange);
 			
 			setfirstHandleChange(false);
+			console.log('firstHandleChange from handle',firstHandleChange);
 		}
-		
-		// console.log('item event', item)
-		if (isChecked) {
+				if (isChecked) {
 			setArrDays([...arrDays, day]);
 		} else {
 			setArrDays([...arrDays.filter(uncheckedDay => uncheckedDay !== day)]);

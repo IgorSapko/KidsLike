@@ -21,7 +21,6 @@ const token = {
 const userSignUp = credential => async dispatch => {
 	dispatch(authActions.userSignUpRequest());
 	try {
-		console.log('credential', credential)
 		const { data } = await axios.post('/api/auth/sign-up', credential);
 
 		token.set(data.token);
@@ -53,8 +52,7 @@ const userSignIn = credential => async dispatch => {
 	dispatch(authActions.userSignInRequest());
 	try {
 		const { data } = await axios.post('/api/auth/sign-in', credential);
-		console.log('credential',typeof credential)
-		token.set(data.token);
+			token.set(data.token);
 		dispatch(authActions.userSignInSuccess(data));
 	} catch (error) {
 		console.log('error', error);
@@ -115,7 +113,6 @@ const getCurrentUser = () => async (dispatch, getState) => {
 	try {
 		const { data } = await axios.get('/api/user/current');
 		dispatch(authActions.getCurrentUserSuccess(data));
-		console.log('data', data)
 	} catch (error) {
 		dispatch(errorActions.getCurrentUserFailure(error));
 	}

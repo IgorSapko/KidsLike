@@ -17,8 +17,8 @@ export default function TaskToggle({ item, currentDay }) {
 
 useEffect(()=>{setChecked(item.days.find(day => day.date === currentDay).isCompleted)},[])
 	
-	console.log('item', item);
-	console.log('currentDay', currentDay);
+	// console.log('item', item);
+	// console.log('currentDay', currentDay);
 	
 	return (
 		<div>

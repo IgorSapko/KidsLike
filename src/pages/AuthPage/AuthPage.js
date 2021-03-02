@@ -19,9 +19,9 @@ import AuthForm from '../../components/Commons/AuthForm/AuthForm';
 
 const AuthPage = () => {
 	return (
-		// <div>
-		// 	<Header />
-		// 	</div>
+		<>
+			<Header />
+		
 		<ContainerAuth>
 			<ImagesContainer>
 				<ImgAuth1></ImgAuth1>
@@ -34,6 +34,7 @@ const AuthPage = () => {
 				<AuthForm />
 			</RegContainer>
 		</ContainerAuth>
+		</>
 	);
 };
 
