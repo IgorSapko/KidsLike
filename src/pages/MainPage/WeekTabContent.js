@@ -7,6 +7,8 @@ import Card from '../../components/Commons/Card/Card';
 import CurrentDay from '../../components/Commons/CurrentDay/CurrentDay';
 
 export default function WeekTabsContent({ week }) {
+	console.log('week', week);
+
 	function useQuery() {
 		return new URLSearchParams(useLocation().search);
 	}
@@ -32,7 +34,7 @@ export default function WeekTabsContent({ week }) {
 	todayTasks(daysQuery, tasks);
 	return (
 		<WeekTabContent_container>
-			<CurrentDay />
+			<CurrentDay thisday={daysQuery} />
 			{/* <ContainerForBalanceandInfo>
 				<div className="WeekTabContent_WeekInfo">
 					<p>
