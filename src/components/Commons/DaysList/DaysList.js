@@ -7,49 +7,38 @@ import { BlockAddSwitch, BlockCheckbox, BlockLabel, BlockInput } from './DaysLis
 
 export default function DaysList({ item, getCheckedTasks }) {
 	const [arrDays, setArrDays] = useState([]);
-	const [firstHandleChange, setfirstHandleChange] = useState(true);
 
 	console.log('arrDays', arrDays);
 	useEffect(() => {
 		getCheckedTasks(arrDays);
 	}, [arrDays]);
-	// useEffect(()=>{isChecked=tasks.find(task=>task._id===item._id).days.map(day=>day.isActive)},[])
 	const tasks = useSelector(weekSelector.getTasks);
 
 	const daysOfWeek = ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС'];
-	let arrOfDefaultDays
-	// useEffect(()=>{ 
-	// 	},[])
-	arrOfDefaultDays = tasks
-		.find(task => task._id === item._id)
-		.days.map((day, ind) => {
-			if (day.isActive) {
-				return daysOfWeek[ind];
-			} else return false;
-		})
+	let arrOfDefaultDays;
 
-	console.log('arrOfDefaultDays', arrOfDefaultDays);
-	let isChecked;
-	const handleInputChange = (e, item, day) => {
-		const isChecked = e.target.checked;
-		console.log('isChecked', isChecked);
-		console.log('firstHandleChange',firstHandleChange)
-		if(firstHandleChange){
-			console.log('arrDays from handle',arrDays);
-			console.log('arrOfDefaultDays from handle',arrOfDefaultDays)
-			setArrDays([...arrOfDefaultDays,...arrDays, day]);
-			console.log('firstHandleChange from handle',firstHandleChange);
-			
-			setfirstHandleChange(false);
-			console.log('firstHandleChange from handle',firstHandleChange);
-		}
-				if (isChecked) {
-			setArrDays([...arrDays, day]);
+	useEffect(() => {
+		arrOfDefaultDays = tasks
+			.find(task => task._id === item._id)
+			.days.map((day, ind) => {
+				if (day.isActive) {
+					return daysOfWeek[ind];
+				} else return false;
+			});
+		setArrDays([...arrOfDefaultDays]);
+	}, []);
+
+	const handleInputChange = (e, item, day, ind) => {
+		if (arrDays[ind] !== day) {
+			const deletedDay = [...arrDays.splice(ind, 1, day)];
+			console.log('newarr arrDays', arrDays);
+			setArrDays(arrDays => [...arrDays]);
 		} else {
-			setArrDays([...arrDays.filter(uncheckedDay => uncheckedDay !== day)]);
+			const setDayFalse = [...arrDays.splice(ind, 1, false)];
+			setArrDays(arrDays => [...arrDays]);
+			
 		}
 	};
-	// tasks.find(task=>task._id===item._id).days[ind].isActive
 	return (
 		<div>
 			<BlockCheckbox>
@@ -57,9 +46,9 @@ export default function DaysList({ item, getCheckedTasks }) {
 					return (
 						<BlockLabel key={day}>
 							<BlockInput
-								onChange={e => handleInputChange(e, item, day)}
+								onChange={e => handleInputChange(e, item, day, ind)}
 								type="checkbox"
-								checked={firstHandleChange ? arrOfDefaultDays[ind] : isChecked}
+								checked={arrDays[ind]}
 								id={day}
 							/>
 							{day}
