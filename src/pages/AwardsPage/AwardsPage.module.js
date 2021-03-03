@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const BlockPeopleTask_Awards = styled.div`
+export const BlockPeopleTask_Awards = styled.ul`
 	max-width: 1180px;
 	margin: 0 auto;
 	padding: 0;
@@ -15,4 +15,3 @@ export const BlockPeopleTask_Awards = styled.div`
 		max-width: 280px;
 	}
 `;
-
