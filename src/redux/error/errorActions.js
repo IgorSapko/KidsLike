@@ -8,9 +8,6 @@ const userSighOutFailure = createAction('auth/userSighOutFailure');
 const unsetErrorMessage = createAction('auth/unsetErrorMessage');
 const taskSwitcherFailure = createAction('week/taskSwitcherFailure');
 const taskActiveSwitcherFailure = createAction('week/taskActiveSwitcherFailure');
-const contactsFailure = createAction('contacts/contactsFailure');
-
-
 
 const errorActions ={
     getCurrentUserFailure,
@@ -20,7 +17,7 @@ const errorActions ={
     unsetErrorMessage,
     taskSwitcherFailure,
     taskActiveSwitcherFailure,
-    contactsFailure,
+    // contactsFailure,
 
  };
 export default errorActions 

@@ -35,13 +35,13 @@ export default function Login() {
       if (!emailValid(email)) {
         return notification({
           type: 'warning',
-          message: 'Email is not valid!',
+          message: 'это поле обязательное',
         });
       } else if (password.length < 4) {
         console.log(password);
         return notification({
           type: 'warning',
-          message: 'Password is to short!',
+          message: 'это поле обязательное',
         });
       }
     }

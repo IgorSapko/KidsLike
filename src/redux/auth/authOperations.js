@@ -21,7 +21,6 @@ const token = {
 const userSignUp = credential => async dispatch => {
 	dispatch(authActions.userSignUpRequest());
 	try {
-		console.log('credential', credential)
 		const { data } = await axios.post('/api/auth/sign-up', credential);
 
 		token.set(data.token);
@@ -53,8 +52,7 @@ const userSignIn = credential => async dispatch => {
 	dispatch(authActions.userSignInRequest());
 	try {
 		const { data } = await axios.post('/api/auth/sign-in', credential);
-		console.log('credential',typeof credential)
-		token.set(data.token);
+			token.set(data.token);
 		dispatch(authActions.userSignInSuccess(data));
 	} catch (error) {
 		console.log('error', error);
@@ -124,11 +122,23 @@ const getCurrentUser = () => async (dispatch, getState) => {
 	// 	.catch(error => dispatch(errorActions.getCurrentUserFailure(error)));
 };
 
+const userSignInGoogle = accessToken => async dispatch => {
+	dispatch(authActions.userSignInGoogleRequest());
+	try {
+		token.set(accessToken);
+		dispatch(authActions.userSignInGoogleSuccess(accessToken));
+	} catch (error) {
+		console.log('error', error);
+		dispatch(errorActions.userSignInFailure(error));
+	}
+};
+
 const authOperations = {
 	userSignUp,
 	userSignIn,
 	userSighOut,
 	getCurrentUser,
+	userSignInGoogle,
 };
 
 export default authOperations;

@@ -6,7 +6,7 @@ import authActions from './authActions';
 
 //User reducer
 const user = createReducer(null, {
-	[authActions.getCurrentUserSuccess]: (state, { payload }) => payload,
+	[authActions.getCurrentUserSuccess]: (state, { payload }) => payload.user,
 	[authActions.userSignUpSuccess]: (state, { payload }) => payload.user,
 	[authActions.userSignInSuccess]: (state, { payload }) => payload.user,
 	[authActions.userSighOutSuccess]: () => null,
@@ -17,12 +17,12 @@ const token = createReducer(null, {
 	[authActions.userSignUpSuccess]: (state, { payload }) => payload.token,
 	[authActions.userSignInSuccess]: (state, { payload }) => payload.token,
 	[authActions.userSighOutSuccess]: () => null,
+	[authActions.userSignInGoogleSuccess]: (state, { payload }) => payload,
 });
-
 
 const authRootReducer = combineReducers({
 	user,
-	token
+	token,
 });
 
-export default authRootReducer ;
+export default authRootReducer;

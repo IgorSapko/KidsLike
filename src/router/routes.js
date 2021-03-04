@@ -9,16 +9,18 @@ const routes = [
 		private: true,
 		restricted: false,
 		isNavigate: true,
-		component: lazy(() => import('pages/MainPage' /* webpackChunkName: "MainPage" */)),
+		component: lazy(() => import('pages/MainPage/MainPage' /* webpackChunkName: "MainPage" */)),
 	},
 	{
 		path: '/contacts',
 		label: 'ContactsPage',
 		exact: true,
 		private: false,
-		restricted: true,
+		restricted: false,
 		isNavigate: false,
-		component: lazy(() => import('pages/ContactsPage/ContactsPage' /* webpackChunkName: "ContactsPage"*/)),
+		component: lazy(() =>
+			import('pages/ContactsPage/ContactsPage' /* webpackChunkName: "ContactsPage"*/),
+		),
 	},
 	{
 		path: '/auth',
@@ -43,9 +45,9 @@ const routes = [
 		label: 'AwardsPage',
 		exact: true,
 		private: true,
-		restricted: true,
-		isNavigate: false,
-		component: lazy(() => import('pages/AwardsPage' /* webpackChunkName: "AwardsPage"*/)),
+		restricted: false,
+		isNavigate: true,
+		component: lazy(() => import('pages/AwardsPage/AwardsPage' /* webpackChunkName: "AwardsPage"*/)),
 	},
 ];
 
