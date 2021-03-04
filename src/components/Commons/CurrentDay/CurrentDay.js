@@ -5,8 +5,6 @@ import { useSelector } from 'react-redux';
 
 function CurrentDay({ thisday }) {
 	const currentDay = thisday;
-	// const date = new Date(currentDay.slice(7, 10), currentDay.slice(3, 5), currentDay.slice(0, 2));
-	// console.log('date', date);
 
 	const weekPoints = useSelector(state => state.week.pointsGained);
 	const plan = useSelector(state => state.week.pointsPlanned);
@@ -70,7 +68,7 @@ function CurrentDay({ thisday }) {
 					<WeekText>
 						Неделя: {dayStart} - {dayEnd} {monthName}
 					</WeekText>
-					<Points>Мoи задачи: , {currentDay}</Points>
+					<Points>Мoи задачи: , {currentDay} </Points>
 				</LeftSide>
 
 				<div>

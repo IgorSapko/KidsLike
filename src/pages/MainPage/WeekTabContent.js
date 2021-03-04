@@ -7,8 +7,6 @@ import Card from '../../components/Commons/Card/Card';
 import CurrentDay from '../../components/Commons/CurrentDay/CurrentDay';
 
 export default function WeekTabsContent({ week }) {
-	console.log('week', week);
-
 	function useQuery() {
 		return new URLSearchParams(useLocation().search);
 	}
@@ -16,6 +14,16 @@ export default function WeekTabsContent({ week }) {
 	let daysQuery = query.get('day');
 	const tasks = week.tasks;
 	const today = dayjs().format('DD-MM-YYYY');
+
+	// function getDayName(dateStr, locale) {
+	// 	const date =  new Date(
+	// 		`${dateStr.slice(3, 5)}-${dateStr.slice(0, 2)}-${dateStr.slice(6, 10)}`,
+	// 	);
+	// 	return date.toLocaleDateString(locale, { weekday: 'long' });
+	// }
+
+	// const dayName = getDayName(daysQuery, 'ru-RU');
+	// console.log('dayname', dayName);
 
 	function todayTasks(daysQuery, tasks) {
 		const returnedTasks = [];
