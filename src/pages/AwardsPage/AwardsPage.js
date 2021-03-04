@@ -38,7 +38,7 @@ console.log(idItems)
 		<div>
 		<BlockPeopleTask_Awards>
 			{count.map(item => {
-				return <Card summNumber={summNumber} item={item} />;
+				return <Card key={item._id} summNumber={summNumber} item={item} />;
 			})}
 		</BlockPeopleTask_Awards>
 		<ModalBackDrop itemsAll={itemsAll} idItems={idItems} />

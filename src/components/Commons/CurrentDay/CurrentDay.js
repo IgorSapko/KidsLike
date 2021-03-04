@@ -3,8 +3,8 @@ import ProgressBar from '@ramonak/react-progress-bar';
 import { LeftSide, ProgressDiv, Container, Points, WeekText } from './currentDay.styles';
 import { useSelector } from 'react-redux';
 
-function CurrentDay({ thisday }) {
-	const currentDay = thisday;
+function CurrentDay({ thisDay }) {
+	const currentDay = thisDay;
 	// const date = new Date(currentDay.slice(7, 10), currentDay.slice(3, 5), currentDay.slice(0, 2));
 	// console.log('date', date);
 

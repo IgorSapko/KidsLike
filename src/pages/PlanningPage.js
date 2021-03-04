@@ -19,9 +19,9 @@ const PlanningPage = () => {
 	const nextDay = arrWithNextDay.join('-');
 	currentDay = nextDay;
 
-	return (<><div>PlanningPage</div>
+	return (
 	<CardList currentDay={currentDay}/>
-	</>);
+	);
 };
 
 PlanningPage.propTypes = {};

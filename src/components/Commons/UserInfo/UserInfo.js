@@ -1,13 +1,14 @@
 //Core
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import {
 	HeaderblockcontactInform,
 	HeaderblockcontactBlockFirstLetter,
 	FirstLetter,
 } from './UserInfo.style';
-const UserInfo = ({ email }) => {
+const UserInfo = () => {
+const 	email = useSelector(state=>state.auth.user.email);
 	return (
 		<>
 			<HeaderblockcontactBlockFirstLetter>
@@ -18,8 +19,6 @@ const UserInfo = ({ email }) => {
 	);
 };
 
-const mapStateToProps = state => ({
-	email: state.auth.user.email,
-});
 
-export default connect(mapStateToProps, null)(UserInfo);
+
+export default UserInfo;

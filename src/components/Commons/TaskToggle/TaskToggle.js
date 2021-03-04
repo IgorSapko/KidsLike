@@ -7,6 +7,7 @@ import Switch from 'react-switch';
 import { UncheckedIconWrapper, CheckedIconWrapper } from './TaskToggle.styles';
 //svg
 import { Unchecked, Checked } from './SvgIconSwitch';
+// import authActions from '../../../redux/auth/authActions'
 import weekOperation from '../../../redux/week/weekOperation';
 // import weekSelector from '../../../redux/week/weekSelectors';
 
@@ -28,7 +29,7 @@ useEffect(()=>{setChecked(item.days.find(day => day.date === currentDay).isCompl
 				offColor="#ff0000"
 				checked={checked}
 				onChange={() => {
-					dispatch(weekOperation.taskSwitcher(item._id, currentDay));
+					dispatch(weekOperation.taskSwitcher(item._id, currentDay), );
 					setChecked(!checked);
 				}}
 				height={18}

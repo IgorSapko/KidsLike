@@ -11,6 +11,7 @@ import {
 } from '../../../pages/MainPage/MainPage.styled';
 import styles from '../../../pages/MainPage/Helper.module.css';
 import Card from '../../Commons/Card/Card';
+import CurrentDay from '../CurrentDay/CurrentDay';
 
 export default function WeekTabsContent({ week }) {
 	function useQuery() {
@@ -20,7 +21,10 @@ export default function WeekTabsContent({ week }) {
 	let daysQuery = query.get('day');
 	const tasks = week.tasks;
 	const today = dayjs().format('DD-MM-YYYY');
-
+// 	const todayDay = dayjs().format('DD');
+// console.log('daysQuery', daysQuery);
+// console.log('today', today);
+// console.log('todayDay', todayDay)
 	function todayTasks(daysQuery, tasks) {
 		const returnedTasks = [];
 		tasks.map(el => {
@@ -38,15 +42,17 @@ export default function WeekTabsContent({ week }) {
 	todayTasks(daysQuery, tasks);
 	return (
 		<WeekTabContent_container>
-			<ContainerForBalanceandInfo>
+			<CurrentDay thisday={daysQuery} />
+			{/* <ContainerForBalanceandInfo>
 				<WeekTabContent_WeekInfo_container>
+				<CurrentDay thisday={daysQuery} />
 					<WeekTabContent_weekInfo>
 						Неделя: {week.startWeekDate.substring(0, 2)} - {week.endWeekDate.substring(0, 2)}
 					</WeekTabContent_weekInfo>
 					<WeekTabContent_weekInfo_p>Мои задачи: {today}</WeekTabContent_weekInfo_p>
 				</WeekTabContent_WeekInfo_container>
 				<WeekTabContent_Balance>А тут баланс</WeekTabContent_Balance>
-			</ContainerForBalanceandInfo>
+			</ContainerForBalanceandInfo> */}
 			<div
 				className={
 					todayTasks(daysQuery, tasks).length > 0
@@ -77,7 +83,7 @@ export default function WeekTabsContent({ week }) {
 			>
 				{todayTasks(daysQuery, tasks).map(el => (
 					<li key={el._id} className={styles.WeekTabContent}>
-						<Card key={el.title} item={el} currentDay={daysQuery}></Card>
+						<Card key={el.title} item={el} currentDay={daysQuery} today={today}></Card>
 					</li>
 				))}
 			</ul>

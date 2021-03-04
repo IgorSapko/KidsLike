@@ -19,7 +19,7 @@ function CardList({ currentDay }) {
 							return <Card key={task.title} item={task} currentDay={currentDay} />;
 						}
 				  })
-				: ( tasks.map(task => <Card key={task.title} item={task} />))}
+				: ( tasks.map(task => <Card key={task.title} item={task} currentDay={currentDay} />))}
 			)
 		</BlockPeopleTask>
 	);

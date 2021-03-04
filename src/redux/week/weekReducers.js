@@ -12,6 +12,8 @@ const weekReducer = createReducer(null, {
 	[authActions.userSignInSuccess]: (state, { payload }) => payload.week,
 
 	[weekActions.taskSwitcherSuccess]: (state, { payload }) => {
+		console.log('payload',payload)
+		
 		const tasksArr = [...current(state).tasks];
 		let currentTask;
 			const newTotalArr = []
@@ -25,7 +27,7 @@ const weekReducer = createReducer(null, {
 				return newTotalArr.push(task);
 			}
 		});
-		return { ...current(state), tasks: [ ...newTotalArr] };
+		return { ...current(state), tasks: [ ...newTotalArr], pointsGained:payload.updatedWeekGainedPoints};
 	},
 
 	[weekActions.taskActiveSwitcherSuccess]: (state, { payload }) => {

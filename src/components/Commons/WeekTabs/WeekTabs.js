@@ -28,7 +28,7 @@ export default function WeekTabs({ week }) {
 
 	return (
 		<>
-			<div>
+			<div >
 				<WeekTabs_container>
 					<WeekTabs_weekInfo>
 						Неделя: {week.startWeekDate.substring(0, 2)} - {week.endWeekDate.substring(0, 2)}
@@ -36,7 +36,7 @@ export default function WeekTabs({ week }) {
 					<WeekTabs_list>
 						{nameOfdays.map(el => {
 							return (
-								<li>
+								<li key={el.date}>
 									<NavLink
 										to={`/?day=` + el.date}
 										isActive={(_, location) => {
