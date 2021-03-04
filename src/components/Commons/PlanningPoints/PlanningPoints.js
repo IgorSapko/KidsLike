@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { PointsBlock, TextLabel, PointsLabel } from './planningPoints.styles';
+import { PointsBlock, TextLabel, TextLabelPoints, PointsLabel } from './planningPoints.styles';
 
 const PlanningPoints = ({points}) => {
     return (
 			<PointsBlock>
-				<TextLabel>Определены задачи</TextLabel>
+				<TextLabel>Определены задачи на</TextLabel>
 				<PointsLabel>{points}</PointsLabel>
-				<TextLabel>на баллов</TextLabel>
+				<TextLabelPoints>баллов</TextLabelPoints>
 			</PointsBlock>
 		);
 }

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import NewTaskModal from '../NewTaskModal/NewTaskModal';
+
 
 import {AddLabel, AddTaskBlock, AddBtn} from './addCustomTask.styles'
 
@@ -14,7 +14,6 @@ const AddCustomTask = ({ swowModal}) => {
 			<AddTaskBlock>
 				<AddLabel>Хочешь получить больше призов - добавь задачи :)</AddLabel>
 				<AddBtn onClick={() => {
-					
 					swowModal()
 				}}>
 					<img height="54" width="54" src={yellowPlusSvg} alt="Add task"></img>

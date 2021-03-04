@@ -1,17 +1,32 @@
 import styled from 'styled-components';
 
+import device from '../../../device';
+
 const AddTaskBlock = styled.div`
-	width: 400px;
+	width: 423px;
 	height: 54px;
 	display: flex;
-    align-items:center;
+	align-items: center;
+	justify-content: flex-end;
+	/* @media ${device.tablet} {
+		height: 54px;
+	}
+	@media ${device.mobile} {
+		height: 0px;
+	} */
 `;
 
 const AddLabel = styled.p`
 	font-weight: 500;
 	font-size: 12px;
+	padding-right:20px;
 	color: #a6abb9;
-    margin-right:20px;
+	@media ${device.mobile} {
+		display: none;
+	}
+	@media ${device.tablet} {
+		display: block;
+	}
 `;
 
 const AddBtn = styled.button`
@@ -24,6 +39,16 @@ const AddBtn = styled.button`
 	:focus {
 		outline: 0;
 		outline-offset: 0;
+	}
+
+	@media ${device.mobile} {
+		position: fixed;
+		z-index: 110;
+		bottom: 17px;
+		right: 20px;
+	}
+	@media ${device.tablet} {
+		position: inherit;
 	}
 `;
 
