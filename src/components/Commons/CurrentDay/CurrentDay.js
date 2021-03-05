@@ -1,9 +1,19 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import ProgressBar from '@ramonak/react-progress-bar';
-import { LeftSide, ProgressDiv, Container, Points, WeekText } from './currentDay.styles';
+import {
+	LeftSide,
+	ProgressDiv,
+	Container,
+	Points,
+	WeekText,
+	DayName,
+	PlanPoints,
+	ProgressContainer,
+	ContainerPoints,
+	BoldPoints,
+} from './currentDay.styles';
 import { useSelector } from 'react-redux';
-import dayjs from 'dayjs';
 
 function CurrentDay({ thisday }) {
 	const location = useLocation();
@@ -17,7 +27,7 @@ function CurrentDay({ thisday }) {
 		return date?.toLocaleDateString(locale, { weekday: 'long' });
 	}
 
-	const dayName = getDayName(location.search, 'ru-RU');
+	const dayName = getDayName(location.search, 'ru-RU').toLocaleUpperCase();
 
 	const weekPoints = useSelector(state => state.week.pointsGained);
 	const plan = useSelector(state => state.week.pointsPlanned);
@@ -82,29 +92,37 @@ function CurrentDay({ thisday }) {
 						Неделя: {dayStart} - {dayEnd} {monthName}
 					</WeekText>
 					<Points>
-						Мoи задачи: {dayName}, {currentDay}{' '}
+						Мoи задачи:{' '}
+						<DayName>
+							{' '}
+							{dayName}, {currentDay}
+						</DayName>
 					</Points>
 				</LeftSide>
 
-				<div>
-					<Points>Заработано баллов за эту неделю:{weekPoints}</Points>
-					<Points>Запланировано баллов на эту неделю:{plan}</Points>
-					<p>
-						{weekPoints}/{plan}
-					</p>
-					<ProgressDiv>
-						{
-							<ProgressBar
-								completed={progress(weekPoints, plan)}
-								bgcolor="#9ECB44"
-								width="280px"
-								height="6px"
-								borderRadius="10px"
-								labelSize="0"
-							/>
-						}
-					</ProgressDiv>
-				</div>
+				<ContainerPoints>
+					<Points>
+						Заработано баллов за эту неделю:<BoldPoints>{weekPoints}</BoldPoints>
+					</Points>
+					<Points>
+						Запланировано баллов на эту неделю:<BoldPoints>{plan}</BoldPoints>
+					</Points>
+					<ProgressContainer>
+						<BoldPoints>{weekPoints}</BoldPoints>/ <PlanPoints>{plan}</PlanPoints>
+						<ProgressDiv>
+							{
+								<ProgressBar
+									completed={progress(weekPoints, plan)}
+									bgcolor="#9ECB44"
+									width="280px"
+									height="6px"
+									borderRadius="10px"
+									labelSize="0"
+								/>
+							}
+						</ProgressDiv>
+					</ProgressContainer>
+				</ContainerPoints>
 			</Container>
 		</div>
 	);
