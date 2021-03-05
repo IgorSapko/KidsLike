@@ -1,10 +1,28 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import ProgressBar from '@ramonak/react-progress-bar';
 import { LeftSide, ProgressDiv, Container, Points, WeekText } from './currentDay.styles';
 import { useSelector } from 'react-redux';
+import dayjs from 'dayjs';
 
 function CurrentDay({ thisday }) {
+	const location = useLocation();
+	console.log(location.search);
+
 	const currentDay = thisday;
+	const qwe = dayjs(thisday, ['DD', 'MM-DD-YYYY'], 'en', true);
+
+	console.log(qwe.get('day'));
+
+	function getDayName(dateStr, locale) {
+		const date = new Date(
+			`${dateStr?.slice(3, 5)}-${dateStr?.slice(0, 2)}-${dateStr?.slice(6, 10)}`,
+		);
+		return date?.toLocaleDateString(locale, { weekday: 'long' });
+	}
+
+	const dayName = getDayName(currentDay, 'ru-RU');
+	console.log('dayname', dayName);
 
 	const weekPoints = useSelector(state => state.week.pointsGained);
 	const plan = useSelector(state => state.week.pointsPlanned);
@@ -68,7 +86,9 @@ function CurrentDay({ thisday }) {
 					<WeekText>
 						Неделя: {dayStart} - {dayEnd} {monthName}
 					</WeekText>
-					<Points>Мoи задачи: , {currentDay} </Points>
+					<Points>
+						Мoи задачи: {dayName}, {currentDay}{' '}
+					</Points>
 				</LeftSide>
 
 				<div>

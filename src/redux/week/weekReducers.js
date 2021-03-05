@@ -44,9 +44,6 @@ const weekReducer = createReducer(null, {
 	},
 });
 
-
-
-
 // //Items initial state
 // const initialItemsState = [];
 
