@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {  useRef } from 'react';
 import {
 	Screen,
 	ModalBlock,
@@ -18,9 +18,11 @@ import pictureItemSvg from '../../../img/pictureItem.svg';
 import closeCross from '../../../img/closeCross.svg';
 
 const NewTaskModal = ({ addTask, closeModal }) => {
-	const [title, setTitle] = useState('');
-	const [reward, setReward] = useState('');
-	const [taskAvatar, setTaskAvatar] = useState('');
+	// const [title, setTitle] = useState('');
+	// const [reward, setReward] = useState('');
+	// const [taskAvatar, setTaskAvatar] = useState('');
+
+	const formData = useRef(null);
 
 	const handleOkBtn = event => {
 		handleSubmit(event);
@@ -31,19 +33,26 @@ const NewTaskModal = ({ addTask, closeModal }) => {
 		closeModal();
 	};
 
+	// const handleSubmit = event => {
+	// 	event.preventDefault();
+	// 	const rewardToNumber = Number(reward);
+	// 	if (title !== '' && reward !== '' && Number.isInteger(Number(reward))) {
+	// 		console.log(title, reward, taskAvatar);
+	// 		addTask(title, rewardToNumber, taskAvatar);
+	// 	} else {
+	// 		console.log('Error');
+	// 	};
+	// 	setTitle('');
+	// 	setReward('');
+	// 	setTaskAvatar('');
+	// };
+
 	const handleSubmit = event => {
 		event.preventDefault();
-		const rewardToNumber = Number(reward);
-		if (title !== '' && reward !== '' && Number.isInteger(Number(reward))) {
-			console.log(title, reward, taskAvatar);
-			addTask(title, rewardToNumber, taskAvatar);
-		} else {
-			console.log('Error');
-		};
-		setTitle('');
-		setReward('');
-		setTaskAvatar('');
+
+		addTask(formData);
 	};
+
 	return (
 		<Screen>
 			<ModalBlock>
@@ -53,31 +62,27 @@ const NewTaskModal = ({ addTask, closeModal }) => {
 						<img src={closeCross} alt="Close" />
 					</CloseBtn>
 				</Header>
-				<Form onSubmit={handleSubmit} enctype="multipart/form-data">
+				<Form onSubmit={handleSubmit} ref={formData}>
 					<FileInputBlock>
-						<FileInput
-							type="file"
-							value={taskAvatar}
-							onChange={e => setTaskAvatar(e.target.value)}
-						/>
+						<FileInput type="file" name="taskAvatar" accept="image/jpeg,image/png" />
 						<img width="18" height="18" src={pictureItemSvg} alt="" />
 					</FileInputBlock>
 					<LabelDiv>
 						<img width="18" height="18" src={pencil} alt="" />
 						<TextInput
 							type="text"
+							name="title"
 							placeholder="Добавить задание..."
-							value={title}
-							onChange={e => setTitle(e.target.value)}
+							autoComplete="off"
 						/>
 					</LabelDiv>
 					<LabelDiv>
 						<img width="18" height="18" src={pencil} alt="" />
 						<TextInput
 							type="text"
+							name="reward"
 							placeholder="Добавить баллы..."
-							value={reward}
-							onChange={e => setReward(e.target.value)}
+							autoComplete="off"
 						/>
 					</LabelDiv>
 					<Button onClick={handleOkBtn}>Ok</Button>

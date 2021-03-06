@@ -52,11 +52,11 @@ const taskActiveSwitcher = (taskId, daysArr) => dispatch => {
 };
 
 
-const createCustomTask = (title, reward, taskAvatar) => dispatch => {
+const createCustomTask = formData => dispatch => {
 	dispatch(weekActions.createCustomTaskRequest());
-
+	const data = new FormData(formData.current);
 	axios
-		.post(`/api/task`, {title, reward}, taskAvatar)
+		.post(`/api/task`, data)
 		.then(({ data }) => {
 			dispatch(weekActions.createCustomTaskSuccess(data));
 			console.log('Custom task created');

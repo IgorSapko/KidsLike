@@ -34,10 +34,13 @@ const PlanningPage = () => {
 		setOpenAddTaskModal(false);
 	};
 
-	const addCustomTaskAndGetNewData = (title, rewardToNumber, taskAvatar) => {
-		dispatch(weekOperations.createCustomTask(title, rewardToNumber, taskAvatar));
-		// dispatch(authOperations.getCurrentUser());
+	// const addCustomTaskAndGetNewData = (title, rewardToNumber, taskAvatar) => {
+	// 	dispatch(weekOperations.createCustomTask(title, rewardToNumber, taskAvatar));
+	// 	setOpenAddTaskModal(false);
+	// };
 
+	const addCustomTaskAndGetNewData = formData => {
+		dispatch(weekOperations.createCustomTask(formData));
 		setOpenAddTaskModal(false);
 	};
 
