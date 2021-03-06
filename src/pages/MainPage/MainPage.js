@@ -2,8 +2,10 @@ import React, { useEffect } from 'react';
 import dayjs from 'dayjs';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import WeekTabs from './WeekTabs';
-import WeekTabsContent from './WeekTabContent';
+import WeekTabs from '../../components/Commons/WeekTabs/WeekTabs';
+import WeekTabsContent from '../../components/Commons/WeekTabContent/WeekTabContent';
+// import Navigation from '../../components/Commons/Navigation/Navigation'
+
 
 import { MainPage_container } from './MainPage.styled';
 
@@ -16,6 +18,8 @@ function MainPage() {
 	}, []);
 	return (
 		<>
+
+
 			<MainPage_container>
 				<WeekTabs week={week} />
 				<WeekTabsContent week={week} />

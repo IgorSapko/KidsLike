@@ -4,7 +4,7 @@ import { createReducer } from '@reduxjs/toolkit';
 import authActions from '../auth/authActions';
 import errorActions from '../error/errorActions';
 import weekActions from '../week/weekActions';
-import contactsActions from '../contacts/contactsActions'
+// import contactsActions from '../contacts/contactsActions'
 // const initialState = false;
 // const loaderReducer = createReducer(initialState, {
 //   [loaderActions.loaderON]: (state, action) => {
@@ -39,9 +39,9 @@ const loaderReducer = createReducer(false, {
 	[weekActions.taskSwitcherSuccess]: () => false,
 	[weekActions.taskSwitcherFailure]: () => false,
 
-	[contactsActions.contactsRequest]: () => true,
-	[contactsActions.contactsSuccess]: () => false,
-	[errorActions.contactsFailure]: () => false,
+	// [contactsActions.contactsRequest]: () => true,
+	// [contactsActions.contactsSuccess]: () => false,
+	// [errorActions.contactsFailure]: () => false,
 
 	[weekActions.taskActiveSwitcherRequest]: () => true,
 	[weekActions.taskActiveSwitcherSuccess]: () => false,

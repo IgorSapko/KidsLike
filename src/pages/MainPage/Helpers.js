@@ -17,6 +17,7 @@ export function nameOfDaysFunc() {
 	return nameOfdays;
 }
 export function choosenDay(choosenDay) {
+	nameOfDaysFunc();
 	const findDay = nameOfdays.find(el => el.date === choosenDay);
 	return findDay?.full;
 }
@@ -25,7 +26,7 @@ export function monthInNumbFunc(week) {
 	const monthsInNumber = [
 		{ num: '01', name: 'Янаваря' },
 		{ num: '02', name: 'Февраля' },
-		{ num: '03', name: 'Мара' },
+		{ num: '03', name: 'Марта' },
 		{ num: '04', name: 'Апреля' },
 		{ num: '05', name: 'Мая' },
 		{ num: '06', name: 'Июня' },

@@ -76,7 +76,6 @@ const WeekTabs_weekInfo = styled.p`
 		line-height: 17px;
 		color: #000000;
 	}
-
 	@media ${device.desktop} {
 		display: none;
 	}
@@ -125,7 +124,6 @@ const WeekTabContent_weekInfo_p = styled.p`
 	font-size: 12px;
 	color: #a6abb9;
 	line-height: 15px;
-
 	@media (min-width: ${size.desktop}) {
 		text-align: start;
 		display: block;

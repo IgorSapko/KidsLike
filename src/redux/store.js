@@ -12,7 +12,8 @@ import authRootReducer from './auth/authReducers';
 import loaderReducer from './loader/loaderReducer';
 import weekReducer from './week/weekReducers';
 import errorReducer from './error/errorReducer';
-import contactsReducer from './contacts/contactsReducer';
+// import contactsReducer from './contacts/contactsReducer';
+// import planningReducer from './planning/planningReducers';
 
 const authPersistConfig = {
 	key: 'auth',
@@ -25,7 +26,8 @@ export const store = configureStore({
 
 		auth: persistReducer(authPersistConfig, authRootReducer),
 		week: weekReducer,
-		contacts:contactsReducer,
+		// planning: planningReducer,
+		// contacts:contactsReducer,
 		error: errorReducer,
 		loader: loaderReducer,
 		},

@@ -3,6 +3,7 @@ import axios from 'axios';
 //Redux
 import weekActions from './weekActions';
 import errorActions from '../error/errorActions';
+import authActions from '../auth/authActions'
 
 axios.defaults.baseURL = 'https://kids-like-backend-cloud.herokuapp.com/';
 
@@ -15,6 +16,7 @@ const taskSwitcher = (taskId, date) => dispatch => {
 		.patch(`/api/task/switch/${taskId}`, formatedDate)
 		.then(({ data }) => {
 			dispatch(weekActions.taskSwitcherSuccess(data));
+			dispatch(authActions.userGetNewBalanceSwitchSuccess(data));
 		})
 		.catch(error => dispatch(errorActions.taskSwitcherFailure(error)));
 };
@@ -49,4 +51,18 @@ const taskActiveSwitcher = (taskId, daysArr) => dispatch => {
 		.catch(error => dispatch(errorActions.taskActiveSwitcherFailure(error)));
 };
 
-export default { taskSwitcher, taskActiveSwitcher };
+
+const createCustomTask = (title, reward, taskAvatar) => dispatch => {
+	dispatch(weekActions.createCustomTaskRequest());
+
+	axios
+		.post(`/api/task`, {title, reward}, taskAvatar)
+		.then(({ data }) => {
+			dispatch(weekActions.createCustomTaskSuccess(data));
+			console.log('Custom task created');
+		})
+		.catch(error => dispatch(weekActions.createCustomTaskError(error)));
+};
+
+
+export default { taskSwitcher, taskActiveSwitcher, createCustomTask };
