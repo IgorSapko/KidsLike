@@ -51,4 +51,18 @@ const taskActiveSwitcher = (taskId, daysArr) => dispatch => {
 		.catch(error => dispatch(errorActions.taskActiveSwitcherFailure(error)));
 };
 
-export default { taskSwitcher, taskActiveSwitcher };
+
+const createCustomTask = (title, reward, taskAvatar) => dispatch => {
+	dispatch(weekActions.createCustomTaskRequest());
+
+	axios
+		.post(`/api/task`, {title, reward}, taskAvatar)
+		.then(({ data }) => {
+			dispatch(weekActions.createCustomTaskSuccess(data));
+			console.log('Custom task created');
+		})
+		.catch(error => dispatch(weekActions.createCustomTaskError(error)));
+};
+
+
+export default { taskSwitcher, taskActiveSwitcher, createCustomTask };

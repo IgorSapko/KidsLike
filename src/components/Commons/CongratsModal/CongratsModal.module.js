@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const AwardsSubmitData = styled.button`
+export const AwardsSubmitButton = styled.button`
     display:flex;
     justify-content: center;
     margin: 40px auto;
@@ -54,7 +54,7 @@ export const BtnClose = styled.img`
     top: 20px;
     }
 `
-export const  CongratsModal = styled.div`
+export const  CongratsModalWrapper = styled.div`
     position: relative;
     background: white;
     display: flex;

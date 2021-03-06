@@ -13,11 +13,15 @@ import PointAmount from '../PointAmount/PointAmount';
 import TaskToggle from '../TaskToggle/TaskToggle';
 import SelectDays from '../SelectDays/SelectDays';
 
-export default function CardFooter({ item, currentDay, today }) {
+export default function CardFooter({ item, currentDay, today, summNumber }) {
 	const startWeekDay = useSelector(state => state.week.startWeekDate);
-	const startWeekDayDate = startWeekDay.split('-')[0];
-	const currentDayDate = currentDay.split('-')[0];
-	const dayPositionInWeek = Number(currentDayDate) - Number(startWeekDayDate) + 1;
+	let dayPositionInWeek;
+	if (currentDay && today) {
+		const startWeekDayDate = startWeekDay.split('-')[0];
+		const currentDayDate = currentDay.split('-')[0];
+		dayPositionInWeek = Number(currentDayDate) - Number(startWeekDayDate) + 1;
+	}
+	// console.log('item', item)
 	// console.log('dayPositionInWeek', dayPositionInWeek);
 	let history = useHistory();
 	// console.log('currentDay', currentDay);
@@ -29,7 +33,7 @@ export default function CardFooter({ item, currentDay, today }) {
 			<CardTitle item={item} />
 			<BlockPeopleTask_item_inform>
 				<PointAmount item={item} />
-				{history.location.pathname === '/' ? (
+				{history.location.pathname === '/' && currentDay && today ? (
 					currentDay === today ? (
 						<TaskToggle item={item} currentDay={currentDay} />
 					) : currentDay > today ? null : item.days[dayPositionInWeek].isCompleted ? (
@@ -37,6 +41,8 @@ export default function CardFooter({ item, currentDay, today }) {
 					) : (
 						<NotDoneTask />
 					)
+				) : history.location.pathname === '/awards' ? (
+					<TaskToggle item={item} currentDay={currentDay} summNumber={summNumber} />
 				) : (
 					<SelectDays item={item} />
 				)}
