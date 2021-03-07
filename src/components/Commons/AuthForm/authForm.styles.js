@@ -51,10 +51,6 @@ const Input = styled.input`
 	padding-left: 10px;
 	padding-bottom: 12px;
 
-	@madia ${device.mobile} {
-		width: 280px;
-	}
-
 	@madia ${device.tablet} {
 		width: 320px;
 	}
@@ -197,6 +193,19 @@ const NotificationDiv = styled.div`
 	letter-spacing: 0.04em;
 `;
 
+const NotificationDivEmail = styled.div`
+	position: absolute;
+	top: 380px;
+	left: 40px;
+	color: red;
+	font-family: 'MontserratRegular';
+	font-style: normal;
+	font-weight: normal;
+	font-size: 10px;
+	line-height: 12px;
+	letter-spacing: 0.04em;
+`;
+
 const GoogleLink = styled.a`
 	text-decoration: none;
 	font-family: 'MontserratRegular';
@@ -229,4 +238,5 @@ export {
 	ButtonGoogle,
 	NotificationDiv,
 	GoogleLink,
+	NotificationDivEmail,
 };

@@ -6,39 +6,27 @@ import auth_3 from '../../img/auth_3.png';
 import auth_4 from '../../img/auth_4.png';
 
 const ContainerAuth = styled.div`
-	width: 100vw;
-	height: 100vh;
+	// width: 100vw;
+	// height: 100vh;
 	display: flex;
+	flex-direction: column-reverse;
+	align-items: center;
+	margin-top: 58px;
 	
-
-	@media ${device.mobile}{
-		max-width:768px;
-// width: 768px;
-height:890px;
-margin-top:72px;
-flex-direction: column;
-flex-wrap: wrap;
-justify-content: center;
-// margin:0 auto;
-align-items: space-between;
-	}
-
 
 	@media ${device.tablet}{
 max-width:1280px;
-// width: 768px;
-height:890px;
-margin-top:72px;
+margin-top:0;
+height:800px;
 flex-direction: row;
-flex-wrap: none;
 justify-content: center;
-// margin:0 auto;
-align-items: space-between;
+
 	}
 
 	@media ${device.desktop}{
 		width: 1280px;
 		height:890px;
+		margin-top:0;
 		flex:direction: row;
 		flex-wrap: none;
 		// justify-content: center;
@@ -52,13 +40,18 @@ const RegContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	margin-top: 100px;
+	// margin-top: 100px;
 	position: relative;
+	margin-bottom: 60px;
 
 	@media ${device.mobile} {
 		position: absolute;
-		margin-bottom: 8vh;
+		margin-top: 72px;
 		width: 280px;
+	}
+
+	@media ${device.tablet} {
+		margin-bottom: 120px;
 	}
 
 	@media ${device.desktop} {
@@ -79,7 +72,6 @@ const ImagesContainer = styled.div`
 		position: absolute;
 		width: 768px;
 		top: 797px;
-		// left: 0;
 	}
 
 	@media ${device.desktop} {
@@ -164,11 +156,11 @@ const ImgAuth1 = styled.div`
 const ImgAuth2 = styled.div`
 	background-image: url(${auth_2});
 	background-repeat: no-repeat;
-	background-size: contain;
+	background-size: cover;
+	background-position: 50%;
 	display: block;
-	margin: 0;
 	width: 320px;
-	height: 202px;
+	height: 264px;
 
 	@media ${device.mobile} {
 		display: block;

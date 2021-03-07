@@ -27,11 +27,7 @@ const userSignUp = credential => async dispatch => {
 		dispatch(authActions.userSignUpSuccess(data));
 	} catch (error) {
 		console.log('error', error);
-		dispatch(errorActions.userSignUpFailure(error));
-		// const { response } = error;
-		// if (response.status === 409) {
-		// 	alert('Provided email already exists');
-		// }
+		// dispatch(errorActions.userSignUpFailure(error));
 	}
 	// axios
 	// 	.post('/api/auth/sign-up', credential)
@@ -52,18 +48,16 @@ const userSignIn = credential => async dispatch => {
 	dispatch(authActions.userSignInRequest());
 	try {
 		const { data } = await axios.post('/api/auth/sign-in', credential);
-			token.set(data.token);
+		token.set(data.token);
 		dispatch(authActions.userSignInSuccess(data));
 	} catch (error) {
-		console.log('error', error);
+		const { response } = error;
+		if (response.status === 400) {
+			alert('Wrong email or password');
+		} else if (response.status === 403) {
+			alert("Email doesn't exist or password is wrong");
+		}
 		dispatch(errorActions.userSignInFailure(error));
-
-		// const { response } = error;
-		// if (response.status === 400) {
-		// 	alert('Wrong email or password');
-		// } else if (response.status === 403) {
-		// 	alert("Email doesn't exist or password is wrong");
-		// }
 	}
 	// axios
 	// 	.post('/api/auth/sign-in', credential)

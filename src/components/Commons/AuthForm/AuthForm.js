@@ -15,20 +15,23 @@ import {
 	ButtonGoogle,
 	NotificationDiv,
 	GoogleLink,
+	NotificationDivEmail,
 } from './authForm.styles';
-
 
 const AuthForm = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
+	const [isSubmitting, setIsSubmitting] = useState(false);
 	const dispatch = useDispatch();
 
 	const handleLogin = event => {
 		handleSubmit(event);
+		setIsSubmitting(true);
 	};
 
 	const handleRegistr = event => {
 		handleSubmit(event);
+		setIsSubmitting(true);
 	};
 
 	const handleSubmit = event => {
@@ -41,7 +44,7 @@ const AuthForm = () => {
 
 		if (emailValid(email) && password.length >= 6) {
 			if (event.target.id === 'signup') {
-				dispatch(authOperations.userSignUp( credential ));
+				dispatch(authOperations.userSignUp(credential));
 			} else if (event.target.id === 'login') {
 				dispatch(authOperations.userSignIn(credential));
 			}
@@ -69,7 +72,6 @@ const AuthForm = () => {
 
 	return (
 		<>
-
 			<Form onSubmit={handleSubmit}>
 				<P>Вы можете авторизоваться с помощью Google Account:</P>
 				<ButtonGoogle>
@@ -88,6 +90,13 @@ const AuthForm = () => {
 						onChange={e => setEmail(e.target.value)}
 					/>
 				</Label>
+
+				{!emailValid(email) && (
+					<NotificationDivEmail>
+						<NotificationContainer />
+					</NotificationDivEmail>
+				)}
+
 				<Label htmlFor="password">
 					Password
 					<Input
@@ -98,14 +107,18 @@ const AuthForm = () => {
 						onChange={e => setPassword(e.target.value)}
 					/>
 				</Label>
-				<NotificationDiv>
-					<NotificationContainer />
-				</NotificationDiv>
+
+				{password.length < 6 && (
+					<NotificationDiv>
+						<NotificationContainer />
+					</NotificationDiv>
+				)}
+
 				<ButtonContainer>
-					<Button onClick={handleLogin} id="login">
+					<Button onClick={handleLogin} id="login" disabled={isSubmitting}>
 						Войти
 					</Button>
-					<Button onClick={handleRegistr} id="signup">
+					<Button onClick={handleRegistr} id="signup" disabled={isSubmitting}>
 						Зарегистрироваться
 					</Button>
 				</ButtonContainer>
