@@ -1,18 +1,11 @@
 import React from 'react';
 import { useLocation, Link } from 'react-router-dom';
-import dayjs from 'dayjs';
-import {
-	WeekTabContent_container,
-	ContainerForBalanceandInfo,
-	WeekTabContent_weekInfo,
-	WeekTabContent_WeekInfo_container,
-	WeekTabContent_weekInfo_p,
-	WeekTabContent_Balance,
-} from '../../../pages/MainPage/MainPage.styled';
+import { DateTime } from 'luxon';
+import { WeekTabContent_container } from '../../../pages/MainPage/MainPage.styled';
 import styles from '../../../pages/MainPage/Helper.module.css';
 import Card from '../../Commons/Card/Card';
 import CurrentDay from '../CurrentDay/CurrentDay';
-import { choosenDay } from 'pages/MainPage/Helpers';
+import { choosenDay } from 'utils/Helpers';
 
 export default function WeekTabsContent({ week }) {
 	function useQuery() {
@@ -21,7 +14,7 @@ export default function WeekTabsContent({ week }) {
 	let query = useQuery();
 	let daysQuery = query.get('day');
 	const tasks = week.tasks;
-	const today = dayjs().format('DD-MM-YYYY');
+	const today = DateTime.local().toFormat('dd-MM-yyyy');
 	let dayIsChoose = choosenDay(daysQuery);
 	function todayTasks(daysQuery, tasks) {
 		const returnedTasks = [];

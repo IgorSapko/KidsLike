@@ -1,21 +1,9 @@
 import React from 'react';
 import ProgressBar from '@ramonak/react-progress-bar';
-import {
-	LeftSide,
-	ProgressDiv,
-	Container,
-	Points,
-	WeekText,
-	Points_span,
-	Balance_Points,
-	Balance_Points_span,
-	Balance_Points_leftNumb,
-} from './currentDay.styles';
+import { LeftSide, ProgressDiv, Container, Points, WeekText } from './currentDay.styles';
 import { useSelector } from 'react-redux';
-import { choosenDay } from 'pages/MainPage/Helpers';
 
 function CurrentDay({ thisDay, choosenDay }) {
-	console.log(thisDay);
 	const currentDay = thisDay;
 	// const date = new Date(currentDay.slice(7, 10), currentDay.slice(3, 5), currentDay.slice(0, 2));
 	// console.log('date', date);
