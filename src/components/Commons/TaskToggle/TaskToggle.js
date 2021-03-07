@@ -16,8 +16,10 @@ export default function TaskToggle({ item, currentDay, summNumber }) {
 	// const tasks = useSelector(weekSelector.getTasks);
 	const dispatch = useDispatch();
 
-useEffect(()=>{item.days&&setChecked(item.days.find(day => day.date === currentDay).isCompleted)},[currentDay, item.days])
-	
+	useEffect(() => {
+		item.days && setChecked(item.days.find(day => day.date === currentDay).isCompleted);
+	}, [currentDay, item.days]);
+
 	// console.log('item', item);
 	// console.log('currentDay', currentDay);
 	// console.log('summNumber', summNumber);
@@ -29,7 +31,9 @@ useEffect(()=>{item.days&&setChecked(item.days.find(day => day.date === currentD
 				offColor="#ff0000"
 				checked={checked}
 				onChange={() => {
-				item.days?dispatch(weekOperation.taskSwitcher(item._id, currentDay), ):summNumber(item, checked);
+					item.days
+						? dispatch(weekOperation.taskSwitcher(item._id?item._id:item.id, currentDay))
+						: summNumber(item, checked);
 					setChecked(!checked);
 				}}
 				height={18}

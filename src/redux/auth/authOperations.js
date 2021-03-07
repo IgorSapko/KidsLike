@@ -58,29 +58,9 @@ const userSignIn = credential => async dispatch => {
 		console.log('error', error);
 		dispatch(errorActions.userSignInFailure(error));
 
-		// const { response } = error;
-		// if (response.status === 400) {
-		// 	alert('Wrong email or password');
-		// } else if (response.status === 403) {
-		// 	alert("Email doesn't exist or password is wrong");
-		// }
+		
 	}
-	// axios
-	// 	.post('/api/auth/sign-in', credential)
-	// 	.then(({ data }) => {
-	// 		token.set(data.token);
-	// 		dispatch(authActions.userSignInSuccess(data));
-	// 	})
-
-	// 	.catch(error => {
-	// 		dispatch(errorActions.userSignInFailure(error))
-	// 		const { response } = error;
-	// 		if (response.status === 400) {
-	// 			alert('Wrong email or password');
-	// 		} else if (response.status === 403) {
-	// 			alert("Email doesn't exist or password is wrong");
-	// 		}
-	// 	});
+	
 };
 
 const userSighOut = () => async dispatch => {
@@ -93,13 +73,7 @@ const userSighOut = () => async dispatch => {
 	} catch (error) {
 		dispatch(errorActions.userSighOutFailure(error));
 	}
-	// axios
-	// 	.delete('/api/auth/sign-out')
-	// 	.then(() => {
-	// 		token.unset();
-	// 		dispatch(authActions.userSighOutSuccess());
-	// 	})
-	// 	.catch(error => dispatch(errorActions.userSighOutFailure(error)));
+	
 };
 
 const getCurrentUser = () => async (dispatch, getState) => {

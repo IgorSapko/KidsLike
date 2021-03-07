@@ -12,13 +12,11 @@ const weekReducer = createReducer(null, {
 	[authActions.userSignInSuccess]: (state, { payload }) => payload.week,
 
 	[weekActions.taskSwitcherSuccess]: (state, { payload }) => {
-		console.log('payload', payload);
-
 		const tasksArr = [...current(state).tasks];
 		let currentTask;
 		const newTotalArr = [];
 		tasksArr.forEach(task => {
-			if (task._id === payload.updatedTask.id) {
+			if (task._id === payload.updatedTask.id||task.id  === payload.updatedTask.id) {
 				currentTask = { ...task };
 				currentTask.days = [...payload.updatedTask.days];
 				newTotalArr.push(currentTask);
@@ -39,7 +37,7 @@ const weekReducer = createReducer(null, {
 		let currentTask;
 		const newTotalArr = [];
 		tasksArr.forEach(task => {
-			if (task._id === payload.updatedTask.id) {
+			if (task._id  === payload.updatedTask.id||task.id  === payload.updatedTask.id) {
 				currentTask = { ...task };
 				currentTask.days = [...payload.updatedTask.days];
 				newTotalArr.push(currentTask);
@@ -58,39 +56,10 @@ const weekReducer = createReducer(null, {
 	[weekActions.createCustomTaskSuccess]: (state, { payload }) => {
 		return { ...current(state), tasks: [...state.tasks, payload] };
 	},
+
+	[weekActions.giftsGettingSuccess]: (state, { payload }) => {
+		return { ...current(state), gifts: [...payload.gifts] };
+	},
 });
-
-// //Items initial state
-// const initialItemsState = [];
-
-// //Items reducer handler
-// const getContacts = (state, { payload }) => payload;
-// // const addContact = (state, { payload }) => [...state, payload];
-
-// //Items reducer
-// const items = createReducer(initialItemsState, {
-// 	[contactsActions.patchWeekSuccess]: getContacts,
-// 	// [contactsActions.addContactSuccess]: addContact
-// });
-
-// //Ball reducer handler
-// const addBall = (state, { payload }) => state + payload;
-// const removeBall = (state, { payload }) => state - payload;
-
-// //Items reducer
-// const balance = createReducer(0, {
-// 	[contactsActions.addBallSuccess]: addBall,
-// 	[contactsActions.removeBallSuccess]: removeBall,
-// });
-
-// //Loading initial state
-// const initialLoadingState = false;
-
-// //Loading reducer
-// const loading = createReducer(initialLoadingState, {
-// 	[contactsActions.patchWeekRequest]: () => true,
-// 	[contactsActions.patchWeekSuccess]: () => initialLoadingState,
-// 	[contactsActions.patchWeekFailure]: () => initialLoadingState,
-// });
 
 export default weekReducer;

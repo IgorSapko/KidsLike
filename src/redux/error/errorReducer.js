@@ -8,8 +8,9 @@ const errorReducer = createReducer(null, {
 	[errorActions.userSignInFailure]: (state, { payload }) => payload,
 	[errorActions.userSighOutFailure]: (state, { payload }) => payload,
 	[errorActions.unsetErrorMessage]: (state, { payload }) => null,
-
 	[errorActions.taskSwitcherFailure]: (state, { payload }) => payload,
+	[errorActions.giftsGettingFialure]: (state, { payload }) => payload,
+	
 });
 
 export default errorReducer

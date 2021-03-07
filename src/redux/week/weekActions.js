@@ -24,9 +24,12 @@ const createCustomTaskRequest = createAction('week/createCustomTaskRequest');
 const createCustomTaskSuccess = createAction('week/createCustomTaskSuccess');
 const createCustomTaskError = createAction('week/createCustomTaskError');
 
-const giftsRequest = createAction('week/giftsSwitcherRequest');
-const giftsSuccess = createAction('week/giftsSwitcherSuccess');
-const giftsFialure = createAction('week/giftsSwitcherSuccess');
+const giftsGettingRequest = createAction('week/giftsGettingRequest');
+const giftsGettingSuccess = createAction('week/giftsGettingSuccess');
+
+const giftsOrderRequest = createAction('week/giftsOrderRequest');
+const giftsOrderSuccess = createAction('week/giftsOrderSuccess');
+
 
 export default {
     taskSwitcherRequest,
@@ -35,8 +38,13 @@ export default {
 	taskActiveSwitcherRequest,
 	taskActiveSwitcherSuccess,
 
-
      createCustomTaskRequest,
      createCustomTaskSuccess,
      createCustomTaskError ,
+
+     giftsGettingRequest,
+     giftsGettingSuccess,
+
+     giftsOrderRequest,
+     giftsOrderSuccess
 };

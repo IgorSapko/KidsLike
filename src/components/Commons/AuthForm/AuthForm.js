@@ -61,8 +61,7 @@ const AuthForm = () => {
 				default:
 					return;
 			}
-		}
-
+		};
 		setEmail('');
 		setPassword('');
 	};
