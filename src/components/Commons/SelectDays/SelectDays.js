@@ -12,13 +12,15 @@ import {
 	BlockAddSwitch,
 } from './SelectDays.styles';
 import DaysList from '../DaysList/DaysList';
+import { nameOfDaysFunc } from '../../../utils/Helpers';
 import weekOperation from '../../../redux/week/weekOperation';
 
 export default function SelectDays({ item }) {
 	const [checkedTasks, setCheckedTasks] = useState([]);
 	const [toggle, setToggle] = useState(false);
 	const dispatch = useDispatch();
-
+	// const daysOfWeek= nameOfDaysFunc();
+	// console.log('nameOfDaysFunc', daysOfWeek)
 	const handlechange = () => {
 		setToggle(!toggle);
 	};

@@ -1,18 +1,12 @@
 import styled from 'styled-components';
 
-import {device} from '../../../index.styles';
+import { device } from '../../../index.styles';
 
 const WeekBlock = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	min-width: 300px;
-	/* @media ${device.tablet} {
-		margin: auto;
-	}
-	@media ${device.tablet} {
-		margin-bottom: 20px;
-	} */
 `;
 
 const TextLabel = styled.span`

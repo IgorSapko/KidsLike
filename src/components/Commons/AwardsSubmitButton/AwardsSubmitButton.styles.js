@@ -18,3 +18,19 @@ export const AwardsSubmitBtn = styled.button`
     letter-spacing: 0.02em;
     color: #FAFAFA;
 `;
+
+export const NotificationDiv = styled.div`
+	position: absolute;
+    width:400px;
+    height:300px;
+	top: 480px;
+	left: 40px;
+	color: red;
+    background-color:white;
+	font-family: 'MontserratRegular';
+	font-style: normal;
+	font-weight: normal;
+	font-size: 10px;
+	line-height: 12px;
+	letter-spacing: 0.04em;
+`;

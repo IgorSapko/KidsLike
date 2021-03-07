@@ -3,7 +3,7 @@ import axios from 'axios';
 //Redux
 import weekActions from './weekActions';
 import errorActions from '../error/errorActions';
-import authActions from '../auth/authActions'
+import authActions from '../auth/authActions';
 
 axios.defaults.baseURL = 'https://kids-like-backend-cloud.herokuapp.com/';
 
@@ -48,9 +48,8 @@ const taskActiveSwitcher = (taskId, daysArr) => dispatch => {
 		.then(({ data }) => {
 			dispatch(weekActions.taskActiveSwitcherSuccess(data));
 		})
-		.catch(error => dispatch(errorActions.taskActiveSwitcherFailure(error)));
+		.catch(error => {console.log('err', error); dispatch(errorActions.taskActiveSwitcherFailure(error))});
 };
-
 
 const createCustomTask = formData => dispatch => {
 	dispatch(weekActions.createCustomTaskRequest());
@@ -64,5 +63,29 @@ const createCustomTask = formData => dispatch => {
 		.catch(error => dispatch(weekActions.createCustomTaskError(error)));
 };
 
+const giftsGetting = () => async dispatch => {
+	dispatch(weekActions.giftsGettingRequest());
+	try {
+		const { data } = await axios.get(`https://kids-like-backend-cloud.herokuapp.com/api/gift`);
+		console.log('data', data);
+		dispatch(weekActions.giftsGettingSuccess(data));
+	} catch (error) {
+		dispatch(errorActions.giftsGettingFialure(error));
+	}
+};
 
-export default { taskSwitcher, taskActiveSwitcher, createCustomTask };
+const giftsOrder = giftId => async dispatch => {
+	dispatch(weekActions.giftsOrderRequest());
+	try {
+		const { data } = await axios.patch(
+			`https://kids-like-backend-cloud.herokuapp.com/api/gift`,
+			giftId,
+		);
+		console.log('data', data);
+		// dispatch(weekActions.giftsOrderSuccess(data));
+	} catch (error) {
+		dispatch(errorActions.giftsOrderFialure(error));
+	}
+};
+
+export default { taskSwitcher, taskActiveSwitcher, createCustomTask, giftsGetting, giftsOrder };

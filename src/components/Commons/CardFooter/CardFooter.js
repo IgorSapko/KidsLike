@@ -1,17 +1,15 @@
 import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-//styles
+import CardTitle from '../CardTitle/CardTitle';
+import PointAmount from '../PointAmount/PointAmount';
+import TaskToggle from '../TaskToggle/TaskToggle';
+import SelectDays from '../SelectDays/SelectDays';
 import {
 	BlockPeopleTask_item_inform,
 	BlockPeopleTask_item_text,
 	DoneTask,
 	NotDoneTask,
-} from './CardFooter.module.js';
-import CardTitle from '../CardTitle/CardTitle';
-import PointAmount from '../PointAmount/PointAmount';
-//toggle button
-import TaskToggle from '../TaskToggle/TaskToggle';
-import SelectDays from '../SelectDays/SelectDays';
+} from './CardFooter.styles.js';
 
 export default function CardFooter({ item, currentDay, today, summNumber }) {
 	const startWeekDay = useSelector(state => state.week.startWeekDate);

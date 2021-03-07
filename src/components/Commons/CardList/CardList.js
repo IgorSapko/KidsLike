@@ -1,14 +1,12 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import weekSelector from '../../../redux/week/weekSelectors';
-
-//styles
-import { BlockPeopleTask } from './CardList.module';
+import selector from '../../../redux/selectors';
 import Card from '../Card/Card';
+import { BlockPeopleTask } from './CardList.styles';
 
 function CardList({ currentDay }) {
-	const tasks = useSelector(weekSelector.getTasks);
+	const tasks = useSelector(selector.getTasks);
 	let history = useHistory();
 
 	return (
@@ -19,7 +17,7 @@ function CardList({ currentDay }) {
 							return <Card key={task.title} item={task} currentDay={currentDay} />;
 						}
 				  })
-				: ( tasks.map(task => <Card key={task.title} item={task} currentDay={currentDay} />))}
+				: tasks.map(task => <Card key={task.title} item={task} currentDay={currentDay} />)}
 			)
 		</BlockPeopleTask>
 	);
