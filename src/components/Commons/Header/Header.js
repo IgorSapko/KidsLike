@@ -12,12 +12,12 @@ import {
 	MobileMenuText,
 	MobileMenuLogo,
 } from './Header.styles.js';
-
+import Navigation from '../Navigation/Navigation'
 import { Menu } from './LogoSvg';
 import { Logo } from '../Logo/Logo';
 
 const Header = () => {
-	const [menumob, setMenumob] = useState(false);
+	
 
 	return (
 		<HeaderBlock>
@@ -27,33 +27,7 @@ const Header = () => {
 					<Logo />
 				</HeaderLogo>
 			</NavLink>
-			<MobileMenu>
-				<MobileMenuLogo onClick={() => setMenumob(!menumob)}>
-					<Menu />
-				</MobileMenuLogo>
-
-				{menumob && (
-					<MobileMenuText>
-						<NavLink style={{ textDecoration: 'none' }} to="/auth">
-							<LinkHeaderInform>Авторизация</LinkHeaderInform>
-						</NavLink>
-
-						<NavLink style={{ textDecoration: 'none' }} to="/contacts">
-							<LinkHeaderInform>Контакты</LinkHeaderInform>
-						</NavLink>
-					</MobileMenuText>
-				)}
-			</MobileMenu>
-
-			<HeaderInformUl>
-				<NavLink style={{ textDecoration: 'none' }} to="/auth">
-					<LinkHeaderInform rightPad>Авторизация</LinkHeaderInform>
-				</NavLink>
-
-				<NavLink style={{ textDecoration: 'none' }} to="/contacts">
-					<LinkHeaderInform leftPad>Контакты</LinkHeaderInform>
-				</NavLink>
-			</HeaderInformUl>
+		<Navigation/>
 		</HeaderBlock>
 	);
 };

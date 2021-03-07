@@ -112,7 +112,7 @@ const GlobalStyle = createGlobalStyle`
 /* .mainBackgroundColor2 {background-color:#FFBC33} */
 
 `;
-const size = {
+export const size = {
 	mobile: '320px',
 	tablet: '768px',
 	desktop: '1280px',

@@ -11,22 +11,18 @@ const ContainerAuth = styled.div`
 	display: flex;
 	
 
-	@media ${device.mobile}{
-		max-width:768px;
-// width: 768px;
+
 height:890px;
 margin-top:72px;
 flex-direction: column;
 flex-wrap: wrap;
 justify-content: center;
-// margin:0 auto;
+
 align-items: space-between;
-	}
+	
 
 
 	@media ${device.tablet}{
-max-width:1280px;
-// width: 768px;
 height:890px;
 margin-top:72px;
 flex-direction: row;
@@ -37,7 +33,6 @@ align-items: space-between;
 	}
 
 	@media ${device.desktop}{
-		width: 1280px;
 		height:890px;
 		flex:direction: row;
 		flex-wrap: none;

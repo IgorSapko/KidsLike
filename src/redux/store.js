@@ -28,8 +28,6 @@ export const store = configureStore({
 
 		auth: persistReducer(authPersistConfig, authRootReducer),
 		week: weekReducer,
-
-        planning: planningReducer,
 		// contacts:contactsReducer,
 
 		error: errorReducer,

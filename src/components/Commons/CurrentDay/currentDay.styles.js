@@ -1,18 +1,21 @@
 import styled from 'styled-components';
 import { device } from '../../../index.styles';
 
-const LeftSide = styled.div``;
+const LeftSide = styled.div`
+	display: block;
+`;
 
 const Container = styled.div`
-	@madia ${device.desktop} {
-		display: flex;
-		justify-content: space-between;
-		width: 1080px;
-	}
+	display: flex;
+	justify-content: space-between;
+	width: 880px;
+	height: 70px;
+	margin-left: 110px;
+	margin-top: 40px;
 `;
 
 const ProgressDiv = styled.div`
-	width: 150px;
+	width: 280px;
 `;
 
 const Points = styled.p`

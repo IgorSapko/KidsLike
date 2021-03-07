@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { PointsBlock, TextLabel, TextLabelPoints, PointsLabel } from './planningPoints.styles';
 
 const PlanningPoints = ({points}) => {

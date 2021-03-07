@@ -86,7 +86,7 @@ const userSignIn = credential => async dispatch => {
 const userSighOut = () => async dispatch => {
 	dispatch(authActions.userSighOutRequest());
 	try {
-		await axios.delete('/api/auth/sign-out');
+		await axios.post('/api/auth/sign-out');
 
 		token.unset();
 		dispatch(authActions.userSighOutSuccess());
@@ -116,10 +116,6 @@ const getCurrentUser = () => async (dispatch, getState) => {
 	} catch (error) {
 		dispatch(errorActions.getCurrentUserFailure(error));
 	}
-	// axios
-	// 	.get('/api/user/current')
-	// 	.then(({ data }) => dispatch(authActions.getCurrentUserSuccess(data)))
-	// 	.catch(error => dispatch(errorActions.getCurrentUserFailure(error)));
 };
 
 const userSignInGoogle = accessToken => async dispatch => {

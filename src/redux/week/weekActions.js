@@ -19,12 +19,24 @@ const taskSwitcherSuccess = createAction('week/taskSwitcherSuccess');
 const taskActiveSwitcherRequest = createAction('week/taskActiveSwitcherRequest');
 const taskActiveSwitcherSuccess = createAction('week/taskActiveSwitcherSuccess');
 
+
+const createCustomTaskRequest = createAction('week/createCustomTaskRequest');
+const createCustomTaskSuccess = createAction('week/createCustomTaskSuccess');
+const createCustomTaskError = createAction('week/createCustomTaskError');
+
+const giftsRequest = createAction('week/giftsSwitcherRequest');
+const giftsSuccess = createAction('week/giftsSwitcherSuccess');
+const giftsFialure = createAction('week/giftsSwitcherSuccess');
+
 export default {
     taskSwitcherRequest,
     taskSwitcherSuccess,
     // taskSwitcherFailure,
 	taskActiveSwitcherRequest,
-	taskActiveSwitcherSuccess
+	taskActiveSwitcherSuccess,
 
 
+     createCustomTaskRequest,
+     createCustomTaskSuccess,
+     createCustomTaskError ,
 };

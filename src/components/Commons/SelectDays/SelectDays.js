@@ -28,7 +28,7 @@ export default function SelectDays({ item }) {
 
 		setCheckedTasks([...arrDays]);
 	};
-
+	// console.log('item', item);
 	return (
 		<>
 			{!toggle ? (
@@ -40,7 +40,10 @@ export default function SelectDays({ item }) {
 					<div>
 						<BlockAddSwitch
 							onClick={() => (
-								handlechange(), dispatch(weekOperation.taskActiveSwitcher(item._id, checkedTasks))
+								handlechange(),
+								dispatch(
+									weekOperation.taskActiveSwitcher(item._id ? item._id : item.id, checkedTasks),
+								)
 							)}
 						>
 							OK

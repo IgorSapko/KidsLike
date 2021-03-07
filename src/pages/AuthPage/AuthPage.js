@@ -20,7 +20,7 @@ import AuthForm from '../../components/Commons/AuthForm/AuthForm';
 const AuthPage = () => {
 	return (
 		<>
-			<Header />
+			{/* <Header /> */}
 		
 		<ContainerAuth>
 			<ImagesContainer>

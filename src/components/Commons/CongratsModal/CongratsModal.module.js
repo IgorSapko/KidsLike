@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const AwardsSubmitData = styled.button`
+export const AwardsSubmitButton = styled.button`
     display:flex;
     justify-content: center;
     margin: 40px auto;
@@ -54,7 +54,7 @@ export const BtnClose = styled.img`
     top: 20px;
     }
 `
-export const  CongratsModal = styled.div`
+export const  CongratsModalWrapper = styled.div`
     position: relative;
     background: white;
     display: flex;
@@ -109,4 +109,19 @@ export const ChosenPrise_name = styled.h2`
     letter-spacing: 0.04em;
     text-transform: uppercase;
     color: #000000;
+`
+
+export const ModalWrapper = styled.div`
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%) }
+`
+
+export const WrapperApasity = styled.div`
+position: absolute;
+height: 100vh;
+width: 100vw;
+background: rgba(0, 0, 0, 0.2);
 `

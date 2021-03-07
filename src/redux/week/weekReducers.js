@@ -12,40 +12,53 @@ const weekReducer = createReducer(null, {
 	[authActions.userSignInSuccess]: (state, { payload }) => payload.week,
 
 	[weekActions.taskSwitcherSuccess]: (state, { payload }) => {
+		console.log('payload', payload);
+
 		const tasksArr = [...current(state).tasks];
 		let currentTask;
-		const arrWithoutCurrentTask = [];
+		const newTotalArr = [];
 		tasksArr.forEach(task => {
 			if (task._id === payload.updatedTask.id) {
 				currentTask = { ...task };
 				currentTask.days = [...payload.updatedTask.days];
+				newTotalArr.push(currentTask);
 				return;
 			} else {
-				return arrWithoutCurrentTask.push(task);
+				return newTotalArr.push(task);
 			}
 		});
-		return { ...current(state), tasks: [...arrWithoutCurrentTask, currentTask] };
+		return {
+			...current(state),
+			tasks: [...newTotalArr],
+			pointsGained: payload.updatedWeekGainedPoints,
+		};
 	},
 
 	[weekActions.taskActiveSwitcherSuccess]: (state, { payload }) => {
 		const tasksArr = [...current(state).tasks];
 		let currentTask;
-		const arrWithoutCurrentTask = [];
+		const newTotalArr = [];
 		tasksArr.forEach(task => {
 			if (task._id === payload.updatedTask.id) {
 				currentTask = { ...task };
 				currentTask.days = [...payload.updatedTask.days];
+				newTotalArr.push(currentTask);
 				return;
 			} else {
-				return arrWithoutCurrentTask.push(task);
+				return newTotalArr.push(task);
 			}
 		});
-		return { ...current(state), tasks: [currentTask, ...arrWithoutCurrentTask] };
+		return {
+			...current(state),
+			tasks: [...newTotalArr],
+			pointsPlanned: payload.updatedWeekPlannedPoints,
+		};
+	},
+
+	[weekActions.createCustomTaskSuccess]: (state, { payload }) => {
+		return { ...current(state), tasks: [...state.tasks, payload] };
 	},
 });
-
-
-
 
 // //Items initial state
 // const initialItemsState = [];

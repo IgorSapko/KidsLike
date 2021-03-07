@@ -32,7 +32,7 @@ export default function Contacts() {
 	console.log(contacts);
 	return (
 		<>
-			<Header />
+			{/* <Header /> */}
 			<Container>
 				<MainText>
 					<OurTeam>Наша команда</OurTeam>
@@ -41,7 +41,7 @@ export default function Contacts() {
 				<CardWrapper>
 					{contacts.map(item => {
 						return (
-							<Cards>
+							<Cards key={item.socialLinks[0].link}>
 								<Photo src={item.avatar}></Photo>
 
 								<Name>{item.fullName}</Name>

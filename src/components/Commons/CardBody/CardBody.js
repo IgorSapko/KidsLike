@@ -1,10 +1,10 @@
 //styles
-import { BlockPeopleTask_item_img } from './CardBody.module';
+import { BlockPeopleTask_item_img, TaskImg } from './CardBody.module';
 
 export default function CardBody({ item }) {
 	return (
 		<BlockPeopleTask_item_img>
-			<img src={item.imageUrl } />
+			<TaskImg src={item.imageUrl} />
 		</BlockPeopleTask_item_img>
 	);
 }
