@@ -36,7 +36,7 @@ const Input = styled.input`
 	font-size: 14px;
 	line-height: 17px;
 	letter-spacing: 0.04em;
-	width: 320px;
+	width: 100%;
 	height: 42px;
 	background-color: #f6f7fb;
 	box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.15);
@@ -107,7 +107,7 @@ const Button = styled.button`
 const ButtonContainer = styled.div`
 	display: flex;
 	justify-content: space-between;
-	width: 320px;
+	width: 100%;
 	margin-top: 23px;
 
 	@madia ${device.tablet} {
@@ -182,7 +182,7 @@ const P = styled.p`
 
 const NotificationDiv = styled.div`
 	position: absolute;
-	top: 480px;
+	top: 485px;
 	left: 40px;
 	color: red;
 	font-family: 'MontserratRegular';
@@ -195,7 +195,7 @@ const NotificationDiv = styled.div`
 
 const NotificationDivEmail = styled.div`
 	position: absolute;
-	top: 380px;
+	top: 385px;
 	left: 40px;
 	color: red;
 	font-family: 'MontserratRegular';

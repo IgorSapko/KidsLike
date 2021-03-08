@@ -11,6 +11,7 @@ import {
 	MobileMenu,
 	MobileMenuText,
 	MobileMenuLogo,
+	HeaderContainer,
 } from './Header.styles.js';
 
 import { Menu } from './LogoSvg';

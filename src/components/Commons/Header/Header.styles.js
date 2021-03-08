@@ -1,11 +1,27 @@
 import styled, { css } from 'styled-components';
+import { device } from '../../../index.styles';
+
+// export const HeaderContainer = styled.div`
+// 	display: block;
+// 	width: 100%;
+// `;
 
 export const HeaderBlock = styled.div`
 	margin: 0 auto;
-	max-width: 1280px;
-	padding: 21px 0;
+	width: 100%;
+	padding: 21px 20px;
 	display: flex;
 	justify-content: space-between;
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+
+	@madia ${device.tablet} {
+		width: 580px;
+		padding: 21px 90px;
+	}
+	@madia ${device.desktop} {
+		width: 1280px;
+		padding: 21px 50px;
+	}
 `;
 
 export const HeaderLogo = styled.div`

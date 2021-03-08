@@ -161,6 +161,7 @@ const ImgAuth2 = styled.div`
 	display: block;
 	width: 320px;
 	height: 264px;
+	margin-left: 10px;
 
 	@media ${device.mobile} {
 		display: block;
