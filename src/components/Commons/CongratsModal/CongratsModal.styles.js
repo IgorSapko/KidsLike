@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { device } from '../../../index.styles';
 
 export const AwardsSubmitButton = styled.button`
 	display: flex;
@@ -38,7 +39,7 @@ export const Congrats = styled.h2`
 	font-size: 30px;
 	line-height: 37px;
 	text-align: center;
-	@media (min-width: 768px) {
+	@media ${device.tablet} {
 		width: 504px;
 		height: 36px;
 	}
@@ -49,7 +50,7 @@ export const BtnClose = styled.img`
 	top: 10px;
 	width: 14px;
 	height: 14px;
-	@media (min-width: 768px) {
+	@media ${device.tablet} {
 		right: 20px;
 		top: 20px;
 	}
@@ -66,7 +67,7 @@ export const CongratsModalWrapper = styled.div`
 	inset: 0px;
 	border: none;
 	border-radius: 6px;
-	@media (min-width: 768px) {
+	@media ${device.tablet} {
 		width: 602px;
 		height: 390px;
 	}
@@ -79,9 +80,6 @@ export const PrizesWrapper = styled.div`
 	margin-top: 202px;
 	width: 504px;
 	height: 135px;
-	// @media (min-width: 768px) {
-	//     flex-direction: row;
-	//     }
 `;
 export const PrizesWrapper_block = styled.div`
 	display: flex;

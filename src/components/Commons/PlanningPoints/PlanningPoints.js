@@ -9,7 +9,7 @@ const PlanningPoints = ({points}) => {
 				<TextLabelPoints>баллов</TextLabelPoints>
 			</PointsBlock>
 		);
-};
+}
 export default PlanningPoints
 
 

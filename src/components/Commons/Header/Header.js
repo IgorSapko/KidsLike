@@ -1,19 +1,12 @@
-import React, { useState } from 'react';
-
+import React from 'react';
 import { NavLink } from 'react-router-dom';
-//style
 import {
 	HeaderBlock,
 	HeaderLogo,
 	HeaderLogoText,
-	HeaderInformUl,
-	LinkHeaderInform,
-	MobileMenu,
-	MobileMenuText,
-	MobileMenuLogo,
+
 } from './Header.styles.js';
 import Navigation from '../Navigation/Navigation'
-import { Menu } from './LogoSvg';
 import { Logo } from '../Logo/Logo';
 
 const Header = () => {

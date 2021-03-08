@@ -30,7 +30,7 @@ export default function SelectDays({ item }) {
 
 		setCheckedTasks([...arrDays]);
 	};
-	console.log('item', item);
+	// console.log('item', item);
 	return (
 		<>
 			{!toggle ? (

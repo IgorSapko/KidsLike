@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { DateTime } from 'luxon';
-import { WeekTabContent_container } from '../../../pages/MainPage/MainPage.styles';
+import { WeekTabContentContainer } from '../../../pages/MainPage/MainPage.styles';
 import styles from '../../../pages/MainPage/Helper.module.css';
 import Card from '../../Commons/Card/Card';
 import CurrentDay from '../CurrentDay/CurrentDay';
@@ -34,7 +34,7 @@ export default function WeekTabsContent({ week }) {
 	}
 	todayTasks(daysQuery, tasks);
 	return (
-		<WeekTabContent_container>
+		<WeekTabContentContainer>
 			<CurrentDay thisDay={daysQuery} choosenDay={dayIsChoose} />
 			<div
 				className={
@@ -70,6 +70,6 @@ export default function WeekTabsContent({ week }) {
 					</li>
 				))}
 			</ul>
-		</WeekTabContent_container>
+		</WeekTabContentContainer>
 	);
 }

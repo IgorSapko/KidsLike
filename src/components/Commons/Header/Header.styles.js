@@ -21,7 +21,6 @@ export const HeaderLogoText = styled.h2`
 	font-weight: bold;
 	font-size: 16px;
 	line-height: 20px;
-	/* identical to box height */
 
 	letter-spacing: 0.08em;
 
