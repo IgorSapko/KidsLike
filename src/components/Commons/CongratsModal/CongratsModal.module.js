@@ -54,7 +54,7 @@ export const BtnClose = styled.img`
     top: 20px;
     }
 `
-export const  CongratsModal = styled.div`
+export const  ModalCongrats = styled.div`
     position: relative;
     background: white;
     display: flex;
