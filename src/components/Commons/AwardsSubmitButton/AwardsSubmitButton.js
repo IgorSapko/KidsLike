@@ -6,9 +6,7 @@ import { NotificationContainer } from 'react-notifications';
 export default function AwardsSubmitButton({ itemsAll, handleSwich }) {
 	return (
 		<>
-			
-				<NotificationContainer />
-			
+			<NotificationContainer />
 			<AwardsSubmitBtn
 				onClick={() => {
 					itemsAll.length > 0

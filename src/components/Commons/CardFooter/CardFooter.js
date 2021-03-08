@@ -19,13 +19,7 @@ export default function CardFooter({ item, currentDay, today, summNumber }) {
 		const currentDayDate = currentDay.split('-')[0];
 		dayPositionInWeek = Number(currentDayDate) - Number(startWeekDayDate) + 1;
 	}
-	// console.log('item', item)
-	// console.log('dayPositionInWeek', dayPositionInWeek);
 	let history = useHistory();
-	// console.log('currentDay', currentDay);
-	// console.log('today', today);
-	// console.log('currentDay>today', currentDay > today);
-	// console.log('history.location', history.location)
 	return (
 		<BlockPeopleTask_item_text>
 			<CardTitle item={item} />

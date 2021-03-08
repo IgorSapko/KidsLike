@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import device from '../../../device';
+import {device} from '../../../index.styles';
 
 const PointsBlock = styled.div`
 	display: flex;

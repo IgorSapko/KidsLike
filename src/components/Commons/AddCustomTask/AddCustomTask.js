@@ -1,10 +1,8 @@
 import React from 'react';
-
 import {AddLabel, AddTaskBlock, AddBtn} from './addCustomTask.styles'
 import yellowPlusSvg from '../../../img/yellowPlus.svg';
 
 const AddCustomTask = ({swowModal}) => {
-
 	return (
 		<div>
 			<AddTaskBlock>

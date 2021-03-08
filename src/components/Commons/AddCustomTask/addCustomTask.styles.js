@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-
-import device from '../../../device';
+import {device} from '../../../index.styles';
 
 const AddTaskBlock = styled.div`
 	width: 423px;

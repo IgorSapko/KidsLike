@@ -1,6 +1,6 @@
 import React from 'react';
-
 import { WeekBlock, TextLabel, WeekLabel } from './currentWeek.styles';
+
 const CurrentWeek = ({ week }) => {
 	return (
 		<WeekBlock>

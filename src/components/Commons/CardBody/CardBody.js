@@ -1,5 +1,5 @@
 //styles
-import { BlockPeopleTask_item_img, TaskImg } from './CardBody.module';
+import { BlockPeopleTask_item_img, TaskImg } from './CardBody.styles';
 
 export default function CardBody({ item }) {
 	return (

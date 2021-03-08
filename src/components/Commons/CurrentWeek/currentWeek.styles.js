@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-import { device } from '../../../index.styles';
-
 const WeekBlock = styled.div`
 	display: flex;
 	align-items: center;

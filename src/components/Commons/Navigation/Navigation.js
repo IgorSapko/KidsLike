@@ -1,13 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useLocation } from 'react-router-dom';
-
 import { NavLink } from 'react-router-dom';
-//style
 import {
 	HeaderBlock,
-	HeaderLogo,
-	HeaderLogoText,
 	HeaderInformUl,
 	LinkHeaderInform,
 	MobileMenu,
@@ -21,18 +16,14 @@ import {
 	Headerblockcontact,
 	HeaderblockcontactLogo,
 } from './Navigation.style';
-
 import UserInfo from '../UserInfo/UserInfo';
-
 import { Menu } from '../Header/LogoSvg';
-import { Logo } from '../Logo/Logo';
 import { ExitLogo } from './ExitlogoSvg.js';
 import authOperations from '../../../redux/auth/authOperations';
 
 const Navigation = () => {
 	const [menumob, setMenumob] = useState(false);
 	const { user } = useSelector(state => state.auth);
-	const location = useLocation();
 	const dispatch = useDispatch();
 
 	const handleLogout = () => {
@@ -75,13 +66,7 @@ const Navigation = () => {
 			) : (
 				<>
 					<HeaderBlockLeftBlock>
-						{/* <NavLink style={{ textDecoration: 'none' }} to="/">
-					<HeaderLogo>
-						<HeaderLogoText>KidsLike</HeaderLogoText>
-						<Logo />
-					</HeaderLogo>
-				</NavLink> */}
-
+					{/* <Menu /> */}
 						<HeaderBalance>
 							<HeaderBalanceText>
 								Баланс <br /> баллов

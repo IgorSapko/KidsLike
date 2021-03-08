@@ -2,16 +2,6 @@ import styled from 'styled-components';
 import { device, size } from '../../../index.styles';
 import Fingers from '../../../img/2finger.svg';
 
-// const FooterStyles = styled.div`
-// 	position: fixed;
-// 	right: 0;
-// 	bottom: 40px;
-// 	margin-top: 50px;
-// 	width: calc(100% - 240px);
-// 	color: #858598;
-// 	text-align: end;
-// 	margin-right: 50px;
-// `;
 const FooterStyles = styled.div`
 	height: 50px;
 	width: 100%;
@@ -27,7 +17,7 @@ const FooterStyles = styled.div`
 		justify-content: flex-end;
 	}
 `;
-const Footer_text = styled.p`
+const FooterText = styled.p`
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -46,16 +36,16 @@ const Footer_text = styled.p`
 		margin-right: 50px;
 	}
 `;
-const WeekTabContent_weekInfo_p = styled.p`
-	text-align: center;
-	width: 100%;
-	@media (min-width: ${size.desktop}) {
-		text-align: start;
-		display: block;
-	}
-`;
-const footer_content = styled.div``;
-const Footer_content_KidsLike = styled.span`
+// const WeekTabContent_weekInfo_p = styled.p`
+// 	text-align: center;
+// 	width: 100%;
+// 	@media (min-width: ${size.desktop}) {
+// 		text-align: start;
+// 		display: block;
+// 	}
+// `;
+// const footer_content = styled.div``;
+const FooterContentKidsLike = styled.span`
 	&:after {
 		content: url(${Fingers});
 		width: 8px;
@@ -71,4 +61,4 @@ const HorizLine = styled.span`
 		display: inline;
 	}
 `;
-export { FooterStyles, Footer_text, Footer_content_KidsLike, HorizLine };
+export { FooterStyles, FooterText, FooterContentKidsLike, HorizLine };

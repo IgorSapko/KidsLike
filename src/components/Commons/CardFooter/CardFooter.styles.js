@@ -24,7 +24,6 @@ export const DoneTask = styled.span`
 	}
 `;
 
-
 export const NotDoneTask = styled.span`
 	&:after {
 		content: url(${notDoneTaskSvg});

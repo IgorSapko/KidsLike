@@ -1,23 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import selector from '../../../redux/selectors';
-import { BlockAddSwitch, BlockCheckbox, BlockLabel, BlockInput } from './DaysList.styles';
+import { BlockCheckbox, BlockLabel, BlockInput } from './DaysList.styles';
 import { DateTime } from 'luxon';
+import { daysOfWeek } from '../../../utils/Helpers';
 
 export default function DaysList({ item, getCheckedTasks }) {
 	const [arrDays, setArrDays] = useState([]);
-	console.log('arrDays', arrDays);
 	useEffect(() => {
 		getCheckedTasks(arrDays);
 	}, [arrDays]);
 	const tasks = useSelector(selector.getTasks);
 	const startWeekDate = useSelector(selector.getStartWeekDate);
 	const numberOfDayOfWeekStartWeekDate = startWeekDate.split('-')[0];
-	const daysOfWeek = ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС'];
 	let arrOfDefaultDays;
 	const today = DateTime.local().toFormat('dd');
 	const numberOfDayOfWeekToday = Number(today) - Number(numberOfDayOfWeekStartWeekDate);
-	console.log('numberOfDayOfWeekToday', numberOfDayOfWeekToday);
 	useEffect(() => {
 		arrOfDefaultDays = tasks
 			.find(task => task._id === item._id)
@@ -26,14 +24,12 @@ export default function DaysList({ item, getCheckedTasks }) {
 					return daysOfWeek[ind];
 				} else return false;
 			});
-			console.log('arrOfDefaultDays')
 		setArrDays([...arrOfDefaultDays]);
 	}, []);
 
 	const handleInputChange = (e, item, day, ind) => {
 		if (arrDays[ind] !== day) {
 			const deletedDay = [...arrDays.splice(ind, 1, day)];
-			console.log('newarr arrDays', arrDays);
 			setArrDays(arrDays => [...arrDays]);
 		} else {
 			const setDayFalse = [...arrDays.splice(ind, 1, false)];

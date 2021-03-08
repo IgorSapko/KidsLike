@@ -1,19 +1,19 @@
 import React from 'react';
-import { monthInNumbFunc } from 'utils/Helpers';
 import CurrentWeekRange from '../CurrentWeekRange/CurrentWeekRange';
-import { WeekTabs_container, WeekTabs_weekInfo } from '../../../pages/MainPage/MainPage.styles';
+import { WeekTabsContainer, WeekTabsWeekInfo } from '../../../pages/MainPage/MainPage.styles';
+import { monthInNumbFunc } from 'utils/Helpers';
 
 export default function WeekTabs({ week }) {
 	return (
 		<>
 			<div>
-				<WeekTabs_container>
-					<WeekTabs_weekInfo>
+				<WeekTabsContainer>
+					<WeekTabsWeekInfo>
 						Неделя: {week.startWeekDate.substring(0, 2)} - {week.endWeekDate.substring(0, 2)}{' '}
 						{monthInNumbFunc(week).name}
-					</WeekTabs_weekInfo>
+					</WeekTabsWeekInfo>
 					<CurrentWeekRange />
-				</WeekTabs_container>
+				</WeekTabsContainer>
 			</div>
 		</>
 	);
