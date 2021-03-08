@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { emailValid } from '../../../services/validationFront';
 import notification from '../../../services/notification';
-import { NotificationContainer } from 'react-notifications';
 import authOperations from '../../../redux/auth/authOperations';
+import { CSSTransition } from 'react-transition-group';
+import AlertAnimation from './authanimation.styles.css';
 
 import {
 	Form,
@@ -16,12 +17,16 @@ import {
 	NotificationDiv,
 	GoogleLink,
 	NotificationDivEmail,
+	AnimatedNotiicationEmail,
+	AnimatedNotiicationPassword,
 } from './authForm.styles';
 
 const AuthForm = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [isSubmitting, setIsSubmitting] = useState(false);
+	const [isAlertEmail, setValidEmail] = useState(false);
+	const [isAlertPassword, setValidPassword] = useState(false);
 	const dispatch = useDispatch();
 
 	const handleLogin = event => {
@@ -51,15 +56,9 @@ const AuthForm = () => {
 		} else {
 			switch (true) {
 				case !emailValid(email):
-					return notification({
-						type: 'warning',
-						message: 'это поле обязательное',
-					});
+					return setValidEmail(true);
 				case password.length < 6:
-					return notification({
-						type: 'warning',
-						message: 'это поле обязательное',
-					});
+					return setValidPassword(true);
 
 				default:
 					return;
@@ -87,15 +86,14 @@ const AuthForm = () => {
 						placeholder="your@mail.com"
 						id="email"
 						value={email}
+						onFocus={() => setValidEmail(false)}
 						onChange={e => setEmail(e.target.value)}
 					/>
 				</Label>
 
-				{!emailValid(email) && (
-					<NotificationDivEmail>
-						<NotificationContainer />
-					</NotificationDivEmail>
-				)}
+				<CSSTransition in={isAlertEmail} timeout={500} classNames={AlertAnimation} unmountOnExit>
+					<AnimatedNotiicationEmail>это поле обязательное</AnimatedNotiicationEmail>
+				</CSSTransition>
 
 				<Label htmlFor="password">
 					Password
@@ -104,15 +102,14 @@ const AuthForm = () => {
 						placeholder="password"
 						id="password"
 						value={password}
+						onFocus={() => setValidPassword(false)}
 						onChange={e => setPassword(e.target.value)}
 					/>
 				</Label>
 
-				{password.length < 6 && (
-					<NotificationDiv>
-						<NotificationContainer />
-					</NotificationDiv>
-				)}
+				<CSSTransition in={isAlertPassword} timeout={500} classNames={AlertAnimation} unmountOnExit>
+					<AnimatedNotiicationPassword>это поле обязательное</AnimatedNotiicationPassword>
+				</CSSTransition>
 
 				<ButtonContainer>
 					<Button onClick={handleLogin} id="login" disabled={isSubmitting}>

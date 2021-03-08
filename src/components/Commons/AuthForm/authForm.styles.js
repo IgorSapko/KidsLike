@@ -178,6 +178,7 @@ const P = styled.p`
 	letter-spacing: 0.04em;
 	height:30px;
 	margin-bottom:20px;
+	
 `;
 
 const NotificationDiv = styled.div`
@@ -228,6 +229,34 @@ const GoogleLink = styled.a`
 	}
 `;
 
+const AnimatedNotiicationEmail = styled.p`
+	position: absolute;
+
+	top: 385px;
+	width: auto;
+	font-family: 'MontserratRegular';
+	font-style: normal;
+	font-weight: normal;
+	font-size: 10px;
+	line-height: 12px;
+	letter-spacing: 0.04em;
+	color: #eb5757;
+`;
+
+const AnimatedNotiicationPassword = styled.p`
+	position: absolute;
+	top: 485px;
+
+	width: auto;
+	font-family: 'MontserratRegular';
+	font-style: normal;
+	font-weight: normal;
+	font-size: 10px;
+	line-height: 12px;
+	letter-spacing: 0.04em;
+	color: #eb5757;
+`;
+
 export {
 	Form,
 	Input,
@@ -239,4 +268,6 @@ export {
 	NotificationDiv,
 	GoogleLink,
 	NotificationDivEmail,
+	AnimatedNotiicationEmail,
+	AnimatedNotiicationPassword,
 };
