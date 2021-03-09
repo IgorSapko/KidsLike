@@ -1,23 +1,22 @@
 import React, { Suspense, useEffect } from 'react';
 import { Switch, useLocation } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-
+import { useDispatch, useSelector } from 'react-redux';
 import Header from '../Commons/Header/Header';
 import Footer from '../Commons/Footer/Footer';
 import Loader from '../Commons/Loader/Loader';
-
 import authOperations from 'redux/auth/authOperations';
-
 import routes from 'router';
 import PublicRoute from 'router/PublicRoute';
 import PrivateRoute from 'router/PrivateRoute';
-
+import selectors from '../../redux/selectors'
 import queryString from 'query-string';
 
 const App = () => {
+
 	const dispatch = useDispatch();
 	const location = useLocation();
-
+	const isLoading = useSelector(selectors.getIsLoading)
+	console.log('isLoading',isLoading)
 	useEffect(() => {
 		dispatch(authOperations.getCurrentUser());
 	}, [dispatch]);
@@ -30,8 +29,8 @@ const App = () => {
 		dispatch(authOperations.getCurrentUser());
 	}, []);
 
-	return (
-		<>
+	return (<>{!isLoading?
+			<>
 			<Header />
 			<Suspense fallback={<Loader onLoad={true} />}>
 				<Switch>
@@ -45,7 +44,7 @@ const App = () => {
 				</Switch>
 				<Footer />
 			</Suspense>
-		</>
+		</>:<Loader onLoad={true} />}</>
 	);
 };
 

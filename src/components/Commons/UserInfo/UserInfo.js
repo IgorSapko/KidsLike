@@ -1,12 +1,11 @@
-//Core
 import React from 'react';
 import { useSelector } from 'react-redux';
-
 import {
 	HeaderblockcontactInform,
 	HeaderblockcontactBlockFirstLetter,
 	FirstLetter,
 } from './UserInfo.style';
+
 const UserInfo = () => {
 const 	email = useSelector(state=>state.auth.user.email);
 	return (

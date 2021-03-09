@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios'
+import axios from 'axios';
 import {
 	Container,
 	MainText,
@@ -12,27 +12,25 @@ import {
 	Icons,
 	Photo,
 	IconWrapper,
-	PhotoWrapper,
 } from './ContactsPage.modules';
 import Facebook from './icons/Facebook';
 import GitHub from './icons/GitHub';
 import LinkedIn from './icons/LinkedIn';
-// 
-import Header from '../../components/Commons/Header/Header';
+//
 
 export default function Contacts() {
-     const [contacts, setContacts] = useState([]);
+	const [contacts, setContacts] = useState([]);
 	useEffect(() => {
-			axios
-				.get(`https://kids-like-backend-cloud.herokuapp.com/api/team/contacts`)
-				.then(({ data }) => {setContacts(data)
-				})
-	  },[]);
+		axios
+			.get(`https://kids-like-backend-cloud.herokuapp.com/api/team/contacts`)
+			.then(({ data }) => {
+				setContacts(data);
+			});
+	}, []);
 
 	console.log(contacts);
 	return (
 		<>
-			{/* <Header /> */}
 			<Container>
 				<MainText>
 					<OurTeam>Наша команда</OurTeam>

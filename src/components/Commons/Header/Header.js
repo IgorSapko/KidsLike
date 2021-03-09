@@ -4,7 +4,7 @@ import {
 	HeaderBlock,
 	HeaderLogo,
 	HeaderLogoText,
-
+	NavLinkElem
 } from './Header.styles.js';
 import Navigation from '../Navigation/Navigation'
 import { Logo } from '../Logo/Logo';
@@ -14,12 +14,12 @@ const Header = () => {
 
 	return (
 		<HeaderBlock>
-			<NavLink style={{ textDecoration: 'none' }} to="/">
+			<NavLinkElem  to="/">
 				<HeaderLogo>
 					<HeaderLogoText>KidsLike</HeaderLogoText>
 					<Logo />
 				</HeaderLogo>
-			</NavLink>
+			</NavLinkElem>
 		<Navigation/>
 		</HeaderBlock>
 	);

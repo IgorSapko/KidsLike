@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import {
@@ -15,10 +15,12 @@ import {
 	HeaderBlockRight,
 	Headerblockcontact,
 	HeaderblockcontactLogo,
+	UserInfoWrapper,
+	ExitLogo
 } from './Navigation.style';
 import UserInfo from '../UserInfo/UserInfo';
 import { Menu } from '../Header/LogoSvg';
-import { ExitLogo } from './ExitlogoSvg.js';
+
 import authOperations from '../../../redux/auth/authOperations';
 
 const Navigation = () => {
@@ -95,6 +97,9 @@ const Navigation = () => {
 							<NavLink style={{ textDecoration: 'none' }} to="/contacts">
 								<LinkHeaderInform leftPad>Контакты</LinkHeaderInform>
 							</NavLink>
+							<UserInfo />
+							<ExitLogo onClick={() => handleLogout()}/>
+							
 						</HeaderInformUl>
 
 						<Headerblockcontact>
@@ -102,6 +107,9 @@ const Navigation = () => {
 								<MobileMenuLogo onClick={() => setMenumob(!menumob)}>
 									<Menu />
 								</MobileMenuLogo>
+								<UserInfoWrapper>
+								<UserInfo />
+								</UserInfoWrapper>
 							</MobileMenu>
 							{menumob && (
 								<MobileMenuText>
@@ -121,7 +129,6 @@ const Navigation = () => {
 								</MobileMenuText>
 							)}
 
-							<UserInfo />
 							<HeaderblockcontactLogo onClick={() => handleLogout()}>
 								<ExitLogo />
 							</HeaderblockcontactLogo>
@@ -133,8 +140,5 @@ const Navigation = () => {
 	);
 };
 
-// const mapStateToProps = state => ({
-// 	balance: state.auth.user.balance,
-// });
 
 export default Navigation;

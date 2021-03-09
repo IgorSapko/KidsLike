@@ -60,6 +60,7 @@ const weekReducer = createReducer(null, {
 	[weekActions.giftsGettingSuccess]: (state, { payload }) => {
 		return { ...current(state), gifts: [...payload.gifts] };
 	},
+
 });
 
 export default weekReducer;

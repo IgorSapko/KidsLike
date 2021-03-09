@@ -7,7 +7,6 @@ import PlanningPoints from '../../components/Commons/PlanningPoints/PlanningPoin
 import CurrentWeek from '../../components/Commons/CurrentWeek/CurrentWeek';
 import { PlanningPageBlock, PlanningPageInfo } from './planningPage.styles';
 import weekOperations from '../../redux/week/weekOperation';
-import PropTypes from 'prop-types';
 
 const PlanningPage = () => {
 	const startWeekDay = useSelector(state => state.week.startWeekDate);
@@ -52,8 +51,6 @@ const PlanningPage = () => {
 		</PlanningPageBlock>
 	);
 };
-
-PlanningPage.propTypes = {};
 
 export default PlanningPage;
 

@@ -16,8 +16,6 @@ const getCurrentUserSuccess = createAction('auth/getCurrentUserSuccess');
 const userSignInGoogleRequest = createAction('auth/userSignInGoogleRequest');
 const userSignInGoogleSuccess = createAction('auth/userSignInGoogleSuccess');
 
-const userGetNewBalanceSwitchSuccess = createAction('auth/userGetNewBalanceSwitchSuccess');
-
 const authActions = {
 	userSignUpRequest,
 	userSignUpSuccess,
@@ -29,7 +27,6 @@ const authActions = {
 	getCurrentUserSuccess,
 	userSignInGoogleRequest,
 	userSignInGoogleSuccess,
-	userGetNewBalanceSwitchSuccess
 };
 
 export default authActions;

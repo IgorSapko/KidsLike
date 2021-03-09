@@ -1,23 +1,26 @@
 import React from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { DateTime } from 'luxon';
-import { WeekTabContentContainer } from '../../../pages/MainPage/MainPage.styles';
-import styles from '../../../pages/MainPage/Helper.module.css';
 import Card from '../../Commons/Card/Card';
+import CardList from '../../Commons/CardList/CardList';
 import CurrentDay from '../CurrentDay/CurrentDay';
 import { choosenDay } from 'utils/Helpers';
+import { WeekTabContentContainer } from '../../../pages/MainPage/MainPage.styles';
+import styles from '../../../pages/MainPage/Helper.module.css';
+import { WeekTabContentList, WeekTabContentPlanning } from './WeekTabContent.styles';
 
-export default function WeekTabsContent({ week }) {
+export default function WeekTabsContent({ week }, props) {
 	function useQuery() {
 		return new URLSearchParams(useLocation().search);
 	}
+
 	let query = useQuery();
 	let daysQuery = query.get('day');
 	const tasks = week.tasks;
-	console.log('tasks', tasks)
 	const today = DateTime.local().toFormat('dd-MM-yyyy');
-
 	let dayIsChoose = choosenDay(daysQuery);
+	console.log('today', today)
+
 	function todayTasks(daysQuery, tasks) {
 		const returnedTasks = [];
 		tasks.map(el => {
@@ -33,22 +36,18 @@ export default function WeekTabsContent({ week }) {
 		return returnedTasks;
 	}
 	todayTasks(daysQuery, tasks);
+
 	return (
 		<WeekTabContentContainer>
 			<CurrentDay thisDay={daysQuery} choosenDay={dayIsChoose} />
-			<div
-				className={
-					todayTasks(daysQuery, tasks).length > 0
-						? `${styles.WeekTabContent_none}`
-						: `${styles.WeekTabContent_planning}`
-				}
-			>
-				<p>На этот день задачи нет</p>
-
-				<Link to="/planning" className={styles.WeekTabContent_planning_Link}>
-					Запланировать задачи
-				</Link>
-			</div>
+			{todayTasks(daysQuery, tasks).length < 1 && (
+				<WeekTabContentPlanning>
+					<p>На этот день задачи нет</p>
+					<Link to="/planning" className={styles.WeekTabContent_planning_Link}>
+						Запланировать задачи
+					</Link>
+				</WeekTabContentPlanning>
+			)}
 			<div
 				className={
 					todayTasks(daysQuery, tasks).length > 0
@@ -57,19 +56,9 @@ export default function WeekTabsContent({ week }) {
 				}
 			></div>
 
-			<ul
-				className={
-					todayTasks(daysQuery, tasks).length > 0
-						? `${styles.WeekTabContent_list}`
-						: `${styles.WeekTabContent_none}`
-				}
-			>
-				{todayTasks(daysQuery, tasks).map(el => (
-					<li key={el._id} className={styles.WeekTabContent}>
-						<Card key={el.title} item={el} currentDay={daysQuery} today={today}></Card>
-					</li>
-				))}
-			</ul>
-		</WeekTabContentContainer>
+			<WeekTabContentList>
+				{daysQuery && <CardList currentDay={daysQuery} today={today}></CardList>}
+			</WeekTabContentList>
+				</WeekTabContentContainer>
 	);
 }

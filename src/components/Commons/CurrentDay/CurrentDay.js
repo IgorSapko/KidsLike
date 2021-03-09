@@ -1,6 +1,7 @@
 import React from 'react';
-import ProgressBar from '@ramonak/react-progress-bar';
-import { LeftSide, ProgressDiv, Container, Points, WeekText } from './currentDay.styles';
+// import ProgressBar from '@ramonak/react-progress-bar';
+import ProgressBarComponent from '../ProgressBar/ProgressBar';
+import { LeftSide, Container, Points, WeekText, WeekPointsSpan, PointsContainer } from './currentDay.styles';
 import { useSelector } from 'react-redux';
 import { monthInNumbFunc } from '../../../utils/Helpers';
 
@@ -14,42 +15,33 @@ function CurrentDay({ thisDay, choosenDay }) {
 
 	function progress(points, planned) {
 		return (parseInt(points) / parseInt(planned)) * 100;
-	};
+	}
 
 	return (
-		<div>
+		
 			<Container>
 				<LeftSide>
 					<WeekText>
 						Неделя: {dayStart} - {dayEnd} {monthInNumbFunc(week).name}
 					</WeekText>
 					<Points>
-						Мoи задачи: {choosenDay}, {currentDay}
+						Мoи задачи: <WeekPointsSpan>{choosenDay}, {currentDay}</WeekPointsSpan>
 					</Points>
 				</LeftSide>
 
 				<div>
-					<Points>Заработано баллов за эту неделю:{weekPoints}</Points>
-					<Points>Запланировано баллов на эту неделю:{plan}</Points>
+					<PointsContainer>
+					<Points>Заработано баллов за эту неделю:<WeekPointsSpan>{weekPoints}</WeekPointsSpan></Points>
+					<Points>Запланировано баллов на эту неделю:<WeekPointsSpan>{plan}</WeekPointsSpan></Points>
+					</PointsContainer>
 					<p>
 						{weekPoints}/{plan}
 					</p>
-					<ProgressDiv>
-						{
-							<ProgressBar
-								completed={progress(weekPoints, plan)}
-								bgcolor="#9ECB44"
-								width="280px"
-								height="6px"
-								borderRadius="10px"
-								labelSize="0"
-							/>
-						}
-					</ProgressDiv>
+					<ProgressBarComponent progress={progress} weekPoints={weekPoints} plan={plan} />
 				</div>
 			</Container>
-		</div>
+		
 	);
-};
+}
 
 export default CurrentDay;

@@ -1,8 +1,10 @@
 import styled, { css } from 'styled-components';
+import exitLogo from '../../../img/exitLogo.svg'
 
 export const HeaderBlock = styled.div`
 	margin: 0 auto;
 	max-width: 1280px;
+	width: 100%;
 	padding: 21px 0;
 	display: flex;
 	justify-content: space-between;
@@ -21,10 +23,7 @@ export const HeaderLogoText = styled.h2`
 	font-weight: bold;
 	font-size: 16px;
 	line-height: 20px;
-	/* identical to box height */
-
 	letter-spacing: 0.08em;
-
 	color: #000000;
 `;
 
@@ -34,7 +33,7 @@ export const HeaderInformUl = styled.ul`
 	display: flex;
 	padding-right: 40px;
 
-	@media (max-width: 768px) {
+	@media (max-width: 1280px) {
 		display: none;
 	}
 `;
@@ -68,24 +67,21 @@ export const LinkHeaderInform = styled.li`
 `;
 
 export const MobileMenu = styled.div`
+	display: flex;
 	cursor: pointer;
-	display: none;
 	margin-right: 10px;
 	@media (max-width: 768px) {
+		margin-right: 40px;
 		display: block;
 	}
 `;
-export const MobileMenuText = styled.div`
+
+export const UserInfoWrapper = styled.div`
+	display: flex;
 	@media (max-width: 768px) {
-		position: absolute;
-		right: 95px;
-		top: 50px;
-	}
-	@media (max-width: 320px) {
-		right: 8px;
+		display: none;
 	}
 `;
-export const MobileMenuLogo = styled.div``;
 
 export const HeaderBlockLeftBlock = styled.div`
 	display: flex;
@@ -127,10 +123,31 @@ export const HeaderBlockRight = styled.div`
 `;
 
 export const Headerblockcontact = styled.div`
+	position: relative;
 	display: flex;
 	padding: 0;
 	margin: 0;
 	align-items: center;
+	justify-content: space-between;
+	@media (min-width: 1280px) {
+		display: none;
+	}
+`;
+
+export const MobileMenuText = styled.ul`
+	@media (max-width: 768px) {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		transform:translate(50%,50%);
+		border-color: red;
+	}
+	@media (max-width: 320px) {
+		right: 8px;
+	}
+`;
+export const MobileMenuLogo = styled.div`
+	margin-right: 20px;
 `;
 
 export const HeaderblockcontactLogo = styled.div`
@@ -138,5 +155,15 @@ export const HeaderblockcontactLogo = styled.div`
 	cursor: pointer;
 	@media (max-width: 320px) {
 		display: none;
+	}
+`;
+
+export const ExitLogo = styled.span`
+	&:after {
+		content: url(${exitLogo});
+		width: 8px;
+		height: 12px;
+		margin-left: 6px;
+		margin-left:18px;
 	}
 `;

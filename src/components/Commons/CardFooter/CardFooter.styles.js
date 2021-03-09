@@ -3,6 +3,7 @@ import doneTaskSvg from '../../../img/done.svg';
 import notDoneTaskSvg from '../../../img/notDone.svg';
 
 export const BlockPeopleTask_item_inform = styled.div`
+/* position:relative; */
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -10,6 +11,7 @@ export const BlockPeopleTask_item_inform = styled.div`
 `;
 
 export const BlockPeopleTask_item_text = styled.div`
+position:relative;
 	background: #ffbc33;
 	padding: 0 10px;
 	border-radius: 0px 0px 6px 6px;

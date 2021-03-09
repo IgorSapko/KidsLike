@@ -1,6 +1,10 @@
 import styled, { css } from 'styled-components';
+import { NavLink } from 'react-router-dom';
+
+const activeClassName = 'nav-item-active'
 
 export const HeaderBlock = styled.div`
+position:relative;
 	margin: 0 auto;
 	max-width: 1280px;
 	padding: 21px 0;
@@ -79,3 +83,18 @@ export const MobileMenuText = styled.div`
 	}
 `;
 export const MobileMenuLogo = styled.div``;
+
+export const NavLinkElem = styled(NavLink)`
+display: flex;
+align-items:center;
+  margin-left:40px;
+  text-decoration:none
+`;
+
+// export const NavLinkElem = styled(NavLink).attrs({ activeClassName })`
+//   margin-left:40px;
+//   &.${activeClassName} {
+//     color: red;
+//   }
+// `;
+

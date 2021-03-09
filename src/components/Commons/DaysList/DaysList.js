@@ -7,8 +7,10 @@ import { daysOfWeek } from '../../../utils/Helpers';
 
 export default function DaysList({ item, getCheckedTasks }) {
 	const [arrDays, setArrDays] = useState([]);
+	const [arrDaysDefaults, setarrDaysDefaults] = useState([]);
 	useEffect(() => {
-		getCheckedTasks(arrDays);
+		const isArrDaysTheSame = arrDays.every((item, i) => item === arrDaysDefaults[i]);
+		getCheckedTasks(arrDays, isArrDaysTheSame);
 	}, [arrDays]);
 	const tasks = useSelector(selector.getTasks);
 	const startWeekDate = useSelector(selector.getStartWeekDate);
@@ -25,6 +27,7 @@ export default function DaysList({ item, getCheckedTasks }) {
 				} else return false;
 			});
 		setArrDays([...arrOfDefaultDays]);
+		setarrDaysDefaults([...arrOfDefaultDays]);
 	}, []);
 
 	const handleInputChange = (e, item, day, ind) => {
@@ -41,7 +44,6 @@ export default function DaysList({ item, getCheckedTasks }) {
 			<div>
 				<BlockCheckbox>
 					{daysOfWeek.map((day, ind) => {
-						console.log('arrDays[ind]', arrDays[ind]);
 						return (
 							<BlockLabel key={day}>
 								<BlockInput

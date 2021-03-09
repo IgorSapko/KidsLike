@@ -9,10 +9,7 @@ const ContainerAuth = styled.div`
 	width: 100vw;
 	height: 100vh;
 	display: flex;
-	
-
-
-height:890px;
+	height:890px;
 margin-top:72px;
 flex-direction: column;
 flex-wrap: wrap;
@@ -28,7 +25,6 @@ margin-top:72px;
 flex-direction: row;
 flex-wrap: none;
 justify-content: center;
-// margin:0 auto;
 align-items: space-between;
 	}
 
@@ -36,10 +32,7 @@ align-items: space-between;
 		height:890px;
 		flex:direction: row;
 		flex-wrap: none;
-		// justify-content: center;
-		// margin:0 auto;
-		// align-items: space-between;
-			}
+					}
 `;
 
 const RegContainer = styled.div`

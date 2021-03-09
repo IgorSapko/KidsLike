@@ -1,7 +1,9 @@
-import React, { useRef, useState } from 'react';
-import { NotificationContainer, NotificationManager } from 'react-notifications';
+import React, { Children, useRef, useState } from 'react';
+import ModalBackDrop from '../ModalBackDrop/ModalBackDrop'
+import notification from '../../../services/notification';
+import { NotificationContainer } from 'react-notifications';
 import {
-	Screen,
+	
 	ModalBlock,
 	Header,
 	Image,
@@ -22,7 +24,7 @@ import closeCross from '../../../img/closeCross.svg';
 const NewTaskModal = ({ addTask, closeModal }) => {
 	const [title, setTitle] = useState('');
 	const [reward, setReward] = useState('');
-	const [taskAvatar, setTaskAvatar] = useState("");
+	const [taskAvatar, setTaskAvatar] = useState('');
 
 	const formData = useRef(null);
 
@@ -34,42 +36,41 @@ const NewTaskModal = ({ addTask, closeModal }) => {
 		event.preventDefault();
 		closeModal();
 	};
-    const onImageChange = event => {
-			if (event.target.files && event.target.files[0]) {
-				let reader = new FileReader();
-				reader.onload = e => {
-					setTaskAvatar (e.target.result);
-				};
-				reader.readAsDataURL(event.target.files[0]);
-			}
+	const onImageChange = event => {
+		if (event.target.files && event.target.files[0]) {
+			let reader = new FileReader();
+			reader.onload = e => {
+				setTaskAvatar(e.target.result);
+			};
+			reader.readAsDataURL(event.target.files[0]);
+		}
 	};
-	const createNotification = (messageTitle, message) => {
-		NotificationManager.error(messageTitle, message);
-	}
-	
 
 	const handleSubmit = event => {
 		event.preventDefault();
-		console.log(taskAvatar)
-			if (title !== '' && reward !== '' && Number.isInteger(Number(reward))) {
-				
-				addTask(formData);
-				setTitle('');
-				setReward('');
-				setTaskAvatar("");
-			} else if (title === '' || reward === '') {
-				console.log('FILL IN ALL Fieleds');
-				createNotification('Заполните все поля', "Ошибка")
-			} else if (!Number.isInteger(Number(reward))) {
-				createNotification('Баллы - целое число', 'Ошибка');
-			};
-			
-		
+		if (title !== '' && reward !== '' && Number.isInteger(Number(reward))) {
+			addTask(formData);
+			setTitle('');
+			setReward('');
+			setTaskAvatar('');
+		} else if (title === '' || reward === '') {
+			notification({
+				type: 'warning',
+				message: 'Заполните все поля',
+			});
+		} else if (!Number.isInteger(Number(reward))) {
+			notification({
+				type: 'warning',
+				message: 'Баллы - целое число',
+			});
+		}
 	};
 
 	return (
-		<Screen>
-			<NotificationDiv><NotificationContainer /></NotificationDiv>
+		<ModalBackDrop >
+			<NotificationDiv>
+				<NotificationContainer />
+			</NotificationDiv>
 			<ModalBlock>
 				<Header>
 					<Image src={taskAvatar ? taskAvatar : img} alt="Custom task" />
@@ -113,7 +114,7 @@ const NewTaskModal = ({ addTask, closeModal }) => {
 				</Form>
 			</ModalBlock>
 			{/* <NotificationContainer /> */}
-		</Screen>
+		</ModalBackDrop>
 	);
 };
 

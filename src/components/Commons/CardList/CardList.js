@@ -5,7 +5,7 @@ import selector from '../../../redux/selectors';
 import Card from '../Card/Card';
 import { BlockPeopleTask } from './CardList.styles';
 
-function CardList({ currentDay }) {
+function CardList({ currentDay, today }) {
 	const tasks = useSelector(selector.getTasks);
 	let history = useHistory();
 
@@ -14,11 +14,10 @@ function CardList({ currentDay }) {
 			{history.location.pathname === '/'
 				? tasks.map(task => {
 						if (task.days.find(day => day.date === currentDay).isActive === true) {
-							return <Card key={task.title} item={task} currentDay={currentDay} />;
+							return <Card key={task.title} item={task} currentDay={currentDay} today={today}/>;
 						}
 				  })
-				: tasks.map(task => <Card key={task.title} item={task} currentDay={currentDay} />)}
-			)
+				: tasks.map(task => <Card key={task.title} item={task} currentDay={currentDay} today={today}/>)}
 		</BlockPeopleTask>
 	);
 }

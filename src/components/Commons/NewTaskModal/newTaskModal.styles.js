@@ -1,22 +1,8 @@
 import styled from 'styled-components';
-const Screen = styled.div`
-	height: 100%;
-	width: 100%;
-	background-color: rgba(0, 0, 0, 0.4);
-	position: fixed;
-	top: 0;
-	left: 0;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	transform: scale(1);
-	/* pointer-events:none; */
-	opacity: 1 ;
-	z-index: 500;
-	/* transition: all 0.5s; */
-`;
+
 
 const ModalBlock = styled.div`
+position:absolute;
 	width: 280px;
 	height: 300px;
     margin-left:40px;
@@ -24,6 +10,7 @@ const ModalBlock = styled.div`
 	flex-direction: column;
 	box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.25);
 	border-radius: 6px;
+	/* z-index:10000; */
 `;
 
 const Image = styled.img`
@@ -143,11 +130,7 @@ const NotificationDiv = styled.div`
 	letter-spacing: 0.04em;
 `;
 
-
-
-
 export {
-	Screen,
 	ModalBlock,
 	Header,
 	Image,

@@ -1,9 +1,5 @@
 import styled from 'styled-components';
-
-
-
 import {device} from '../../index.styles';
-
 
 const PlanningPageBlock = styled.div`
 	margin: auto;

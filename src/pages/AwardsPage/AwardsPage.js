@@ -10,11 +10,12 @@ import weekOperation from '../../redux/week/weekOperation'
 export default function AwardsPage() {
 	const gifts = useSelector(selector.getGifts);
 	const dispatch = useDispatch();
+	// const [gifts, setGifts] = useState([]);
 	const [idItems, setidItems] = useState([]);
 	const [itemsAll, setItemsAll] = useState([]);
 	const [open, setOpen] = useState(false);
 	useEffect(() => {dispatch(weekOperation.giftsGetting())}, []);
-
+	
 	const summNumber = (id, checked) => {
 		if (!checked) {
 			setidItems(prev => [...prev, id._id]);

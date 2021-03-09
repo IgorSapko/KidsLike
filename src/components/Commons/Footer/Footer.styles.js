@@ -36,15 +36,6 @@ const FooterText = styled.p`
 		margin-right: 50px;
 	}
 `;
-// const WeekTabContent_weekInfo_p = styled.p`
-// 	text-align: center;
-// 	width: 100%;
-// 	@media (min-width: ${size.desktop}) {
-// 		text-align: start;
-// 		display: block;
-// 	}
-// `;
-// const footer_content = styled.div``;
 const FooterContentKidsLike = styled.span`
 	&:after {
 		content: url(${Fingers});
