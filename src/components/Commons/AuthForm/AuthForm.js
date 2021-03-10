@@ -25,7 +25,6 @@ import {
 const AuthForm = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
-
 	const [isAlertEmail, setValidEmail] = useState(false);
 	const [isAlertPassword, setValidPassword] = useState(false);
 	const dispatch = useDispatch();
@@ -52,23 +51,18 @@ const AuthForm = () => {
 		console.log('str54', emailValid(email), password.length >= 6);
 
 		if (emailValid(email) && password.length >= 6) {
-			console.log('string57');
 			if (event.target.id === 'signup') {
 				dispatch(authOperations.userSignUp(credential));
 			} else if (event.target.id === 'login') {
-				console.log('asdsdfd');
 				dispatch(authOperations.userSignIn(credential));
 			}
-		} else {
-			switch (true) {
-				case !emailValid(email):
-					setValidEmail(true);
-				case password.length < 6:
-					setValidPassword(true);
-
-				default:
-					return;
-			}
+		} else if (!emailValid(email) && password.length < 6) {
+			setValidEmail(true);
+			setValidPassword(true);
+		} else if (!emailValid(email)) {
+			setValidEmail(true);
+		} else if (password.length < 6) {
+			setValidPassword(true);
 		}
 
 		setEmail('');
@@ -96,7 +90,7 @@ const AuthForm = () => {
 				/>
 			</Label>
 
-			<CSSTransition in={isAlertEmail} timeout={500} classNames={AlertAnimation} unmountOnExit>
+			<CSSTransition in={isAlertEmail} timeout={200} classNames={AlertAnimation} unmountOnExit>
 				<AnimatedNotiicationEmail>это поле обязательное</AnimatedNotiicationEmail>
 			</CSSTransition>
 
@@ -112,7 +106,7 @@ const AuthForm = () => {
 				/>
 			</Label>
 
-			<CSSTransition in={isAlertPassword} timeout={500} classNames={AlertAnimation} unmountOnExit>
+			<CSSTransition in={isAlertPassword} timeout={200} classNames={AlertAnimation} unmountOnExit>
 				<AnimatedNotiicationPassword>это поле обязательное</AnimatedNotiicationPassword>
 			</CSSTransition>
 

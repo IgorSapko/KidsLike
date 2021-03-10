@@ -6,6 +6,7 @@ import {
 	ProgressDiv,
 	Container,
 	Points,
+	PointsLeft,
 	WeekText,
 	DayName,
 	PlanPoints,
@@ -91,13 +92,13 @@ function CurrentDay({ thisday }) {
 					<WeekText>
 						Неделя: {dayStart} - {dayEnd} {monthName}
 					</WeekText>
-					<Points>
+					<PointsLeft>
 						Мoи задачи:{' '}
 						<DayName>
 							{' '}
 							{dayName}, {currentDay}
 						</DayName>
-					</Points>
+					</PointsLeft>
 				</LeftSide>
 
 				<ContainerPoints>

@@ -137,7 +137,7 @@ const ImgAuth1 = styled.div`
 		max-width: 1280px;
 		display: block;
 		top: 80px;
-		left: 0;
+		left: 15px;
 		z-index: 1;
 	}
 

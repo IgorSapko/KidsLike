@@ -25,6 +25,7 @@ const FooterStyles = styled.div`
 		position: fixed;
 		right: 0;
 		bottom: 40px;
+		top: 797px;
 		margin-top: 50px;
 		width: calc(100% - 240px);
 		color: #858598;
