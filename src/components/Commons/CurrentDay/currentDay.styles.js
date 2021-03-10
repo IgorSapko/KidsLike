@@ -19,15 +19,16 @@ const Container = styled.div`
 	flex-wrap: wrap-reverse;
 	width: calc(100% - 150px);
 	height: 40px;
-	padding-top: 100px;
+	// padding-top: 100px;
 	@media ${device.desktop} {
 		display: flex;
 		justify-content: space-between;
 		padding-top: 0px;
-		margin-top: 40px;
-		margin-left: 110px;
-		margin-right: 50px;
+		// margin-top: 40px;
+		// margin-left: 110px;
+		// margin-right: 50px;
 		height: 67px;
+		align-items: right;
 	}
 `;
 

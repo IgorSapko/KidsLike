@@ -58,5 +58,4 @@ color: #000000;
 export const ProgressBlock = styled.div`
 width: 349px;
 height: 67px;
-border: 1px solid green;
 `

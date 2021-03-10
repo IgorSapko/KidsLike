@@ -32,7 +32,7 @@ export default function AwardsPage() {
 	const handleSwich = async () => {
 		setOpen(open => !open);
 	};
-	// const props = {};
+	
 	return (
 		<div>
 			<TopWrapper>
