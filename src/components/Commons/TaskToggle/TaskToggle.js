@@ -1,33 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-
-//switch togle
+import { useDispatch } from 'react-redux';
 import Switch from 'react-switch';
-//style
-import { UncheckedIconWrapper, CheckedIconWrapper } from './TaskToggle.styles';
-//svg
-import { Unchecked, Checked } from './SvgIconSwitch';
+import { UncheckedIconWrapper, CheckedIconWrapper, CheckedImg, UnCheckedImg } from './TaskToggle.styles';
 import weekOperation from '../../../redux/week/weekOperation';
-// import weekSelector from '../../../redux/week/weekSelectors';
+import checkdSvg from '../../../img/checked.svg';
+import unCheckdSvg from '../../../img/unchecked.svg'
 
-export default function TaskToggle({ item, currentDay }) {
+
+export default function TaskToggle({ item, currentDay, summNumber }) {
 	const [checked, setChecked] = useState(false);
-	// const tasks = useSelector(weekSelector.getTasks);
 	const dispatch = useDispatch();
 
-useEffect(()=>{setChecked(item.days.find(day => day.date === currentDay).isCompleted)},[])
-	
-	console.log('item', item);
-	console.log('currentDay', currentDay);
-	const switchCompleteTask = (number, switcher) => {
-		console.log('number', number);
-		const persitNumber = Number(parseInt(number.reward));
+	useEffect(() => {
+		item.days && setChecked(item.days.find(day => day.date === currentDay).isCompleted);
+	}, [currentDay, item.days]);
 
-		// const switcherNumber = switcher ? removeBall(persitNumber) : addBall(persitNumber);
-
-		// return switcherNumber;
-	};
-	// console.log('Total number', numbers);
 	return (
 		<div>
 			<Switch
@@ -36,19 +23,23 @@ useEffect(()=>{setChecked(item.days.find(day => day.date === currentDay).isCompl
 				offColor="#ff0000"
 				checked={checked}
 				onChange={() => {
-					dispatch(weekOperation.taskSwitcher(item._id, currentDay));
+					item.days
+						? dispatch(weekOperation.taskSwitcher(item._id ? item._id : item.id, currentDay))
+						: summNumber(item, checked);
 					setChecked(!checked);
 				}}
 				height={18}
 				width={40}
 				uncheckedIcon={
 					<UncheckedIconWrapper>
-						<Unchecked />
+						{/* <Unchecked /> */}
+						<UnCheckedImg src={unCheckdSvg}/>
 					</UncheckedIconWrapper>
 				}
 				checkedIcon={
 					<CheckedIconWrapper>
-						<Checked />
+						{/* <Checked /> */}
+						<CheckedImg src={checkdSvg}/>
 					</CheckedIconWrapper>
 				}
 			/>

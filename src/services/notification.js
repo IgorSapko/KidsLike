@@ -4,7 +4,7 @@ const notification = ({
 	type,
 	message = '',
 	title = '',
-	timeOut = 3000,
+	timeOut = 2000,
 	callback = () => {},
 	priority = false,
 }) => {

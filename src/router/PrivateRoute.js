@@ -1,12 +1,9 @@
-//Core
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-//Redux
 import { useSelector } from 'react-redux';
 
 const PrivateRoute = ({ component: Component, ...routeProps }) => {
 	const { user } = useSelector(state => state.auth);
-console.log('user', user)
 	return (
 		<Route
 			{...routeProps}
