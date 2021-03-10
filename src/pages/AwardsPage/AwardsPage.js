@@ -1,21 +1,21 @@
-import { BlockPeopleTask_Awards } from './AwardsPage.module';
-import axios from 'axios';
 import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import Card from '../../components/Commons/Card/Card';
 import AwardsSubmitButton from '../../components/Commons/AwardsSubmitButton/AwardsSubmitButton';
-
 import CongratsModal from '../../components/Commons/CongratsModal/CongratsModal';
+import { BlockPeopleTask_Awards } from './AwardsPage.styles';
+import selector from '../../redux/selectors';
+import weekOperation from '../../redux/week/weekOperation';
 
 export default function AwardsPage() {
-	const [count, setCount] = useState([]);
+	const gifts = useSelector(selector.getGifts);
+	const dispatch = useDispatch();
 	const [idItems, setidItems] = useState([]);
 	const [itemsAll, setItemsAll] = useState([]);
-
+	const [open, setOpen] = useState(false);
 	useEffect(() => {
-		axios.get(`https://kids-like-backend-cloud.herokuapp.com/api/gift`).then(({ data }) => {
-			setCount([...data.gifts]);
-		});
-	}, []);
+		!gifts && dispatch(weekOperation.giftsGetting());
+	}, [gifts]);
 
 	const summNumber = (id, checked) => {
 		if (!checked) {
@@ -27,26 +27,21 @@ export default function AwardsPage() {
 			setItemsAll(itemsAll.filter(idItem => idItem._id !== id._id));
 		}
 	};
-
-	const [open, setOpen] = useState(false);
-
-	const handleSwich = () => {
-		setOpen(!open);
-
+	console.log('open', open);
+	const handleSwich = async () => {
+		setOpen(open => !open);
 	};
 
 	return (
-		count && (
-			<div>
-				<BlockPeopleTask_Awards>
-					{count.map(item => {
+		<div>
+			<BlockPeopleTask_Awards>
+				{gifts &&
+					gifts.map(item => {
 						return <Card key={item._id} summNumber={summNumber} item={item} />;
 					})}
-				</BlockPeopleTask_Awards>
-				<AwardsSubmitButton idItems={idItems} itemsAll={itemsAll} handleSwich={handleSwich} />
-				{open&&
-				<CongratsModal itemsAll={itemsAll} idItems={idItems} />}
-			</div>
-		)
+			</BlockPeopleTask_Awards>
+			<AwardsSubmitButton itemsAll={itemsAll} handleSwich={handleSwich} />
+			{open && <CongratsModal itemsAll={itemsAll} idItems={idItems} setOpen={setOpen} />}
+		</div>
 	);
 }

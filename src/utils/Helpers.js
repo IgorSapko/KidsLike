@@ -1,6 +1,8 @@
 import { DateTime } from 'luxon';
+import { useLocation } from 'react-router-dom';
 
 const startWeek = DateTime.local().startOf('week');
+export const daysOfWeek = ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС'];
 const nameOfdays = [
 	{ full: 'Понедельник', short: 'Пн', date: null },
 	{ full: 'Вторник', short: 'Вт', date: null },
@@ -41,4 +43,28 @@ export function monthInNumbFunc(week) {
 		if (el.num === week.startWeekDate.substring(3, 5)) return el.name;
 	});
 	return thisMontht;
+}
+export function todayIs() {
+	const today = DateTime.local().toFormat('dd-MM-yyyy');
+	return `/?day=${today}`;
+}
+
+function useQuery() {
+	return new URLSearchParams(useLocation().search);
+}
+export function todayTasks(tasks) {
+	let query = useQuery();
+	let daysQuery = query.get('day');
+	const returnedTasks = [];
+	tasks.map(el => {
+		const activeTask = el.days.filter(el => {
+			return el.isActive === true && el.date === daysQuery;
+		});
+
+		if (activeTask.length === 1) {
+			returnedTasks.push(el);
+			return el;
+		}
+	});
+	return returnedTasks;
 }

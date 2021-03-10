@@ -1,22 +1,8 @@
 import styled from 'styled-components';
-const Screen = styled.div`
-	height: 100%;
-	width: 100%;
-	background-color: rgba(0, 0, 0, 0.4);
-	position: fixed;
-	top: 0;
-	left: 0;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	transform: scale(1);
-	/* pointer-events:none; */
-	opacity: 1 ;
-	z-index: 500;
-	/* transition: all 0.5s; */
-`;
+
 
 const ModalBlock = styled.div`
+position:absolute;
 	width: 280px;
 	height: 300px;
     margin-left:40px;
@@ -24,11 +10,14 @@ const ModalBlock = styled.div`
 	flex-direction: column;
 	box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.25);
 	border-radius: 6px;
+	/* z-index:10000; */
 `;
 
 const Image = styled.img`
-	height: 100px;
-    padding-left: 30px;
+	border-radius: 6px 6px 0px 0px;
+	max-height: 100%;
+	max-width:100%;
+	margin: auto;
 	background-color: #ffff;
 `;
 const Header = styled.div`
@@ -120,7 +109,7 @@ const CloseBtn = styled.button`
 	cursor: pointer;
 	position: relative;
 	top: -50px;
-	left: 23px;
+	left: -13px;
 	:active,
 	:hover,
 	:focus {
@@ -128,8 +117,29 @@ const CloseBtn = styled.button`
 		outline-offset: 0;
 	}
 `;
+const NotificationDiv = styled.div`
+	position: absolute;
+	top: 47vh;
+	left: 45vw;
+	color: red;
+	font-family: 'MontserratRegular';
+	font-style: normal;
+	font-weight: normal;
+	font-size: 10px;
+	line-height: 12px;
+	letter-spacing: 0.04em;
+`;
 
-
-
-
-export { Screen, ModalBlock, Header, Image, Form, LabelDiv, TextInput, FileInputBlock, FileInput, Button, CloseBtn };
+export {
+	ModalBlock,
+	Header,
+	Image,
+	Form,
+	LabelDiv,
+	TextInput,
+	FileInputBlock,
+	FileInput,
+	Button,
+	CloseBtn,
+	NotificationDiv,
+};

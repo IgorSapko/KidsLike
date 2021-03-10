@@ -1,13 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useLocation } from 'react-router-dom';
-
 import { NavLink } from 'react-router-dom';
-//style
 import {
 	HeaderBlock,
-	HeaderLogo,
-	HeaderLogoText,
 	HeaderInformUl,
 	LinkHeaderInform,
 	MobileMenu,
@@ -20,33 +15,33 @@ import {
 	HeaderBlockRight,
 	Headerblockcontact,
 	HeaderblockcontactLogo,
+	UserInfoWrapper,
+	ExitLogo,
+	MenuImg,
 } from './Navigation.style';
-
 import UserInfo from '../UserInfo/UserInfo';
-
-import { Menu } from '../Header/LogoSvg';
-import { Logo } from '../Logo/Logo';
-import { ExitLogo } from './ExitlogoSvg.js';
+// import { Menu } from '../Header/LogoSvg';
+import menu from '../../../img/menu.svg';
 import authOperations from '../../../redux/auth/authOperations';
+import { todayIs } from 'utils/Helpers';
 
 const Navigation = () => {
 	const [menumob, setMenumob] = useState(false);
 	const { user } = useSelector(state => state.auth);
-	const location = useLocation();
 	const dispatch = useDispatch();
 
 	const handleLogout = () => {
 		dispatch(authOperations.userSighOut());
 	};
-	
+
 	return (
 		<HeaderBlock>
-			{!user? (
+			{!user ? (
 				<>
 					<MobileMenu>
 						<>
 							<MobileMenuLogo onClick={() => setMenumob(!menumob)}>
-								<Menu />
+								<MenuImg src={menu} />
 							</MobileMenuLogo>
 
 							{menumob && (
@@ -75,13 +70,7 @@ const Navigation = () => {
 			) : (
 				<>
 					<HeaderBlockLeftBlock>
-						{/* <NavLink style={{ textDecoration: 'none' }} to="/">
-					<HeaderLogo>
-						<HeaderLogoText>KidsLike</HeaderLogoText>
-						<Logo />
-					</HeaderLogo>
-				</NavLink> */}
-
+						{/* <Menu /> */}
 						<HeaderBalance>
 							<HeaderBalanceText>
 								Баланс <br /> баллов
@@ -93,7 +82,7 @@ const Navigation = () => {
 
 					<HeaderBlockRight>
 						<HeaderInformUl>
-							<NavLink style={{ textDecoration: 'none' }} to="/">
+							<NavLink style={{ textDecoration: 'none' }} to={todayIs()}>
 								<LinkHeaderInform rightPad>Главная</LinkHeaderInform>
 							</NavLink>
 
@@ -110,13 +99,18 @@ const Navigation = () => {
 							<NavLink style={{ textDecoration: 'none' }} to="/contacts">
 								<LinkHeaderInform leftPad>Контакты</LinkHeaderInform>
 							</NavLink>
+							<UserInfo />
+							<ExitLogo onClick={() => handleLogout()} />
 						</HeaderInformUl>
 
 						<Headerblockcontact>
 							<MobileMenu>
 								<MobileMenuLogo onClick={() => setMenumob(!menumob)}>
-									<Menu />
+									<MenuImg src={menu} />
 								</MobileMenuLogo>
+								<UserInfoWrapper>
+									<UserInfo />
+								</UserInfoWrapper>
 							</MobileMenu>
 							{menumob && (
 								<MobileMenuText>
@@ -136,7 +130,6 @@ const Navigation = () => {
 								</MobileMenuText>
 							)}
 
-							<UserInfo />
 							<HeaderblockcontactLogo onClick={() => handleLogout()}>
 								<ExitLogo />
 							</HeaderblockcontactLogo>
@@ -147,9 +140,5 @@ const Navigation = () => {
 		</HeaderBlock>
 	);
 };
-
-// const mapStateToProps = state => ({
-// 	balance: state.auth.user.balance,
-// });
 
 export default Navigation;

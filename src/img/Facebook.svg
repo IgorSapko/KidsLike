@@ -1,6 +1,4 @@
-const Facebook = () => {
-    return (
-        <svg role="img" 
+<svg role="img" 
         xmlns="http://www.w3.org/2000/svg" 
         viewBox="0 0 24 24">
         <title>Facebook icon</title>
@@ -13,6 +11,3 @@ const Facebook = () => {
          23.027 24 18.062 24 12.073z"/>
          </g>
          </svg>
-    );
-  };
-  export default Facebook;

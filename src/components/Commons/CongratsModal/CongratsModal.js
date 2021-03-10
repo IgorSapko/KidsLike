@@ -1,151 +1,55 @@
-import React, {useState} from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import {
+	ModalWrapper,
+	ImgCat,
+	Congrats,
+	BtnClose,
+	ModalCongrats,
+	PrizesWrapper,
+	PrizesWrapper_block,
+	ChosenPrise,
+	ChosenPrise_name,
+} from './CongratsModal.styles';
+import ModalBackDrop from '../ModalBackDrop/ModalBackDrop';
+import weekOperation from '../../../redux/week/weekOperation';
 
-// https://material-ui.com/ru/getting-started/installation/
-import Modal from '@material-ui/core/Modal';
+function CongratsModal({ idItems, itemsAll, setOpen }) {
+	const [showModal, setShowModal] = useState(true);
+	const dispatch = useDispatch();
 
-import { 
-   
-  ImgCat, 
-  Congrats, 
-  BtnClose, 
-  CongratsModalWrapper, 
-  PrizesWrapper,
-  PrizesWrapper_block,
-  ChosenPrise,
-  ChosenPrise_name } from './CongratsModal.module';
+	const closeModal = () => {
+		const giftId = {
+			giftIDs: idItems,
+		};
+		setOpen(false);
+		setShowModal(showModal => !showModal);
+		if (showModal) {
+			dispatch(weekOperation.giftsOrder(giftId));
+		}
+	};
 
-
-export default function CongratsModal({idItems,itemsAll}) {
-  const [open, setOpen] = useState(true);
-
-  const handleSwich= () => {
-    setOpen(!open)
-
-const giftId = {
-  "giftIDs": idItems
-}
-console.log(giftId)
-
-
-    if(open){
-      axios
-      .patch(`https://kids-like-backend-cloud.herokuapp.com/api/gift`, giftId)
-      .then(({ data }) => console.log(data))
-    }
-  };
-
-  const body = (
-    <CongratsModalWrapper>
-      <ImgCat src="https://i.ibb.co/p0wx9b1/SimonCat.png"/>
-      <Congrats>Поздравляем! Ты получаешь:</Congrats>
-      <BtnClose onClick={handleSwich} src="https://i.ibb.co/dDhJBd5/BtnClose.jpg"></BtnClose>
-      <PrizesWrapper>
-      {itemsAll.map((item)=>{
-          return(
-            <PrizesWrapper_block key={item.imageUrl}>
-                <ChosenPrise src={item.imageUrl} />
-                <ChosenPrise_name>{item.title}</ChosenPrise_name>
-            </PrizesWrapper_block> 
-          )}
-      )}
-      </PrizesWrapper>
-    </CongratsModalWrapper>
-  );
-
-  return (
-    <div>
-      <Modal
-        open={open}
-        onClose={handleSwich}
-        aria-labelledby="simple-modal-title"
-        aria-describedby="simple-modal-description"
-      >
-        {body}
-      </Modal>
-    </div>
-  );
+	return (
+		<ModalBackDrop>
+			<ModalWrapper onClick={closeModal}>
+				<ModalCongrats showModal={showModal}>
+					<ImgCat src="https://i.ibb.co/p0wx9b1/SimonCat.png" />
+					<Congrats>Поздравляем! Ты получаешь:</Congrats>
+					<BtnClose src="https://i.ibb.co/dDhJBd5/BtnClose.jpg" />
+					<PrizesWrapper>
+						{itemsAll.map(item => {
+							return (
+								<PrizesWrapper_block key={item.title}>
+									<ChosenPrise src={item.imageUrl} />
+									<ChosenPrise_name>{item.title}</ChosenPrise_name>
+								</PrizesWrapper_block>
+							);
+						})}
+					</PrizesWrapper>
+				</ModalCongrats>
+			</ModalWrapper>
+		</ModalBackDrop>
+	);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-// import React, {useState} from 'react';
-// import axios from 'axios';
-
-// // https://material-ui.com/ru/getting-started/installation/
-// import Modal from '@material-ui/core/Modal';
-
-// import { 
-//   AwardsSubmitButton, 
-//   ImgCat, 
-//   Congrats, 
-//   BtnClose, 
-//   CongratsModalWrapper, 
-//   PrizesWrapper,
-//   PrizesWrapper_block,
-//   ChosenPrise,
-//   ChosenPrise_name } from './CongratsModal.module';
-
-
-// export default function CongratsModal({idItems,itemsAll}) {
-//   const [open, setOpen] = useState(false);
-
-//   const handleSwich= () => {
-//     setOpen(!open)
-
-// const giftId = {
-//   "giftIDs": idItems
-// }
-// console.log(giftId)
-
-// console.log('giftId',giftId)
-//     if(!open){
-//       axios
-//       .patch(`https://kids-like-backend-cloud.herokuapp.com/api/gift`, giftId)
-//       .then(({ data }) => console.log(data))
-//     }
-//   };
-
-//   const body = (
-//     <CongratsModalWrapper>
-//       <ImgCat src="https://i.ibb.co/p0wx9b1/SimonCat.png"/>
-//       <Congrats>Поздравляем! Ты получаешь:</Congrats>
-//       <BtnClose onClick={handleSwich} src="https://i.ibb.co/dDhJBd5/BtnClose.jpg"></BtnClose>
-//       <PrizesWrapper>
-//       {itemsAll.map((item)=>{
-//           return(
-//             <PrizesWrapper_block key={item.imageUrl}>
-//                 <ChosenPrise src={item.imageUrl} />
-//                 <ChosenPrise_name>{item.title}</ChosenPrise_name>
-//             </PrizesWrapper_block> 
-//           )}
-//       )}
-//       </PrizesWrapper>
-//     </CongratsModalWrapper>
-//   );
-
-//   return (
-//     <div>
-//       <AwardsSubmitButton onClick={handleSwich}>
-//       Подтвердить
-//       </AwardsSubmitButton>
-//       <Modal
-//         open={open}
-//         onClose={handleSwich}
-//         aria-labelledby="simple-modal-title"
-//         aria-describedby="simple-modal-description"
-//       >
-//         {body}
-//       </Modal>
-//     </div>
-//   );
-// }
+export default CongratsModal;

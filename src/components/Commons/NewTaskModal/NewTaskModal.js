@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { Children, useRef, useState } from 'react';
+import ModalBackDrop from '../ModalBackDrop/ModalBackDrop'
+import notification from '../../../services/notification';
+import { NotificationContainer } from 'react-notifications';
 import {
-	Screen,
+	
 	ModalBlock,
 	Header,
 	Image,
@@ -11,6 +14,7 @@ import {
 	FileInput,
 	Button,
 	CloseBtn,
+	NotificationDiv,
 } from './newTaskModal.styles';
 import img from '../../../img/add_modal.png';
 import pencil from '../../../img/pencil.svg';
@@ -22,6 +26,8 @@ const NewTaskModal = ({ addTask, closeModal }) => {
 	const [reward, setReward] = useState('');
 	const [taskAvatar, setTaskAvatar] = useState('');
 
+	const formData = useRef(null);
+
 	const handleOkBtn = event => {
 		handleSubmit(event);
 	};
@@ -30,35 +36,55 @@ const NewTaskModal = ({ addTask, closeModal }) => {
 		event.preventDefault();
 		closeModal();
 	};
+	const onImageChange = event => {
+		if (event.target.files && event.target.files[0]) {
+			let reader = new FileReader();
+			reader.onload = e => {
+				setTaskAvatar(e.target.result);
+			};
+			reader.readAsDataURL(event.target.files[0]);
+		}
+	};
 
 	const handleSubmit = event => {
 		event.preventDefault();
-		const rewardToNumber = Number(reward);
 		if (title !== '' && reward !== '' && Number.isInteger(Number(reward))) {
-			console.log(title, reward, taskAvatar);
-			addTask(title, rewardToNumber, taskAvatar);
-		} else {
-			console.log('Error');
-		};
-		setTitle('');
-		setReward('');
-		setTaskAvatar('');
+			addTask(formData);
+			setTitle('');
+			setReward('');
+			setTaskAvatar('');
+		} else if (title === '' || reward === '') {
+			notification({
+				type: 'warning',
+				message: 'Заполните все поля',
+			});
+		} else if (!Number.isInteger(Number(reward))) {
+			notification({
+				type: 'warning',
+				message: 'Баллы - целое число',
+			});
+		}
 	};
+
 	return (
-		<Screen>
+		<ModalBackDrop >
+			<NotificationDiv>
+				<NotificationContainer />
+			</NotificationDiv>
 			<ModalBlock>
 				<Header>
-					<Image src={img} alt="Custom task" />
+					<Image src={taskAvatar ? taskAvatar : img} alt="Custom task" />
 					<CloseBtn onClick={handleCloseBtn}>
 						<img src={closeCross} alt="Close" />
 					</CloseBtn>
 				</Header>
-				<Form onSubmit={handleSubmit} enctype="multipart/form-data">
+				<Form onSubmit={handleSubmit} ref={formData}>
 					<FileInputBlock>
 						<FileInput
 							type="file"
-							value={taskAvatar}
-							onChange={e => setTaskAvatar(e.target.value)}
+							name="taskAvatar"
+							accept="image/jpeg,image/png"
+							onChange={onImageChange}
 						/>
 						<img width="18" height="18" src={pictureItemSvg} alt="" />
 					</FileInputBlock>
@@ -66,7 +92,9 @@ const NewTaskModal = ({ addTask, closeModal }) => {
 						<img width="18" height="18" src={pencil} alt="" />
 						<TextInput
 							type="text"
+							name="title"
 							placeholder="Добавить задание..."
+							autoComplete="off"
 							value={title}
 							onChange={e => setTitle(e.target.value)}
 						/>
@@ -75,15 +103,17 @@ const NewTaskModal = ({ addTask, closeModal }) => {
 						<img width="18" height="18" src={pencil} alt="" />
 						<TextInput
 							type="text"
+							name="reward"
 							placeholder="Добавить баллы..."
+							autoComplete="off"
 							value={reward}
 							onChange={e => setReward(e.target.value)}
 						/>
 					</LabelDiv>
-					<Button onClick={handleOkBtn}>Ok</Button>
+					<Button onClick={handleOkBtn}>OK</Button>
 				</Form>
 			</ModalBlock>
-		</Screen>
+				</ModalBackDrop>
 	);
 };
 

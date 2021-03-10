@@ -1,8 +1,4 @@
-import React from 'react';
-export const Menu = () => {
-	return (
-		<div>
-			<svg
+<svg
 				width="22"
 				height="16"
 				viewBox="0 0 22 16"
@@ -13,6 +9,3 @@ export const Menu = () => {
 				<path d="M0 8H22" stroke="#858598" />
 				<path d="M0 15H22" stroke="#858598" />
 			</svg>
-		</div>
-	);
-};

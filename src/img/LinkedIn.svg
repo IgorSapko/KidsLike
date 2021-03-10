@@ -1,6 +1,4 @@
-const LinkedIn = () => {
-    return (
-        <svg role="img" 
+ <svg role="img" 
         viewBox="0 0 24 24" 
         xmlns="http://www.w3.org/2000/svg">
             <title>LinkedIn icon</title>
@@ -15,7 +13,3 @@ const LinkedIn = () => {
             24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
             </g>
             </svg>
-    );
-  };
-
-  export default LinkedIn;

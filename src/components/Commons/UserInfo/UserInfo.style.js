@@ -8,8 +8,8 @@ export const HeaderblockcontactInform = styled.h2`
 	padding-right: 15px;
 	letter-spacing: 0.04em;
 	border-right: 1px solid #858598;
-  color: #858598;
-  @media (max-width: 320px) {
+	color: #858598;
+	@media (max-width: 320px) {
 		display: none;
 	}
 `;

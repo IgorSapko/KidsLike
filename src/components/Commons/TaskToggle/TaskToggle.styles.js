@@ -19,3 +19,13 @@ export const CheckedIconWrapper = styled.div`
 	font-weight: 70px;
 	padding-right: 2px;
 `;
+
+export const CheckedImg = styled.img`
+	width: 40px;
+	height: 12px;
+`;
+
+export const UnCheckedImg = styled.img`
+	width: 40px;
+	height: 14px;
+`;

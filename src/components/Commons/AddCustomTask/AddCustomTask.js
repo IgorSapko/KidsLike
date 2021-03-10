@@ -2,11 +2,11 @@ import React from 'react';
 import {AddLabel, AddTaskBlock, AddBtn} from './addCustomTask.styles'
 import yellowPlusSvg from '../../../img/yellowPlus.svg';
 
-const AddCustomTask = ({ swowModal}) => {
+const AddCustomTask = ({swowModal}) => {
 	return (
 		<div>
 			<AddTaskBlock>
-				<AddLabel>Хочешь получить больше призов - добавь задачи :)</AddLabel>
+				<AddLabel>{"Хочешь получить больше призов - добавь задачи :)"}</AddLabel>
 				<AddBtn onClick={() => {
 					swowModal()
 				}}>

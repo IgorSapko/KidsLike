@@ -1,11 +1,9 @@
 import styled from 'styled-components';
-
 import {device} from '../../index.styles';
 
 const PlanningPageBlock = styled.div`
 	margin: auto;
-	/* display:flex; */
-	/* flex-wrap:wrap; */
+	
 	@media ${device.mobile} {
 		margin-bottom: 60px;
 	}

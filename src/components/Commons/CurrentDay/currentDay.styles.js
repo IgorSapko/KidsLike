@@ -9,6 +9,7 @@ const LeftSide = styled.div`
 	@media ${device.desktop} {
 		width: 50%;
 		display: block;
+		&:last-child{margin-top: 30px}
 	}
 `;
 
@@ -19,12 +20,11 @@ const Container = styled.div`
 	width: calc(100% - 150px);
 	height: 40px;
 	padding-top: 100px;
-
 	@media ${device.desktop} {
 		display: flex;
 		justify-content: space-between;
 		padding-top: 0px;
-		margin-top: 80px;
+		margin-top: 40px;
 		margin-left: 110px;
 		margin-right: 50px;
 		height: 67px;
@@ -37,7 +37,6 @@ const ProgressDiv = styled.div`
 
 const Points = styled.p`
 	font-family: 'MontserratRegular';
-
 	font-style: normal;
 	font-weight: 500;
 	font-size: 12px;
@@ -49,9 +48,21 @@ const Points = styled.p`
 		text-align: start;
 		display: block;
 		line-height: 15px;
-		margin-top: 30px;
+		&:last-child{margin-top: 10px;
+		margin-bottom:6px}
+		/* margin-top: 10px; */
 	}
 `;
+
+const PointsContainer = styled.div`
+/* &:last-child{margin-top: 30px} */
+`
+
+const WeekPointsSpan =styled.span`
+font-weight: 700;
+color:rgba(0, 0, 0, 1);
+text-transform:uppercase
+`
 
 const WeekText = styled.p`
 	font-family: 'MontserratRegular';
@@ -61,12 +72,13 @@ const WeekText = styled.p`
 	line-height: 22px;
 	margin-bottom: 15px;
 	@media ${device.tablet} {
-		font-size: 12px;
+		font-size: 14px;
 		display: none;
 	}
 	@media ${device.desktop} {
 		font-size: 18px;
-		display: inline;
+		display: block;
+		margin-bottom:26px;
 	}
 `;
 const Points_span = styled.span`
@@ -129,8 +141,11 @@ export {
 	ProgressDiv,
 	Points,
 	WeekText,
+	WeekPointsSpan,
 	Points_span,
 	Balance_Points,
 	Balance_Points_span,
 	Balance_Points_leftNumb,
+	PointsContainer
 };
+

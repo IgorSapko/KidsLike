@@ -1,12 +1,7 @@
-/* html,
-body {
-	height: 100%;
-	margin: 0px;
-	padding: 0px;
-} */
 import styled from 'styled-components';
 import { device, size } from '../../index.styles';
-const MainPage_container = styled.div`
+
+const MainPageContainer = styled.div`
 	@media (max-width: ${size.desktop}) {
 		display: block;
 	}
@@ -14,7 +9,7 @@ const MainPage_container = styled.div`
 		display: flex;
 	}
 `;
-const WeekTabs_container = styled.div`
+const WeekTabsContainer = styled.div`
 	background-color: none;
 	display: flex;
 	justify-content: space-evenly;
@@ -29,15 +24,16 @@ const WeekTabs_container = styled.div`
 		align-items: center;
 	}
 	@media ${device.desktop} {
-		height: 100%;
+		height: calc(100% + 50px);
 		width: 240px;
-		position: fixed;
+		align-items: start;
+		/* position: fixed; */
 		z-index: 1;
-		top: 0;
+		/* top: 0; */
 		left: 0;
 	}
 `;
-const WeekTabs_list = styled.ul`
+const WeekTabsList = styled.ul`
 	@media (max-width: ${size.desktop}) {
 		list-style: none;
 		display: flex;
@@ -45,27 +41,29 @@ const WeekTabs_list = styled.ul`
 		width: 336px;
 		margin-left: 0px;
 	}
+	@media ${device.tablet} {
+		border-color: red;
+	}
 	@media ${device.desktop} {
 		list-style: none;
-		margin-top: 0px;
+		margin-top: 140px;
 		margin-left: 50px;
-		padding-top: 150px;
 		padding-left: 0px;
 	}
 `;
 
-const WeekTabs_item_text_desktop = styled.span`
+const WeekTabsItemTextDesktop = styled.span`
 	display: none;
 	@media ${device.desktop} {
 		display: inline;
 	}
 `;
-const WeekTabs_item_text_mob_tab = styled.span`
+const WeekTabsItemTextMobTab = styled.span`
 	@media ${device.desktop} {
 		display: none;
 	}
 `;
-const WeekTabs_weekInfo = styled.p`
+const WeekTabsWeekInfo = styled.p`
 	display: none;
 	@media ${device.tablet} {
 		display: inline;
@@ -81,7 +79,7 @@ const WeekTabs_weekInfo = styled.p`
 	}
 `;
 
-const WeekTabContent_container = styled.div`
+const WeekTabContentContainer = styled.div`
 	background-color: #ffffff;
 	width: 100%;
 	@media ${device.tablet} {
@@ -89,7 +87,6 @@ const WeekTabContent_container = styled.div`
 	}
 	@media ${device.desktop} {
 		min-height: calc(100vh - 50px);
-		margin-left: 240px;
 	}
 `;
 const ContainerForBalanceandInfo = styled.div`
@@ -110,13 +107,13 @@ const ContainerForBalanceandInfo = styled.div`
 		margin-right: 50px;
 	}
 `;
-const WeekTabContent_Balance = styled.div`
+const WeekTabContentBalance = styled.div`
 	display: none;
 	@media ${device.tablet} {
 		display: block;
 	}
 `;
-const WeekTabContent_weekInfo_p = styled.p`
+const WeekTabContentWeekInfoP = styled.p`
 	text-align: center;
 	width: 100%;
 	font-family: Montserrat;
@@ -131,7 +128,7 @@ const WeekTabContent_weekInfo_p = styled.p`
 		margin-top: 30px;
 	}
 `;
-const WeekTabContent_weekInfo_span = styled.span`
+const WeekTabContentWeekInfoSpan = styled.span`
 	font-size: 12px;
 	color: black;
 	font-family: Montserrat;
@@ -146,7 +143,7 @@ const WeekTabContent_weekInfo_span = styled.span`
 	}
 `;
 
-const WeekTabContent_WeekInfo_container = styled.div`
+const WeekTabContentWeekInfoContainer = styled.div`
 	width: 100%;
 	display: flex;
 	justify-content: center;
@@ -155,7 +152,7 @@ const WeekTabContent_WeekInfo_container = styled.div`
 		display: block;
 	}
 `;
-const WeekTabContent_weekInfo = styled.p`
+const WeekTabContentWeekInfo = styled.p`
 	font-family: Montserrat;
 	font-style: normal;
 	font-weight: normal;
@@ -172,17 +169,17 @@ const WeekTabContent_weekInfo = styled.p`
 `;
 
 export {
-	MainPage_container,
-	WeekTabs_container,
-	WeekTabs_list,
-	WeekTabContent_container,
+	MainPageContainer,
+	WeekTabsContainer,
+	WeekTabsList,
+	WeekTabContentContainer,
 	ContainerForBalanceandInfo,
-	WeekTabs_item_text_desktop,
-	WeekTabs_item_text_mob_tab,
-	WeekTabContent_WeekInfo_container,
-	WeekTabContent_weekInfo,
-	WeekTabContent_weekInfo_p,
-	WeekTabContent_Balance,
-	WeekTabs_weekInfo,
-	WeekTabContent_weekInfo_span,
+	WeekTabsItemTextDesktop,
+	WeekTabsItemTextMobTab,
+	WeekTabContentWeekInfoContainer,
+	WeekTabContentWeekInfo,
+	WeekTabContentWeekInfoP,
+	WeekTabContentBalance,
+	WeekTabsWeekInfo,
+	WeekTabContentWeekInfoSpan,
 };

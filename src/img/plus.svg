@@ -1,6 +1,4 @@
-const Plus = () => {
-  return (
-    <svg
+<svg
       width="12"
       height="12"
       viewBox="0 0 12 12"
@@ -20,7 +18,3 @@ const Plus = () => {
         strokeLinecap="round"
       />
     </svg>
-  );
-};
-
-export default Plus;

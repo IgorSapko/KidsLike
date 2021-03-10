@@ -13,6 +13,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import GlobalStyles from 'index.styles';
 
 
+
 ReactDOM.render(
 	<Provider store={store}>
 		<PersistGate loading={null} persistor={persistor}>
