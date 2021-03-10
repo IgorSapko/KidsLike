@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import {device} from '../../../index.styles';
-
+// import {device} from '../../../index.styles';
+import device from '../../../pages/PlanningPage/device'
 const PointsBlock = styled.div`
 	display: flex;
 	align-items: center;
