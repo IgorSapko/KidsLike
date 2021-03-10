@@ -1,5 +1,44 @@
+import { BrowserRouter, NavLink } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 import exitLogo from '../../../img/exitLogo.svg'
+
+const activeClassName = 'nav-item-active';
+const className = 'nav-item';
+
+export const StyledNavLink = styled(NavLink).attrs({ activeClassName })`
+  &.${activeClassName} {
+	  text-decoration:none;
+    color: rgba(0, 0, 0, 1);
+  };
+  
+	  text-decoration:none;
+	  list-style: none;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 12px;
+	line-height: 15px;
+	letter-spacing: 0.04em;
+	color: #858598;
+	cursor: pointer;
+
+	${props =>
+		props.rightPad &&
+		css`
+			padding-right: 15px;
+			border-right: 1px solid #858598;
+		`}
+	${props =>
+		props.leftPad &&
+		css`
+			padding-left: 15px;
+		`}
+		@media (max-width: 768px) {
+		padding: 8px;
+		font-size: 11px;
+	}
+  
+`;
 
 export const HeaderBlock = styled.div`
 	margin: 0 auto;
@@ -27,19 +66,8 @@ export const HeaderLogoText = styled.h2`
 	color: #000000;
 `;
 
-export const HeaderInformUl = styled.ul`
-	padding: 0;
-	margin: 0;
-	display: flex;
-	padding-right: 40px;
-
-	@media (max-width: 1280px) {
-		display: none;
-	}
-`;
-
 export const LinkHeaderInform = styled.li`
-	list-style: none;
+	/* list-style: none;
 	font-family: Montserrat;
 	font-style: normal;
 	font-weight: 500;
@@ -63,16 +91,33 @@ export const LinkHeaderInform = styled.li`
 		@media (max-width: 768px) {
 		padding: 8px;
 		font-size: 11px;
-	}
+	} */
 `;
 
 export const MobileMenu = styled.div`
-	display: flex;
+display:none;
+	/* display: flex;
 	cursor: pointer;
-	margin-right: 10px;
+	margin-right: 10px; */
 	@media (max-width: 768px) {
+		position:relative;
+		width:100%;
 		margin-right: 40px;
-		display: block;
+		display: flex;
+		justify-content:flex-end;
+	}
+`;
+
+export const HeaderInformUl = styled.ul`
+	display: none;
+
+	@media (min-width: 768px) {
+		width:100%;
+		padding: 0;
+	margin: 0;
+	display: flex;
+	justify-content:flex-end;
+	padding-right: 40px;
 	}
 `;
 
@@ -137,9 +182,8 @@ export const Headerblockcontact = styled.div`
 export const MobileMenuText = styled.ul`
 	@media (max-width: 768px) {
 		position: absolute;
-		top: 0px;
-		left: 0px;
-		transform:translate(50%,50%);
+		
+		transform:translate(-50%,-20%);
 		border-color: red;
 	}
 	@media (max-width: 320px) {
@@ -147,7 +191,7 @@ export const MobileMenuText = styled.ul`
 	}
 `;
 export const MobileMenuLogo = styled.div`
-	margin-right: 20px;
+		margin-right: 20px;
 `;
 
 export const HeaderblockcontactLogo = styled.div`

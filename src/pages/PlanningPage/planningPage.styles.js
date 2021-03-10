@@ -14,13 +14,13 @@ const PlanningPageBlock = styled.div`
 const PlanningPageInfo = styled.div`
 	margin-left: 40px;
 	margin-right: 70px;
-	display: flex;
-
+	display: block;
 	justify-content: space-between;
 	@media ${device.mobile} {
+		/* max-width:768px; */
 		flex-direction: column;
 		align-items: center;
-		justify-content: space-between;
+		justify-content: space-around;
 	}
 	@media ${device.desktop} {
 		flex-direction: row;

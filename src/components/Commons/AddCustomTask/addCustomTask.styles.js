@@ -7,6 +7,12 @@ const AddTaskBlock = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
+	/* @media ${device.tablet} {
+		height: 54px;
+	}
+	@media ${device.mobile} {
+		height: 0px;
+	} */
 	
 `;
 

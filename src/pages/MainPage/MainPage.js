@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import WeekTabs from '../../components/Commons/WeekTabs/WeekTabs';
 import WeekTabsContent from '../../components/Commons/WeekTabContent/WeekTabContent';
+import {todayIs} from '../../utils/Helpers'
 
 import { MainPageContainer } from './MainPage.styles';
 
@@ -13,9 +14,10 @@ function MainPage() {
 	const today = DateTime.local().toFormat('dd-MM-yyyy');
 	const history = useHistory();
 	useEffect(() => {
-		history.push(`?day=${today}`);
+		history.push(todayIs());
 	}, []);
-	return (
+
+		return (
 		<>
 			<MainPageContainer>
 				<WeekTabs week={week} />

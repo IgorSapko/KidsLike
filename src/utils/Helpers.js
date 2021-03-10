@@ -23,6 +23,11 @@ export function choosenDay(choosenDay) {
 	return findDay?.full;
 }
 
+export function todayIs() {
+	const today = DateTime.local().toFormat('dd-MM-yyyy');
+	return `/?day=${today}`;
+  }
+
 export function monthInNumbFunc(week) {
 	const monthsInNumber = [
 		{ num: '01', name: 'Янаваря' },
