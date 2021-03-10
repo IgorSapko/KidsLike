@@ -3,9 +3,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import Card from '../../components/Commons/Card/Card';
 import AwardsSubmitButton from '../../components/Commons/AwardsSubmitButton/AwardsSubmitButton';
 import CongratsModal from '../../components/Commons/CongratsModal/CongratsModal';
-import { BlockPeopleTask_Awards } from './AwardsPage.styles';
+import { BlockPeopleTask_Awards, TopWrapper, MyPrises, Prise_img, Prise_text, ProgressBlock } from './AwardsPage.styles';
 import selector from '../../redux/selectors';
 import weekOperation from '../../redux/week/weekOperation';
+import CurrentDay from 'components/Commons/CurrentDay/CurrentDay';
 
 export default function AwardsPage() {
 	const gifts = useSelector(selector.getGifts);
@@ -31,9 +32,18 @@ export default function AwardsPage() {
 	const handleSwich = async () => {
 		setOpen(open => !open);
 	};
-
+	// const props = {};
 	return (
 		<div>
+			<TopWrapper>
+			    <MyPrises> 
+				   <Prise_img src="https://i.ibb.co/6YGGfkb/gift-box-1.jpg"/>
+				   <Prise_text>МОИ ПРИЗЫ</Prise_text>
+			    </MyPrises>
+			    <ProgressBlock>
+			            <CurrentDay />
+			    </ProgressBlock>
+		    </TopWrapper>
 			<BlockPeopleTask_Awards>
 				{gifts &&
 					gifts.map(item => {
