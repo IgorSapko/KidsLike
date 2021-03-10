@@ -1,11 +1,13 @@
 import React from 'react';
 // import ProgressBar from '@ramonak/react-progress-bar';
 import ProgressBarComponent from '../ProgressBar/ProgressBar';
-import { LeftSide, Container, Points, WeekText, WeekPointsSpan, PointsContainer } from './currentDay.styles';
+import { LeftSide, Container, Points, WeekText, WeekPointsSpan, PointsContainer, PointsContainerWrapper } from './currentDay.styles';
 import { useSelector } from 'react-redux';
 import { monthInNumbFunc } from '../../../utils/Helpers';
+import { useHistory } from 'react-router-dom';
 
 function CurrentDay({ thisDay, choosenDay }) {
+	let history = useHistory();
 	const currentDay = thisDay;
 	const weekPoints = useSelector(state => state.week.pointsGained);
 	const plan = useSelector(state => state.week.pointsPlanned);
@@ -20,16 +22,19 @@ function CurrentDay({ thisDay, choosenDay }) {
 	return (
 		
 			<Container>
-				<LeftSide>
-					<WeekText>
-						Неделя: {dayStart} - {dayEnd} {monthInNumbFunc(week).name}
-					</WeekText>
-					<Points>
-						Мoи задачи: <WeekPointsSpan>{choosenDay}, {currentDay}</WeekPointsSpan>
-					</Points>
-				</LeftSide>
+				{history.location.pathname !== '/awards'
+			? <LeftSide>
+				<WeekText>
+					Неделя: {dayStart} - {dayEnd} {monthInNumbFunc(week).name}
+				</WeekText>
+				<Points>
+					Мoи задачи: <WeekPointsSpan>{choosenDay}, {currentDay}</WeekPointsSpan>
+				</Points>
+			</LeftSide>:null
+				}
+				
 
-				<div>
+				<PointsContainerWrapper>
 					<PointsContainer>
 					<Points>Заработано баллов за эту неделю:<WeekPointsSpan>{weekPoints}</WeekPointsSpan></Points>
 					<Points>Запланировано баллов на эту неделю:<WeekPointsSpan>{plan}</WeekPointsSpan></Points>
@@ -38,7 +43,7 @@ function CurrentDay({ thisDay, choosenDay }) {
 						{weekPoints}/{plan}
 					</p>
 					<ProgressBarComponent progress={progress} weekPoints={weekPoints} plan={plan} />
-				</div>
+				</PointsContainerWrapper>
 			</Container>
 		
 	);

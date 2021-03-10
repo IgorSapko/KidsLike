@@ -45,11 +45,11 @@ const Points = styled.p`
 	letter-spacing: 0.04em;
 	width: 100%;
 	@media ${device.desktop} {
-		text-align: start;
-		display: block;
-		line-height: 15px;
-		&:last-child{margin-top: 10px;
-		margin-bottom:6px}
+		// text-align: start;
+		// display: block;
+		// line-height: 15px;
+		// &:last-child{margin-top: 10px;
+		// margin-bottom:6px}
 		/* margin-top: 10px; */
 	}
 `;
@@ -59,9 +59,14 @@ const PointsContainer = styled.div`
 `
 
 const WeekPointsSpan =styled.span`
-font-weight: 700;
-color:rgba(0, 0, 0, 1);
-text-transform:uppercase
+font-family: Montserrat;
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 15px;
+text-align: right;
+letter-spacing: 0.04em;
+color: #A6ABB9;
 `
 
 const WeekText = styled.p`
@@ -135,6 +140,18 @@ const Balance_Points_leftNumb = styled.div`
 	}
 `;
 
+const PointsContainerWrapper = styled.div`
+
+display: none;
+@media ${device.tablet} {
+display:block;
+}
+@media ${device.desktop} {
+	display:block;
+	}
+
+`
+
 export {
 	Container,
 	LeftSide,
@@ -146,6 +163,7 @@ export {
 	Balance_Points,
 	Balance_Points_span,
 	Balance_Points_leftNumb,
-	PointsContainer
+	PointsContainer,
+	PointsContainerWrapper
 };
 

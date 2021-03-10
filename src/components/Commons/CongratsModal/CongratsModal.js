@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import {
 	ModalWrapper,
@@ -28,6 +28,19 @@ function CongratsModal({ idItems, itemsAll, setOpen }) {
 			dispatch(weekOperation.giftsOrder(giftId));
 		}
 	};
+
+    // const keyPress = useCallback (e => {
+    //     if(e.key === 'Escape' && showModal) {
+    //         setShowModal(false)
+    //     }
+    // }, [setShowModal, showModal])
+
+    // useEffect(() => {
+    //     document.addEventListener('keydown', keyPress);
+    //     return () => document.removeEventListener('keydown', keyPress)
+    // },[keyPress])
+
+
 
 	return (
 		<ModalBackDrop>

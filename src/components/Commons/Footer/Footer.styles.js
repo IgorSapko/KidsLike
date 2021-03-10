@@ -15,6 +15,8 @@ const FooterStyles = styled.div`
 	}
 	@media ${device.desktop} {
 		justify-content: flex-end;
+		max-width: 1200px;
+		margin: 0 auto;
 	}
 `;
 const FooterText = styled.p`
