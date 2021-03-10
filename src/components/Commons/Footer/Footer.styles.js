@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { device, size } from '../../../index.styles';
+import { device } from '../../../index.styles';
 import Fingers from '../../../img/2finger.svg';
 
 const FooterStyles = styled.div`

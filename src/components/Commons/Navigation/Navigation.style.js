@@ -1,43 +1,30 @@
 import { BrowserRouter, NavLink } from 'react-router-dom';
 import styled, { css } from 'styled-components';
-import exitLogo from '../../../img/exitLogo.svg'
+import exitLogo from '../../../img/exitLogo.svg';
 
 const activeClassName = 'nav-item-active';
-const className = 'nav-item';
 
 export const StyledNavLink = styled(NavLink).attrs({ activeClassName })`
-  &.${activeClassName} {
-	  text-decoration:none;
-    color: rgba(0, 0, 0, 1);
-  };
-  
-	  text-decoration:none;
-	  list-style: none;
+	&.${activeClassName} {
+		text-decoration: none;
+		color: rgba(0, 0, 0, 1);
+	}
+
+	text-decoration: none;
+	list-style: none;
 	font-family: Montserrat;
 	font-style: normal;
 	font-weight: 500;
 	font-size: 12px;
 	line-height: 15px;
 	letter-spacing: 0.04em;
-	color: #858598;
+	color: rgba(133, 133, 152, 1);
 	cursor: pointer;
+	/* border: 1px solid rgba(133, 133, 152, 1); */
 
-	${props =>
-		props.rightPad &&
-		css`
-			padding-right: 15px;
-			border-right: 1px solid #858598;
-		`}
-	${props =>
-		props.leftPad &&
-		css`
-			padding-left: 15px;
-		`}
-		@media (max-width: 768px) {
-		padding: 8px;
-		font-size: 11px;
-	}
-  
+	padding-right: 15px;
+	margin-right: 15px;
+	border-right: 1px solid #858598;
 `;
 
 export const HeaderBlock = styled.div`
@@ -67,57 +54,30 @@ export const HeaderLogoText = styled.h2`
 `;
 
 export const LinkHeaderInform = styled.li`
-	/* list-style: none;
-	font-family: Montserrat;
-	font-style: normal;
-	font-weight: 500;
-	font-size: 12px;
-	line-height: 15px;
-	letter-spacing: 0.04em;
-	color: #858598;
-	cursor: pointer;
-
-	${props =>
-		props.rightPad &&
-		css`
-			padding-right: 15px;
-			border-right: 1px solid #858598;
-		`}
-	${props =>
-		props.leftPad &&
-		css`
-			padding-left: 15px;
-		`}
-		@media (max-width: 768px) {
-		padding: 8px;
-		font-size: 11px;
-	} */
+	list-style: none;
 `;
 
 export const MobileMenu = styled.div`
-display:none;
-	/* display: flex;
-	cursor: pointer;
-	margin-right: 10px; */
-	@media (max-width: 768px) {
-		position:relative;
-		width:100%;
+	display: none;
+	@media (max-width: 1280px) {
+		position: relative;
+		width: 100%;
 		margin-right: 40px;
 		display: flex;
-		justify-content:flex-end;
+		justify-content: flex-end;
 	}
 `;
 
 export const HeaderInformUl = styled.ul`
 	display: none;
 
-	@media (min-width: 768px) {
-		width:100%;
+	@media (min-width: 1280px) {
+		width: 100%;
 		padding: 0;
-	margin: 0;
-	display: flex;
-	justify-content:flex-end;
-	padding-right: 40px;
+		margin: 0;
+		display: flex;
+		justify-content: flex-end;
+		padding-right: 40px;
 	}
 `;
 
@@ -180,18 +140,17 @@ export const Headerblockcontact = styled.div`
 `;
 
 export const MobileMenuText = styled.ul`
-	@media (max-width: 768px) {
-		position: absolute;
-		
-		transform:translate(-50%,-20%);
-		border-color: red;
-	}
-	@media (max-width: 320px) {
-		right: 8px;
+	position: absolute;
+	background-color: white;
+	transform: translate(-100%, 0%);
+	border-color: red;
+	& > li > a {
+		border: none;
 	}
 `;
 export const MobileMenuLogo = styled.div`
-		margin-right: 20px;
+	margin-right: 20px;
+	position: relative;
 `;
 
 export const HeaderblockcontactLogo = styled.div`
@@ -208,7 +167,10 @@ export const ExitLogo = styled.span`
 		width: 8px;
 		height: 12px;
 		margin-left: 6px;
-		margin-left:18px;
+		margin-left: 18px;
+		@media (max-width: 768px) {
+			display: none;
+		}
 	}
 `;
 export const MenuImg = styled.img`

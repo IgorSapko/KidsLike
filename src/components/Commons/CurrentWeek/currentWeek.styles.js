@@ -15,15 +15,20 @@ const WeekBlock = styled.div`
 `;
 
 const TextLabel = styled.span`
+	font-family: Montserrat;
 	font-weight: 500;
 	font-size: 18px;
 	color: #000000;
 	padding-right: 10px;
 `;
 const WeekLabel = styled.span`
+	font-family: Montserrat;
 	font-weight: 700;
 	font-size: 12px;
 	color: #000000;
+	border: 1px solid #ffbc33;
+	box-sizing: border-box;
+	border-radius: 6px;
 `;
 
 export { WeekBlock, TextLabel, WeekLabel };

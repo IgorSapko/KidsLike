@@ -4,6 +4,7 @@ import { createReducer } from '@reduxjs/toolkit';
 import authActions from '../auth/authActions';
 import errorActions from '../error/errorActions';
 import weekActions from '../week/weekActions';
+import loaderActions from './loaderActions';
 
 //Loading reducer
 const loaderReducer = createReducer(false, {
@@ -34,6 +35,9 @@ const loaderReducer = createReducer(false, {
 	[weekActions.createCustomTaskRequest]: () => true,
 	[weekActions.createCustomTaskSuccess]: () => false,
 
+	[loaderActions.contactsRequest]: () => true,
+	[loaderActions.contactsSuccess]: () => false,
+	
 	[errorActions.error]: () => false,
 });
 

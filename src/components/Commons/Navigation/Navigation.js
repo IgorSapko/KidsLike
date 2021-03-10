@@ -18,7 +18,7 @@ import {
 	UserInfoWrapper,
 	ExitLogo,
 	MenuImg,
-	StyledNavLink
+	StyledNavLink,
 } from './Navigation.style';
 import UserInfo from '../UserInfo/UserInfo';
 // import { Menu } from '../Header/LogoSvg';
@@ -49,29 +49,25 @@ const Navigation = () => {
 							{menumob && (
 								<MobileMenuText>
 									<LinkHeaderInform>
-									<StyledNavLink  to="/auth">
-										Авторизация
-									</StyledNavLink>
+										<StyledNavLink to="/auth">Авторизация</StyledNavLink>
 									</LinkHeaderInform>
 									<LinkHeaderInform>
-									<StyledNavLink  to="/contacts">
-										Контакты
-									</StyledNavLink>
+										<StyledNavLink to="/contacts">Контакты</StyledNavLink>
 									</LinkHeaderInform>
 								</MobileMenuText>
 							)}
 						</>
 					</MobileMenu>
 					<HeaderInformUl>
-					<LinkHeaderInform rightPad>
-						<StyledNavLink style={{ textDecoration: 'none' }} to="/auth">
-							Авторизация
-						</StyledNavLink>
+						<LinkHeaderInform rightPad>
+							<StyledNavLink style={{ textDecoration: 'none' }} to="/auth">
+								Авторизация
+							</StyledNavLink>
 						</LinkHeaderInform>
 						<LinkHeaderInform leftPad>
-						<StyledNavLink style={{ textDecoration: 'none' }} to="/contacts">
-							Контакты
-						</StyledNavLink>
+							<StyledNavLink style={{ textDecoration: 'none' }} to="/contacts">
+								Контакты
+							</StyledNavLink>
 						</LinkHeaderInform>
 					</HeaderInformUl>
 				</>
@@ -89,28 +85,17 @@ const Navigation = () => {
 
 					<HeaderBlockRight>
 						<HeaderInformUl>
-						<LinkHeaderInform rightPad>
-							<StyledNavLink style={{ textDecoration: 'none' }} to={todayIs()}>
-								Главная
-							</StyledNavLink>
+							<LinkHeaderInform>
+								<StyledNavLink to={todayIs()}>Главная</StyledNavLink>
 							</LinkHeaderInform>
-							<LinkHeaderInform rightPad leftPad>
-							<StyledNavLink style={{ textDecoration: 'none' }} to="/planning">
-								
-									Планирование
-								
-							</StyledNavLink>
+							<LinkHeaderInform>
+								<StyledNavLink to="/planning">Планирование</StyledNavLink>
 							</LinkHeaderInform>
-							<LinkHeaderInform rightPad leftPad>
-							<StyledNavLink style={{ textDecoration: 'none' }} to="/awards">
-								
-									Награды
-															</StyledNavLink>
-															</LinkHeaderInform>
-							<LinkHeaderInform leftPad>
-							<StyledNavLink style={{ textDecoration: 'none' }} to="/contacts">
-								Контакты
-							</StyledNavLink>
+							<LinkHeaderInform>
+								<StyledNavLink to="/awards">Награды</StyledNavLink>
+							</LinkHeaderInform>
+							<LinkHeaderInform>
+								<StyledNavLink to="/contacts">Контакты</StyledNavLink>
 							</LinkHeaderInform>
 							<UserInfo />
 							<ExitLogo onClick={() => handleLogout()} />
@@ -124,33 +109,28 @@ const Navigation = () => {
 								<UserInfoWrapper>
 									<UserInfo />
 								</UserInfoWrapper>
+								<ExitLogo onClick={() => handleLogout()} />
 							</MobileMenu>
 							{menumob && (
 								<MobileMenuText>
 									<LinkHeaderInform>
-									<StyledNavLink style={{ textDecoration: 'none' }} to={todayIs()}>
-										Главная
-									</StyledNavLink>
-									</LinkHeaderInform>
-									<StyledNavLink style={{ textDecoration: 'none' }} to="/planning">
-										<LinkHeaderInform>Планирование</LinkHeaderInform>
-									</StyledNavLink>
-									<LinkHeaderInform>
-									<StyledNavLink style={{ textDecoration: 'none' }} to="/awards">
-										Награды
-									</StyledNavLink>
+										<StyledNavLink to={todayIs()}>Главная</StyledNavLink>
 									</LinkHeaderInform>
 									<LinkHeaderInform>
-									<StyledNavLink style={{ textDecoration: 'none' }} to="/contacts">
-										Контакты
-									</StyledNavLink>
+										<StyledNavLink to="/planning">Планирование</StyledNavLink>
+									</LinkHeaderInform>
+									<LinkHeaderInform>
+										<StyledNavLink to="/awards">Награды</StyledNavLink>
+									</LinkHeaderInform>
+									<LinkHeaderInform>
+										<StyledNavLink to="/contacts">Контакты</StyledNavLink>
 									</LinkHeaderInform>
 								</MobileMenuText>
 							)}
 
-							<HeaderblockcontactLogo onClick={() => handleLogout()}>
+							{/* <HeaderblockcontactLogo onClick={() => handleLogout()}>
 								<ExitLogo />
-							</HeaderblockcontactLogo>
+							</HeaderblockcontactLogo> */}
 						</Headerblockcontact>
 					</HeaderBlockRight>
 				</>

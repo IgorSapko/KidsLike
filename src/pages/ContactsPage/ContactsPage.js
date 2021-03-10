@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import {
 	Container,
@@ -14,21 +15,26 @@ import {
 	IconWrapper,
 	FacebookImg,
 	GitHubImg,
-	LinkedImg
+	LinkedImg,
 } from './ContactsPage.styles';
+import loaderActions from '../../redux/loader/loaderActions';
 import Facebook from '../../img/Facebook.svg';
 import GitHub from '../../img/GitHub.svg';
 import LinkedIn from '../../img/LinkedIn.svg';
+
 //
 
 export default function Contacts() {
 	const [contacts, setContacts] = useState([]);
+	const dispatch = useDispatch();
 	useEffect(() => {
+		dispatch(loaderActions.contactsRequest());
 		axios
 			.get(`https://kids-like-backend-cloud.herokuapp.com/api/team/contacts`)
 			.then(({ data }) => {
 				setContacts(data);
 			});
+		dispatch(loaderActions.contactsSuccess());
 	}, []);
 
 	console.log(contacts);
@@ -50,10 +56,10 @@ export default function Contacts() {
 								<Icons>
 									<IconWrapper href={item.socialLinks[1].link}>
 										{/* <Facebook /> */}
-										<FacebookImg src={Facebook}/>
+										<FacebookImg src={Facebook} />
 									</IconWrapper>
 									<IconWrapper href={item.socialLinks[0].link}>
-										<GitHubImg src={GitHub}/>
+										<GitHubImg src={GitHub} />
 									</IconWrapper>
 									<IconWrapper href={item.socialLinks[2].link}>
 										<LinkedImg src={LinkedIn} />
