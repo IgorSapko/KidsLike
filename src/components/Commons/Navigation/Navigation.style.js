@@ -167,3 +167,7 @@ export const ExitLogo = styled.span`
 		margin-left:18px;
 	}
 `;
+export const MenuImg = styled.img`
+	width: 22px;
+	height: 14px;
+`;

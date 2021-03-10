@@ -19,7 +19,6 @@ export default function WeekTabsContent({ week }, props) {
 	const tasks = week.tasks;
 	const today = DateTime.local().toFormat('dd-MM-yyyy');
 	let dayIsChoose = choosenDay(daysQuery);
-	console.log('today', today)
 
 	function todayTasks(daysQuery, tasks) {
 		const returnedTasks = [];
@@ -35,8 +34,7 @@ export default function WeekTabsContent({ week }, props) {
 		});
 		return returnedTasks;
 	}
-	todayTasks(daysQuery, tasks);
-
+	
 	return (
 		<WeekTabContentContainer>
 			<CurrentDay thisDay={daysQuery} choosenDay={dayIsChoose} />

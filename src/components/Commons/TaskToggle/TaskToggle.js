@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Switch from 'react-switch';
-import { UncheckedIconWrapper, CheckedIconWrapper } from './TaskToggle.styles';
+import { UncheckedIconWrapper, CheckedIconWrapper, CheckedImg, UnCheckedImg } from './TaskToggle.styles';
 import weekOperation from '../../../redux/week/weekOperation';
-import { Unchecked, Checked } from './SvgIconSwitch';
+import checkdSvg from '../../../img/checked.svg';
+import unCheckdSvg from '../../../img/unchecked.svg'
+
 
 export default function TaskToggle({ item, currentDay, summNumber }) {
 	const [checked, setChecked] = useState(false);
@@ -30,12 +32,14 @@ export default function TaskToggle({ item, currentDay, summNumber }) {
 				width={40}
 				uncheckedIcon={
 					<UncheckedIconWrapper>
-						<Unchecked />
+						{/* <Unchecked /> */}
+						<UnCheckedImg src={unCheckdSvg}/>
 					</UncheckedIconWrapper>
 				}
 				checkedIcon={
 					<CheckedIconWrapper>
-						<Checked />
+						{/* <Checked /> */}
+						<CheckedImg src={checkdSvg}/>
 					</CheckedIconWrapper>
 				}
 			/>

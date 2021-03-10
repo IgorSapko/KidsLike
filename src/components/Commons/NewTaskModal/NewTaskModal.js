@@ -113,8 +113,7 @@ const NewTaskModal = ({ addTask, closeModal }) => {
 					<Button onClick={handleOkBtn}>OK</Button>
 				</Form>
 			</ModalBlock>
-			{/* <NotificationContainer /> */}
-		</ModalBackDrop>
+				</ModalBackDrop>
 	);
 };
 

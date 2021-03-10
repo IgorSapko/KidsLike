@@ -13,11 +13,11 @@ import {
 
 export default function CardFooter({ item, currentDay, today, summNumber }) {
 	const startWeekDay = useSelector(state => state.week.startWeekDate);
-	let dayPositionInWeek;
+	let dayPositionInWeekFromZero;
 	if (currentDay && today) {
 		const startWeekDayDate = startWeekDay.split('-')[0];
 		const currentDayDate = currentDay.split('-')[0];
-		dayPositionInWeek = Number(currentDayDate) - Number(startWeekDayDate) + 1;
+		dayPositionInWeekFromZero = Number(currentDayDate) - Number(startWeekDayDate);
 	}
 	let history = useHistory();
 	return (
@@ -28,7 +28,7 @@ export default function CardFooter({ item, currentDay, today, summNumber }) {
 				{history.location.pathname === '/' && currentDay && today ? (
 					currentDay === today ? (
 						<TaskToggle item={item} currentDay={currentDay} />
-					) : currentDay > today ? null : item.days[dayPositionInWeek].isCompleted ? (
+					) : currentDay > today ? null : item.days[dayPositionInWeekFromZero].isCompleted ? (
 						<DoneTask />
 					) : (
 						<NotDoneTask />

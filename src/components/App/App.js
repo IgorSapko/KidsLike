@@ -16,7 +16,7 @@ const App = () => {
 	const dispatch = useDispatch();
 	const location = useLocation();
 	const isLoading = useSelector(selectors.getIsLoading)
-	console.log('isLoading',isLoading)
+
 	useEffect(() => {
 		dispatch(authOperations.getCurrentUser());
 	}, [dispatch]);

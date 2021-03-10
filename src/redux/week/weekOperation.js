@@ -56,8 +56,8 @@ const createCustomTask = formData => async dispatch => {
 };
 
 const giftsGetting = () => async dispatch => {
+	dispatch(weekActions.giftsGettingRequest());
 	try {
-			//  dispatch(weekActions.giftsGettingRequest());
 		const { data } = await axios.get(`https://kids-like-backend-cloud.herokuapp.com/api/gift`);
 		dispatch(weekActions.giftsGettingSuccess(data));
 	} catch (error) {

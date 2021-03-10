@@ -44,6 +44,7 @@ export const Congrats = styled.h2`
 		height: 36px;
 	}
 `;
+
 export const BtnClose = styled.img`
 	position: absolute;
 	right: 10px;
@@ -55,6 +56,7 @@ export const BtnClose = styled.img`
 		top: 20px;
 	}
 `;
+
 export const CongratsModalWrapper = styled.div`
 	position: relative;
 	background: white;
@@ -72,15 +74,20 @@ export const CongratsModalWrapper = styled.div`
 		height: 390px;
 	}
 `;
-export const PrizesWrapper = styled.div`
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
-	flex-wrap: wrap;
-	margin-top: 202px;
-	width: 504px;
-	height: 135px;
-`;
+
+export const PrizesWrapper =styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 202px;
+    width: 504px;
+    height: 135px;
+// @media (min-width: 768px) {  
+//     flex-direction: row;
+//     }
+`
+
 export const PrizesWrapper_block = styled.div`
 	display: flex;
 	flex-direction: column;
@@ -114,7 +121,7 @@ export const ModalWrapper = styled.div`
     top: 50%;
     left: 50%;
     margin-right: -50%;
-    transform: translate(-50%, -50%) }
+    transform: translate(-50%, -50%);
 `;
 
 export const WrapperApasity = styled.div`
@@ -123,3 +130,41 @@ export const WrapperApasity = styled.div`
 	width: 100vw;
 	background: rgba(0, 0, 0, 0.2);
 `;
+
+export const AwardsSubmitData = styled.button`
+    display:flex;
+    justify-content: center;
+    margin: 40px auto;
+    width: 220px;
+    height: 48px;
+    background: #FFBC33;
+    border-radius: 6px;
+    border: none;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    align-items: center;
+    letter-spacing: 0.02em;
+    color: #FAFAFA;
+`;
+
+export const  ModalCongrats = styled.div`
+    position: relative;
+    background: white;
+    display: flex;
+    margin: auto;
+    margin-top: 10%;
+    justify-content: center;
+    width: 280px;
+    height: 484px;  
+    inset: 0px;
+    border: none;
+    border-radius: 6px;
+@media (min-width: 768px) {  
+    width: 602px;
+    height: 390px;
+}
+`
+

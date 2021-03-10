@@ -1,61 +1,55 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import Modal from '@material-ui/core/Modal';
 import {
+	ModalWrapper,
 	ImgCat,
 	Congrats,
 	BtnClose,
-	CongratsModalWrapper,
+	ModalCongrats,
 	PrizesWrapper,
 	PrizesWrapper_block,
 	ChosenPrise,
 	ChosenPrise_name,
 } from './CongratsModal.styles';
+import ModalBackDrop from '../ModalBackDrop/ModalBackDrop';
 import weekOperation from '../../../redux/week/weekOperation';
 
-export default function CongratsModal({ idItems, itemsAll }) {
-	const [open, setOpen] = useState(true);
-	const duspatch = useDispatch();
+function CongratsModal({ idItems, itemsAll, setOpen }) {
+	const [showModal, setShowModal] = useState(true);
+	const dispatch = useDispatch();
 
-	const handleSwich = () => {
-		setOpen(!open);
-
+	const closeModal = () => {
 		const giftId = {
 			giftIDs: idItems,
 		};
-		if (open) {
-			duspatch(weekOperation.giftsOrder(giftId));
+		setOpen(false);
+		setShowModal(showModal => !showModal);
+		if (showModal) {
+			dispatch(weekOperation.giftsOrder(giftId));
 		}
 	};
 
-	const body = (
-		<CongratsModalWrapper>
-			<ImgCat src="https://i.ibb.co/p0wx9b1/SimonCat.png" />
-			<Congrats>Поздравляем! Ты получаешь:</Congrats>
-			<BtnClose onClick={handleSwich} src="https://i.ibb.co/dDhJBd5/BtnClose.jpg"></BtnClose>
-			<PrizesWrapper>
-				{itemsAll.map(item => {
-					return (
-						<PrizesWrapper_block key={item.imageUrl}>
-							<ChosenPrise src={item.imageUrl} />
-							<ChosenPrise_name>{item.title}</ChosenPrise_name>
-						</PrizesWrapper_block>
-					);
-				})}
-			</PrizesWrapper>
-		</CongratsModalWrapper>
-	);
-
 	return (
-		<div>
-			<Modal
-				open={open}
-				onClose={handleSwich}
-				aria-labelledby="simple-modal-title"
-				aria-describedby="simple-modal-description"
-			>
-				{body}
-			</Modal>
-		</div>
+		<ModalBackDrop>
+			<ModalWrapper onClick={closeModal}>
+				<ModalCongrats showModal={showModal}>
+					<ImgCat src="https://i.ibb.co/p0wx9b1/SimonCat.png" />
+					<Congrats>Поздравляем! Ты получаешь:</Congrats>
+					<BtnClose src="https://i.ibb.co/dDhJBd5/BtnClose.jpg" />
+					<PrizesWrapper>
+						{itemsAll.map(item => {
+							return (
+								<PrizesWrapper_block key={item.title}>
+									<ChosenPrise src={item.imageUrl} />
+									<ChosenPrise_name>{item.title}</ChosenPrise_name>
+								</PrizesWrapper_block>
+							);
+						})}
+					</PrizesWrapper>
+				</ModalCongrats>
+			</ModalWrapper>
+		</ModalBackDrop>
 	);
 }
+
+export default CongratsModal;

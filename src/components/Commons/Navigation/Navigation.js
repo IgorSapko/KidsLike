@@ -16,10 +16,12 @@ import {
 	Headerblockcontact,
 	HeaderblockcontactLogo,
 	UserInfoWrapper,
-	ExitLogo
+	ExitLogo,
+	MenuImg
 } from './Navigation.style';
 import UserInfo from '../UserInfo/UserInfo';
-import { Menu } from '../Header/LogoSvg';
+// import { Menu } from '../Header/LogoSvg';
+import menu from '../../../img/menu.svg'
 
 import authOperations from '../../../redux/auth/authOperations';
 
@@ -39,7 +41,7 @@ const Navigation = () => {
 					<MobileMenu>
 						<>
 							<MobileMenuLogo onClick={() => setMenumob(!menumob)}>
-								<Menu />
+								<MenuImg src={menu} />
 							</MobileMenuLogo>
 
 							{menumob && (
@@ -105,7 +107,7 @@ const Navigation = () => {
 						<Headerblockcontact>
 							<MobileMenu>
 								<MobileMenuLogo onClick={() => setMenumob(!menumob)}>
-									<Menu />
+								<MenuImg src={menu} />
 								</MobileMenuLogo>
 								<UserInfoWrapper>
 								<UserInfo />

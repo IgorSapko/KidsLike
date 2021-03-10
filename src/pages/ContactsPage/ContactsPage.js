@@ -12,10 +12,13 @@ import {
 	Icons,
 	Photo,
 	IconWrapper,
-} from './ContactsPage.modules';
-import Facebook from './icons/Facebook';
-import GitHub from './icons/GitHub';
-import LinkedIn from './icons/LinkedIn';
+	FacebookImg,
+	GitHubImg,
+	LinkedImg
+} from './ContactsPage.styles';
+import Facebook from '../../img/Facebook.svg';
+import GitHub from '../../img/GitHub.svg';
+import LinkedIn from '../../img/LinkedIn.svg';
 //
 
 export default function Contacts() {
@@ -46,13 +49,14 @@ export default function Contacts() {
 								<Qualification>{item.position}</Qualification>
 								<Icons>
 									<IconWrapper href={item.socialLinks[1].link}>
-										<Facebook />
+										{/* <Facebook /> */}
+										<FacebookImg src={Facebook}/>
 									</IconWrapper>
 									<IconWrapper href={item.socialLinks[0].link}>
-										<GitHub />
+										<GitHubImg src={GitHub}/>
 									</IconWrapper>
 									<IconWrapper href={item.socialLinks[2].link}>
-										<LinkedIn />
+										<LinkedImg src={LinkedIn} />
 									</IconWrapper>
 								</Icons>
 							</Cards>
