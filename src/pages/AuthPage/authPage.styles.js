@@ -1,4 +1,6 @@
+//Core
 import styled from 'styled-components';
+//Global
 import { device } from '../../index.styles';
 
 const ContainerAuth = styled.div`
@@ -6,25 +8,24 @@ const ContainerAuth = styled.div`
 	flex-direction: column-reverse;
 	align-items: center;
 	margin-top: 58px;
-	margin-bottom:20px;
+	margin-bottom: 20px;
 
-	@media ${device.tablet}{
-max-width:1280px;
-margin-top:0;
-flex-direction: row;
-justify-content: center;
-margin-top:72px;
-margin-bottom:10px;
+	@media ${device.tablet} {
+		max-width: 1280px;
+		margin-top: 0;
+		flex-direction: row;
+		justify-content: center;
+		margin-top: 72px;
+		margin-bottom: 10px;
 	}
 
-	@media ${device.desktop}{
+	@media ${device.desktop} {
 		width: 1280px;
-		height:890px;
-		margin-top:0;
+		height: 890px;
+		margin-top: 0;
 		flex-direction: row;
 		flex-wrap: none;
-
-			}
+	}
 `;
 
 const RegContainer = styled.div`
@@ -41,7 +42,7 @@ const RegContainer = styled.div`
 	}
 
 	@media ${device.tablet} {
-		}
+	}
 
 	@media ${device.desktop} {
 		margin-top: 0px;
@@ -53,8 +54,8 @@ const RegContainer = styled.div`
 
 const ImagesContainer = styled.div`
 	display: block;
-	/* overflow:hidden; */
-position:relative;
+	position: relative;
+
 	@media ${device.tablet} {
 		max-width: 1280px;
 		display: block;
@@ -147,21 +148,12 @@ const ImgAuth2 = styled.div`
 	background-image: url('https://storage.googleapis.com/kidslikev2_bucket/060d7816e5c59cb8125e45a28cdc8ba4.png');
 	background-repeat: no-repeat;
 	background-size: cover;
-	/* background-position: 50%; */
 	display: block;
 	width: 320px;
 	height: 264px;
 	margin-left: 10px;
-position:absolute;
-/* border-image-outset:150px;
-top:0;
-left:0; */
-transform:translate(-50%,0%);
-/* overflow:hidden; */
-	/* @media ${device.mobile} {
-		display: block;
-		background-size: cover;
-	} */
+	position: absolute;
+	transform: translate(-50%, 0%);
 
 	@media ${device.tablet} {
 		max-width: 1280px;
@@ -214,7 +206,6 @@ const ImgAuth4 = styled.div`
 	background-image: url('https://storage.googleapis.com/kidslikev2_bucket/4209b248e4a4c390fd9c15e952d73adf.png');
 	background-repeat: no-repeat;
 	background-size: contain;
-
 	display: none;
 
 	@media ${device.tablet} {

@@ -1,5 +1,8 @@
+//Core
 import styled from 'styled-components';
+//Global
 import { device } from '../../../index.styles';
+//Assets
 import googlePng from '../../../img/google.png';
 
 const Form = styled.form`
@@ -17,7 +20,6 @@ const Form = styled.form`
 		box-shadow: 4px 6px 15px rgba(0, 0, 0, 0.1);
 		border-radius: 6px;
 		padding: 40px;
-		/* margin-bottom: 78px; */
 	}
 
 	@media ${device.desktop} {
@@ -59,7 +61,7 @@ const Input = styled.input`
 		width: 320px;
 	}
 
-	&: focus {
+	&:focus {
 		outline: 2px solid #ffbc33;
 		color: #000000;
 	}
@@ -92,12 +94,12 @@ const Button = styled.button`
 		height: 48px;
 	}
 
-	&: focus {
+	&:focus {
 		outline: 0;
 		box-shadow: 5px 1px 17px 3px #ffba4e;
 	}
 
-	&: hover {
+	&:hover {
 		border: 2px solid #ffbc33;
 		background-color: white;
 		color: #ffbc33;
@@ -108,7 +110,6 @@ const ButtonContainer = styled.div`
 	display: flex;
 	justify-content: space-between;
 	width: 100%;
-	/* margin-top: 23px; */
 
 	@media ${device.tablet} {
 		margin-top: 20px;
@@ -117,7 +118,6 @@ const ButtonContainer = styled.div`
 	}
 
 	@media ${device.desktop} {
-		
 		padding-top: 20px;
 		width: 320px;
 	}
@@ -141,7 +141,7 @@ const ButtonGoogle = styled.div`
 	justify-content: center;
 	margin-bottom: 30px;
 
-	&: focus {
+	&:focus {
 		outline: 0;
 		box-shadow: 5px 1px 17px 3px #ffba4e;
 	}
@@ -177,9 +177,8 @@ const P = styled.p`
 	font-size: 12px;
 	line-height: 15px;
 	letter-spacing: 0.04em;
-	height:30px;
-	margin-bottom:20px;
-	
+	height: 30px;
+	margin-bottom: 20px;
 `;
 
 const NotificationDiv = styled.div`
