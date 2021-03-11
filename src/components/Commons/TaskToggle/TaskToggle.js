@@ -3,8 +3,8 @@ import { useDispatch } from 'react-redux';
 import Switch from 'react-switch';
 import { UncheckedIconWrapper, CheckedIconWrapper, CheckedImg, UnCheckedImg } from './TaskToggle.styles';
 import weekOperation from '../../../redux/week/weekOperation';
-import checkdSvg from '../../../img/checked.svg';
-import unCheckdSvg from '../../../img/unchecked.svg'
+// import checkdSvg from '../../../img/checked.svg';
+// import unCheckdSvg from '../../../img/unchecked.svg'
 
 
 export default function TaskToggle({ item, currentDay, summNumber }) {
@@ -33,16 +33,17 @@ export default function TaskToggle({ item, currentDay, summNumber }) {
 				uncheckedIcon={
 					<UncheckedIconWrapper>
 						{/* <Unchecked /> */}
-						<UnCheckedImg src={unCheckdSvg}/>
+						<UnCheckedImg src='https://storage.googleapis.com/kidslikev2_bucket/32c0d07a2fb62667895a261b612ad71c.png'/>
 					</UncheckedIconWrapper>
 				}
 				checkedIcon={
 					<CheckedIconWrapper>
 						{/* <Checked /> */}
-						<CheckedImg src={checkdSvg}/>
+						<CheckedImg src='https://storage.googleapis.com/kidslikev2_bucket/32c0d07a2fb62667895a261b612ad71c.png'/>
 					</CheckedIconWrapper>
 				}
 			/>
 		</div>
+		
 	);
 }

@@ -19,13 +19,15 @@ import {
 	ExitLogo,
 	MenuImg,
 	StyledNavLink,
+	HeaderInformUlNotAuthorized,
+	MobileMenuNotAuthorized
 } from './Navigation.style';
 import UserInfo from '../UserInfo/UserInfo';
 // import { Menu } from '../Header/LogoSvg';
 import menu from '../../../img/menu.svg';
 import { todayIs } from '../../../utils/Helpers';
-
 import authOperations from '../../../redux/auth/authOperations';
+
 
 const Navigation = () => {
 	const [menumob, setMenumob] = useState(false);
@@ -40,7 +42,7 @@ const Navigation = () => {
 		<HeaderBlock>
 			{!user ? (
 				<>
-					<MobileMenu>
+					<MobileMenuNotAuthorized>
 						<>
 							<MobileMenuLogo onClick={() => setMenumob(!menumob)}>
 								<MenuImg src={menu} />
@@ -57,19 +59,15 @@ const Navigation = () => {
 								</MobileMenuText>
 							)}
 						</>
-					</MobileMenu>
-					<HeaderInformUl>
-						<LinkHeaderInform rightPad>
-							<StyledNavLink style={{ textDecoration: 'none' }} to="/auth">
-								Авторизация
-							</StyledNavLink>
+					</MobileMenuNotAuthorized>
+					<HeaderInformUlNotAuthorized>
+						<LinkHeaderInform>
+							<StyledNavLink to="/auth">Авторизация</StyledNavLink>
 						</LinkHeaderInform>
-						<LinkHeaderInform leftPad>
-							<StyledNavLink style={{ textDecoration: 'none' }} to="/contacts">
-								Контакты
-							</StyledNavLink>
+						<LinkHeaderInform>
+							<StyledNavLink to="/contacts">Контакты</StyledNavLink>
 						</LinkHeaderInform>
-					</HeaderInformUl>
+					</HeaderInformUlNotAuthorized>
 				</>
 			) : (
 				<>
@@ -86,7 +84,7 @@ const Navigation = () => {
 					<HeaderBlockRight>
 						<HeaderInformUl>
 							<LinkHeaderInform>
-								<StyledNavLink to={todayIs()}>Главная</StyledNavLink>
+								<StyledNavLink exact to={todayIs()}>Главная</StyledNavLink>
 							</LinkHeaderInform>
 							<LinkHeaderInform>
 								<StyledNavLink to="/planning">Планирование</StyledNavLink>
@@ -114,7 +112,7 @@ const Navigation = () => {
 							{menumob && (
 								<MobileMenuText>
 									<LinkHeaderInform>
-										<StyledNavLink to={todayIs()}>Главная</StyledNavLink>
+										<StyledNavLink exact to={todayIs()}>Главная</StyledNavLink>
 									</LinkHeaderInform>
 									<LinkHeaderInform>
 										<StyledNavLink to="/planning">Планирование</StyledNavLink>
@@ -127,10 +125,6 @@ const Navigation = () => {
 									</LinkHeaderInform>
 								</MobileMenuText>
 							)}
-
-							{/* <HeaderblockcontactLogo onClick={() => handleLogout()}>
-								<ExitLogo />
-							</HeaderblockcontactLogo> */}
 						</Headerblockcontact>
 					</HeaderBlockRight>
 				</>

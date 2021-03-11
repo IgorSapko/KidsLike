@@ -33,9 +33,9 @@ function CongratsModal({ idItems, itemsAll, setOpen }) {
 		<ModalBackDrop>
 			<ModalWrapper onClick={closeModal}>
 				<ModalCongrats showModal={showModal}>
-					<ImgCat src="https://i.ibb.co/p0wx9b1/SimonCat.png" />
+					<ImgCat src="https://storage.googleapis.com/kidslikev2_bucket/4c67b0f578c6e7ff1d0b504f8019ffc9.png" />
 					<Congrats>Поздравляем! Ты получаешь:</Congrats>
-					<BtnClose src="https://i.ibb.co/dDhJBd5/BtnClose.jpg" />
+					<BtnClose src="https://storage.googleapis.com/kidslikev2_bucket/08942ec472518083fbe6e2a6fb95674d.jpg" />
 					<PrizesWrapper>
 						{itemsAll.map(item => {
 							return (

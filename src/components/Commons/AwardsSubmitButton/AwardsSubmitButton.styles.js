@@ -17,6 +17,7 @@ export const AwardsSubmitBtn = styled.button`
     align-items: center;
     letter-spacing: 0.02em;
     color: #FAFAFA;
+    cursor: pointer;
 `;
 
 export const NotificationDiv = styled.div`

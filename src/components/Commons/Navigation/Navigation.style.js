@@ -68,10 +68,34 @@ export const MobileMenu = styled.div`
 	}
 `;
 
+export const MobileMenuNotAuthorized = styled.div`
+	display: none;
+	@media (max-width: 768px) {
+		position: relative;
+		width: 100%;
+		margin-right: 40px;
+		display: flex;
+		justify-content: flex-end;
+	}
+`;
+
 export const HeaderInformUl = styled.ul`
 	display: none;
 
 	@media (min-width: 1280px) {
+		width: 100%;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		justify-content: flex-end;
+		padding-right: 40px;
+	}
+`;
+
+export const HeaderInformUlNotAuthorized = styled.ul`
+	display: none;
+
+	@media (min-width: 768px) {
 		width: 100%;
 		padding: 0;
 		margin: 0;

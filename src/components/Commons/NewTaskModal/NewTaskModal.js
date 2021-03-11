@@ -19,7 +19,7 @@ import {
 import img from '../../../img/add_modal.png';
 import pencil from '../../../img/pencil.svg';
 import pictureItemSvg from '../../../img/pictureItem.svg';
-import closeCross from '../../../img/closeCross.svg';
+// import closeCross from '../../../img/closeCross.svg';
 
 const NewTaskModal = ({ addTask, closeModal }) => {
 	const [title, setTitle] = useState('');
@@ -75,7 +75,7 @@ const NewTaskModal = ({ addTask, closeModal }) => {
 				<Header>
 					<Image src={taskAvatar ? taskAvatar : img} alt="Custom task" />
 					<CloseBtn onClick={handleCloseBtn}>
-						<img src={closeCross} alt="Close" />
+						<img src="https://storage.googleapis.com/kidslikev2_bucket/08942ec472518083fbe6e2a6fb95674d.jpg" alt="Close" />
 					</CloseBtn>
 				</Header>
 				<Form onSubmit={handleSubmit} ref={formData}>
