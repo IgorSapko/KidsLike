@@ -73,7 +73,7 @@ const NewTaskModal = ({ addTask, closeModal }) => {
 			</NotificationDiv>
 			<ModalBlock>
 				<Header>
-					<Image src={taskAvatar ? taskAvatar : img} alt="Custom task" />
+					<Image src={taskAvatar ? taskAvatar : 'https://storage.googleapis.com/kidslikev2_bucket/f7c3588d0fe94e5eb35a11bbba923e1e.png'} alt="Custom task" />
 					<CloseBtn onClick={handleCloseBtn}>
 						<img src="https://storage.googleapis.com/kidslikev2_bucket/08942ec472518083fbe6e2a6fb95674d.jpg" alt="Close" />
 					</CloseBtn>
