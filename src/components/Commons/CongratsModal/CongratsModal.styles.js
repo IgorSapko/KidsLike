@@ -36,12 +36,14 @@ export const Congrats = styled.h2`
 	font-family: Montserrat;
 	font-style: normal;
 	font-weight: 600;
-	font-size: 30px;
-	line-height: 37px;
+    font-size: 18px;
+    line-height: 22px;
 	text-align: center;
 	@media ${device.tablet} {
 		width: 504px;
 		height: 36px;
+		font-size: 30px;
+	    line-height: 37px;
 	}
 `;
 
@@ -51,6 +53,7 @@ export const BtnClose = styled.img`
 	top: 10px;
 	width: 14px;
 	height: 14px;
+	cursor: pointer;
 	@media ${device.tablet} {
 		right: 20px;
 		top: 20px;
@@ -83,9 +86,6 @@ export const PrizesWrapper =styled.div`
     margin-top: 202px;
     width: 504px;
     height: 135px;
-// @media (min-width: 768px) {  
-//     flex-direction: row;
-//     }
 `
 
 export const PrizesWrapper_block = styled.div`

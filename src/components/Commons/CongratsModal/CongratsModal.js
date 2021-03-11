@@ -29,6 +29,18 @@ function CongratsModal({ idItems, itemsAll, setOpen }) {
 		}
 	};
 
+
+    // const keyPress = useCallback (e => {
+    //     if(e.key === 'Escape' && showModal) {
+    //         setShowModal(false)
+    //     }
+    // }, [setShowModal, showModal])
+
+    // useEffect(() => {
+    //     document.addEventListener('keydown', keyPress);
+    //     return () => document.removeEventListener('keydown', keyPress)
+    // },[keyPress])
+
 	return (
 		<ModalBackDrop>
 			<ModalWrapper onClick={closeModal}>
