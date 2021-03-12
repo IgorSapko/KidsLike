@@ -396,6 +396,22 @@ const PointsMobile = styled.p`
 	}
 `;
 
+const AddCustom = styled.div`
+	@media ${device.tablet} {
+		display: none;
+	}
+`;
+const AddBtn = styled.button`
+	position: fixed;
+	margin-right: 20px;
+	margin-bottom: 3px;
+	z-index: 1110;
+	bottom: 12px;
+	right: 20px;
+	border: none;
+	background-color: unset;
+`;
+
 export {
 	Container,
 	LeftSide,
@@ -409,4 +425,6 @@ export {
 	ContainerPoints,
 	BoldPoints,
 	PointsMobile,
+	AddCustom,
+	AddBtn,
 };
