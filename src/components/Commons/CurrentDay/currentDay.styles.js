@@ -152,47 +152,63 @@
 import styled from 'styled-components';
 import { device } from '../../../index.styles';
 
+// const LeftSide = styled.div`
+// 	/* width: 100%; */
+// 	display: flex;
+// 	justify-content: center;
+// 	// margin-left: 110px;
+// 	/* @media ${device.mobile} {
+// 		display: block;
+// 		width: 100vw;
+// 	} */
+// `;
 const LeftSide = styled.div`
-	/* width: 100%; */
 	display: flex;
+	width: 100%;
 	justify-content: center;
-	margin-left: 110px;
-	/* @media ${device.mobile} {
-		display: block;
-		width: 100vw;
-	} */
+	flex-wrap: wrap;
+	@media ${device.desktop} {
+		height: 70px;
+		width: 400px;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: flex-start;
+		text-align: right;
+		margin-left: 60px;
+	} ;
 `;
 
 const Container = styled.div`
 	display: flex;
 	justify-content: space-between;
-	// width: 880px;
 	height: 70px;
-	// margin-left: 110px;
-	// margin-top: 40px;
-
+	margin-bottom: 40px;
+	@media ${device.tablet} {
+		flex-wrap: wrap-reverse;
+		height: 100%;
+		padding-top: 40px;
+		margin-bottom: 40px;
+	}
 	@media ${device.desktop} {
 		display: flex;
-		justify-content: space-between;
+		justify-content: space-around;
 		width: 100%;
-		/* margin-left: 8.5vw; */
-		margin-top: 40px;
 	} ;
 `;
 
 const ProgressDiv = styled.div`
-	width: 150px;
+	width: 56%;
 
 	@media ${device.tablet} {
-		max-width: 768px;
 		width: 280px;
+		margin-right: 30px;
 		display: inline-block;
-		/* margin-bottom:40px; */
 	}
 
 	@media ${device.desktop} {
 		width: 280px;
 		display: inline-block;
+		margin-right: 10px;
 	}
 `;
 
@@ -218,31 +234,24 @@ const PointsLeft = styled.p`
 	font-style: normal;
 	font-weight: 500;
 	font-size: 12px;
-	line-height: 15px;
 	color: #a6abb9;
 	letter-spacing: 0.04em;
-	position: absolute;
-	width: 177px;
+	width: 230px;
 	text-align: center;
-	margin-top: 50px;
+	margin-top: 20px;
 
 	@media ${device.tablet} {
-		max-width: 768px;
+		width: 100%;
 		text-align: center;
-		position: absolute;
-		width: 280px;
-		left: 38%;
-		top: 210px;
+		// max-width: 768px;
+		// width: 280px;
 	}
 
 	@media ${device.desktop} {
-		width: 100%;
+		width: 500px;
 		text-align: left;
-		position: relative;
-		top: 0;
-		left: 0px;
 		margin-left: 0px;
-		transform: translate(-10%);
+		margin-top: 0px;
 	}
 `;
 
@@ -250,40 +259,24 @@ const WeekText = styled.p`
 	font-family: 'MontserratRegular', sans-serif;
 	font-style: normal;
 	font-weight: 500;
-	margin-bottom: 30px;
-	position: absolute;
-
-	/* 	
-	margin-left:150px; */
-
+	width: 100%;
+	text-align: center;
 	@media ${device.tablet} {
 		display: none;
-		/* max-width: 768px;
-		font-size: 14px;
-		line-height: 17px;
-		position: absolute;
-		width: 172px;
-		height: 17px;
-		left: 94px;
-		top: 89px; */
 	}
 
 	@media ${device.desktop} {
-		position: relative;
+		display: flex;
 		width: 224px;
 		font-size: 18px;
 		line-height: 22px;
-		margin-bottom: 30px;
-		top: 0;
-		left: 0;
-		/* margin-left:20px */
 	}
 `;
 
 const DayName = styled.p`
 	display: inline-block;
 	margin: 0 auto;
-	width: 200px;
+	width: 100%;
 	margin-top: 6px;
 	color: #000000;
 	font-family: 'Montserrat800', sans-serif;
@@ -292,6 +285,9 @@ const DayName = styled.p`
 	font-size: 12px;
 	line-height: 15px;
 	letter-spacing: 0.2em;
+	@media ${device.tablet} {
+		width: 260px;
+	}
 `;
 
 const PlanPoints = styled.p`
@@ -308,39 +304,41 @@ const PlanPoints = styled.p`
 `;
 
 const ProgressContainer = styled.div`
-	position: absolute;
-	width: 320px;
+	position: fixed;
+	width: 100%;
 	height: 58px;
-
-	transform: translate(-100%, 50%);
-	/* left: 0px; */
-	top: 130vh;
-	margin-left: 20px;
+	z-index: 1000;
+	right: 0;
+	left: 0;
+	bottom: 0;
 	display: flex;
 	align-items: center;
+	flex-wrap: wrap;
+	background-color: #f1f1f1;
 
 	@media ${device.tablet} {
-		max-width: 768px;
-		position: relative;
-		display: flex;
-		height: auto;
-		width: auto;
+		background-color: unset;
+		position: unset;
+		height: 8px;
 		justify-content: center;
-		align-items: center;
-		top: 0;
-		left: 0;
-		transform: translate(10%);
+
+		// max-width: 768px;
+
+		// height: auto;
+		// width: auto;
 	}
 
 	@media ${device.desktop} {
-		position: relative;
-		height: auto;
-		width: auto;
-		top: 0;
-		left: 0;
-		transform: translate(-2%);
-		display: flex;
-		align-items: center;
+		justify-content: flex-end;
+		width: 100%;
+		// position: relative;
+		// height: auto;
+		// width: auto;
+		// top: 0;
+		// left: 0;
+		// transform: translate(-2%);
+		// display: flex;
+		// align-items: center;
 	}
 `;
 
@@ -351,24 +349,18 @@ const ContainerPoints = styled.div`
 	align-items: flex-end;
 
 	@media ${device.tablet} {
-		max-width: 768px;
+		width: 100%;
 		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		align-items: flex-end;
 		text-align: center;
-		position: absolute;
-		width: 233px;
-		height: 70px;
-		left: 50%;
-		top: 172px;
+		align-items: center;
+		flex-direction: column;
+		justify-content: space-around;
+		height: 66px;
 	}
 
 	@media ${device.desktop} {
+		width: 50%;
 		height: 70px;
-		position: relative;
-		top: 0;
-		left: 0;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
@@ -386,7 +378,38 @@ const BoldPoints = styled.p`
 	font-size: 14px;
 	line-height: 17px;
 	letter-spacing: 0.2em;
-	padding-left: 14px;
+	padding-left: 20px;
+`;
+const PointsMobile = styled.p`
+	display: inline-block;
+	width: 100%;
+	height: 15px;
+	padding-left: 20px;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 12px;
+	line-height: 15px;
+	color: #a6abb9;
+	@media ${device.tablet} {
+		display: none;
+	}
+`;
+
+const AddCustom = styled.div`
+	@media ${device.tablet} {
+		display: none;
+	}
+`;
+const AddBtn = styled.button`
+	position: fixed;
+	margin-right: 20px;
+	margin-bottom: 3px;
+	z-index: 1110;
+	bottom: 12px;
+	right: 20px;
+	border: none;
+	background-color: unset;
 `;
 
 export {
@@ -401,4 +424,7 @@ export {
 	ProgressContainer,
 	ContainerPoints,
 	BoldPoints,
+	PointsMobile,
+	AddCustom,
+	AddBtn,
 };

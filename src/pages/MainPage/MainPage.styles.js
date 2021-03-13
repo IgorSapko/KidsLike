@@ -1,4 +1,3 @@
-
 // import styled from 'styled-components';
 // import { device, size } from '../../index.styles';
 
@@ -40,7 +39,7 @@
 // 		justify-content: space-between;
 // 		width: 336px;
 // 		margin-left: 0px;
-	
+
 // 	}
 // 	@media ${device.desktop} {
 // 		list-style: none;
@@ -212,7 +211,7 @@ const WeekTabsContainer = styled.div`
 		align-items: center;
 	}
 	@media ${device.desktop} {
-		height: calc(100% + 50px);
+		height: calc(100% + 80px);
 		width: 240px;
 		align-items: start;
 		/* position: fixed; */
@@ -272,9 +271,10 @@ const WeekTabContentContainer = styled.div`
 	width: 100%;
 	@media ${device.tablet} {
 		background-color: #fafafa;
+		min-height: calc(100vh - 212px);
 	}
 	@media ${device.desktop} {
-		min-height: calc(100vh - 50px);
+		min-height: calc(100vh - 142px);
 	}
 `;
 const ContainerForBalanceandInfo = styled.div`
