@@ -13,21 +13,22 @@ import {
 	HeaderBalanceText,
 	HeaderBalanceNumber,
 	HeaderBlockRight,
-	Headerblockcontact,
+	MobileMenuAuthorized,
 	HeaderblockcontactLogo,
 	UserInfoWrapper,
 	ExitLogo,
 	MenuImg,
 	StyledNavLink,
 	HeaderInformUlNotAuthorized,
-	MobileMenuNotAuthorized
+	MobileMenuNotAuthorized,
+	CloseSpan
 } from './Navigation.style';
 import UserInfo from '../UserInfo/UserInfo';
 // import { Menu } from '../Header/LogoSvg';
 import menu from '../../../img/menu.svg';
+
 import { todayIs } from '../../../utils/Helpers';
 import authOperations from '../../../redux/auth/authOperations';
-
 
 const Navigation = () => {
 	const [menumob, setMenumob] = useState(false);
@@ -37,6 +38,16 @@ const Navigation = () => {
 	const handleLogout = () => {
 		dispatch(authOperations.userSighOut());
 	};
+	const notAuthorizedLinks = [
+		{ nameLink: 'Авторизация', path: '/auth' },
+		{ nameLink: 'Контакты', path: '/contacts' },
+	];
+	const authorizedLinks = [
+		{ nameLink: 'Главная', path: todayIs() },
+		{ nameLink: 'Планирование', path: '/planning' },
+		{ nameLink: 'Награды', path: '/awards' },
+		{ nameLink: 'Контакты', path: '/contacts' },
+	];
 
 	return (
 		<HeaderBlock>
@@ -49,24 +60,28 @@ const Navigation = () => {
 							</MobileMenuLogo>
 
 							{menumob && (
-								<MobileMenuText>
-									<LinkHeaderInform>
-										<StyledNavLink to="/auth">Авторизация</StyledNavLink>
-									</LinkHeaderInform>
-									<LinkHeaderInform>
-										<StyledNavLink to="/contacts">Контакты</StyledNavLink>
-									</LinkHeaderInform>
-								</MobileMenuText>
+								<>
+									<MobileMenuText>
+										{notAuthorizedLinks.map(item => (
+											<LinkHeaderInform key={item.nameLink}>
+												<StyledNavLink exact to={item.path}>
+													{item.nameLink}
+												</StyledNavLink>
+											</LinkHeaderInform>
+										))}
+									</MobileMenuText>
+								</>
 							)}
 						</>
 					</MobileMenuNotAuthorized>
 					<HeaderInformUlNotAuthorized>
-						<LinkHeaderInform>
-							<StyledNavLink to="/auth">Авторизация</StyledNavLink>
-						</LinkHeaderInform>
-						<LinkHeaderInform>
-							<StyledNavLink to="/contacts">Контакты</StyledNavLink>
-						</LinkHeaderInform>
+						{notAuthorizedLinks.map(item => (
+							<LinkHeaderInform key={item.nameLink}>
+								<StyledNavLink exact to={item.path}>
+									{item.nameLink}
+								</StyledNavLink>
+							</LinkHeaderInform>
+						))}
 					</HeaderInformUlNotAuthorized>
 				</>
 			) : (
@@ -83,50 +98,48 @@ const Navigation = () => {
 
 					<HeaderBlockRight>
 						<HeaderInformUl>
-							<LinkHeaderInform>
-								<StyledNavLink exact to={todayIs()}>Главная</StyledNavLink>
-							</LinkHeaderInform>
-							<LinkHeaderInform>
-								<StyledNavLink to="/planning">Планирование</StyledNavLink>
-							</LinkHeaderInform>
-							<LinkHeaderInform>
-								<StyledNavLink to="/awards">Награды</StyledNavLink>
-							</LinkHeaderInform>
-							<LinkHeaderInform>
-								<StyledNavLink to="/contacts">Контакты</StyledNavLink>
-							</LinkHeaderInform>
+							{authorizedLinks.map(item => (
+								<LinkHeaderInform key={item.nameLink}>
+									<StyledNavLink exact to={item.path}>
+										{item.nameLink}
+									</StyledNavLink>
+								</LinkHeaderInform>
+							))}
 							<UserInfo />
 							<ExitLogo onClick={() => handleLogout()} />
 						</HeaderInformUl>
-
-						<Headerblockcontact>
-							<MobileMenu>
-								<MobileMenuLogo onClick={() => setMenumob(!menumob)}>
-									<MenuImg src={menu} />
-								</MobileMenuLogo>
-								<UserInfoWrapper>
-									<UserInfo />
-								</UserInfoWrapper>
-								<ExitLogo onClick={() => handleLogout()} />
-							</MobileMenu>
-							{menumob && (
-								<MobileMenuText>
-									<LinkHeaderInform>
-										<StyledNavLink exact to={todayIs()}>Главная</StyledNavLink>
-									</LinkHeaderInform>
-									<LinkHeaderInform>
-										<StyledNavLink to="/planning">Планирование</StyledNavLink>
-									</LinkHeaderInform>
-									<LinkHeaderInform>
-										<StyledNavLink to="/awards">Награды</StyledNavLink>
-									</LinkHeaderInform>
-									<LinkHeaderInform>
-										<StyledNavLink to="/contacts">Контакты</StyledNavLink>
-									</LinkHeaderInform>
-								</MobileMenuText>
-							)}
-						</Headerblockcontact>
 					</HeaderBlockRight>
+					<MobileMenuAuthorized>
+						<MobileMenu>
+							<MobileMenuLogo onClick={() => setMenumob(!menumob)}>
+								<MenuImg src={menu} />
+							</MobileMenuLogo>
+							<UserInfoWrapper>
+								<UserInfo />
+							</UserInfoWrapper>
+							<ExitLogo onClick={() => handleLogout()} />
+						</MobileMenu>
+						{menumob && (<>
+							
+							<MobileMenuText>
+							<CloseSpan onClick={()=>{setMenumob(!menumob)}}/>
+							<ExitLogo menumob onClick={() => handleLogout()} />
+							<UserInfoWrapper>
+								<UserInfo />
+							</UserInfoWrapper>
+								{authorizedLinks.map(item => (
+									<LinkHeaderInform key={item.nameLink}>
+										<StyledNavLink exact to={item.path}>
+											{item.nameLink}
+											
+										</StyledNavLink>
+									</LinkHeaderInform>
+								))}
+													
+							</MobileMenuText>
+							</>
+						)}
+					</MobileMenuAuthorized>
 				</>
 			)}
 		</HeaderBlock>

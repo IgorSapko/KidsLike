@@ -25,8 +25,9 @@
 // 		align-items: center;
 // 	}
 // 	@media ${device.desktop} {
-// 		height: 100%;
+// 		height: calc(100% + 50px);
 // 		width: 240px;
+// 		align-items: start;
 // 		/* position: fixed; */
 // 		z-index: 1;
 // 		/* top: 0; */
@@ -40,17 +41,15 @@
 // 		justify-content: space-between;
 // 		width: 336px;
 // 		margin-left: 0px;
-	
+// 	}
+// 	@media ${device.tablet} {
+// 		border-color: red;
 // 	}
 // 	@media ${device.desktop} {
 // 		list-style: none;
-// 		margin-top: 0px;
+// 		margin-top: 140px;
 // 		margin-left: 50px;
-// 			padding-left: 0px;
-// 		;
-// 	}
-// 	@media ${device.tablet} {
-// 		border-color:red;
+// 		padding-left: 0px;
 // 	}
 // `;
 
@@ -89,7 +88,7 @@
 // 	}
 // 	@media ${device.desktop} {
 // 		min-height: calc(100vh - 50px);
-// 		}
+// 	}
 // `;
 // const ContainerForBalanceandInfo = styled.div`
 // 	@media (max-width: ${size.desktop}) {
@@ -212,7 +211,7 @@ const WeekTabsContainer = styled.div`
 		align-items: center;
 	}
 	@media ${device.desktop} {
-		height: calc(100% + 50px);
+		height: calc(100% + 80px);
 		width: 240px;
 		align-items: start;
 		/* position: fixed; */
@@ -272,9 +271,10 @@ const WeekTabContentContainer = styled.div`
 	width: 100%;
 	@media ${device.tablet} {
 		background-color: #fafafa;
+		min-height: calc(100vh - 212px);
 	}
 	@media ${device.desktop} {
-		min-height: calc(100vh - 50px);
+		min-height: calc(100vh - 142px);
 	}
 `;
 const ContainerForBalanceandInfo = styled.div`

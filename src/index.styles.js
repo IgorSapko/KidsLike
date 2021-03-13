@@ -255,7 +255,7 @@ const GlobalStyle = createGlobalStyle`
     url(${Montserrat300}) format('woff');
     font-weight: 300;
     font-style: normal;
-},
+}
 @font-face {
     font-family: 'Montserrat600';
     src: local('Montserrat600'), local('Montserrat600'),
@@ -263,7 +263,7 @@ const GlobalStyle = createGlobalStyle`
     url(${Montserrat600}) format('woff');
     font-weight: 600;
     font-style: normal;
-},
+}
 @font-face {
     font-family: 'Montserrat800';
     src: local('Montserrat800'), local('Montserrat800'),
@@ -271,7 +271,7 @@ const GlobalStyle = createGlobalStyle`
     url(${Montserrat800}) format('woff');
     font-weight: 800;
     font-style: normal;
-},
+}
 @font-face {
     font-family: 'MontserratRegular';
     src: local('Montserrat800'), local('MontserratRegular'),

@@ -71,12 +71,15 @@ const FooterStyles = styled.div`
 	justify-content: center;
 	background-color: #ffffff;
 	color: #85859;
+	margin-bottom:50px;
 	@media ${device.tablet} {
 		align-items: center;
 		background-color: #fafafa;
+		margin-bottom:0px;
 	}
 	@media ${device.desktop} {
 		justify-content: flex-end;
+		margin-bottom:0px;
 	}
 `;
 const FooterText = styled.p`
