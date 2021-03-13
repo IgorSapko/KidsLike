@@ -1,10 +1,15 @@
 //Core
 import styled from 'styled-components';
+//Settings
+import { device } from '../../index.styles';
+//Icons
 import { FaFacebookSquare, FaGithubSquare, FaLinkedin } from 'react-icons/fa';
 
 export const Container = styled.div`
 	display: flex;
 	flex-direction: column;
+	background-color: #fafafa;
+	font-family: 'Montserrat';
 `;
 
 export const MainText = styled.div`
@@ -12,19 +17,33 @@ export const MainText = styled.div`
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	font-family: 'Montserrat';
+	margin-top: 40px;
+
+	@media ${device.tablet} {
+		margin-top: 80px;
+	}
 `;
 
 export const OurTeam = styled.p`
 	font-weight: 600;
 	font-size: 26px;
 	line-height: 32px;
+
+	@media ${device.tablet} {
+		font-size: 30px;
+		line-height: 37px;
+	}
 `;
 
 export const AlwaysReady = styled.p`
 	font-size: 14px;
 	font-weight: 400;
 	line-height: 17px;
+
+	@media ${device.tablet} {
+		font-size: 18px;
+		line-height: 22px;
+	}
 `;
 
 export const CardWrapper = styled.ul`
@@ -32,15 +51,15 @@ export const CardWrapper = styled.ul`
 	max-width: 100vw;
 	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
 	grid-gap: 20px;
-	margin: 40px auto 20px;
+	margin: 40px auto 40px;
 	padding: 0;
 	list-style: none;
 
-	@media (min-width: 768px) {
-		/* margin-bottom: 40px; */
+	@media ${device.tablet} {
+		margin-bottom: 20px;
 	}
 
-	@media (min-width: 1280px) {
+	@media ${device.desktop} {
 		margin-bottom: 60px;
 	}
 `;
@@ -56,11 +75,16 @@ export const Photo = styled.img`
 	/* height: 246px; */
 `;
 
+export const InfoWrapper = styled.div`
+	margin: 10px 10px 0;
+`;
+
 export const Name = styled.p`
 	font-size: 14px;
 	line-height: 17px;
 	font-weight: 600;
 	text-transform: uppercase;
+	margin-bottom: 6px;
 `;
 
 export const Qualification = styled.p`
@@ -68,7 +92,6 @@ export const Qualification = styled.p`
 	font-weight: 400;
 	line-height: 14px;
 	color: #858598;
-	margin: 6px 0;
 `;
 
 export const Icons = styled.div`
@@ -82,6 +105,13 @@ export const IconWrapper = styled.a`
 	width: 40px;
 	height: 40px;
 	cursor: pointer;
+	transition: all 250ms linear;
+
+	@media ${device.desktop} {
+		&:hover {
+			transform: scale(1.1);
+		}
+	}
 `;
 
 const size = () => ({ width: '100%', height: '100%' });
@@ -93,7 +123,7 @@ export const FacebookImg = styled(FaFacebookSquare)`
 
 export const GitHubImg = styled(FaGithubSquare)`
 	${size};
-	color: #000;
+	color: #24292e;
 `;
 
 export const LinkedImg = styled(FaLinkedin)`

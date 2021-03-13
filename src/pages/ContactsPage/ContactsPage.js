@@ -12,6 +12,7 @@ import {
 	AlwaysReady,
 	CardWrapper,
 	Cards,
+	InfoWrapper,
 	Name,
 	Qualification,
 	Icons,
@@ -47,25 +48,27 @@ export default function Contacts() {
 			<CardWrapper>
 				{contacts.map(({ socialLinks, avatar, fullName, position }) => (
 					<Cards key={avatar}>
-						<Photo src={avatar}></Photo>
+						<Photo src={avatar} />
 
-						<Name>{fullName}</Name>
+						<InfoWrapper>
+							<Name>{fullName}</Name>
 
-						<Qualification>{position}</Qualification>
+							<Qualification>{position}</Qualification>
 
-						<Icons>
-							<IconWrapper href={socialLinks[1].link}>
-								<FacebookImg />
-							</IconWrapper>
+							<Icons>
+								<IconWrapper href={socialLinks[1].link} target="_blank" rel="nofollow noopener">
+									<FacebookImg />
+								</IconWrapper>
 
-							<IconWrapper href={socialLinks[0].link}>
-								<GitHubImg />
-							</IconWrapper>
+								<IconWrapper href={socialLinks[0].link} target="_blank" rel="nofollow noopener">
+									<GitHubImg />
+								</IconWrapper>
 
-							<IconWrapper href={socialLinks[2].link}>
-								<LinkedImg />
-							</IconWrapper>
-						</Icons>
+								<IconWrapper href={socialLinks[2].link} target="_blank" rel="nofollow noopener">
+									<LinkedImg />
+								</IconWrapper>
+							</Icons>
+						</InfoWrapper>
 					</Cards>
 				))}
 			</CardWrapper>
