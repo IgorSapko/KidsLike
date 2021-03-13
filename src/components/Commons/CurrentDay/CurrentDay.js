@@ -46,8 +46,9 @@
 
 // export default CurrentDay;
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import ProgressBar from '@ramonak/react-progress-bar';
 import {
 	LeftSide,
@@ -61,16 +62,36 @@ import {
 	ProgressContainer,
 	ContainerPoints,
 	BoldPoints,
+	PointsMobile,
+	AddCustom,
+	AddBtn,
 } from './currentDay.styles';
-import { useSelector } from 'react-redux';
 import { monthInNumbFunc } from '../../../utils/Helpers';
+import AddCustomTask from '../AddCustomTask/AddCustomTask';
+import NewTaskModal from '../NewTaskModal/NewTaskModal';
+import weekOperations from '../../../redux/week/weekOperation';
+import yellowPlusSvg from '../../../img/yellowPlus.svg';
 
 function CurrentDay({ thisday, choosenDay }) {
+	const [openAddTaskModal, setOpenAddTaskModal] = useState(false);
+	const dispatch = useDispatch();
+	const modalVisible = () => {
+		setOpenAddTaskModal(true);
+	};
+
+	const modalHidden = () => {
+		setOpenAddTaskModal(false);
+	};
+
+	const createCustomTask = formData => {
+		dispatch(weekOperations.createCustomTask(formData));
+		setOpenAddTaskModal(false);
+	};
+
 	const location = useLocation();
 	const currentDay = thisday;
-	console.log('thisday', thisday)
 	const week = useSelector(state => state.week);
-	
+
 	function getDayName(dateStr, locale) {
 		const date = new Date(
 			`${dateStr?.slice(8, 10)}-${dateStr?.slice(5, 7)}-${dateStr?.slice(11, 14)}`,
@@ -135,7 +156,7 @@ function CurrentDay({ thisday, choosenDay }) {
 		default:
 			monthName = 'Числа';
 	}
-console.log('currentDay', currentDay)
+	console.log('currentDay', currentDay);
 	return (
 		<div>
 			<Container>
@@ -161,13 +182,14 @@ console.log('currentDay', currentDay)
 						Запланировано баллов на эту неделю:<BoldPoints>{plan}</BoldPoints>
 					</Points>
 					<ProgressContainer>
+						<PointsMobile>Заработано баллов</PointsMobile>
 						<BoldPoints>{weekPoints}</BoldPoints>/ <PlanPoints>{plan}</PlanPoints>
 						<ProgressDiv>
 							{
 								<ProgressBar
 									completed={progress(weekPoints, plan)}
 									bgcolor="#9ECB44"
-									width="280px"
+									width="100%"
 									height="6px"
 									borderRadius="10px"
 									labelSize="0"
@@ -176,6 +198,18 @@ console.log('currentDay', currentDay)
 						</ProgressDiv>
 					</ProgressContainer>
 				</ContainerPoints>
+				<AddCustom>
+					<AddBtn
+						onClick={() => {
+							modalVisible();
+						}}
+					>
+						<img height="54" width="54" src={yellowPlusSvg} alt="Add task"></img>
+					</AddBtn>
+				</AddCustom>
+				{openAddTaskModal === true ? (
+					<NewTaskModal addTask={createCustomTask} closeModal={modalHidden} />
+				) : null}
 			</Container>
 		</div>
 	);
