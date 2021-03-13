@@ -10,7 +10,7 @@ import Montserrat800_2 from './fonts/montserrat-v15-latin-800.woff2';
 import MontserratRegular from './fonts/montserrat-v15-latin-regular.woff';
 import MontserratRegular_2 from './fonts/montserrat-v15-latin-regular.woff2';
 
-import warning from './img/warning.svg'
+import warning from './img/warning.svg';
 
 const GlobalStyle = createGlobalStyle`
     *,
@@ -23,7 +23,23 @@ const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        width: 100%;
+      width: 100%;
+
+      &::-webkit-scrollbar {
+        width: 12px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: #dfe4ea;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: #FEC200;
+      }
+
+      &::-webkit-scrollbar-thumb:hover {
+        background: #f39c12;
+      }
     }
 
     input {
