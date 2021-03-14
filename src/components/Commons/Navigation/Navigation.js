@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
 import {
 	HeaderBlock,
 	HeaderInformUl,
@@ -14,7 +13,6 @@ import {
 	HeaderBalanceNumber,
 	HeaderBlockRight,
 	MobileMenuAuthorized,
-	HeaderblockcontactLogo,
 	UserInfoWrapper,
 	ExitLogo,
 	MenuImg,
@@ -61,9 +59,11 @@ const Navigation = () => {
 
 							{menumob && (
 								<>
-									<MobileMenuText>
+								
+									<MobileMenuText menumob={menumob} user={user}>
+									<CloseSpan menumob onClick={()=>{setMenumob(!menumob)}}/>
 										{notAuthorizedLinks.map(item => (
-											<LinkHeaderInform key={item.nameLink}>
+											<LinkHeaderInform key={item.nameLink} >
 												<StyledNavLink exact to={item.path}>
 													{item.nameLink}
 												</StyledNavLink>
@@ -77,7 +77,7 @@ const Navigation = () => {
 					<HeaderInformUlNotAuthorized>
 						{notAuthorizedLinks.map(item => (
 							<LinkHeaderInform key={item.nameLink}>
-								<StyledNavLink exact to={item.path}>
+								<StyledNavLink user={user} exact to={item.path}>
 									{item.nameLink}
 								</StyledNavLink>
 							</LinkHeaderInform>
@@ -121,12 +121,15 @@ const Navigation = () => {
 						</MobileMenu>
 						{menumob && (<>
 							
-							<MobileMenuText>
-							<CloseSpan onClick={()=>{setMenumob(!menumob)}}/>
-							<ExitLogo menumob onClick={() => handleLogout()} />
-							<UserInfoWrapper>
-								<UserInfo />
+							<MobileMenuText >
+							<UserInfoWrapper menumob>
+								<UserInfo menumob/>
+								<ExitLogo menumob user onClick={() => handleLogout()} />
 							</UserInfoWrapper>
+							
+							<CloseSpan onClick={()=>{setMenumob(!menumob)}}/>
+							
+							
 								{authorizedLinks.map(item => (
 									<LinkHeaderInform key={item.nameLink}>
 										<StyledNavLink exact to={item.path}>

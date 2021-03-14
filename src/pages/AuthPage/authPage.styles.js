@@ -19,7 +19,7 @@ margin-bottom:10px;
 
 	@media ${device.desktop}{
 		width: 1280px;
-		height:890px;
+		height:790px;
 		margin-top:0;
 		flex-direction: row;
 		flex-wrap: none;
@@ -70,7 +70,7 @@ position:relative;
 		display: block;
 		position: absolute;
 		left: 4vw;
-		top: 9.7vh;
+		top: 83px;
 	}
 `;
 
@@ -241,3 +241,5 @@ const ImgAuth4 = styled.div`
 `;
 
 export { RegContainer, P, ImgAuth1, ImgAuth2, ImgAuth3, ImgAuth4, ImagesContainer, ContainerAuth };
+
+

@@ -1,7 +1,7 @@
-import { BrowserRouter, NavLink } from 'react-router-dom';
+import {  NavLink } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 import exitLogo from '../../../img/exitLogo.svg';
-import closeHeaderMenu from '../../../img/closeHeaderMenu.svg';
+import closeHeaderMenu from '../../../img/closeCross.svg';
 import { device } from '../../../index.styles';
 
 const activeClassName = 'nav-item-active';
@@ -12,7 +12,7 @@ export const CloseSpan = styled.span`
 	right: 20px;
 	display: block;
 	background-image: url(${closeHeaderMenu});
-	background-repeat:no
+	background-repeat: no-repeat;
 	width: 14px;
 	height: 14px;
 `;
@@ -20,9 +20,8 @@ export const CloseSpan = styled.span`
 export const StyledNavLink = styled(NavLink).attrs({ activeClassName })`
 	&.${activeClassName} {
 		text-decoration: none;
-		color: rgba(0, 0, 0, 1);
+		color: #000000;
 	}
-
 	text-decoration: none;
 	list-style: none;
 	font-family: Montserrat;
@@ -31,13 +30,27 @@ export const StyledNavLink = styled(NavLink).attrs({ activeClassName })`
 	font-size: 12px;
 	line-height: 15px;
 	letter-spacing: 0.04em;
-	color: rgba(133, 133, 152, 1);
+	color: #ffffff;
 	cursor: pointer;
-	/* border: 1px solid rgba(133, 133, 152, 1); */
-
+	margin-left: 30px;
 	padding-right: 15px;
 	margin-right: 15px;
 	border-right: 1px solid #858598;
+	${props =>
+		props.user &&
+		css`
+			@media ${device.desktop} {
+				color: #858598;
+			};
+			@media ${device.tablet} {
+				color: #858598;
+				margin-left: 0px;
+			}
+		`};
+	@media ${device.desktop} {
+		color: #858598;
+		margin-left: 0px;
+	} ;
 `;
 
 export const HeaderBlock = styled.div`
@@ -45,8 +58,13 @@ export const HeaderBlock = styled.div`
 	max-width: 1280px;
 	width: 100%;
 	padding: 21px 0;
+	height: fit-content;
 	display: flex;
+	align-items: center;
 	justify-content: space-between;
+	@media ${device.desktop} {
+		padding: 0;
+	} ;
 `;
 
 export const HeaderLogo = styled.div`
@@ -64,27 +82,26 @@ export const HeaderLogoText = styled.h2`
 	line-height: 20px;
 	letter-spacing: 0.08em;
 	color: #000000;
+	border-bottom: 1px solid rgb(255, 255, 255, 0.5);
 `;
 
 export const LinkHeaderInform = styled.li`
 	list-style: none;
-	display:flex;
-	justify-content:center;
-	align-items:center;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
 	height: 44px;
 
-border-bottom: 1px solid #ffffff;
-
-	
+	border-bottom: 1px solid rgb(255, 255, 255, 0.5);
 `;
 
 export const MobileMenu = styled.div`
 	display: none;
 	@media (max-width: 1280px) {
-		/* position: relative; */
 		width: 100%;
 		margin-right: 40px;
 		display: flex;
+		align-items: center;
 		justify-content: flex-end;
 	}
 `;
@@ -102,20 +119,27 @@ export const MobileMenuNotAuthorized = styled.div`
 
 export const HeaderInformUl = styled.ul`
 	display: none;
-
-	@media (min-width: 1280px) {
+	@media ${device.tablet} {
+		display: none;
+	}
+	@media ${device.desktop} {
 		width: 100%;
 		padding: 0;
 		margin: 0;
 		display: flex;
 		justify-content: flex-end;
 		padding-right: 40px;
-	}
+		align-items: center;
+		& :nth-child(4) > a {
+			padding-right: 0px;
+			margin-right: 40px;
+			border-right: none;
+		}
+	} ;
 `;
 
 export const HeaderInformUlNotAuthorized = styled.ul`
 	display: none;
-
 	@media (min-width: 768px) {
 		width: 100%;
 		padding: 0;
@@ -123,17 +147,38 @@ export const HeaderInformUlNotAuthorized = styled.ul`
 		display: flex;
 		justify-content: flex-end;
 		padding-right: 40px;
+		& :nth-child(2) > a {
+			border-right: none;
+		}
 	}
 `;
 
 export const UserInfoWrapper = styled.div`
-	display: flex;
-	align-items:center;
-	height:80px;
-	border-bottom: 1px solid #ffffff;
-	/* @media (max-width: 768px) {
+	display: none;
+	flex-wrap: wrap;
+	justify-content: center;
+	width: fit-content;
+	margin-left: 30px;
+	margin-top: 16px;
+	height: 64px;
+	max-width: 180px;
+	${props =>
+		props.menumob &&
+		css`
+			display: flex;
+		`};
+	@media ${device.tablet} {
 		display: none;
-	} */
+		${props =>
+			!props.menumob &&
+			css`
+				display: flex;
+			`};
+		align-items: center;
+		margin-left: 0px;
+		margin-top: 0px;
+		height: fit-content;
+	} ;
 `;
 
 export const HeaderBlockLeftBlock = styled.div`
@@ -181,30 +226,59 @@ export const MobileMenuAuthorized = styled.div`
 	margin: 0;
 	align-items: center;
 	justify-content: space-between;
+	@media ${device.tablet} {
+		height: fit-content;
+	}
 	@media ${device.desktop} {
 		display: none;
 	}
 `;
 
 export const MobileMenuText = styled.ul`
+	display: flex;
+	flex-direction: column;
 	background-color: rgba(255, 188, 51, 1);
 	box-shadow: -15px 0px 20px rgba(0, 0, 0, 0.25);
 	position: absolute;
 	top: 0;
 	right: 0;
-	z-index: 1;
-
+	z-index: 1111;
 	width: 274px;
-	height: 100vh;
+	height:100vh ;
+	overflow-y:hidden;
+	${props =>
+		(props.menumob &&!props.user)&&
+		css`
+			&:before {
+				content: '';
+				display: block;
+				width: auto;
+				height: 80px;
+				border-bottom: 2px solid rgb(255, 255, 255, 0.5);
+			}
+		`};
+
 	& > li > a {
 		border: none;
-	};
-
-&:last-child {
-	border-bottom: 1px solid #ffffff;}
+	}
+	& :nth-child(3) {
+		border-top: 1px solid rgb(255, 255, 255, 0.5);
+	}
+	@media ${device.tablet} {
+		&:before {
+			content: '';
+			display: block;
+			width: auto;
+			height: 80px;
+		}
+	} ;
 `;
 export const MobileMenuLogo = styled.div`
 	margin-right: 20px;
+	@media ${device.tablet} {
+		height: 14px;
+		width: 22px;
+	}
 	/* position: relative; */
 `;
 
@@ -217,10 +291,7 @@ export const HeaderblockcontactLogo = styled.div`
 `;
 
 export const ExitLogo = styled.span`
-	position: absolute;
-	top: 20px;
-	right: 40px;
-	display: block;
+	display: inline-block;
 	background: url(${exitLogo});
 	width: 18px;
 	height: 18px;
@@ -230,34 +301,20 @@ export const ExitLogo = styled.span`
 		css`
 			display: none;
 		`};
+	@media ${device.tablet} {
+		margin-left: 16px;
+	}
+
 	@media (max-width: 768px) {
 		display: none;
 		${props =>
 			props.menumob &&
 			css`
 				display: block;
+				margin-top: 4px;
+				margin-left: 15px;
 			`};
 	}
-
-	/* &:after {
-		content: url(${exitLogo});
-		width: 8px;
-		height: 12px;
-		margin-left: 18px;
-		${props =>
-		props.menumob &&
-		css`
-			display: none;
-		`};
-		@media (max-width: 768px) {
-			display: none;
-			${props =>
-		props.menumob &&
-		css`
-			display: block;
-		`};
-		}
-	} */
 `;
 export const MenuImg = styled.img`
 	width: 22px;

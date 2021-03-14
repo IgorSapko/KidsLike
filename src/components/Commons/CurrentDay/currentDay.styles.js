@@ -299,7 +299,8 @@ const Container = styled.div`
 `;
 
 const ProgressDiv = styled.div`
-	width: 56%;
+	/* width: 56%; */
+
 	@media ${device.tablet} {
 		width: 280px;
 		margin-right: 30px;
@@ -403,7 +404,7 @@ const ProgressContainer = styled.div`
 	position: fixed;
 	width: 100%;
 	height: 58px;
-	z-index: 1000;
+	/* z-index: 1000; */
 	right: 0;
 	left: 0;
 	bottom: 0;
@@ -416,7 +417,9 @@ const ProgressContainer = styled.div`
 		position: unset;
 		height: 8px;
 		justify-content: center;
+
 		// max-width: 768px;
+
 		// height: auto;
 		// width: auto;
 	}

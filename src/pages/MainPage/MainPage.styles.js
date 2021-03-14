@@ -1,4 +1,3 @@
-
 // import styled from 'styled-components';
 // import { device, size } from '../../index.styles';
 
@@ -41,9 +40,6 @@
 // 		justify-content: space-between;
 // 		width: 336px;
 // 		margin-left: 0px;
-// 	}
-// 	@media ${device.tablet} {
-// 		border-color: red;
 // 	}
 // 	@media ${device.desktop} {
 // 		list-style: none;

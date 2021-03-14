@@ -1,6 +1,10 @@
+//Core
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 import axios from 'axios';
+//Redux
+import { useDispatch } from 'react-redux';
+import loaderActions from '../../redux/loader/loaderActions';
+//Styles
 import {
 	Container,
 	MainText,
@@ -8,6 +12,7 @@ import {
 	AlwaysReady,
 	CardWrapper,
 	Cards,
+	InfoWrapper,
 	Name,
 	Qualification,
 	Icons,
@@ -17,59 +22,56 @@ import {
 	GitHubImg,
 	LinkedImg,
 } from './ContactsPage.styles';
-import loaderActions from '../../redux/loader/loaderActions';
-import Facebook from '../../img/Facebook.svg';
-import GitHub from '../../img/GitHub.svg';
-import LinkedIn from '../../img/LinkedIn.svg';
-
-//
 
 export default function Contacts() {
 	const [contacts, setContacts] = useState([]);
+
 	const dispatch = useDispatch();
+
 	useEffect(() => {
 		dispatch(loaderActions.contactsRequest());
+
 		axios
 			.get(`https://kids-like-backend-cloud.herokuapp.com/api/team/contacts`)
-			.then(({ data }) => {
-				setContacts(data);
-			});
+			.then(({ data }) => setContacts(data));
+
 		dispatch(loaderActions.contactsSuccess());
-	}, []);
+	}, [dispatch]);
 
-	console.log(contacts);
 	return (
-		<>
-			<Container>
-				<MainText>
-					<OurTeam>Наша команда</OurTeam>
-					<AlwaysReady>Всегда готовы к новым вызовам!</AlwaysReady>
-				</MainText>
-				<CardWrapper>
-					{contacts.map(item => {
-						return (
-							<Cards key={item.socialLinks[0].link}>
-								<Photo src={item.avatar}></Photo>
+		<Container>
+			<MainText>
+				<OurTeam>Наша команда</OurTeam>
+				<AlwaysReady>Всегда готовы к новым вызовам!</AlwaysReady>
+			</MainText>
 
-								<Name>{item.fullName}</Name>
-								<Qualification>{item.position}</Qualification>
-								<Icons>
-									<IconWrapper href={item.socialLinks[1].link}>
-										{/* <Facebook /> */}
-										<FacebookImg src={Facebook} />
-									</IconWrapper>
-									<IconWrapper href={item.socialLinks[0].link}>
-										<GitHubImg src={GitHub} />
-									</IconWrapper>
-									<IconWrapper href={item.socialLinks[2].link}>
-										<LinkedImg src={LinkedIn} />
-									</IconWrapper>
-								</Icons>
-							</Cards>
-						);
-					})}
-				</CardWrapper>
-			</Container>
-		</>
+			<CardWrapper>
+				{contacts.map(({ socialLinks, avatar, fullName, position }) => (
+					<Cards key={avatar}>
+						<Photo src={avatar} />
+
+						<InfoWrapper>
+							<Name>{fullName}</Name>
+
+							<Qualification>{position}</Qualification>
+
+							<Icons>
+								<IconWrapper href={socialLinks[1].link} target="_blank" rel="nofollow noopener">
+									<FacebookImg />
+								</IconWrapper>
+
+								<IconWrapper href={socialLinks[0].link} target="_blank" rel="nofollow noopener">
+									<GitHubImg />
+								</IconWrapper>
+
+								<IconWrapper href={socialLinks[2].link} target="_blank" rel="nofollow noopener">
+									<LinkedImg />
+								</IconWrapper>
+							</Icons>
+						</InfoWrapper>
+					</Cards>
+				))}
+			</CardWrapper>
+		</Container>
 	);
 }

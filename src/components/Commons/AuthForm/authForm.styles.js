@@ -59,7 +59,7 @@ const Input = styled.input`
 		width: 320px;
 	}
 
-	&: focus {
+	&:focus {
 		outline: 2px solid #ffbc33;
 		color: #000000;
 	}
@@ -92,12 +92,12 @@ const Button = styled.button`
 		height: 48px;
 	}
 
-	&: focus {
+	&:focus {
 		outline: 0;
 		box-shadow: 5px 1px 17px 3px #ffba4e;
 	}
 
-	&: hover {
+	&:hover {
 		border: 2px solid #ffbc33;
 		background-color: white;
 		color: #ffbc33;
@@ -141,7 +141,7 @@ const ButtonGoogle = styled.div`
 	justify-content: center;
 	margin-bottom: 30px;
 
-	&: focus {
+	&:focus {
 		outline: 0;
 		box-shadow: 5px 1px 17px 3px #ffba4e;
 	}
