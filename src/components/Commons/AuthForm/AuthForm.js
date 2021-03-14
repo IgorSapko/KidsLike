@@ -6,20 +6,7 @@ import { emailValid } from '../../../services/validationFront';
 import { useDispatch } from 'react-redux';
 import authOperations from '../../../redux/auth/authOperations';
 //Styles
-import { CSSTransition } from 'react-transition-group';
-import AlertAnimation from './authanimation.styles.css';
-import {
-	Form,
-	Input,
-	Button,
-	Label,
-	P,
-	ButtonContainer,
-	ButtonGoogle,
-	GoogleLink,
-	AnimatedNotiicationEmail,
-	AnimatedNotiicationPassword,
-} from './authForm.styles';
+import { Form, Input, Button, Label, P, ButtonContainer, GoogleLink } from './authForm.styles';
 
 const AuthForm = () => {
 	const [email, setEmail] = useState('');
@@ -28,30 +15,21 @@ const AuthForm = () => {
 	const [isAlertPassword, setValidPassword] = useState(false);
 	const dispatch = useDispatch();
 
-	const handleLogin = event => {
-		handleSubmit(event);
-	};
-
-	const handleRegistr = event => {
-		handleSubmit(event);
-	};
+	const handleLogin = event => handleSubmit(event);
+	const handleRegister = event => handleSubmit(event);
 
 	const handleSubmit = event => {
 		event.preventDefault();
+		const { target } = event;
 
 		const credential = {
 			email: email,
 			password: password,
 		};
 
-		console.log('str54', emailValid(email), password.length >= 6);
-
 		if (emailValid(email) && password.length >= 6) {
-			if (event.target.id === 'signup') {
-				dispatch(authOperations.userSignUp(credential));
-			} else if (event.target.id === 'login') {
-				dispatch(authOperations.userSignIn(credential));
-			}
+			target.id === 'signup' && dispatch(authOperations.userSignUp(credential));
+			target.id === 'signin' && dispatch(authOperations.userSignIn(credential));
 		} else if (!emailValid(email) && password.length < 6) {
 			setValidEmail(true);
 			setValidPassword(true);
@@ -68,17 +46,19 @@ const AuthForm = () => {
 	return (
 		<Form onSubmit={handleSubmit}>
 			<P>Вы можете авторизоваться с помощью Google Account:</P>
-			<ButtonGoogle>
-				<GoogleLink href="https://kids-like-backend-cloud.herokuapp.com/api/auth/google-auth">
-					Google
-				</GoogleLink>
-			</ButtonGoogle>
+
+			<GoogleLink href="https://kids-like-backend-cloud.herokuapp.com/api/auth/google-auth">
+				Google
+			</GoogleLink>
+
 			<P>Или зайти с помощью e-mail и пароля, предварительно зарегистрировавшись:</P>
-			<Label htmlFor="email">
-				Email
+
+			<Label htmlFor="email" isValid={isAlertEmail}>
+				Email:
 				<Input
 					type="text"
 					placeholder="your@mail.com"
+					autoComplete="off"
 					id="email"
 					value={email}
 					onFocus={() => setValidEmail(false)}
@@ -86,15 +66,12 @@ const AuthForm = () => {
 				/>
 			</Label>
 
-			<CSSTransition in={isAlertEmail} timeout={200} classNames={AlertAnimation} unmountOnExit>
-				<AnimatedNotiicationEmail>это поле обязательное</AnimatedNotiicationEmail>
-			</CSSTransition>
-
-			<Label htmlFor="password">
-				Password
+			<Label htmlFor="password" isValid={isAlertPassword}>
+				Пароль:
 				<Input
 					type="password"
 					placeholder="password"
+					autoComplete="off"
 					id="password"
 					value={password}
 					onFocus={() => setValidPassword(false)}
@@ -102,15 +79,12 @@ const AuthForm = () => {
 				/>
 			</Label>
 
-			<CSSTransition in={isAlertPassword} timeout={200} classNames={AlertAnimation} unmountOnExit>
-				<AnimatedNotiicationPassword>это поле обязательное</AnimatedNotiicationPassword>
-			</CSSTransition>
-
 			<ButtonContainer>
-				<Button onClick={handleLogin} id="login">
+				<Button onClick={handleLogin} id="signin">
 					Войти
 				</Button>
-				<Button onClick={handleRegistr} id="signup">
+
+				<Button onClick={handleRegister} id="signup">
 					Зарегистрироваться
 				</Button>
 			</ButtonContainer>

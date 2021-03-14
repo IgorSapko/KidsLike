@@ -19,12 +19,18 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: 'Roboto', 'Ubuntu', sans-serif;
+        font-family: 'Montserrat', 'Roboto', sans-serif;
+    }
+
+    #root {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
     }
 
     body {
-      width: 100%;
-
       &::-webkit-scrollbar {
         width: 12px;
       }
