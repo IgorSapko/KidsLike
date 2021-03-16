@@ -6,6 +6,7 @@ export const BlockPeopleTaskItem = styled.li`
 	
 	position: relative;
 	list-style: none;
+	filter: drop-shadow(4px 6px 15px rgba(0, 0, 0, 0.1));
 	
 	&:not(:last-child){
 		margin-right:20px;

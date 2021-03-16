@@ -19,12 +19,13 @@ import {
 	StyledNavLink,
 	HeaderInformUlNotAuthorized,
 	MobileMenuNotAuthorized,
-	CloseSpan
+	CloseSpan,
+	SvgLogo,
 } from './Navigation.style';
 import UserInfo from '../UserInfo/UserInfo';
 // import { Menu } from '../Header/LogoSvg';
 import menu from '../../../img/menu.svg';
-
+import LogoSvg from '../../svg/LogoSvg';
 import { todayIs } from '../../../utils/Helpers';
 import authOperations from '../../../redux/auth/authOperations';
 
@@ -47,6 +48,9 @@ const Navigation = () => {
 		{ nameLink: 'Контакты', path: '/contacts' },
 	];
 
+	console.log(document.body.scrollHeight);
+	const menuHeight = document.body.scrollHeight;
+
 	return (
 		<HeaderBlock>
 			{!user ? (
@@ -59,11 +63,15 @@ const Navigation = () => {
 
 							{menumob && (
 								<>
-								
-									<MobileMenuText menumob={menumob} user={user}>
-									<CloseSpan menumob onClick={()=>{setMenumob(!menumob)}}/>
+									<MobileMenuText menumob={menumob} user={user} menuHeight={menuHeight}>
+										<CloseSpan
+											menumob
+											onClick={() => {
+												setMenumob(!menumob);
+											}}
+										/>
 										{notAuthorizedLinks.map(item => (
-											<LinkHeaderInform key={item.nameLink} >
+											<LinkHeaderInform key={item.nameLink}>
 												<StyledNavLink exact to={item.path}>
 													{item.nameLink}
 												</StyledNavLink>
@@ -119,27 +127,29 @@ const Navigation = () => {
 							</UserInfoWrapper>
 							<ExitLogo onClick={() => handleLogout()} />
 						</MobileMenu>
-						{menumob && (<>
-							
-							<MobileMenuText >
-							<UserInfoWrapper menumob>
-								<UserInfo menumob/>
-								<ExitLogo menumob user onClick={() => handleLogout()} />
-							</UserInfoWrapper>
-							
-							<CloseSpan onClick={()=>{setMenumob(!menumob)}}/>
-							
-							
-								{authorizedLinks.map(item => (
-									<LinkHeaderInform key={item.nameLink}>
-										<StyledNavLink exact to={item.path}>
-											{item.nameLink}
-											
-										</StyledNavLink>
-									</LinkHeaderInform>
-								))}
-													
-							</MobileMenuText>
+						{menumob && (
+							<>
+								<MobileMenuText menuHeight={menuHeight}>
+									<UserInfoWrapper menumob>
+										<UserInfo menumob />
+										{/* <ExitLogo menumob user onClick={() => handleLogout()} /> */}
+										<LogoSvg fill={'red'} />
+									</UserInfoWrapper>
+
+									<CloseSpan
+										onClick={() => {
+											setMenumob(!menumob);
+										}}
+									/>
+
+									{authorizedLinks.map(item => (
+										<LinkHeaderInform key={item.nameLink}>
+											<StyledNavLink user={user} exact to={item.path}>
+												{item.nameLink}
+											</StyledNavLink>
+										</LinkHeaderInform>
+									))}
+								</MobileMenuText>
 							</>
 						)}
 					</MobileMenuAuthorized>

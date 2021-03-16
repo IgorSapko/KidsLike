@@ -35,6 +35,7 @@ const userSignIn = credential => async dispatch => {
 		const { data } = await axios.post('/api/auth/sign-in', credential);
 		token.set(data.token);
 		dispatch(authActions.userSignInSuccess(data));
+		
 	} catch (error) {
 		dispatch(errorActions.error(error.response.data));
 	}
@@ -60,7 +61,7 @@ const getCurrentUser = () => async (dispatch, getState) => {
 	try {
 		const { data } = await axios.get('/api/user/current');
 		dispatch(authActions.getCurrentUserSuccess(data));
-	} catch (error) {
+			} catch (error) {
 		dispatch(errorActions.error(error.response.data));
 	}
 };

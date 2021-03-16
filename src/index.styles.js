@@ -19,12 +19,18 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: 'Roboto', 'Ubuntu', sans-serif;
+        font-family: 'Montserrat', 'Roboto', sans-serif;
     }
 
-    body {
+    /* #root {
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
+      height: 100%;
+    } */
 
+    /* body {
       &::-webkit-scrollbar {
         width: 12px;
       }
@@ -40,7 +46,7 @@ const GlobalStyle = createGlobalStyle`
       &::-webkit-scrollbar-thumb:hover {
         background: #f39c12;
       }
-    }
+    } */
 
     input {
         &::placeholder {

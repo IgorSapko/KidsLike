@@ -1,9 +1,12 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import { FooterStyles, FooterText, FooterContentKidsLike, HorizLine } from './Footer.styles';
 
-export default function Footer() {
+export default function Footer({footerLocation}) {
+	const location = useLocation();
+	console.log(location.pathname)
 	return (
-		<FooterStyles>
+		<FooterStyles footerLocation={location.pathname}>
 			<div className="footer_content">
 				<FooterText>
 					{' '}

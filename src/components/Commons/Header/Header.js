@@ -6,7 +6,7 @@ import Navigation from '../Navigation/Navigation';
 
 const Header = () => {
 	return (
-		<HeaderBlock>
+		<HeaderBlock >
 			<Logo />
 			<Navigation />
 		</HeaderBlock>

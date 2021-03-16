@@ -1,39 +1,20 @@
-
+//Core
 import React from 'react';
-import PropTypes from 'prop-types';
-import {
-	ContainerAuth,
-	RegContainer,
-	P,
-	ImgAuth1,
-	ImgAuth2,
-	ImgAuth3,
-	ImgAuth4,
-	ImagesContainer,
-} from './authPage.styles';
-
+//Components
 import AuthForm from '../../components/Commons/AuthForm/AuthForm';
+//Styles
+import { ContainerAuth, RegContainer, Heading, ImagesContainer } from './authPage.styles';
 
-const AuthPage = () => {
-	return (
-		<>
-				
-		<ContainerAuth>
-			<ImagesContainer>
-				<ImgAuth1 ></ImgAuth1>
-				<ImgAuth2></ImgAuth2>
-				<ImgAuth3></ImgAuth3>
-				<ImgAuth4></ImgAuth4>
-			</ImagesContainer>
-			<RegContainer>
-				<P>Выполняй задания, получи классные призы!</P>
-				<AuthForm />
-			</RegContainer>
-		</ContainerAuth>
-		</>
-	);
-};
+const AuthPage = () => (
+	<ContainerAuth>
+		<RegContainer>
+			<Heading>Выполняй задания, получи классные призы!</Heading>
 
-AuthPage.propTypes = {};
+			<AuthForm />
+		</RegContainer>
+
+		<ImagesContainer />
+	</ContainerAuth>
+);
 
 export default AuthPage;

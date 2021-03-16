@@ -22,7 +22,7 @@
 // 	const currentDay = thisday;
 // 	console.log('thisday', thisday)
 // 	const week = useSelector(state => state.week);
-	
+
 // 	function getDayName(dateStr, locale) {
 // 		const date = new Date(
 // 			`${dateStr?.slice(8, 10)}-${dateStr?.slice(5, 7)}-${dateStr?.slice(11, 14)}`,
@@ -161,7 +161,7 @@ import NewTaskModal from '../NewTaskModal/NewTaskModal';
 import weekOperations from '../../../redux/week/weekOperation';
 import yellowPlusSvg from '../../../img/yellowPlus.svg';
 
-function CurrentDay({ thisday, choosenDay }) {
+function CurrentDay({ thisday, choosenDay, awardsPage, menuHeight }) {
 	const [openAddTaskModal, setOpenAddTaskModal] = useState(false);
 	const dispatch = useDispatch();
 	const modalVisible = () => {
@@ -249,12 +249,12 @@ function CurrentDay({ thisday, choosenDay }) {
 	return (
 		<div>
 			<Container>
-				<LeftSide>
+				<LeftSide awardsPage={awardsPage}>
 					<WeekText>
 						{' '}
 						Неделя: {dayStart} - {dayEnd} {monthInNumbFunc(week).name}
 					</WeekText>
-					<PointsLeft>
+					<PointsLeft awardsPage={awardsPage}>
 						Мoи задачи:{' '}
 						<DayName>
 							{' '}
@@ -263,14 +263,14 @@ function CurrentDay({ thisday, choosenDay }) {
 					</PointsLeft>
 				</LeftSide>
 
-				<ContainerPoints>
+				<ContainerPoints awardsPage={awardsPage}>
 					<Points>
 						Заработано баллов за эту неделю:<BoldPoints>{weekPoints}</BoldPoints>
 					</Points>
 					<Points>
 						Запланировано баллов на эту неделю:<BoldPoints>{plan}</BoldPoints>
 					</Points>
-					<ProgressContainer>
+					<ProgressContainer menuHeight={menuHeight} awardsPage={awardsPage}>
 						<PointsMobile>Заработано баллов</PointsMobile>
 						<BoldPoints>{weekPoints}</BoldPoints>/ <PlanPoints>{plan}</PlanPoints>
 						<ProgressDiv>
@@ -287,8 +287,8 @@ function CurrentDay({ thisday, choosenDay }) {
 						</ProgressDiv>
 					</ProgressContainer>
 				</ContainerPoints>
-				<AddCustom>
-					<AddBtn
+				<AddCustom >
+					<AddBtn menuHeight={menuHeight}
 						onClick={() => {
 							modalVisible();
 						}}

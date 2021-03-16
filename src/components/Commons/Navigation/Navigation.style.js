@@ -1,10 +1,12 @@
-import {  NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 import exitLogo from '../../../img/exitLogo.svg';
 import closeHeaderMenu from '../../../img/closeCross.svg';
 import { device } from '../../../index.styles';
+import LogoSvg from 'components/svg/LogoSvg';
 
 const activeClassName = 'nav-item-active';
+const fill = 'fill'
 
 export const CloseSpan = styled.span`
 	position: absolute;
@@ -15,6 +17,10 @@ export const CloseSpan = styled.span`
 	background-repeat: no-repeat;
 	width: 14px;
 	height: 14px;
+`;
+
+export const SvgLogo = styled(LogoSvg).attrs({fill})`
+	&.${fill}{fill: red};
 `;
 
 export const StyledNavLink = styled(NavLink).attrs({ activeClassName })`
@@ -37,15 +43,16 @@ export const StyledNavLink = styled(NavLink).attrs({ activeClassName })`
 	margin-right: 15px;
 	border-right: 1px solid #858598;
 	${props =>
-		props.user &&
+		!props.user &&
 		css`
 			@media ${device.desktop} {
 				color: #858598;
-			};
+			}
 			@media ${device.tablet} {
+				/* color: #ffffff; */
 				color: #858598;
 				margin-left: 0px;
-			}
+			} ;
 		`};
 	@media ${device.desktop} {
 		color: #858598;
@@ -55,7 +62,7 @@ export const StyledNavLink = styled(NavLink).attrs({ activeClassName })`
 
 export const HeaderBlock = styled.div`
 	margin: 0 auto;
-	max-width: 1280px;
+	/* max-width: 1280px; */
 	width: 100%;
 	padding: 21px 0;
 	height: fit-content;
@@ -244,10 +251,14 @@ export const MobileMenuText = styled.ul`
 	right: 0;
 	z-index: 1111;
 	width: 274px;
-	height:100vh ;
-	overflow-y:hidden;
+	height: ${props => {
+		console.log(props.menuHeight);
+		return props.menuHeight+58
+	}}px;
+	overflow-y: hidden;
 	${props =>
-		(props.menumob &&!props.user)&&
+		props.menumob &&
+		!props.user &&
 		css`
 			&:before {
 				content: '';

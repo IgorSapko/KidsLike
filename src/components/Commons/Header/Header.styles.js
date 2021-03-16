@@ -8,4 +8,5 @@ export const HeaderBlock = styled.div`
 	height: 62px;
 	justify-content: space-between;
 	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+	
 `;

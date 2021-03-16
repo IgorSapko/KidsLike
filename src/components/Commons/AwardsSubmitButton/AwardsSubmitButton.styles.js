@@ -3,7 +3,10 @@ import styled from 'styled-components';
 export const AwardsSubmitBtn = styled.button`
     display:flex;
     justify-content: center;
-    margin: 40px auto;
+    margin: 20px  auto;
+    /* margin-bottom:0; */
+    margin-bottom:26px;
+ 
     width: 220px;
     height: 48px;
     background: #FFBC33;
