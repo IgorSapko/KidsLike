@@ -3,12 +3,36 @@ import styled, { css } from 'styled-components';
 import exitLogo from '../../../img/exitLogo.svg';
 import closeHeaderMenu from '../../../img/closeCross.svg';
 import { device } from '../../../index.styles';
-import LogoSvg from 'components/svg/LogoSvg';
+import LogoSvg from 'components/svg/ExitLogoSvg';
 
 const activeClassName = 'nav-item-active';
-const fill = 'fill'
+// const fill = 'fill'
 
-export const CloseSpan = styled.span`
+export const ExitLogoSvgWrapper = styled.div`
+		width: 18px;
+	height: 18px;
+	display: none;
+	${props =>
+		props.menumob &&
+		css`
+			display: block;
+			margin-top: 4px;
+			margin-left: 15px;
+		`};
+	
+	@media ${device.tablet} {
+		margin-left: 16px;
+		display: block;
+		margin-top: 4px;
+		margin-left: 15px;
+	}
+
+	/* @media (max-width: 768px) {
+		
+	} */
+`;
+
+export const CloseSvgWrapper = styled.div`
 	position: absolute;
 	top: 20px;
 	right: 20px;
@@ -19,9 +43,9 @@ export const CloseSpan = styled.span`
 	height: 14px;
 `;
 
-export const SvgLogo = styled(LogoSvg).attrs({fill})`
-	&.${fill}{fill: red};
-`;
+// export const SvgLogo = styled(LogoSvg).attrs({fill})`
+// 	&.${fill}{fill: red};
+// `;
 
 export const StyledNavLink = styled(NavLink).attrs({ activeClassName })`
 	&.${activeClassName} {
@@ -68,7 +92,8 @@ export const HeaderBlock = styled.div`
 	height: fit-content;
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
+	/* justify-content: space-between; */
+	justify-content: space-evenly;
 	@media ${device.desktop} {
 		padding: 0;
 	} ;
@@ -81,7 +106,7 @@ export const HeaderLogo = styled.div`
 `;
 
 export const HeaderLogoText = styled.h2`
-	padding-right: 9px;
+	padding-right: 8px;
 	font-family: Montserrat;
 	font-style: normal;
 	font-weight: bold;
@@ -106,7 +131,8 @@ export const MobileMenu = styled.div`
 	display: none;
 	@media (max-width: 1280px) {
 		width: 100%;
-		margin-right: 40px;
+		/* margin-right: 40px; */
+		margin: 0 auto;
 		display: flex;
 		align-items: center;
 		justify-content: flex-end;
@@ -195,7 +221,7 @@ export const HeaderBlockLeftBlock = styled.div`
 export const HeaderBalance = styled.div`
 	display: flex;
 	align-items: center;
-	margin-left: 43px;
+	margin-left: 2px;
 `;
 export const HeaderBalanceText = styled.h3`
 	font-family: Montserrat;
@@ -253,7 +279,7 @@ export const MobileMenuText = styled.ul`
 	width: 274px;
 	height: ${props => {
 		console.log(props.menuHeight);
-		return props.menuHeight+58
+		return props.menuHeight;
 	}}px;
 	overflow-y: hidden;
 	${props =>
@@ -285,12 +311,11 @@ export const MobileMenuText = styled.ul`
 	} ;
 `;
 export const MobileMenuLogo = styled.div`
-	margin-right: 20px;
 	@media ${device.tablet} {
+		margin-right: 20px;
 		height: 14px;
 		width: 22px;
-	}
-	/* position: relative; */
+	} ;
 `;
 
 export const HeaderblockcontactLogo = styled.div`

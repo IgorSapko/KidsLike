@@ -15,6 +15,8 @@ const WeekTabsContainer = styled.div`
 	justify-content: space-evenly;
 	align-items: center;
 	height: 60px;
+	padding-right: 20px;
+    padding-left: 20px;
 	@media (min-width: ${size.tablet}) {
 		background-color: #ffbc33;
 		width: 100%;

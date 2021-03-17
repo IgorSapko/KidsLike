@@ -2,14 +2,14 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const LogoImg = styled.img`
-	width: 16px;
-	height: 16px;
+	width: 12px;
+	height: 18px;
 `;
 
 export const NavLinkElem = styled(NavLink)`
 	display: flex;
 	align-items: center;
-	margin-left: 40px;
+	margin-left: 20px;
 	text-decoration: none;
 `;
 export const HeaderLogoText = styled.h2`

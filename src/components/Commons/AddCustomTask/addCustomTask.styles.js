@@ -1,26 +1,27 @@
 import styled from 'styled-components';
 // import {device} from '../../../index.styles';
-import device  from '../../../pages/PlanningPage/device';
+import device from '../../../pages/PlanningPage/device';
 
 const AddTaskBlock = styled.div`
-	width: 423px;
-	height: 54px;
-	display: flex;
-	align-items: center;
-	justify-content: flex-end;
-	/* @media ${device.tablet} {
+	position: absolute;
+	@media ${device.tablet} {
+		position: static;
+		width: 423px;
 		height: 54px;
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		margin-bottom: 40px;
+	} ;
+	@media ${device.tablet} {
+		margin-bottom: 0px;
 	}
-	@media ${device.mobile} {
-		height: 0px;
-	} */
-	
 `;
 
 const AddLabel = styled.p`
 	font-weight: 500;
 	font-size: 12px;
-	padding-right:20px;
+	padding-right: 20px;
 	color: #a6abb9;
 	@media ${device.mobile} {
 		display: none;
@@ -43,7 +44,7 @@ const AddBtn = styled.button`
 	}
 	@media ${device.mobile} {
 		position: fixed;
-		margin-right:20px;
+		margin-right: 20px;
 		margin-bottom: 3px;
 		z-index: 110;
 		bottom: 17px;
@@ -54,8 +55,4 @@ const AddBtn = styled.button`
 	}
 `;
 
-export  {AddLabel, AddTaskBlock, AddBtn}
-
-
-
-
+export { AddLabel, AddTaskBlock, AddBtn };

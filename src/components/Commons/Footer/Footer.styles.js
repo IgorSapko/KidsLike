@@ -30,7 +30,7 @@ const FooterText = styled.p`
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	width: 220px;
+	width: 228px;
 	margin: 0px;
 	font-size: 11px;
 	font-family: 'Montserrat', sans-serif;

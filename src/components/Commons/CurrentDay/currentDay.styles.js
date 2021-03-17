@@ -6,6 +6,11 @@ const LeftSide = styled.div`
 	width: 100%;
 	justify-content: center;
 	flex-wrap: wrap;
+	${props =>
+		props.awardsPage &&
+		css`
+			display: none;
+		`}
 	@media ${device.desktop} {
 		height: 70px;
 		width: 400px;
@@ -13,7 +18,7 @@ const LeftSide = styled.div`
 		justify-content: space-between;
 		align-items: flex-start;
 		text-align: right;
-			${props =>
+		${props =>
 			props.awardsPage &&
 			css`
 				display: none;
@@ -28,15 +33,15 @@ const Container = styled.div`
 	margin-bottom: 40px;
 	@media ${device.tablet} {
 		flex-wrap: wrap-reverse;
-			height: fit-content;
+		height: fit-content;
 		padding-top: 40px;
 		margin-bottom: 40px;
 	}
 	@media ${device.desktop} {
-		margin:0 auto;
-		margin-bottom:50px;
+		margin: 0 auto;
+		margin-bottom: 50px;
 		justify-content: space-around;
-		flex-wrap:nowrap;
+		flex-wrap: nowrap;
 		width: 900px;
 	} ;
 `;
@@ -88,12 +93,9 @@ const PointsLeft = styled.p`
 		${props =>
 			props.awardsPage &&
 			css`
-			display:none;
-			
+				display: none;
 			`};
-		// max-width: 768px;
-		// width: 280px;
-	}
+		}
 	@media ${device.desktop} {
 		width: 500px;
 		text-align: left;
@@ -155,50 +157,34 @@ const ProgressContainer = styled.div`
 	height: 58px;
 	right: 0;
 	left: 0;
-	/* bottom: 0; */
-	top:${props => {
-		console.log(props.menuHeight);
-		return props.menuHeight+116;
-	}}px;
+	bottom: 0;
+	z-index: 1110;
 	display: flex;
 	align-items: center;
 	flex-wrap: wrap;
 	background-color: #f1f1f1;
-	margin-top:-116px;
-	
+	margin-top: -116px;
+
 	@media ${device.tablet} {
 		background-color: unset;
-		width:fit-content;
+		width: fit-content;
 		position: static;
 		height: 8px;
-		margin-top:6px;
+		margin-top: 6px;
 		${props =>
 			props.awardsPage &&
 			css`
 				justify-content: flex-end;
-				width:max-content;
-				&>div{margin-right:10px;}
+				width: max-content;
+				& > div {
+					margin-right: 10px;
+				}
 			`}
-		
-		
-		/* justify-content: center; */
 
-		// max-width: 768px;
-
-		// height: auto;
-		// width: auto;
 	}
 	@media ${device.desktop} {
 		justify-content: flex-end;
 		width: 100%;
-		// position: relative;
-		// height: auto;
-		// width: auto;
-		// top: 0;
-		// left: 0;
-		// transform: translate(-2%);
-		// display: flex;
-		// align-items: center;
 	}
 `;
 
@@ -209,7 +195,6 @@ const ContainerPoints = styled.div`
 	align-items: flex-end;
 	@media ${device.tablet} {
 		width: 100%;
-		/* display: flex; */
 		text-align: center;
 		align-items: center;
 		flex-direction: column;
@@ -218,18 +203,13 @@ const ContainerPoints = styled.div`
 		${props =>
 			props.awardsPage &&
 			css`
-			width: 350%;
-		height: 70px;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		align-items: flex-end;
-		text-align: right;
-		/* ${props =>
-			props.awardsPage &&
-			css`
 				width: 350%;
-			`}; */
+				height: 70px;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				align-items: flex-end;
+				text-align: right;
 			`};
 	}
 	@media ${device.desktop} {
@@ -285,11 +265,7 @@ const AddBtn = styled.button`
 	margin-right: 20px;
 	margin-bottom: 3px;
 	z-index: 1110;
-	/* bottom: 12px; */
-	top:${props => {
-		console.log(props.menuHeight);
-		return props.menuHeight-10;
-	}}px;
+	bottom: 0;
 	right: 20px;
 	border: none;
 	background-color: unset;

@@ -18,6 +18,10 @@ const PointsBlock = styled.div`
 	@media ${device.tablet} {
 		position: inherit;
 		background-color: inherit;
+		margin-top:36px;
+	};
+	@media ${device.tablet} {
+		margin-top:0px;
 	}
 `;
 

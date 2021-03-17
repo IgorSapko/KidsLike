@@ -1,4 +1,4 @@
-export default function LogoSvg({fill}) {
+export default function ExitLogoSvg({fill}) {
    return (
     <svg fill={fill}
     width="18"

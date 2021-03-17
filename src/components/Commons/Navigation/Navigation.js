@@ -14,18 +14,20 @@ import {
 	HeaderBlockRight,
 	MobileMenuAuthorized,
 	UserInfoWrapper,
-	ExitLogo,
+	// ExitLogo,
 	MenuImg,
 	StyledNavLink,
 	HeaderInformUlNotAuthorized,
 	MobileMenuNotAuthorized,
 	CloseSpan,
 	SvgLogo,
+	ExitLogoSvgWrapper,
+	CloseSvgWrapper
 } from './Navigation.style';
 import UserInfo from '../UserInfo/UserInfo';
-// import { Menu } from '../Header/LogoSvg';
 import menu from '../../../img/menu.svg';
-import LogoSvg from '../../svg/LogoSvg';
+import ExitLogoSvg from '../../svg/ExitLogoSvg';
+import CloseSvg from '../../svg/CloseSvg';
 import { todayIs } from '../../../utils/Helpers';
 import authOperations from '../../../redux/auth/authOperations';
 
@@ -64,12 +66,19 @@ const Navigation = () => {
 							{menumob && (
 								<>
 									<MobileMenuText menumob={menumob} user={user} menuHeight={menuHeight}>
-										<CloseSpan
+										<CloseSvg
 											menumob
+											stroke={'red'}
 											onClick={() => {
 												setMenumob(!menumob);
 											}}
 										/>
+										{/* <CloseSpan
+											menumob
+											onClick={() => {
+												setMenumob(!menumob);
+											}}
+										/> */}
 										{notAuthorizedLinks.map(item => (
 											<LinkHeaderInform key={item.nameLink}>
 												<StyledNavLink exact to={item.path}>
@@ -114,7 +123,10 @@ const Navigation = () => {
 								</LinkHeaderInform>
 							))}
 							<UserInfo />
-							<ExitLogo onClick={() => handleLogout()} />
+							<ExitLogoSvgWrapper onClick={() => handleLogout()}>
+							<ExitLogoSvg fill={'#858598'} menumob user />
+							</ExitLogoSvgWrapper>
+							{/* <ExitLogo onClick={() => handleLogout()} /> */}
 						</HeaderInformUl>
 					</HeaderBlockRight>
 					<MobileMenuAuthorized>
@@ -125,7 +137,10 @@ const Navigation = () => {
 							<UserInfoWrapper>
 								<UserInfo />
 							</UserInfoWrapper>
-							<ExitLogo onClick={() => handleLogout()} />
+							<ExitLogoSvgWrapper onClick={() => handleLogout()}>
+							<ExitLogoSvg fill={'#858598'} menumob user />
+							</ExitLogoSvgWrapper>
+							{/* <ExitLogo onClick={() => handleLogout()} /> */}
 						</MobileMenu>
 						{menumob && (
 							<>
@@ -133,14 +148,23 @@ const Navigation = () => {
 									<UserInfoWrapper menumob>
 										<UserInfo menumob />
 										{/* <ExitLogo menumob user onClick={() => handleLogout()} /> */}
-										<LogoSvg fill={'red'} />
+										<ExitLogoSvgWrapper onClick={() => handleLogout()}>
+										<ExitLogoSvg  fill={'#FFFFFF'} menumob user/>
+									</ExitLogoSvgWrapper>
 									</UserInfoWrapper>
-
-									<CloseSpan
+									<CloseSvgWrapper onClick={() => {
+											setMenumob(!menumob);
+										}}>
+									<CloseSvg
+										menumob
+										stroke={'red'}
+									/>
+									</CloseSvgWrapper>
+									{/* <CloseSpan
 										onClick={() => {
 											setMenumob(!menumob);
 										}}
-									/>
+									/> */}
 
 									{authorizedLinks.map(item => (
 										<LinkHeaderInform key={item.nameLink}>
