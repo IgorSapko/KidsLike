@@ -29,8 +29,8 @@ const loaderReducer = createReducer(false, {
 	[weekActions.giftsGettingRequest]: () => true,
 	[weekActions.giftsGettingSuccess]: () => false,
 
-	[weekActions.giftsOrderRequest]: () => true,
-	[weekActions.giftsOrderSuccess]: () => false,
+	// [weekActions.giftsOrderRequest]: () => true,
+	// [weekActions.giftsOrderSuccess]: () => false,
 
 	[weekActions.createCustomTaskRequest]: () => true,
 	[weekActions.createCustomTaskSuccess]: () => false,
