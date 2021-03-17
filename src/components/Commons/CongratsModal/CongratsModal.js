@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import {
-	ModalWrapper,
 	ImgCat,
 	Congrats,
 	BtnClose,
@@ -13,30 +12,42 @@ import {
 import ModalBackDrop from '../ModalBackDrop/ModalBackDrop';
 
 const CongratsModal = ({ itemsAll, setOpen }) => {
-	const [showModal, setShowModal] = useState(true);
+	const handleCloseModal = useCallback(
+		({ code, target }) => {
+			if (code === 'Escape' || target.id === 'backdrop') {
+				setOpen(false);
+			}
+		},
+		[setOpen],
+	);
 
-	const closeModal = () => {
-		setOpen(false);
-		setShowModal(showModal => !showModal);
-	};
+	useEffect(() => {
+		window.addEventListener('click', handleCloseModal);
+		window.addEventListener('keydown', handleCloseModal);
+
+		return () => {
+			window.removeEventListener('click', handleCloseModal);
+			window.removeEventListener('keydown', handleCloseModal);
+		};
+	}, [handleCloseModal]);
 
 	return (
 		<ModalBackDrop>
-			<ModalWrapper onClick={closeModal}>
-				<ModalCongrats showModal={showModal}>
-					<ImgCat src="https://storage.googleapis.com/kidslikev2_bucket/4c67b0f578c6e7ff1d0b504f8019ffc9.png" />
-					<Congrats>Поздравляем! Ты получаешь:</Congrats>
-					<BtnClose src="https://storage.googleapis.com/kidslikev2_bucket/08942ec472518083fbe6e2a6fb95674d.jpg" />
-					<PrizesWrapper>
-						{itemsAll.map(({ _id, title, imageUrl }) => (
-							<PrizesWrapper_block key={_id}>
-								<ChosenPrise src={imageUrl} />
-								<ChosenPrise_name>{title}</ChosenPrise_name>
-							</PrizesWrapper_block>
-						))}
-					</PrizesWrapper>
-				</ModalCongrats>
-			</ModalWrapper>
+			<ModalCongrats>
+				<ImgCat src="https://storage.googleapis.com/kidslikev2_bucket/4c67b0f578c6e7ff1d0b504f8019ffc9.png" />
+				<Congrats>Поздравляем! Ты получаешь:</Congrats>
+				<BtnClose type="button" autoFocus onClick={() => setOpen(false)}>
+					&#10005;
+				</BtnClose>
+				<PrizesWrapper>
+					{itemsAll.map(({ _id, title, imageUrl }) => (
+						<PrizesWrapper_block key={_id}>
+							<ChosenPrise img={imageUrl} />
+							<ChosenPrise_name>{title}</ChosenPrise_name>
+						</PrizesWrapper_block>
+					))}
+				</PrizesWrapper>
+			</ModalCongrats>
 		</ModalBackDrop>
 	);
 };
