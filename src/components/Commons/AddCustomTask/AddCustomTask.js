@@ -1,6 +1,5 @@
 import React from 'react';
 import {AddLabel, AddTaskBlock, AddBtn} from './addCustomTask.styles'
-import yellowPlusSvg from '../../../img/yellowPlus.svg';
 
 const AddCustomTask = ({swowModal}) => {
 	return (
@@ -10,7 +9,7 @@ const AddCustomTask = ({swowModal}) => {
 				<AddBtn onClick={() => {
 					swowModal()
 				}}>
-					<img height="54" width="54" src={yellowPlusSvg} alt="Add task"></img>
+					<img height="54" width="54" src='https://storage.googleapis.com/kidslikev2_bucket/f9a52177d115707f06fdec5e84420327.svg' alt="Add task"></img>
 				</AddBtn>
 			</AddTaskBlock>
 		</div>

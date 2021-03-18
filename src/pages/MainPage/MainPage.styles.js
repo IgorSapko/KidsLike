@@ -86,10 +86,10 @@ const WeekTabContentContainer = styled.div`
 	width: 100%;
 	@media ${device.tablet} {
 		background-color: #fafafa;
-		min-height: calc(100vh - 212px);
+		/* min-height: calc(100vh - 212px); */
 	}
 	@media ${device.desktop} {
-		min-height: calc(100vh - 142px);
+		/* min-height: calc(100vh - 142px); */
 		padding-left:110px;
 	}
 `;

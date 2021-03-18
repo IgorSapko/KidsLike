@@ -2,8 +2,7 @@
 import styled from 'styled-components';
 //Global
 import { device } from '../../../index.styles';
-//Assets
-import googlePng from '../../../img/google.png';
+
 
 const Form = styled.form`
 	margin-top: 38px;
@@ -66,7 +65,7 @@ const GoogleLink = styled.a`
 		height: 18px;
 		margin-right: 10px;
 
-		background-image: url(${googlePng});
+		background-image: url('https://storage.googleapis.com/kidslikev2_bucket/010cb7b1d0984638b0236fdd8a0ef625.png');
 		background-repeat: no-repeat;
 	}
 

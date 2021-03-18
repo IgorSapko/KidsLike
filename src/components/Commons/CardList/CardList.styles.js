@@ -7,7 +7,7 @@ export const BlockPeopleTask = styled.ul`
 	justify-content: center;
 	margin: 0 auto;
 	padding: 0px;
-	margin-bottom: 20px;
+	margin-bottom: 50px;
 	width: 300px;
 	@media ${device.tablet} {
 		justify-content: start;

@@ -1,35 +1,30 @@
 import { NavLink } from 'react-router-dom';
 import styled, { css } from 'styled-components';
-import exitLogo from '../../../img/exitLogo.svg';
-import closeHeaderMenu from '../../../img/closeCross.svg';
 import { device } from '../../../index.styles';
-import LogoSvg from 'components/svg/ExitLogoSvg';
 
 const activeClassName = 'nav-item-active';
-// const fill = 'fill'
 
 export const ExitLogoSvgWrapper = styled.div`
-		width: 18px;
+	width: 18px;
 	height: 18px;
-	display: none;
+
+	${props =>
+		!props.menumob &&
+		css`
+			display: none;
+		`};
 	${props =>
 		props.menumob &&
 		css`
 			display: block;
-			margin-top: 4px;
 			margin-left: 15px;
 		`};
-	
+
 	@media ${device.tablet} {
 		margin-left: 16px;
 		display: block;
-		margin-top: 4px;
 		margin-left: 15px;
 	}
-
-	/* @media (max-width: 768px) {
-		
-	} */
 `;
 
 export const CloseSvgWrapper = styled.div`
@@ -37,15 +32,9 @@ export const CloseSvgWrapper = styled.div`
 	top: 20px;
 	right: 20px;
 	display: block;
-	background-image: url(${closeHeaderMenu});
-	background-repeat: no-repeat;
 	width: 14px;
 	height: 14px;
 `;
-
-// export const SvgLogo = styled(LogoSvg).attrs({fill})`
-// 	&.${fill}{fill: red};
-// `;
 
 export const StyledNavLink = styled(NavLink).attrs({ activeClassName })`
 	&.${activeClassName} {
@@ -73,8 +62,6 @@ export const StyledNavLink = styled(NavLink).attrs({ activeClassName })`
 				color: #858598;
 			}
 			@media ${device.tablet} {
-				/* color: #ffffff; */
-				color: #858598;
 				margin-left: 0px;
 			} ;
 		`};
@@ -161,8 +148,7 @@ export const HeaderInformUl = styled.ul`
 		margin: 0;
 		display: flex;
 		justify-content: flex-end;
-		padding-right: 40px;
-		align-items: center;
+			align-items: center;
 		& :nth-child(4) > a {
 			padding-right: 0px;
 			margin-right: 40px;
@@ -277,10 +263,7 @@ export const MobileMenuText = styled.ul`
 	right: 0;
 	z-index: 1111;
 	width: 274px;
-	height: ${props => {
-		console.log(props.menuHeight);
-		return props.menuHeight;
-	}}px;
+	height: ${props => props.menuHeight}px;
 	overflow-y: hidden;
 	${props =>
 		props.menumob &&
@@ -326,32 +309,6 @@ export const HeaderblockcontactLogo = styled.div`
 	}
 `;
 
-export const ExitLogo = styled.span`
-	display: inline-block;
-	background: url(${exitLogo});
-	width: 18px;
-	height: 18px;
-	fill: rgba(255, 255, 255, 1);
-	${props =>
-		props.menumob &&
-		css`
-			display: none;
-		`};
-	@media ${device.tablet} {
-		margin-left: 16px;
-	}
-
-	@media (max-width: 768px) {
-		display: none;
-		${props =>
-			props.menumob &&
-			css`
-				display: block;
-				margin-top: 4px;
-				margin-left: 15px;
-			`};
-	}
-`;
 export const MenuImg = styled.img`
 	width: 22px;
 	height: 14px;

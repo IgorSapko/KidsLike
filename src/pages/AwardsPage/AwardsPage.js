@@ -77,7 +77,7 @@ export default function AwardsPage() {
 		<AwardsPageWrapper>
 			<TopWrapper>
 				<MyPrises>
-					<PriseImg src="https://i.ibb.co/6YGGfkb/gift-box-1.jpg" />
+					<PriseImg src="https://storage.googleapis.com/kidslikev2_bucket/83a4c25c9ace90241ba7b56424af7131.jpg" />
 					<PriseText>МОИ ПРИЗЫ</PriseText>
 				</MyPrises>
 

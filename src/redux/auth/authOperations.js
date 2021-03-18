@@ -20,7 +20,7 @@ const userSignUp = credential => async dispatch => {
 		token.set(data.token);
 		dispatch(authActions.userSignUpSuccess(data));
 	} catch (error) {
-		console.log( error.response.data)
+	
 		dispatch(errorActions.error(error.response.data));
 		const { response } = error;
 		if (response.status === 409) {
