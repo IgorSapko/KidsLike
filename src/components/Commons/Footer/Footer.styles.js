@@ -1,4 +1,4 @@
-import styled, {css} from 'styled-components';
+import styled, { css } from 'styled-components';
 import { device } from '../../../index.styles';
 
 const FooterStyles = styled.div`
@@ -9,11 +9,7 @@ const FooterStyles = styled.div`
 	background-color: #ffffff;
 	color: #858598;
 	margin-bottom: 50px;
-	${props =>
-		(props.footerLocation==='/') &&
-		css`
-	
-		`};
+	${props => props.footerLocation === '/' && css``};
 	@media ${device.tablet} {
 		display: flex;
 		align-items: center;

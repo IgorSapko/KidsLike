@@ -1,4 +1,4 @@
-import React,{useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { DateTime } from 'luxon';
 import CardList from '../../Commons/CardList/CardList';
@@ -11,9 +11,11 @@ import { WeekTabContentList, WeekTabContentPlanning } from './WeekTabContent.sty
 export default function WeekTabsContent({ week }, props) {
 	function UseQuery() {
 		return new URLSearchParams(useLocation().search);
-	};
+	}
 	const [menuHeight, setMenuHeight] = useState(0);
-		useEffect(()=>{setMenuHeight(document.body.scrollHeight)})
+	useEffect(() => {
+		setMenuHeight(document.body.scrollHeight);
+	});
 	let query = UseQuery();
 	let daysQuery = query.get('day');
 	const tasks = week.tasks;
@@ -33,11 +35,11 @@ export default function WeekTabsContent({ week }, props) {
 			}
 		});
 		return returnedTasks;
-	};
+	}
 
 	return (
 		<WeekTabContentContainer>
-			<CurrentDay thisday={daysQuery} choosenDay={dayIsChoose} menuHeight={menuHeight}/>
+			<CurrentDay thisday={daysQuery} choosenDay={dayIsChoose} menuHeight={menuHeight} />
 			{todayTasks(daysQuery, tasks).length < 1 && (
 				<WeekTabContentPlanning>
 					<p>На этот день задачи нет</p>
@@ -54,9 +56,11 @@ export default function WeekTabsContent({ week }, props) {
 				}
 			></div>
 
-{todayTasks(daysQuery, tasks).length > 0 ?<WeekTabContentList>
-				{daysQuery && <CardList currentDay={daysQuery} today={today}></CardList>}
-			</WeekTabContentList>: null}
+			{todayTasks(daysQuery, tasks).length > 0 ? (
+				<WeekTabContentList>
+					{daysQuery && <CardList currentDay={daysQuery} today={today}></CardList>}
+				</WeekTabContentList>
+			) : null}
 		</WeekTabContentContainer>
 	);
 }

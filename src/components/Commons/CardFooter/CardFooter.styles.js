@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const BlockPeopleTask_item_inform = styled.div`
+export const BlockPeopleTaskItemInform = styled.div`
 /* position:relative; */
 	display: flex;
 	justify-content: space-between;
@@ -8,7 +8,7 @@ export const BlockPeopleTask_item_inform = styled.div`
 	padding-bottom: 14px;
 `;
 
-export const BlockPeopleTask_item_text = styled.div`
+export const BlockPeopleTaskItemText = styled.div`
 position:relative;
 	background: #ffbc33;
 	padding: 0 10px;

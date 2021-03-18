@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Card from '../../components/Commons/Card/Card';
 import AwardsSubmitButton from '../../components/Commons/AwardsSubmitButton/AwardsSubmitButton';
 import CongratsModal from '../../components/Commons/CongratsModal/CongratsModal';
+import CurrentDay from 'components/Commons/CurrentDay/CurrentDay';
 import {
 	BlockPeopleTaskAwards,
 	TopWrapper,
@@ -13,7 +14,6 @@ import {
 } from './AwardsPage.styles';
 import selector from '../../redux/selectors';
 import weekOperation from '../../redux/week/weekOperation';
-import CurrentDay from 'components/Commons/CurrentDay/CurrentDay';
 import notification from 'services/notification';
 import { NotificationContainer } from 'react-notifications';
 
@@ -21,17 +21,15 @@ export default function AwardsPage() {
 	const dispatch = useDispatch();
 	const gifts = useSelector(selector.getGifts);
 	const balance = useSelector(state => state.auth.user.balance);
-
 	const [open, setOpen] = useState(false);
 	const [idItems, setidItems] = useState([]);
 	const [itemsAll, setItemsAll] = useState([]);
-	// const [open, setOpen] = useState(false);
-	// useEffect(() => {
-	// 	!gifts && dispatch(weekOperation.giftsGetting());
-	// }, [gifts]);
 	const [menuHeight, setMenuHeight] = useState(0);
-		useEffect(()=>{setMenuHeight(document.body.scrollHeight)})
+	const awardsPage = true;
 
+	useEffect(() => {
+		setMenuHeight(document.body.scrollHeight);
+	});
 	useEffect(() => !gifts && dispatch(weekOperation.giftsGetting()), [dispatch, gifts]);
 
 	const summNumber = (id, checked) => {
@@ -39,7 +37,6 @@ export default function AwardsPage() {
 			setidItems(prev => [...prev, id._id]);
 			setItemsAll(prev => [...prev, id]);
 		}
-
 		if (checked) {
 			setidItems(idItems.filter(idItem => idItem !== id._id));
 			setItemsAll(itemsAll.filter(idItem => idItem._id !== id._id));
@@ -48,30 +45,23 @@ export default function AwardsPage() {
 
 	const handleSwitch = () => {
 		const totalPriceOfAllGifts = itemsAll.reduce((acc, { price }) => acc + price, 0);
-
 		if (balance < totalPriceOfAllGifts) {
 			notification({
 				type: 'warning',
 				message: 'Не достаточно баллов для покупки выбранных подарков',
 			});
-
 			return;
 		}
-
 		if (itemsAll.length < 1) {
 			notification({
 				type: 'warning',
 				message: 'Ничего не выбрано',
 			});
-
 			return;
 		}
-
 		dispatch(weekOperation.giftsOrder({ giftIDs: idItems }));
 		setOpen(open => !open);
 	};
-
-	const awardsPage = true;
 
 	return (
 		<AwardsPageWrapper>

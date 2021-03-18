@@ -19,10 +19,8 @@ import {
 	AddBtn,
 } from './currentDay.styles';
 import { monthInNumbFunc } from '../../../utils/Helpers';
-import AddCustomTask from '../AddCustomTask/AddCustomTask';
 import NewTaskModal from '../NewTaskModal/NewTaskModal';
 import weekOperations from '../../../redux/week/weekOperation';
-
 
 function CurrentDay({ thisday, choosenDay, awardsPage, menuHeight }) {
 	const [openAddTaskModal, setOpenAddTaskModal] = useState(false);
@@ -53,7 +51,6 @@ function CurrentDay({ thisday, choosenDay, awardsPage, menuHeight }) {
 	}
 
 	const dayName = getDayName(location.search, 'ru-RU').toLocaleUpperCase();
-
 	const weekPoints = useSelector(state => state.week.pointsGained);
 	const plan = useSelector(state => state.week.pointsPlanned);
 	const dayStart = useSelector(state => state.week.startWeekDate).slice(0, 2);
@@ -61,52 +58,6 @@ function CurrentDay({ thisday, choosenDay, awardsPage, menuHeight }) {
 
 	function progress(points, planned) {
 		return (parseInt(points) / parseInt(planned)) * 100;
-	}
-
-	const month = useSelector(state => state.week.startWeekDate).slice(3, 5);
-
-	let monthName = '';
-
-	switch (month) {
-		case '01':
-			monthName = 'Января';
-			break;
-		case '02':
-			monthName = 'Февраля';
-			break;
-		case '03':
-			monthName = 'Марта';
-			break;
-		case '04':
-			monthName = 'Апреля';
-			break;
-		case '05':
-			monthName = 'Мая';
-			break;
-		case '06':
-			monthName = 'Июня';
-			break;
-		case '07':
-			monthName = 'Июля';
-			break;
-		case '08':
-			monthName = 'Августа';
-			break;
-		case '09':
-			monthName = 'Сентября';
-			break;
-		case '10':
-			monthName = 'Октября';
-			break;
-		case '11':
-			monthName = 'Ноября';
-			break;
-		case '12':
-			monthName = 'Декабря';
-			break;
-
-		default:
-			monthName = 'Числа';
 	}
 
 	return (
@@ -118,7 +69,6 @@ function CurrentDay({ thisday, choosenDay, awardsPage, menuHeight }) {
 						Неделя: {dayStart} - {dayEnd} {monthInNumbFunc(week).name}
 					</WeekText>
 					<PointsLeft awardsPage={awardsPage}>
-						
 						Мoи задачи:{' '}
 						<DayName>
 							{' '}
@@ -151,13 +101,19 @@ function CurrentDay({ thisday, choosenDay, awardsPage, menuHeight }) {
 						</ProgressDiv>
 					</ProgressContainer>
 				</ContainerPoints>
-				<AddCustom >
-					<AddBtn menuHeight={menuHeight}
+				<AddCustom>
+					<AddBtn
+						menuHeight={menuHeight}
 						onClick={() => {
 							modalVisible();
 						}}
 					>
-						<img height="54" width="54" src='https://storage.googleapis.com/kidslikev2_bucket/f9a52177d115707f06fdec5e84420327.svg' alt="Add task"></img>
+						<img
+							height="54"
+							width="54"
+							src="https://storage.googleapis.com/kidslikev2_bucket/f9a52177d115707f06fdec5e84420327.svg"
+							alt="Add task"
+						></img>
 					</AddBtn>
 				</AddCustom>
 				{openAddTaskModal === true ? (

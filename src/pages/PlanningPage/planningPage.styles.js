@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-// import {device, size} from '../../index.styles';
 import device from './device';
 
 const PlanningPageBlock = styled.div`
@@ -11,9 +10,6 @@ const PlanningPageBlock = styled.div`
 		background-color: #fafafa;
 	}
 	@media ${device.desktop} {
-		/* display: flex; */
-		/* justify-content: center;
-		align-items: center; */
 		padding-bottom: 0px;
 	}
 `;
@@ -26,10 +22,10 @@ const PlanningPageInfo = styled.div`
 		flex-direction: column;
 		align-items: center;
 		justify-content: space-between;
-	};
+	}
 	@media ${device.tablet} {
 		padding-bottom: 40px;
-	};
+	}
 	@media ${device.desktop} {
 		margin: 0 auto;
 		width: 1200px;

@@ -7,9 +7,8 @@ export const AwardsPageWrapper = styled.div`
 		background: #fafafa;
 		width: 100%;
 		padding-bottom: 1px;
-	};
+	}
 	@media ${device.desktop} {
-		
 	} ;
 `;
 
@@ -43,7 +42,7 @@ export const TopWrapper = styled.div`
 	/* width: fit-content; */
 	@media ${device.tablet} {
 		width: 600px;
-	};
+	}
 	@media ${device.desktop} {
 		width: 1200px;
 	}
@@ -54,11 +53,11 @@ export const MyPrises = styled.div`
 	align-items: center;
 	width: 217px;
 	height: 26px;
-	margin-left:-20px;
-	
+	margin-left: -20px;
+
 	@media ${device.tablet} {
 		margin-left: 0;
-	};
+	}
 	@media ${device.desktop} {
 		margin-left: -22px;
 	}

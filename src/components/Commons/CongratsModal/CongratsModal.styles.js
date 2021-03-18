@@ -107,7 +107,7 @@ export const PrizesWrapper = styled.div`
 	height: 135px;
 `;
 
-export const PrizesWrapper_block = styled.div`
+export const PrizesWrapperBlock = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -125,7 +125,7 @@ export const ChosenPrise = styled.div`
 	margin-bottom: 10px;
 `;
 
-export const ChosenPrise_name = styled.h2`
+export const ChosenPriseName = styled.h2`
 	width: 90px;
 	height: 45px;
 	font-family: Montserrat;

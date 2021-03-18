@@ -13,31 +13,27 @@ const token = {
 	},
 };
 
-const userSignUp = credential => async dispatch => {
+const userSignUp = (credential, errorDataReceiver) => async dispatch => {
 	dispatch(authActions.userSignUpRequest());
 	try {
 		const { data } = await axios.post('/api/auth/sign-up', credential);
 		token.set(data.token);
 		dispatch(authActions.userSignUpSuccess(data));
 	} catch (error) {
-	
 		dispatch(errorActions.error(error.response.data));
-		const { response } = error;
-		if (response.status === 409) {
-			alert('Provided email already exists');
-		}
+		errorDataReceiver(error.response.data.message);
 	}
 };
 
-const userSignIn = credential => async dispatch => {
+const userSignIn = (credential, errorDataReceiver) => async dispatch => {
 	dispatch(authActions.userSignInRequest());
 	try {
 		const { data } = await axios.post('/api/auth/sign-in', credential);
 		token.set(data.token);
 		dispatch(authActions.userSignInSuccess(data));
-		
 	} catch (error) {
 		dispatch(errorActions.error(error.response.data));
+		errorDataReceiver(error.response.data.message);
 	}
 };
 
@@ -61,7 +57,7 @@ const getCurrentUser = () => async (dispatch, getState) => {
 	try {
 		const { data } = await axios.get('/api/user/current');
 		dispatch(authActions.getCurrentUserSuccess(data));
-			} catch (error) {
+	} catch (error) {
 		dispatch(errorActions.error(error.response.data));
 	}
 };

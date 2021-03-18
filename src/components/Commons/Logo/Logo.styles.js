@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-import {device} from 'index.styles';
+import { device } from 'index.styles';
 
 export const LogoImg = styled.img`
 	width: 12px;
 	height: 18px;
-	@media ${device.desktop}{
+	@media ${device.desktop} {
 		width: 18px;
 	}
 `;

@@ -4,8 +4,6 @@ import { useHistory } from 'react-router-dom';
 import selector from '../../../redux/selectors';
 import Card from '../Card/Card';
 import { BlockPeopleTask } from './CardList.styles';
-import styles from '../../../pages/MainPage/Helper.module.css';
-import { todayTasks } from 'utils/Helpers';
 
 function CardList({ currentDay, today }) {
 	const tasks = useSelector(selector.getTasks);

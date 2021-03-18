@@ -56,9 +56,10 @@ const GlobalStyle = createGlobalStyle`
             transition: opacity 0.3s ease;
         }
 
-        
-    }
+          };
+          
 
+ /* notification */
 .notification-enter {
     visibility: hidden;
     -webkit-transform: translate3d(100%, 0, 0);
@@ -82,7 +83,7 @@ const GlobalStyle = createGlobalStyle`
     transition: all 0.4s;
   }
   
-  /* //------------------- */
+ 
   .notification-container {
     box-sizing: border-box;
     position: fixed;
@@ -157,9 +158,6 @@ const GlobalStyle = createGlobalStyle`
   }
   
   .notification-info {
-    /* background-color: #fff; */
-    /* border: 1px dashed #777; */
-  
     color: #fff !important;
   }
   .notification-info .message {
@@ -171,8 +169,6 @@ const GlobalStyle = createGlobalStyle`
   }
   
   .notification-success {
-    /* background-color: #000; */
-    /* border: 1px dashed #000; */
   }
   
   .notification-success .message {
@@ -185,8 +181,7 @@ const GlobalStyle = createGlobalStyle`
   
   .notification-warning {
    background-color: rgb(255, 0, 0);;
-    /*  border: 1px solid #777; */
-    color: red;
+       color: red;
   }
   
   .notification-warning .message {
@@ -207,8 +202,7 @@ const GlobalStyle = createGlobalStyle`
   }
   
   .notification-error:before {
-    /* content: url('https://storage.googleapis.com/kidslikev2_bucket/f2b9bbdb89bba9dedc27d06b9d9346b2.svg'); */
-  }
+     }
   
   .notification-message {
     padding: 0;
@@ -217,22 +211,15 @@ const GlobalStyle = createGlobalStyle`
   .notification-message .message {
     background: transparent;
     background-color: transparent;
-    /* padding: 4px; */
-  }
+     }
+     
   .grecaptcha-badge {
     display: none;
   }
 
-
-
-
-.mainBackgroundColor2 {background-color:#FFBC33}
-
-/*  */
-
-/* .mainBackgroundColor2 {background-color:#FFBC33} */
-
 `;
+export const mainBackgroundColor1 = 'background-color:#FFBC33'
+
 export const size = {
 	mobile: '320px',
 	tablet: '768px',

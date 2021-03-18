@@ -5,8 +5,8 @@ import PointAmount from '../PointAmount/PointAmount';
 import TaskToggle from '../TaskToggle/TaskToggle';
 import SelectDays from '../SelectDays/SelectDays';
 import {
-	BlockPeopleTask_item_inform,
-	BlockPeopleTask_item_text,
+	BlockPeopleTaskItemInform,
+	BlockPeopleTaskItemText,
 	DoneTask,
 	NotDoneTask,
 } from './CardFooter.styles.js';
@@ -21,9 +21,9 @@ export default function CardFooter({ item, currentDay, today, summNumber }) {
 	}
 	let history = useHistory();
 	return (
-		<BlockPeopleTask_item_text>
+		<BlockPeopleTaskItemText>
 			<CardTitle item={item} />
-			<BlockPeopleTask_item_inform>
+			<BlockPeopleTaskItemInform>
 				<PointAmount item={item} />
 				{history.location.pathname === '/' && currentDay && today ? (
 					currentDay === today ? (
@@ -38,7 +38,7 @@ export default function CardFooter({ item, currentDay, today, summNumber }) {
 				) : (
 					<SelectDays item={item} />
 				)}
-			</BlockPeopleTask_item_inform>
-		</BlockPeopleTask_item_text>
+			</BlockPeopleTaskItemInform>
+		</BlockPeopleTaskItemText>
 	);
 }

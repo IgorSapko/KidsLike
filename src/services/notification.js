@@ -1,5 +1,4 @@
 import { NotificationManager } from 'react-notifications';
-// 'info', 'success', 'warning', 'error'
 const notification = ({
 	type,
 	message = '',

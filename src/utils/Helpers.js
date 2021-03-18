@@ -27,13 +27,13 @@ export function choosenDay(choosenDay) {
 export function todayIs() {
 	const today = DateTime.local().toFormat('dd-MM-yyyy');
 	return `/?day=${today}`;
-  };
+}
 
-  function UseQuery() {
+function UseQuery() {
 	return new URLSearchParams(useLocation().search);
-};
+}
 
-  export function todayTasks(tasks) {
+export function todayTasks(tasks) {
 	let query = UseQuery();
 	let daysQuery = query.get('day');
 	const returnedTasks = [];

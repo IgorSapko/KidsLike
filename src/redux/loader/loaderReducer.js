@@ -1,6 +1,4 @@
 import { createReducer } from '@reduxjs/toolkit';
-// import loaderActions from '../loader/loaderActions';
-
 import authActions from '../auth/authActions';
 import errorActions from '../error/errorActions';
 import weekActions from '../week/weekActions';

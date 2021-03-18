@@ -1,8 +1,5 @@
-//Core
 import styled from 'styled-components';
-//Settings
 import { device } from '../../index.styles';
-//Icons
 import { FaFacebookSquare, FaGithubSquare, FaLinkedin } from 'react-icons/fa';
 
 export const Container = styled.div`
@@ -70,10 +67,7 @@ export const Cards = styled.li`
 	box-shadow: 4px 6px 15px rgba(0, 0, 0, 0.1);
 `;
 
-export const Photo = styled.img`
-	/* width: 280px; */
-	/* height: 246px; */
-`;
+export const Photo = styled.img``;
 
 export const InfoWrapper = styled.div`
 	margin: 10px 10px 0;

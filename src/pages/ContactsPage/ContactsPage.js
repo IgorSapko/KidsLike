@@ -1,10 +1,7 @@
-//Core
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-//Redux
 import { useDispatch } from 'react-redux';
 import loaderActions from '../../redux/loader/loaderActions';
-//Styles
 import {
 	Container,
 	MainText,
@@ -25,7 +22,6 @@ import {
 
 export default function Contacts() {
 	const [contacts, setContacts] = useState([]);
-
 	const dispatch = useDispatch();
 
 	useEffect(() => {

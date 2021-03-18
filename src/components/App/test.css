@@ -1,9 +1,0 @@
-.test{
-    width: 810px;
-    height: 240px;
-    background-image: url('https://storage.googleapis.com/kidslikev2_bucket/060d7816e5c59cb8125e45a28cdc8ba4.png'), url('https://storage.googleapis.com/kidslikev2_bucket/c0ff9c1185ec3ebd445ec42158cdebb1.png'),  url('https://storage.googleapis.com/kidslikev2_bucket/c8332234108d17a7c581bbad4fad7365.png');
-    background-size: 213px 202px, 301px 247px,   297px 240px;
-    background-repeat: no-repeat;
-    background-color:red;
-background-position:  200px 120px, 0px 0px, 580px 0px;
-}

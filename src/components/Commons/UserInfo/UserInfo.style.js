@@ -1,28 +1,30 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { device } from '../../../index.styles';
 
-export const UserInfoWrapper=styled.div`
-display:flex;
-align-items:baseline;
-justify-content:flex-start;
-height:fit-content;
-color:#FFFFFF;
-&>h2{
-	border-color:#FFFFFF;
-}
+export const UserInfoWrapper = styled.div`
+	display: flex;
+	align-items: baseline;
+	justify-content: flex-start;
+	height: fit-content;
+	color: #ffffff;
+	& > h2 {
+		border-color: #ffffff;
+	}
 
-
-@media (min-width: 768px) {
-	align-items:center;
-	color: #858598;
-	&>h2{border-color:#858598};
-	
-	};
+	@media (min-width: 768px) {
+		align-items: center;
+		color: #858598;
+		& > h2 {
+			border-color: #858598;
+		}
+	}
 	@media ${device.desktop} {
 		height: 44px;
 		color: #858598;
-		&>h2{border-color:#858598};
-	};
+		& > h2 {
+			border-color: #858598;
+		}
+	} ;
 `;
 
 export const HeaderblockcontactInform = styled.h2`
@@ -34,11 +36,11 @@ export const HeaderblockcontactInform = styled.h2`
 	padding-right: 15px;
 	letter-spacing: 0.04em;
 	border-right: 1px solid #858598;
-	
-		height:fit-content;
-	overflow-x:hidden;
+
+	height: fit-content;
+	overflow-x: hidden;
 	max-width: 180px;
-	`;
+`;
 
 export const HeaderblockcontactBlockFirstLetter = styled.div`
 	height: 25px;

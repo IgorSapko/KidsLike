@@ -11,7 +11,6 @@ import PrivateRoute from 'router/PrivateRoute';
 import selectors from '../../redux/selectors'
 import queryString from 'query-string';
 
-import test from './test.css'
 
 const App = () => {
 
@@ -31,14 +30,6 @@ const App = () => {
 		dispatch(authOperations.getCurrentUser());
 	}, []);
 
-// return (
-
-// <div className='test'>
-
-
-// </div>
-
-// )
 
 	return (<>{!isLoading?
 			<>

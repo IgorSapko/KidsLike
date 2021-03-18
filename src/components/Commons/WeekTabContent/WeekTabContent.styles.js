@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const WeekTabContentList = styled.div`
 	display: flex;
 	justify-content: center;
-	`;
+`;
 export const WeekTabContentPlanning = styled.div`
 	margin: 0 auto;
 	width: 300px;

@@ -7,6 +7,7 @@ const activeClassName = 'nav-item-active';
 export const ExitLogoSvgWrapper = styled.div`
 	width: 18px;
 	height: 18px;
+	cursor: pointer;
 
 	${props =>
 		!props.menumob &&
@@ -34,6 +35,7 @@ export const CloseSvgWrapper = styled.div`
 	display: block;
 	width: 14px;
 	height: 14px;
+	cursor: pointer;
 `;
 
 export const StyledNavLink = styled(NavLink).attrs({ activeClassName })`
@@ -148,7 +150,7 @@ export const HeaderInformUl = styled.ul`
 		margin: 0;
 		display: flex;
 		justify-content: flex-end;
-			align-items: center;
+		align-items: center;
 		& :nth-child(4) > a {
 			padding-right: 0px;
 			margin-right: 40px;
@@ -294,6 +296,7 @@ export const MobileMenuText = styled.ul`
 	} ;
 `;
 export const MobileMenuLogo = styled.div`
+	cursor: pointer;
 	@media ${device.tablet} {
 		margin-right: 20px;
 		height: 14px;

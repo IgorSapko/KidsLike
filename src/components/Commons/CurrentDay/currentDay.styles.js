@@ -158,13 +158,12 @@ const ProgressContainer = styled.div`
 	right: 0;
 	left: 0;
 	bottom: 0;
-	z-index: 1110;
+	z-index: 100;
 	display: flex;
 	align-items: center;
 	flex-wrap: wrap;
 	background-color: #f1f1f1;
 	margin-top: -116px;
-
 	@media ${device.tablet} {
 		background-color: unset;
 		width: fit-content;
@@ -266,7 +265,7 @@ const AddBtn = styled.button`
 	position: fixed;
 	margin-right: 20px;
 	margin-bottom: 10px;
-	z-index: 1110;
+	z-index: 100;
 	bottom: 0;
 	right: 20px;
 	border: none;

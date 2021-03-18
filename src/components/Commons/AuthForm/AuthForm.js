@@ -7,6 +7,8 @@ import { useDispatch } from 'react-redux';
 import authOperations from '../../../redux/auth/authOperations';
 //Styles
 import { Form, Input, Button, Label, P, ButtonContainer, GoogleLink } from './authForm.styles';
+import notification from '../../../services/notification';
+import { NotificationContainer } from 'react-notifications';
 
 const AuthForm = () => {
 	const [email, setEmail] = useState('');
@@ -27,16 +29,36 @@ const AuthForm = () => {
 			password: password,
 		};
 
+const errorDataReceiver  = (dataOfError)=>{
+	console.log('111')
+	notification({
+		type: 'warning',
+		message: `${dataOfError}`,
+	})
+};
+
 		if (emailValid(email) && password.length >= 6) {
-			target.id === 'signup' && dispatch(authOperations.userSignUp(credential));
-			target.id === 'signin' && dispatch(authOperations.userSignIn(credential));
+			target.id === 'signup' && dispatch(authOperations.userSignUp(credential, errorDataReceiver));
+			target.id === 'signin' && dispatch(authOperations.userSignIn(credential, errorDataReceiver));
 		} else if (!emailValid(email) && password.length < 6) {
 			setValidEmail(true);
 			setValidPassword(true);
+			notification({
+				type: 'warning',
+				message: 'Неправильный email и слишком короткий пароль (не менее 6 символов)',
+			});
 		} else if (!emailValid(email)) {
 			setValidEmail(true);
+			notification({
+				type: 'warning',
+				message: 'Неправильный email',
+			});
 		} else if (password.length < 6) {
 			setValidPassword(true);
+			notification({
+				type: 'warning',
+				message: 'Слишком короткий пароль (не менее 6 символов)',
+			});
 		}
 
 		setEmail('');
@@ -88,6 +110,7 @@ const AuthForm = () => {
 					Зарегистрироваться
 				</Button>
 			</ButtonContainer>
+			<NotificationContainer/>
 		</Form>
 	);
 };

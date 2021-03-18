@@ -5,20 +5,24 @@ import {
 	BtnClose,
 	ModalCongrats,
 	PrizesWrapper,
-	PrizesWrapper_block,
+	PrizesWrapperBlock,
 	ChosenPrise,
-	ChosenPrise_name,
+	ChosenPriseName,
 } from './CongratsModal.styles';
 import ModalBackDrop from '../ModalBackDrop/ModalBackDrop';
+import weekOperation from 'redux/week/weekOperation';
+import { useDispatch } from 'react-redux';
 
 const CongratsModal = ({ itemsAll, setOpen }) => {
+	const dispatch = useDispatch();
 	const handleCloseModal = useCallback(
 		({ code, target }) => {
 			if (code === 'Escape' || target.id === 'backdrop') {
 				setOpen(false);
 			}
+			dispatch(weekOperation.giftsGetting());
 		},
-		[setOpen],
+		[dispatch, setOpen],
 	);
 
 	useEffect(() => {
@@ -41,10 +45,10 @@ const CongratsModal = ({ itemsAll, setOpen }) => {
 				</BtnClose>
 				<PrizesWrapper>
 					{itemsAll.map(({ _id, title, imageUrl }) => (
-						<PrizesWrapper_block key={_id}>
+						<PrizesWrapperBlock key={_id}>
 							<ChosenPrise img={imageUrl} />
-							<ChosenPrise_name>{title}</ChosenPrise_name>
-						</PrizesWrapper_block>
+							<ChosenPriseName>{title}</ChosenPriseName>
+						</PrizesWrapperBlock>
 					))}
 				</PrizesWrapper>
 			</ModalCongrats>

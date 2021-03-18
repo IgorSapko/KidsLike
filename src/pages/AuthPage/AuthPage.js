@@ -1,8 +1,5 @@
-//Core
 import React from 'react';
-//Components
 import AuthForm from '../../components/Commons/AuthForm/AuthForm';
-//Styles
 import { ContainerAuth, RegContainer, Heading, ImagesContainer } from './authPage.styles';
 
 const AuthPage = () => (
