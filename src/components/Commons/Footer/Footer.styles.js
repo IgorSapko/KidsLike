@@ -1,6 +1,5 @@
 import styled, {css} from 'styled-components';
 import { device } from '../../../index.styles';
-import Fingers from '../../../img/2finger.svg';
 
 const FooterStyles = styled.div`
 	height: 80px;
@@ -13,7 +12,7 @@ const FooterStyles = styled.div`
 	${props =>
 		(props.footerLocation==='/') &&
 		css`
-			display: none;
+	
 		`};
 	@media ${device.tablet} {
 		display: flex;
@@ -47,7 +46,7 @@ const FooterText = styled.p`
 `;
 const FooterContentKidsLike = styled.span`
 	&:after {
-		content: url(${Fingers});
+		content: url('https://storage.googleapis.com/kidslikev2_bucket/8f98e4301779847ff6dc22597d95bd4c.svg');
 		width: 8px;
 		height: 12px;
 		margin-left: 6px;

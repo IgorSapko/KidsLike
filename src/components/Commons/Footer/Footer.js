@@ -4,7 +4,7 @@ import { FooterStyles, FooterText, FooterContentKidsLike, HorizLine } from './Fo
 
 export default function Footer({footerLocation}) {
 	const location = useLocation();
-	console.log(location.pathname)
+
 	return (
 		<FooterStyles footerLocation={location.pathname}>
 			<div className="footer_content">

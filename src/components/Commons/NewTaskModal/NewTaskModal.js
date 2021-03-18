@@ -1,4 +1,4 @@
-import React, { Children, useRef, useState } from 'react';
+import React, {  useRef, useState } from 'react';
 import ModalBackDrop from '../ModalBackDrop/ModalBackDrop'
 import notification from '../../../services/notification';
 import { NotificationContainer } from 'react-notifications';
@@ -16,10 +16,6 @@ import {
 	CloseBtn,
 	NotificationDiv,
 } from './newTaskModal.styles';
-import img from '../../../img/add_modal.png';
-import pencil from '../../../img/pencil.svg';
-import pictureItemSvg from '../../../img/pictureItem.svg';
-// import closeCross from '../../../img/closeCross.svg';
 
 const NewTaskModal = ({ addTask, closeModal }) => {
 	const [title, setTitle] = useState('');
@@ -86,10 +82,10 @@ const NewTaskModal = ({ addTask, closeModal }) => {
 							accept="image/jpeg,image/png"
 							onChange={onImageChange}
 						/>
-						<img width="18" height="18" src={pictureItemSvg} alt="" />
+						<img width="18" height="18" src='https://storage.googleapis.com/kidslikev2_bucket/f3415577b2d786fb5d02b792a5e3bf28.svg' alt="picture of item" />
 					</FileInputBlock>
 					<LabelDiv>
-						<img width="18" height="18" src={pencil} alt="" />
+						<img width="18" height="18" src='https://storage.googleapis.com/kidslikev2_bucket/980412bc2bae8dc1dcd3151175324a59.svg' alt="" />
 						<TextInput
 							type="text"
 							name="title"
@@ -100,7 +96,7 @@ const NewTaskModal = ({ addTask, closeModal }) => {
 						/>
 					</LabelDiv>
 					<LabelDiv>
-						<img width="18" height="18" src={pencil} alt="" />
+						<img width="18" height="18" src='https://storage.googleapis.com/kidslikev2_bucket/980412bc2bae8dc1dcd3151175324a59.svg' alt="" />
 						<TextInput
 							type="text"
 							name="reward"

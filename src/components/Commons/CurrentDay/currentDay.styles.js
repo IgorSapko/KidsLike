@@ -47,7 +47,7 @@ const Container = styled.div`
 `;
 
 const ProgressDiv = styled.div`
-	width: 50%;
+	width: 40%;
 
 	@media ${device.tablet} {
 		width: 280px;
@@ -77,7 +77,7 @@ const Points = styled.p`
 	}
 `;
 
-const PointsLeft = styled.p`
+const PointsLeft = styled.div`
 	font-family: 'MontserratRegular', sans-serif;
 	font-style: normal;
 	font-weight: 500;
@@ -95,7 +95,7 @@ const PointsLeft = styled.p`
 			css`
 				display: none;
 			`};
-		}
+		};
 	@media ${device.desktop} {
 		width: 500px;
 		text-align: left;
@@ -171,6 +171,8 @@ const ProgressContainer = styled.div`
 		position: static;
 		height: 8px;
 		margin-top: 6px;
+	z-index: 0;
+
 		${props =>
 			props.awardsPage &&
 			css`
@@ -263,7 +265,7 @@ const AddCustom = styled.div`
 const AddBtn = styled.button`
 	position: fixed;
 	margin-right: 20px;
-	margin-bottom: 3px;
+	margin-bottom: 10px;
 	z-index: 1110;
 	bottom: 0;
 	right: 20px;

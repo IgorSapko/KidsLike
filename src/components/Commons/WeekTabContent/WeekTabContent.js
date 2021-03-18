@@ -54,9 +54,9 @@ export default function WeekTabsContent({ week }, props) {
 				}
 			></div>
 
-			<WeekTabContentList>
+{todayTasks(daysQuery, tasks).length > 0 ?<WeekTabContentList>
 				{daysQuery && <CardList currentDay={daysQuery} today={today}></CardList>}
-			</WeekTabContentList>
+			</WeekTabContentList>: null}
 		</WeekTabContentContainer>
 	);
 }

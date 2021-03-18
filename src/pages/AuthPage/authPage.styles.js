@@ -2,11 +2,6 @@
 import styled from 'styled-components';
 //Global
 import { device } from '../../index.styles';
-//Assets
-import auth1 from '../../img/auth_1.png';
-import auth2 from '../../img/auth_2.png';
-import auth4 from '../../img/auth_4.png';
-import aut_bg_desktop from '../../img/aut_bg_desktop.png';
 
 const ContainerAuth = styled.div`
 	display: flex;
@@ -69,7 +64,7 @@ const ImagesContainer = styled.div`
 	display: block;
 	width: 100%;
 	min-height: 96px;
-	background-image: url(${auth2});
+	background-image: url('https://storage.googleapis.com/kidslikev2_bucket/060d7816e5c59cb8125e45a28cdc8ba4.png');
 	background-position: 40% 24%;
 	background-repeat: no-repeat;
 	background-size: 120%;
@@ -85,7 +80,9 @@ const ImagesContainer = styled.div`
 		top: 760px;
 		right: 0;
 		height: 240px;
-		background-image: url(${auth2}), url(${auth1}), url(${auth4});
+		background-image: url('https://storage.googleapis.com/kidslikev2_bucket/060d7816e5c59cb8125e45a28cdc8ba4.png'),
+			url('https://storage.googleapis.com/kidslikev2_bucket/c0ff9c1185ec3ebd445ec42158cdebb1.png'),
+			url('https://storage.googleapis.com/kidslikev2_bucket/4209b248e4a4c390fd9c15e952d73adf.png');
 		background-position: 50% 50px, -3% 85px, 105% 0;
 		background-repeat: no-repeat;
 		background-size: 31%, 42%, 42%;
@@ -98,7 +95,7 @@ const ImagesContainer = styled.div`
 		display: block;
 		position: static;
 		margin-top: 10px;
-		background-image: url(${aut_bg_desktop});
+		background-image: url('https://storage.googleapis.com/kidslikev2_bucket/98ae64781367e00885e4a1a1c9bfa4a8.png');
 		background-position: 0 0;
 		background-repeat: no-repeat;
 		background-size: cover;

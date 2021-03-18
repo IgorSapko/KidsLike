@@ -24,7 +24,7 @@ export const WeekTabContentPlanningLink = styled.div`
 `;
 
 export const WeekTabContentImage = styled.div`
-	background-image: url('../../img/kidsInMainPage.png');
+	background-image: url('https://storage.googleapis.com/kidslikev2_bucket/6a06ef2bad2aac6db8b5ec56b014dc2a.png');
 	width: 100%;
 	height: 362px;
 	margin: 0px;

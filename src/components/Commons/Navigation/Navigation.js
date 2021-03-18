@@ -14,20 +14,17 @@ import {
 	HeaderBlockRight,
 	MobileMenuAuthorized,
 	UserInfoWrapper,
-	// ExitLogo,
 	MenuImg,
 	StyledNavLink,
 	HeaderInformUlNotAuthorized,
 	MobileMenuNotAuthorized,
-	CloseSpan,
-	SvgLogo,
 	ExitLogoSvgWrapper,
-	CloseSvgWrapper
+	CloseSvgWrapper,
 } from './Navigation.style';
 import UserInfo from '../UserInfo/UserInfo';
-import menu from '../../../img/menu.svg';
 import ExitLogoSvg from '../../svg/ExitLogoSvg';
 import CloseSvg from '../../svg/CloseSvg';
+import ModalBackDrop from 'components/Commons/ModalBackDrop/ModalBackDrop';
 import { todayIs } from '../../../utils/Helpers';
 import authOperations from '../../../redux/auth/authOperations';
 
@@ -49,8 +46,6 @@ const Navigation = () => {
 		{ nameLink: 'Награды', path: '/awards' },
 		{ nameLink: 'Контакты', path: '/contacts' },
 	];
-
-	console.log(document.body.scrollHeight);
 	const menuHeight = document.body.scrollHeight;
 
 	return (
@@ -60,25 +55,20 @@ const Navigation = () => {
 					<MobileMenuNotAuthorized>
 						<>
 							<MobileMenuLogo onClick={() => setMenumob(!menumob)}>
-								<MenuImg src={menu} />
+								<MenuImg src="https://storage.googleapis.com/kidslikev2_bucket/df69c16c82b3710b3673ce34bcf49a3c.svg" />
 							</MobileMenuLogo>
 
 							{menumob && (
-								<>
+								<ModalBackDrop>
 									<MobileMenuText menumob={menumob} user={user} menuHeight={menuHeight}>
-										<CloseSvg
-											menumob
-											stroke={'red'}
+										<CloseSvgWrapper
 											onClick={() => {
 												setMenumob(!menumob);
 											}}
-										/>
-										{/* <CloseSpan
 											menumob
-											onClick={() => {
-												setMenumob(!menumob);
-											}}
-										/> */}
+										>
+											<CloseSvg stroke={'red'} />
+										</CloseSvgWrapper>
 										{notAuthorizedLinks.map(item => (
 											<LinkHeaderInform key={item.nameLink}>
 												<StyledNavLink exact to={item.path}>
@@ -87,7 +77,7 @@ const Navigation = () => {
 											</LinkHeaderInform>
 										))}
 									</MobileMenuText>
-								</>
+								</ModalBackDrop>
 							)}
 						</>
 					</MobileMenuNotAuthorized>
@@ -123,48 +113,40 @@ const Navigation = () => {
 								</LinkHeaderInform>
 							))}
 							<UserInfo />
-							<ExitLogoSvgWrapper onClick={() => handleLogout()}>
-							<ExitLogoSvg fill={'#858598'} menumob user />
+							<ExitLogoSvgWrapper onClick={() => handleLogout()} menumob user>
+								<ExitLogoSvg fill={'#858598'} />
 							</ExitLogoSvgWrapper>
-							{/* <ExitLogo onClick={() => handleLogout()} /> */}
 						</HeaderInformUl>
 					</HeaderBlockRight>
 					<MobileMenuAuthorized>
 						<MobileMenu>
 							<MobileMenuLogo onClick={() => setMenumob(!menumob)}>
-								<MenuImg src={menu} />
+								<MenuImg src="https://storage.googleapis.com/kidslikev2_bucket/df69c16c82b3710b3673ce34bcf49a3c.svg" />
 							</MobileMenuLogo>
 							<UserInfoWrapper>
 								<UserInfo />
 							</UserInfoWrapper>
-							<ExitLogoSvgWrapper onClick={() => handleLogout()}>
-							<ExitLogoSvg fill={'#858598'} menumob user />
+							<ExitLogoSvgWrapper onClick={() => handleLogout()} menumob={menumob} user>
+								<ExitLogoSvg fill={'#858598'} />
 							</ExitLogoSvgWrapper>
-							{/* <ExitLogo onClick={() => handleLogout()} /> */}
 						</MobileMenu>
 						{menumob && (
-							<>
+							<ModalBackDrop>
 								<MobileMenuText menuHeight={menuHeight}>
 									<UserInfoWrapper menumob>
 										<UserInfo menumob />
-										{/* <ExitLogo menumob user onClick={() => handleLogout()} /> */}
-										<ExitLogoSvgWrapper onClick={() => handleLogout()}>
-										<ExitLogoSvg  fill={'#FFFFFF'} menumob user/>
-									</ExitLogoSvgWrapper>
+										<ExitLogoSvgWrapper onClick={() => handleLogout()} menumob={menumob} user>
+											<ExitLogoSvg fill={'#FFFFFF'} />
+										</ExitLogoSvgWrapper>
 									</UserInfoWrapper>
-									<CloseSvgWrapper onClick={() => {
-											setMenumob(!menumob);
-										}}>
-									<CloseSvg
-										menumob
-										stroke={'red'}
-									/>
-									</CloseSvgWrapper>
-									{/* <CloseSpan
+									<CloseSvgWrapper
 										onClick={() => {
 											setMenumob(!menumob);
 										}}
-									/> */}
+										menumob
+									>
+										<CloseSvg stroke={'red'} />
+									</CloseSvgWrapper>
 
 									{authorizedLinks.map(item => (
 										<LinkHeaderInform key={item.nameLink}>
@@ -174,7 +156,7 @@ const Navigation = () => {
 										</LinkHeaderInform>
 									))}
 								</MobileMenuText>
-							</>
+							</ModalBackDrop>
 						)}
 					</MobileMenuAuthorized>
 				</>

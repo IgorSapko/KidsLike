@@ -3,8 +3,6 @@ import { useDispatch } from 'react-redux';
 import DaysList from '../DaysList/DaysList';
 import { BlockAddSwitch, PlusSvg } from './SelectDays.styles';
 import weekOperation from '../../../redux/week/weekOperation';
-import plus from '../../../img/plus.svg'
-// import PlusSvg from '../SelectDays/PlusSvg';
 
 export default function SelectDays({ item }) {
 	const [checkedTasks, setCheckedTasks] = useState([]);
@@ -25,7 +23,7 @@ export default function SelectDays({ item }) {
 		<>
 			{!toggle ? (
 				<BlockAddSwitch onClick={() => handlechange()}>
-					<PlusSvg  src={plus}/>
+					<PlusSvg  src='https://storage.googleapis.com/kidslikev2_bucket/abe882d94205b7c7adf180cb7025b675.svg'/>
 				</BlockAddSwitch>
 			) : (
 				<>
