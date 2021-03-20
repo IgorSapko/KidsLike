@@ -1,9 +1,8 @@
 import { createReducer } from '@reduxjs/toolkit';
-// import loaderActions from '../loader/loaderActions';
-
 import authActions from '../auth/authActions';
 import errorActions from '../error/errorActions';
 import weekActions from '../week/weekActions';
+import loaderActions from './loaderActions';
 
 //Loading reducer
 const loaderReducer = createReducer(false, {
@@ -28,12 +27,15 @@ const loaderReducer = createReducer(false, {
 	[weekActions.giftsGettingRequest]: () => true,
 	[weekActions.giftsGettingSuccess]: () => false,
 
-	[weekActions.giftsOrderRequest]: () => true,
-	[weekActions.giftsOrderSuccess]: () => false,
+	// [weekActions.giftsOrderRequest]: () => true,
+	// [weekActions.giftsOrderSuccess]: () => false,
 
 	[weekActions.createCustomTaskRequest]: () => true,
 	[weekActions.createCustomTaskSuccess]: () => false,
 
+	[loaderActions.contactsRequest]: () => true,
+	[loaderActions.contactsSuccess]: () => false,
+	
 	[errorActions.error]: () => false,
 });
 

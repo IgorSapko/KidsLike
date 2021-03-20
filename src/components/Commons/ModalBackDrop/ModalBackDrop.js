@@ -1,11 +1,6 @@
 import React from 'react';
-import { Screen } from "./ModalBackDrop.styles";
-const ModalBackDrop = ({children}) => {
-return(
-    <Screen>
-        {children}
-    </Screen>
-)
-}
+import { Screen } from './ModalBackDrop.styles';
 
-export default ModalBackDrop
+const ModalBackDrop = ({ children }) => <Screen id="backdrop">{children}</Screen>;
+
+export default ModalBackDrop;

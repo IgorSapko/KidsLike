@@ -1,4 +1,3 @@
-
 import styled from 'styled-components';
 import { device, size } from '../../index.styles';
 
@@ -16,6 +15,8 @@ const WeekTabsContainer = styled.div`
 	justify-content: space-evenly;
 	align-items: center;
 	height: 60px;
+	padding-right: 20px;
+	padding-left: 20px;
 	@media (min-width: ${size.tablet}) {
 		background-color: #ffbc33;
 		width: 100%;
@@ -25,33 +26,46 @@ const WeekTabsContainer = styled.div`
 		align-items: center;
 	}
 	@media ${device.desktop} {
-		height: 100%;
+		height: calc(100% + 80px);
 		width: 240px;
-		/* position: fixed; */
+		align-items: start;
 		z-index: 1;
-		/* top: 0; */
 		left: 0;
 	}
 `;
 const WeekTabsList = styled.ul`
-	@media (max-width: ${size.desktop}) {
+	@media (max-width: 1279px) {
 		list-style: none;
 		display: flex;
 		justify-content: space-between;
 		width: 336px;
 		margin-left: 0px;
-	
+	}
+	@media ${device.tablet} {
+		border-color: red;
 	}
 	@media ${device.desktop} {
 		list-style: none;
-		margin-top: 0px;
+		margin-top: 140px;
 		margin-left: 50px;
-			padding-left: 0px;
-		;
+		padding-left: 0px;
 	}
+
+	/* list-style: none;
+		display: flex;
+		justify-content: space-between;
+		width: 336px;
+		margin-left: 0px;
+	
 	@media ${device.tablet} {
-		border-color:red;
+		border-color: red;
 	}
+	@media ${device.desktop} {
+		list-style: none;
+		margin-top: 140px;
+		margin-left: 50px;
+		padding-left: 0px;
+	} */
 `;
 
 const WeekTabsItemTextDesktop = styled.span`
@@ -86,10 +100,8 @@ const WeekTabContentContainer = styled.div`
 	width: 100%;
 	@media ${device.tablet} {
 		background-color: #fafafa;
+		padding-bottom: 1px;
 	}
-	@media ${device.desktop} {
-		min-height: calc(100vh - 50px);
-		}
 `;
 const ContainerForBalanceandInfo = styled.div`
 	@media (max-width: ${size.desktop}) {

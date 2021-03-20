@@ -1,35 +1,17 @@
 import React from 'react';
-
-import {
-	ContainerAuth,
-	RegContainer,
-	P,
-	ImgAuth1,
-	ImgAuth2,
-	ImgAuth3,
-	ImgAuth4,
-	ImagesContainer,
-} from './authPage.styles';
-
 import AuthForm from '../../components/Commons/AuthForm/AuthForm';
+import { ContainerAuth, RegContainer, Heading, ImagesContainer } from './authPage.styles';
 
-const AuthPage = () => {
-	return (
-		<>
-			<ContainerAuth>
-				<ImagesContainer>
-					<ImgAuth1></ImgAuth1>
-					<ImgAuth2></ImgAuth2>
-					<ImgAuth3></ImgAuth3>
-					<ImgAuth4></ImgAuth4>
-				</ImagesContainer>
-				<RegContainer>
-					<P>Выполняй задания, получи классные призы!</P>
-					<AuthForm />
-				</RegContainer>
-			</ContainerAuth>
-		</>
-	);
-};
+const AuthPage = () => (
+	<ContainerAuth>
+		<RegContainer>
+			<Heading>Выполняй задания, получи классные призы!</Heading>
+
+			<AuthForm />
+		</RegContainer>
+
+		<ImagesContainer />
+	</ContainerAuth>
+);
 
 export default AuthPage;

@@ -3,8 +3,6 @@ import { useDispatch } from 'react-redux';
 import DaysList from '../DaysList/DaysList';
 import { BlockAddSwitch, PlusSvg } from './SelectDays.styles';
 import weekOperation from '../../../redux/week/weekOperation';
-import plus from '../../../img/plus.svg'
-// import PlusSvg from '../SelectDays/PlusSvg';
 
 export default function SelectDays({ item }) {
 	const [checkedTasks, setCheckedTasks] = useState([]);
@@ -17,7 +15,7 @@ export default function SelectDays({ item }) {
 	};
 
 	const getCheckedTasks = (arrDays, isArrDaysTheSame) => {
-		setisArrDaysTheSame(isArrDaysTheSame)
+		setisArrDaysTheSame(isArrDaysTheSame);
 		setCheckedTasks([...arrDays]);
 	};
 
@@ -25,22 +23,22 @@ export default function SelectDays({ item }) {
 		<>
 			{!toggle ? (
 				<BlockAddSwitch onClick={() => handlechange()}>
-					<PlusSvg  src={plus}/>
+					<PlusSvg src="https://storage.googleapis.com/kidslikev2_bucket/abe882d94205b7c7adf180cb7025b675.svg" />
 				</BlockAddSwitch>
 			) : (
 				<>
-					
-						<BlockAddSwitch
-							onClick={() => (
-								handlechange(),
-								!isArrDaysTheSame&&dispatch(
+					<BlockAddSwitch
+						onClick={() => (
+							handlechange(),
+							!isArrDaysTheSame &&
+								dispatch(
 									weekOperation.taskActiveSwitcher(item._id ? item._id : item.id, checkedTasks),
 								)
-							)}
-						>
-							OK
-						</BlockAddSwitch>
-					
+						)}
+					>
+						OK
+					</BlockAddSwitch>
+
 					<DaysList getCheckedTasks={getCheckedTasks} item={item} />
 				</>
 			)}

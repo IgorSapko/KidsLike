@@ -1,27 +1,31 @@
-import styled from 'styled-components';
-import { device, size } from '../../../index.styles';
-import Fingers from '../../../img/2finger.svg';
+import styled, { css } from 'styled-components';
+import { device } from '../../../index.styles';
 
 const FooterStyles = styled.div`
-	height: 50px;
+	height: 80px;
 	width: 100%;
 	display: flex;
 	justify-content: center;
 	background-color: #ffffff;
-	color: #85859;
+	color: #858598;
+	margin-bottom: 50px;
+	${props => props.footerLocation === '/' && css``};
 	@media ${device.tablet} {
+		display: flex;
 		align-items: center;
 		background-color: #fafafa;
+		margin-bottom: 0px;
 	}
 	@media ${device.desktop} {
 		justify-content: flex-end;
+		margin-bottom: 0px;
 	}
 `;
 const FooterText = styled.p`
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	width: 220px;
+	width: 228px;
 	margin: 0px;
 	font-size: 11px;
 	font-family: 'Montserrat', sans-serif;
@@ -38,7 +42,7 @@ const FooterText = styled.p`
 `;
 const FooterContentKidsLike = styled.span`
 	&:after {
-		content: url(${Fingers});
+		content: url('https://storage.googleapis.com/kidslikev2_bucket/8f98e4301779847ff6dc22597d95bd4c.svg');
 		width: 8px;
 		height: 12px;
 		margin-left: 6px;

@@ -1,4 +1,3 @@
-//styles
 import CardBody from '../CardBody/CardBody';
 import CardFooter from '../CardFooter/CardFooter';
 import { BlockPeopleTaskItem } from './Card.styles';

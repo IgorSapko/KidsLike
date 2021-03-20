@@ -10,14 +10,28 @@ function CardList({ currentDay, today }) {
 	let history = useHistory();
 
 	return (
-		<BlockPeopleTask>
+		<BlockPeopleTask locat={history.location.pathname}>
 			{history.location.pathname === '/'
 				? tasks.map(task => {
 						if (task.days.find(day => day.date === currentDay).isActive === true) {
-							return <Card key={task.title} item={task} currentDay={currentDay} today={today}/>;
+							return (
+								<Card
+									key={task._id ? task._id : task.id}
+									item={task}
+									currentDay={currentDay}
+									today={today}
+								/>
+							);
 						}
 				  })
-				: tasks.map(task => <Card key={task.title} item={task} currentDay={currentDay} today={today}/>)}
+				: tasks.map(task => (
+						<Card
+							key={task._id ? task._id : task.id}
+							item={task}
+							currentDay={currentDay}
+							today={today}
+						/>
+				  ))}
 		</BlockPeopleTask>
 	);
 }

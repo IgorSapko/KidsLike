@@ -1,11 +1,6 @@
-//Core
-// import { createAction } from '@reduxjs/toolkit';
+import { createAction } from '@reduxjs/toolkit';
 
-// const loaderON = createAction('LOADER_ON');
-// const loaderOFF = createAction('LOADER_OFF');
-// const loaderActions={
-//     loaderON,
-//     loaderOFF
-// }
+const contactsRequest = createAction('contacts/contactsRequest');
+const contactsSuccess = createAction('contacts/contactsSuccess');
 
-// export default loaderActions;
+export default { contactsRequest, contactsSuccess };

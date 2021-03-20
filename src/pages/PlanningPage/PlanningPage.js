@@ -23,7 +23,6 @@ const PlanningPage = () => {
 		setOpenAddTaskModal(false);
 	};
 
-
 	const createCustomTask = formData => {
 		dispatch(weekOperations.createCustomTask(formData));
 		setOpenAddTaskModal(false);
@@ -33,7 +32,7 @@ const PlanningPage = () => {
 		const endDay = endWeekDay.replace(/-/gi, '.');
 		if (startWeekDay.slice(0, 1) === '0') {
 			return `${startWeekDay.slice(1, 2)} - ${endDay}`;
-		};
+		}
 		return `${startWeekDay.slice(0, 2)} - ${endDay}`;
 	};
 
@@ -53,5 +52,3 @@ const PlanningPage = () => {
 };
 
 export default PlanningPage;
-
-

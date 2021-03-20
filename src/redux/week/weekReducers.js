@@ -1,8 +1,4 @@
-//Core
-import { combineReducers } from 'redux';
 import { createReducer, current } from '@reduxjs/toolkit';
-
-// import weekActions from './weekActions';
 import authActions from '../auth/authActions';
 import weekActions from './weekActions';
 
@@ -61,6 +57,6 @@ const weekReducer = createReducer(null, {
 		return { ...current(state), gifts: [...payload.gifts] };
 	},
 
-});
+	});
 
 export default weekReducer;

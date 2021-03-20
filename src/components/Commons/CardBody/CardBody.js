@@ -1,4 +1,3 @@
-//styles
 import { BlockPeopleTask_item_img, TaskImg } from './CardBody.styles';
 
 export default function CardBody({ item }) {

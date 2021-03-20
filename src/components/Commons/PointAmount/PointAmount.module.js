@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const BlockPeopleTask_item_inform_pad = styled.p`
+export const BlockPeopleTaskItemInformPad = styled.p`
 	padding: 3px 10px;
 	background-color: #5679d7;
 	border-radius: 3px;

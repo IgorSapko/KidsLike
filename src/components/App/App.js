@@ -11,6 +11,7 @@ import PrivateRoute from 'router/PrivateRoute';
 import selectors from '../../redux/selectors'
 import queryString from 'query-string';
 
+
 const App = () => {
 
 	const dispatch = useDispatch();
@@ -29,6 +30,7 @@ const App = () => {
 		dispatch(authOperations.getCurrentUser());
 	}, []);
 
+
 	return (<>{!isLoading?
 			<>
 			<Header />
@@ -44,7 +46,9 @@ const App = () => {
 				</Switch>
 				<Footer />
 			</Suspense>
-		</>:<Loader onLoad={true} />}</>
+		</>:<Loader onLoad={true} />}
+		
+		</>
 	);
 };
 

@@ -1,55 +1,59 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useCallback, useEffect } from 'react';
 import {
-	ModalWrapper,
 	ImgCat,
 	Congrats,
 	BtnClose,
 	ModalCongrats,
 	PrizesWrapper,
-	PrizesWrapper_block,
+	PrizesWrapperBlock,
 	ChosenPrise,
-	ChosenPrise_name,
+	ChosenPriseName,
 } from './CongratsModal.styles';
 import ModalBackDrop from '../ModalBackDrop/ModalBackDrop';
-import weekOperation from '../../../redux/week/weekOperation';
+import weekOperation from 'redux/week/weekOperation';
+import { useDispatch } from 'react-redux';
 
-function CongratsModal({ idItems, itemsAll, setOpen }) {
-	const [showModal, setShowModal] = useState(true);
+const CongratsModal = ({ itemsAll, setOpen }) => {
 	const dispatch = useDispatch();
+	const handleCloseModal = useCallback(
+		({ code, target }) => {
+			if (code === 'Escape' || target.id === 'backdrop') {
+				setOpen(false);
+			}
+			dispatch(weekOperation.giftsGetting());
+		},
+		[dispatch, setOpen],
+	);
 
-	const closeModal = () => {
-		const giftId = {
-			giftIDs: idItems,
+	useEffect(() => {
+		window.addEventListener('click', handleCloseModal);
+		window.addEventListener('keydown', handleCloseModal);
+
+		return () => {
+			window.removeEventListener('click', handleCloseModal);
+			window.removeEventListener('keydown', handleCloseModal);
 		};
-		setOpen(false);
-		setShowModal(showModal => !showModal);
-		if (showModal) {
-			dispatch(weekOperation.giftsOrder(giftId));
-		}
-	};
+	}, [handleCloseModal]);
 
 	return (
 		<ModalBackDrop>
-			<ModalWrapper onClick={closeModal}>
-				<ModalCongrats showModal={showModal}>
-					<ImgCat src="https://i.ibb.co/p0wx9b1/SimonCat.png" />
-					<Congrats>Поздравляем! Ты получаешь:</Congrats>
-					<BtnClose src="https://i.ibb.co/dDhJBd5/BtnClose.jpg" />
-					<PrizesWrapper>
-						{itemsAll.map(item => {
-							return (
-								<PrizesWrapper_block key={item.title}>
-									<ChosenPrise src={item.imageUrl} />
-									<ChosenPrise_name>{item.title}</ChosenPrise_name>
-								</PrizesWrapper_block>
-							);
-						})}
-					</PrizesWrapper>
-				</ModalCongrats>
-			</ModalWrapper>
+			<ModalCongrats>
+				<ImgCat src="https://storage.googleapis.com/kidslikev2_bucket/4c67b0f578c6e7ff1d0b504f8019ffc9.png" />
+				<Congrats>Поздравляем! Ты получаешь:</Congrats>
+				<BtnClose type="button" autoFocus onClick={() => setOpen(false)}>
+					&#10005;
+				</BtnClose>
+				<PrizesWrapper>
+					{itemsAll.map(({ _id, title, imageUrl }) => (
+						<PrizesWrapperBlock key={_id}>
+							<ChosenPrise img={imageUrl} />
+							<ChosenPriseName>{title}</ChosenPriseName>
+						</PrizesWrapperBlock>
+					))}
+				</PrizesWrapper>
+			</ModalCongrats>
 		</ModalBackDrop>
 	);
-}
+};
 
 export default CongratsModal;

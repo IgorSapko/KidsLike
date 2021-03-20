@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const BlockPeopleTask_item_inform_title = styled.h2`
+export const BlockPeopleTaskItemInformTitle = styled.h2`
 	padding-top: 14px;
 	margin-bottom: 4px;
 	text-align: left;

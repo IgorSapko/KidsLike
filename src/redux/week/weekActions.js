@@ -16,7 +16,6 @@ const giftsGettingSuccess = createAction('week/giftsGettingSuccess');
 const giftsOrderRequest = createAction('week/giftsOrderRequest');
 const giftsOrderSuccess = createAction('week/giftsOrderSuccess');
 
-
 export default {
     taskSwitcherRequest,
     taskSwitcherSuccess,
@@ -27,5 +26,5 @@ export default {
      giftsGettingRequest,
      giftsGettingSuccess,
      giftsOrderRequest,
-     giftsOrderSuccess
+     giftsOrderSuccess,
 };

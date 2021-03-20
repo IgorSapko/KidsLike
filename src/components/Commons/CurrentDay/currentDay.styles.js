@@ -1,138 +1,275 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { device } from '../../../index.styles';
 
 const LeftSide = styled.div`
-	width: 100%;
 	display: flex;
+	width: 100%;
 	justify-content: center;
 	flex-wrap: wrap;
+	${props =>
+		props.awardsPage &&
+		css`
+			display: none;
+		`}
 	@media ${device.desktop} {
-		width: 50%;
-		display: block;
-		&:last-child{margin-top: 30px}
-	}
+		height: 70px;
+		width: 400px;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: flex-start;
+		text-align: right;
+		${props =>
+			props.awardsPage &&
+			css`
+				display: none;
+			`}
+	} ;
 `;
 
 const Container = styled.div`
 	display: flex;
-	justify-content: center;
-	flex-wrap: wrap-reverse;
-	width: calc(100% - 150px);
-	height: 40px;
-	padding-top: 100px;
-	@media ${device.desktop} {
-		display: flex;
-		justify-content: space-between;
-		padding-top: 0px;
-		margin-top: 40px;
-		margin-left: 110px;
-		margin-right: 50px;
-		height: 67px;
+	justify-content: space-between;
+	height: 70px;
+	margin-bottom: 40px;
+	@media ${device.tablet} {
+		flex-wrap: wrap-reverse;
+		height: fit-content;
+		padding-top: 40px;
+		margin-bottom: 40px;
 	}
+	@media ${device.desktop} {
+		margin: 0 auto;
+		margin-bottom: 50px;
+		justify-content: space-around;
+		flex-wrap: nowrap;
+		width: 900px;
+	} ;
 `;
 
 const ProgressDiv = styled.div`
-	width: 280px;
+	width: 40%;
+
+	@media ${device.tablet} {
+		width: 280px;
+		margin-right: 30px;
+		display: inline-block;
+	}
+	@media ${device.desktop} {
+		width: 280px;
+		display: inline-block;
+		margin-right: 10px;
+	}
 `;
 
 const Points = styled.p`
-	font-family: 'MontserratRegular';
+	font-family: 'MontserratRegular', sans-serif;
 	font-style: normal;
 	font-weight: 500;
 	font-size: 12px;
 	line-height: 15px;
 	color: #a6abb9;
 	letter-spacing: 0.04em;
-	width: 100%;
-	@media ${device.desktop} {
-		text-align: start;
+	display: none;
+	@media ${device.tablet} {
+		width: 350px;
 		display: block;
-		line-height: 15px;
-		&:last-child{margin-top: 10px;
-		margin-bottom:6px}
-		/* margin-top: 10px; */
+		margin-right: 10px;
 	}
 `;
 
-const PointsContainer = styled.div`
-/* &:last-child{margin-top: 30px} */
-`
-
-const WeekPointsSpan =styled.span`
-font-weight: 700;
-color:rgba(0, 0, 0, 1);
-text-transform:uppercase
-`
-
-const WeekText = styled.p`
-	font-family: 'MontserratRegular';
+const PointsLeft = styled.div`
+	font-family: 'MontserratRegular', sans-serif;
 	font-style: normal;
 	font-weight: 500;
-	font-size: 14px;
-	line-height: 22px;
-	margin-bottom: 15px;
+	font-size: 12px;
+	color: #a6abb9;
+	letter-spacing: 0.04em;
+	width: 230px;
+	text-align: center;
+	margin-top: 20px;
 	@media ${device.tablet} {
-		font-size: 14px;
+		width: 100%;
+		text-align: center;
+		${props =>
+			props.awardsPage &&
+			css`
+				display: none;
+			`};
+		};
+	@media ${device.desktop} {
+		width: 500px;
+		text-align: left;
+		margin-left: 0px;
+		margin-top: 0px;
+	}
+`;
+
+const WeekText = styled.p`
+	font-family: 'MontserratRegular', sans-serif;
+	font-style: normal;
+	font-weight: 500;
+	width: 100%;
+	text-align: center;
+	@media ${device.tablet} {
 		display: none;
 	}
 	@media ${device.desktop} {
+		display: flex;
+		width: 224px;
 		font-size: 18px;
-		display: block;
-		margin-bottom:26px;
+		line-height: 22px;
 	}
 `;
-const Points_span = styled.span`
+
+const DayName = styled.p`
+	display: inline-block;
+	margin: 0 auto;
+	width: 100%;
+	margin-top: 6px;
+	color: #000000;
+	font-family: 'Montserrat800', sans-serif;
+	font-style: normal;
+	font-weight: 800;
 	font-size: 12px;
-	color: black;
-	font-family: Montserrat;
-	font-weight: bold;
-	display: block;
-	margin-top: 4px;
+	line-height: 15px;
+	letter-spacing: 0.2em;
 	@media ${device.tablet} {
-		text-align: start;
-		padding-left: 20px;
-		display: inline;
-		line-height: 15px;
+		width: 260px;
 	}
 `;
-const Balance_Points = styled.p`
+
+const PlanPoints = styled.p`
+	display: inline-block;
 	font-family: 'MontserratRegular';
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 17px;
+	text-align: right;
+	letter-spacing: 0.2em;
+	padding-right: 19px;
+	padding-left: 5px;
+`;
+
+const ProgressContainer = styled.div`
+	position: fixed;
+	width: 100%;
+	height: 58px;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	z-index: 100;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	background-color: #f1f1f1;
+	margin-top: -116px;
+	@media ${device.tablet} {
+		background-color: unset;
+		width: fit-content;
+		position: static;
+		height: 8px;
+		margin-top: 6px;
+	z-index: 0;
+
+		${props =>
+			props.awardsPage &&
+			css`
+				justify-content: flex-end;
+				width: max-content;
+				& > div {
+					margin-right: 10px;
+				}
+			`}
+
+	}
+	@media ${device.desktop} {
+		justify-content: flex-end;
+		width: 100%;
+	}
+`;
+
+const ContainerPoints = styled.div`
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: flex-end;
+	@media ${device.tablet} {
+		width: 100%;
+		text-align: center;
+		align-items: center;
+		flex-direction: column;
+		justify-content: space-around;
+		height: 66px;
+		${props =>
+			props.awardsPage &&
+			css`
+				width: 350%;
+				height: 70px;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				align-items: flex-end;
+				text-align: right;
+			`};
+	}
+	@media ${device.desktop} {
+		width: 50%;
+		height: 70px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: flex-end;
+		text-align: right;
+		${props =>
+			props.awardsPage &&
+			css`
+				width: 350%;
+			`};
+	}
+`;
+
+const BoldPoints = styled.span`
+	display: inline-block;
+	color: #000000;
+	font-family: 'Montserrat800', sans-serif;
+	font-style: normal;
+	font-weight: 800;
+	font-size: 14px;
+	line-height: 17px;
+	letter-spacing: 0.2em;
+	padding-left: 20px;
+`;
+const PointsMobile = styled.p`
+	display: inline-block;
+	width: 100%;
+	height: 15px;
+	padding-left: 20px;
+	font-family: Montserrat;
 	font-style: normal;
 	font-weight: 500;
 	font-size: 12px;
 	line-height: 15px;
 	color: #a6abb9;
-	letter-spacing: 0.04em;
-	width: 100%;
-	@media ${device.desktop} {
-		text-align: start;
-		display: block;
-		line-height: 15px;
+	@media ${device.tablet} {
+		display: none;
 	}
 `;
-const Balance_Points_span = styled.span`
-	@media ${device.desktop} {
-		margin-left: 10px;
-		font-family: Montserrat;
-		font-style: normal;
-		font-weight: bold;
-		font-size: 12px;
-		line-height: 15px;
-		letter-spacing: 0.2em;
-		color: #000000;
+
+const AddCustom = styled.div`
+	@media ${device.tablet} {
+		display: none;
 	}
 `;
-const Balance_Points_leftNumb = styled.div`
-	@media ${device.desktop} {
-		margin-left: 10px;
-		font-family: Montserrat;
-		font-style: normal;
-		font-weight: bold;
-		font-size: 12px;
-		line-height: 15px;
-		letter-spacing: 0.2em;
-		color: #000000;
-	}
+const AddBtn = styled.button`
+	position: fixed;
+	margin-right: 20px;
+	margin-bottom: 10px;
+	z-index: 100;
+	bottom: 0;
+	right: 20px;
+	border: none;
+	background-color: unset;
 `;
 
 export {
@@ -140,12 +277,14 @@ export {
 	LeftSide,
 	ProgressDiv,
 	Points,
+	PointsLeft,
 	WeekText,
-	WeekPointsSpan,
-	Points_span,
-	Balance_Points,
-	Balance_Points_span,
-	Balance_Points_leftNumb,
-	PointsContainer
+	DayName,
+	PlanPoints,
+	ProgressContainer,
+	ContainerPoints,
+	BoldPoints,
+	PointsMobile,
+	AddCustom,
+	AddBtn,
 };
-
