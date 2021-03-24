@@ -15,7 +15,7 @@ position:absolute;
 `;
 
 const Image = styled.img`
-	border-radius: 6px 6px 0px 0px;
+	/* border-radius: 6px 6px 0px 0px; */
 	max-height: 100%;
 	max-width:100%;
 	margin: auto;
