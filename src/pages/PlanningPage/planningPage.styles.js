@@ -18,6 +18,9 @@ const PlanningPageBlock = styled.div`
 	}
 	@media ${device.desktop} {
 		padding-bottom: 0px;
+		display: block;
+		overflow: auto;
+		height: calc(100% - 142px);
 	}
 `;
 const PlanningPageInfo = styled.div`

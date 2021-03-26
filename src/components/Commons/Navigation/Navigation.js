@@ -7,10 +7,7 @@ import {
 	MobileMenu,
 	MobileMenuText,
 	MobileMenuLogo,
-	HeaderBlockLeftBlock,
-	HeaderBalance,
-	HeaderBalanceText,
-	HeaderBalanceNumber,
+
 	HeaderBlockRight,
 	MobileMenuAuthorized,
 	UserInfoWrapper,
@@ -242,15 +239,7 @@ const Navigation = () => {
 				</HeaderInformUlNotAuthorized>
 			) : (
 				<>
-					<HeaderBlockLeftBlock>
-						<HeaderBalance>
-							<HeaderBalanceText>
-								Баланс <br /> баллов
-							</HeaderBalanceText>
-
-							<HeaderBalanceNumber>{user.balance}</HeaderBalanceNumber>
-						</HeaderBalance>
-					</HeaderBlockLeftBlock>
+					
 
 					<HeaderBlockRight>
 						<HeaderInformUl>

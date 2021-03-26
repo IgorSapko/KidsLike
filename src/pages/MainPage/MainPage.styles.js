@@ -1,8 +1,5 @@
-import styled, {css} from 'styled-components';
+import styled from 'styled-components';
 import { device, size } from '../../index.styles';
-
-
-
 
 const MainPageContainer = styled.div`
 	@media (max-width: ${size.desktop}) {
@@ -10,11 +7,8 @@ const MainPageContainer = styled.div`
 	}
 	@media ${device.desktop} {
 		display: flex;
-		/* height: calc(100vh - 142px);
-		min-height: 796px; */
-		/* min-height: calc(100vh - 142px); */
-		min-height:fit-content;
-		height: 100%;
+		min-height: fit-content;
+		height: calc(100% - 142px);
 	}
 `;
 const WeekTabsContainer = styled.div`
@@ -34,33 +28,29 @@ const WeekTabsContainer = styled.div`
 		align-items: center;
 	}
 	@media ${device.desktop} {
-		/* height: calc(100vh - 60px); */
-
-		/* height: calc(100% + 80px);
-		min-height: 796px; */
-		min-height: calc(100% + 80px);
-		/* height: ${props => props.height}px; */
+		/* min-height: calc(100% + 80px); */
+		min-height:340px;
+		display: flex;
+		align-items:center;
+		
 		height: initial;
 		width: 240px;
-		align-items: start;
+		align-items: center;
 		z-index: 1;
 		left: 0;
 	}
 `;
 const WeekTabsList = styled.ul`
-	@media (max-width: 1279px) {
-		list-style: none;
-		display: flex;
-		justify-content: space-between;
-		width: 336px;
-		margin-left: 0px;
-	}
-	@media ${device.tablet} {
-		border-color: red;
-	}
+	list-style: none;
+	display: flex;
+	justify-content: space-between;
+	width: 336px;
+	margin-left: 0px;
+
 	@media ${device.desktop} {
+		display: inline;
 		list-style: none;
-		margin-top: 140px;
+		/* margin-top: 140px; */
 		margin-left: 50px;
 		padding-left: 0px;
 	}
@@ -96,11 +86,13 @@ const WeekTabsWeekInfo = styled.p`
 const WeekTabContentContainer = styled.div`
 	background-color: #ffffff;
 	width: 100%;
-	min-height:100%;
-	/* overflow-y:auto; */
 	@media ${device.tablet} {
 		background-color: #fafafa;
 		padding-bottom: 1px;
+			}
+	@media ${device.desktop} {
+		display: block;
+		overflow: auto;
 	}
 `;
 const ContainerForBalanceandInfo = styled.div`

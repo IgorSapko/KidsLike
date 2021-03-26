@@ -9,6 +9,9 @@ export const AwardsPageWrapper = styled.div`
 		padding-bottom: 1px;
 	}
 	@media ${device.desktop} {
+		display: block;
+		overflow: auto;
+		height: calc(100% - 142px);
 	} ;
 `;
 

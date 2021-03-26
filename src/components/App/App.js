@@ -18,17 +18,21 @@ const App = () => {
 	const location = useLocation();
 	const isLoading = useSelector(selectors.getIsLoading)
 
-	useEffect(() => {
-		dispatch(authOperations.getCurrentUser());
-	}, [dispatch]);
+	// useEffect(() => {
+	// 	dispatch(authOperations.getCurrentUser());
+	// }, [dispatch]);
 
 	useEffect(() => {
 		if (location.search) {
 			const params = queryString.parse(location.search);
 			params.token && dispatch(authOperations.userSignInGoogle(params.token));
 		}
-		dispatch(authOperations.getCurrentUser());
+		// dispatch(authOperations.getCurrentUser());
 	}, []);
+
+	useEffect(() => {
+		dispatch(authOperations.getCurrentUser());
+	}, [dispatch]);
 
 
 	return (<>{!isLoading?

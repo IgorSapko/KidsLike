@@ -40,6 +40,12 @@ export const HeaderblockcontactInform = styled.h2`
 	height: fit-content;
 	overflow-x: hidden;
 	max-width: 180px;
+	@media ${device.tablet} {
+			max-width: 350px;
+	};
+	@media ${device.desktop} {
+			max-width: 550px;
+	};
 `;
 
 export const HeaderblockcontactBlockFirstLetter = styled.div`
