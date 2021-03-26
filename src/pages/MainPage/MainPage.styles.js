@@ -12,7 +12,8 @@ const MainPageContainer = styled.div`
 		display: flex;
 		/* height: calc(100vh - 142px);
 		min-height: 796px; */
-		min-height: calc(100vh - 142px);
+		/* min-height: calc(100vh - 142px); */
+		min-height:fit-content;
 		height: 100%;
 	}
 `;
@@ -39,7 +40,7 @@ const WeekTabsContainer = styled.div`
 		min-height: 796px; */
 		min-height: calc(100% + 80px);
 		/* height: ${props => props.height}px; */
-		height: 100%;
+		height: initial;
 		width: 240px;
 		align-items: start;
 		z-index: 1;
@@ -95,6 +96,8 @@ const WeekTabsWeekInfo = styled.p`
 const WeekTabContentContainer = styled.div`
 	background-color: #ffffff;
 	width: 100%;
+	min-height:100%;
+	/* overflow-y:auto; */
 	@media ${device.tablet} {
 		background-color: #fafafa;
 		padding-bottom: 1px;

@@ -19,8 +19,9 @@ const FooterStyles = styled.div`
 			${props =>
 			props.footerLocation === '/' &&
 			css`@media ${device.desktop} {
-		width: calc(100% - 240px);
-		margin-left: 240px;
+		/* width: calc(100% - 240px);
+		margin-left: 240px; */
+		background:linear-gradient(90deg, #ffbc33 240px, 240px, #fafafa 90% )
 			`}
 	}
 `;

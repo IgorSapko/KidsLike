@@ -2,9 +2,12 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
 html,
-body {
-    height: 100%;
+body,
+#root {
+  /* height:100%;
+   min-height:max-content; */
 }
+
 
     *,
     *::before,
@@ -223,7 +226,7 @@ body {
   }
 
 `;
-export const mainBackgroundColor1 = 'background-color:#FFBC33'
+export const mainBackgroundColor1 = 'background-color:#FFBC33';
 
 export const size = {
 	mobile: '320px',
