@@ -1,5 +1,8 @@
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 import { device, size } from '../../index.styles';
+
+
+
 
 const MainPageContainer = styled.div`
 	@media (max-width: ${size.desktop}) {
@@ -7,6 +10,10 @@ const MainPageContainer = styled.div`
 	}
 	@media ${device.desktop} {
 		display: flex;
+		/* height: calc(100vh - 142px);
+		min-height: 796px; */
+		min-height: calc(100vh - 142px);
+		height: 100%;
 	}
 `;
 const WeekTabsContainer = styled.div`
@@ -27,7 +34,12 @@ const WeekTabsContainer = styled.div`
 	}
 	@media ${device.desktop} {
 		/* height: calc(100vh - 60px); */
-		height: calc(100% + 80px);
+
+		/* height: calc(100% + 80px);
+		min-height: 796px; */
+		min-height: calc(100% + 80px);
+		/* height: ${props => props.height}px; */
+		height: 100%;
 		width: 240px;
 		align-items: start;
 		z-index: 1;

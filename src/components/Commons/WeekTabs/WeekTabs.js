@@ -4,17 +4,19 @@ import { WeekTabsContainer, WeekTabsWeekInfo } from '../../../pages/MainPage/Mai
 import { monthInNumbFunc } from 'utils/Helpers';
 
 export default function WeekTabs({ week }) {
+	const height = document.body.scrollHeight;
+	console.log(height)
 	return (
-		<>
-			<div>
-				<WeekTabsContainer>
+	
+			
+				<WeekTabsContainer height={height}>
 					<WeekTabsWeekInfo>
 						Неделя: {week.startWeekDate.substring(0, 2)} - {week.endWeekDate.substring(0, 2)}{' '}
 						{monthInNumbFunc(week).name}
 					</WeekTabsWeekInfo>
 					<CurrentWeekRange />
 				</WeekTabsContainer>
-			</div>
-		</>
+			
+	
 	);
 }
