@@ -1,9 +1,16 @@
 import styled from 'styled-components';
+// import {device, size} from '../../index.styles';
+// import device from '../../device';
+
 import device from './device';
 
 const PlanningPageBlock = styled.div`
 	margin: auto;
-	margin-bottom: 60px;
+	/* display:flex; */
+	/* flex-wrap:wrap; */
+	@media ${device.mobile} {
+		margin-bottom: 60px;
+	}
 	@media ${device.tablet} {
 		margin-bottom: 0px;
 		padding-bottom: 1px;
@@ -22,9 +29,6 @@ const PlanningPageInfo = styled.div`
 		flex-direction: column;
 		align-items: center;
 		justify-content: space-between;
-	}
-	@media ${device.tablet} {
-		padding-bottom: 40px;
 	}
 	@media ${device.desktop} {
 		margin: 0 auto;

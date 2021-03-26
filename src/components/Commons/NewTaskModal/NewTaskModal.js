@@ -33,11 +33,18 @@ const NewTaskModal = ({ addTask, closeModal }) => {
 
 	const onImageChange = event => {
 		if (event.target.files && event.target.files[0]) {
-			let reader = new FileReader();
-			reader.onload = e => {
-				setTaskAvatar(e.target.result);
-			};
-			reader.readAsDataURL(event.target.files[0]);
+			if (event.target.files[0].size > 5242880) {
+				notification({
+					type: 'warning',
+					message: 'Выберите файл до 5MB',
+				});
+			} else {
+				let reader = new FileReader();
+				reader.onload = e => {
+					setTaskAvatar(e.target.result);
+				};
+				reader.readAsDataURL(event.target.files[0]);
+			}
 		}
 	};
 
