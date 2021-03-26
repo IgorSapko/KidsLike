@@ -2,7 +2,7 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { FooterStyles, FooterText, FooterContentKidsLike, HorizLine } from './Footer.styles';
 
-export default function Footer({ footerLocation }) {
+export default function Footer() {
 	const location = useLocation();
 
 	return (

@@ -9,16 +9,19 @@ const FooterStyles = styled.div`
 	background-color: #ffffff;
 	color: #858598;
 	margin-bottom: 50px;
-	${props => props.footerLocation === '/' && css``};
 	@media ${device.tablet} {
-		display: flex;
 		align-items: center;
 		background-color: #fafafa;
 		margin-bottom: 0px;
 	}
 	@media ${device.desktop} {
 		justify-content: flex-end;
-		margin-bottom: 0px;
+			${props =>
+			props.footerLocation === '/' &&
+			css`@media ${device.desktop} {
+		width: calc(100% - 240px);
+		margin-left: 240px;
+			`}
 	}
 `;
 const FooterText = styled.p`

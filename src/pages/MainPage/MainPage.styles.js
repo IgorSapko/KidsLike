@@ -26,6 +26,7 @@ const WeekTabsContainer = styled.div`
 		align-items: center;
 	}
 	@media ${device.desktop} {
+		/* height: calc(100vh - 60px); */
 		height: calc(100% + 80px);
 		width: 240px;
 		align-items: start;
@@ -50,22 +51,6 @@ const WeekTabsList = styled.ul`
 		margin-left: 50px;
 		padding-left: 0px;
 	}
-
-	/* list-style: none;
-		display: flex;
-		justify-content: space-between;
-		width: 336px;
-		margin-left: 0px;
-	
-	@media ${device.tablet} {
-		border-color: red;
-	}
-	@media ${device.desktop} {
-		list-style: none;
-		margin-top: 140px;
-		margin-left: 50px;
-		padding-left: 0px;
-	} */
 `;
 
 const WeekTabsItemTextDesktop = styled.span`

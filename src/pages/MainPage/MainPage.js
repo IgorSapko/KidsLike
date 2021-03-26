@@ -12,6 +12,8 @@ function MainPage() {
 	useEffect(() => {
 		history.push(todayIs());
 	}, []);
+	const height = document.body.scrollHeight;
+	console.log(document.body.scrollHeight)
 	return (
 		<>
 			<MainPageContainer>
