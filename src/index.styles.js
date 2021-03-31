@@ -4,7 +4,8 @@ const GlobalStyle = createGlobalStyle`
 html,
 body,
 #root {
-  height: 100%;
+  height:100%;
+  @media(max-width: 767px){height:auto; min-height: 100%;}
   }
 
     *,

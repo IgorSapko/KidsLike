@@ -16,12 +16,12 @@ const Header = () => {
 		<HeaderBlock>
 			<LeftSideWrapper>
 			<Logo />
-			<HeaderBalance>
+			{user &&<HeaderBalance>
 				<HeaderBalanceText>
 					Баланс <br /> баллов
 				</HeaderBalanceText>
 				<HeaderBalanceNumber>{user && user.balance}</HeaderBalanceNumber>
-			</HeaderBalance>
+			</HeaderBalance>}
 			</LeftSideWrapper>
 			<Navigation />
 		</HeaderBlock>

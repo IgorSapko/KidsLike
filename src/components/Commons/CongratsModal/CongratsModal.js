@@ -10,19 +10,21 @@ import {
 	ChosenPriseName,
 } from './CongratsModal.styles';
 import ModalBackDrop from '../ModalBackDrop/ModalBackDrop';
-import weekOperation from 'redux/week/weekOperation';
-import { useDispatch } from 'react-redux';
+import weekActions from 'redux/week/weekActions';
+import selectors from 'redux/selectors';
+import { useDispatch, useSelector } from 'react-redux';
 
-const CongratsModal = ({ itemsAll, setOpen }) => {
+const CongratsModal = ({ itemsAll, setItemsAll, setOpen }) => {
 	const dispatch = useDispatch();
+	const gifts = useSelector(selectors.getGifts);
 	const handleCloseModal = useCallback(
 		({ code, target }) => {
 			if (code === 'Escape' || target.id === 'backdrop') {
 				setOpen(false);
 			}
-			dispatch(weekOperation.giftsGetting());
+			dispatch(weekActions.giftsClearAllTogglers(gifts));
 		},
-		[dispatch, setOpen],
+		[dispatch, setOpen, gifts],
 	);
 
 	useEffect(() => {
@@ -40,7 +42,7 @@ const CongratsModal = ({ itemsAll, setOpen }) => {
 			<ModalCongrats>
 				<ImgCat src="https://storage.googleapis.com/kidslikev2_bucket/4c67b0f578c6e7ff1d0b504f8019ffc9.png" />
 				<Congrats>Поздравляем! Ты получаешь:</Congrats>
-				<BtnClose type="button" autoFocus onClick={() => setOpen(false)}>
+				<BtnClose type="button" autoFocus onClick={() => (setOpen(false), setItemsAll([]))}>
 					&#10005;
 				</BtnClose>
 				<PrizesWrapper>

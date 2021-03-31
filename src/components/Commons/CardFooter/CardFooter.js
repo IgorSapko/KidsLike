@@ -1,5 +1,4 @@
 import { useHistory } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 import CardTitle from '../CardTitle/CardTitle';
 import PointAmount from '../PointAmount/PointAmount';
 import TaskToggle from '../TaskToggle/TaskToggle';
@@ -11,15 +10,9 @@ import {
 	NotDoneTask,
 } from './CardFooter.styles.js';
 
-export default function CardFooter({ item, currentDay, today, summNumber }) {
-	const startWeekDay = useSelector(state => state.week.startWeekDate);
-	let dayPositionInWeekFromZero;
-	if (currentDay && today) {
-		const startWeekDayDate = startWeekDay.split('-')[0];
-		const currentDayDate = currentDay.split('-')[0];
-		dayPositionInWeekFromZero = Number(currentDayDate) - Number(startWeekDayDate);
-	}
+export default function CardFooter({ item, currentDay, today, summNumber, dayPositionInWeekFromZero }) {
 	let history = useHistory();
+	
 	return (
 		<BlockPeopleTaskItemText>
 			<CardTitle item={item} />
@@ -28,7 +21,7 @@ export default function CardFooter({ item, currentDay, today, summNumber }) {
 				{history.location.pathname === '/' && currentDay && today ? (
 					currentDay === today ? (
 						<TaskToggle item={item} currentDay={currentDay} />
-					) : currentDay > today ? null : item.days[dayPositionInWeekFromZero].isCompleted ? (
+					) :  currentDay > today ? null : item.days[dayPositionInWeekFromZero].isCompleted ? (
 						<DoneTask />
 					) : (
 						<NotDoneTask />

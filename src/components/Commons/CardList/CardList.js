@@ -5,10 +5,9 @@ import selector from '../../../redux/selectors';
 import Card from '../Card/Card';
 import { BlockPeopleTask } from './CardList.styles';
 
-function CardList({ currentDay, today }) {
+function CardList({ currentDay, today, dayPositionInWeekFromZero }) {
 	const tasks = useSelector(selector.getTasks);
 	let history = useHistory();
-
 	return (
 		<BlockPeopleTask locat={history.location.pathname}>
 			{history.location.pathname === '/'
@@ -20,6 +19,7 @@ function CardList({ currentDay, today }) {
 									item={task}
 									currentDay={currentDay}
 									today={today}
+									dayPositionInWeekFromZero={dayPositionInWeekFromZero}
 								/>
 							);
 						}

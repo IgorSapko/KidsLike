@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import loaderActions from '../../redux/loader/loaderActions';
+import errorActions from 'redux/error/errorActions';
 import {
 	Container,
 	MainText,
@@ -29,7 +30,7 @@ export default function Contacts() {
 
 		axios
 			.get(`https://kids-like-backend-cloud.herokuapp.com/api/team/contacts`)
-			.then(({ data }) => setContacts(data));
+			.then(({ data }) => setContacts(data)).catch(error=>dispatch(errorActions.error(error)));
 
 		dispatch(loaderActions.contactsSuccess());
 	}, [dispatch]);

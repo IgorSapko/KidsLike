@@ -12,7 +12,7 @@ const weekReducer = createReducer(null, {
 		let currentTask;
 		const newTotalArr = [];
 		tasksArr.forEach(task => {
-			if (task._id === payload.updatedTask.id||task.id  === payload.updatedTask.id) {
+			if (task._id === payload.updatedTask.id || task.id === payload.updatedTask.id) {
 				currentTask = { ...task };
 				currentTask.days = [...payload.updatedTask.days];
 				newTotalArr.push(currentTask);
@@ -33,7 +33,7 @@ const weekReducer = createReducer(null, {
 		let currentTask;
 		const newTotalArr = [];
 		tasksArr.forEach(task => {
-			if (task._id  === payload.updatedTask.id||task.id  === payload.updatedTask.id) {
+			if (task._id === payload.updatedTask.id || task.id === payload.updatedTask.id) {
 				currentTask = { ...task };
 				currentTask.days = [...payload.updatedTask.days];
 				newTotalArr.push(currentTask);
@@ -57,6 +57,23 @@ const weekReducer = createReducer(null, {
 		return { ...current(state), gifts: [...payload.gifts] };
 	},
 
-	});
+	[weekActions.giftsToggle]: (state, { payload }) => {
+		const upddatedGiftsToggles = current(state).gifts.map(gift => {
+			if (gift._id === payload) {
+				const updatedGift = { ...gift, isSelected: !gift.isSelected };
+				return updatedGift;
+			}
+			return gift;
+		});
+		return { ...current(state), gifts: [...upddatedGiftsToggles] };
+	},
+
+	[weekActions.giftsClearAllTogglers]: (state, { payload }) => {
+		const updatedGifts = payload.map(gift => {
+			return { ...gift, isSelected: false };
+		});
+		return { ...current(state), gifts: [...updatedGifts] };
+	},
+});
 
 export default weekReducer;

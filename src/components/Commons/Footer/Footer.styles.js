@@ -13,15 +13,25 @@ const FooterStyles = styled.div`
 		align-items: center;
 		background-color: #fafafa;
 		margin-bottom: 0px;
+		${props =>
+			props.footerLocation === '/auth' &&
+			css`
+				position: absolute;
+				top: 710px;
+			`}
 	}
 	@media ${device.desktop} {
 		justify-content: flex-end;
-			${props =>
+		${props =>
 			props.footerLocation === '/' &&
-			css`@media ${device.desktop} {
-		/* width: calc(100% - 240px);
-		margin-left: 240px; */
-		background:linear-gradient(90deg, #ffbc33 240px, 240px, #fafafa 90% )
+			css`
+				background: linear-gradient(90deg, #ffbc33 240px, 240px, #fafafa 90%);
+			`};
+		${props =>
+			props.footerLocation === '/auth' &&
+			css`
+				position: initial;
+				top: 710px;
 			`}
 	}
 `;

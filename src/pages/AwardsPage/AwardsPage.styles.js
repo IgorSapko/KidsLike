@@ -3,15 +3,13 @@ import { device } from '../../index.styles';
 
 export const AwardsPageWrapper = styled.div`
 	background: #ffffff;
+	min-height: calc(100% - 142px);
 	@media ${device.tablet} {
 		background: #fafafa;
 		width: 100%;
 		padding-bottom: 1px;
 	}
 	@media ${device.desktop} {
-		display: block;
-		overflow: auto;
-		height: calc(100% - 142px);
 	} ;
 `;
 
@@ -42,7 +40,6 @@ export const TopWrapper = styled.div`
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	/* width: fit-content; */
 	@media ${device.tablet} {
 		width: 600px;
 	}

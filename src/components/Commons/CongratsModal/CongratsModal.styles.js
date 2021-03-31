@@ -62,7 +62,6 @@ export const BtnClose = styled.button`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	padding-top: 2px;
 	transition: all 250ms linear;
 
 	&:focus {

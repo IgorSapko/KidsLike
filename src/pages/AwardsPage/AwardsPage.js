@@ -82,7 +82,7 @@ export default function AwardsPage() {
 
 			<AwardsSubmitButton itemsAll={itemsAll} handleSwitch={handleSwitch} />
 
-			{open && <CongratsModal itemsAll={itemsAll} setOpen={setOpen} />}
+			{open && <CongratsModal itemsAll={itemsAll} setOpen={setOpen} setItemsAll={setItemsAll} />}
 		</AwardsPageWrapper>
 	);
 }

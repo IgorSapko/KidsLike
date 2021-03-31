@@ -8,12 +8,12 @@ import {
 import styles from '../../../pages/MainPage/Helper.module.css';
 import { nameOfDaysFunc } from 'utils/Helpers';
 
-export default function CurrentWeekRange() {
+export default function CurrentWeekRange({getCurrentDay}) {
 	return (
 		<WeekTabsList>
 			{nameOfDaysFunc().map(el => {
 				return (
-					<li key={el.date}>
+					<li key={el.date} onClick={(e)=>getCurrentDay(e.target.innerText)}>
 						<NavLink
 							to={`/?day=` + el.date}
 							isActive={(_, location) => {

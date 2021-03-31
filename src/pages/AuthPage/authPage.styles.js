@@ -10,8 +10,6 @@ const ContainerAuth = styled.div`
 	justify-content: center;
 	flex-wrap: wrap;
 	@media ${device.tablet} {
-		min-height: 0;
-		overflow-y: scroll;
 		background: #fafafa;
 	}
 	@media ${device.desktop} {
@@ -40,6 +38,7 @@ const Heading = styled.h2`
 
 	@media ${device.tablet} {
 		margin-top: 70px;
+		margin-bottom:36px;
 		font-size: 28px;
 		line-height: 34px;
 	}
@@ -53,6 +52,7 @@ const Heading = styled.h2`
 		font-size: 30px;
 		line-height: 37px;
 		text-align: left;
+		margin-bottom:0px;
 	}
 `;
 

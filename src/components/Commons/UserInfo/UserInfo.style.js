@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 import { device } from '../../../index.styles';
 
 export const UserInfoWrapper = styled.div`
@@ -57,11 +57,8 @@ export const HeaderblockcontactBlockFirstLetter = styled.div`
 	align-items: center;
 	border-radius: 50%;
 	margin-right: 10px;
-
-	@media (max-width: 320px) {
-		display: none;
-	}
 `;
+
 export const FirstLetter = styled.span`
 	font-family: Montserrat;
 	font-style: normal;

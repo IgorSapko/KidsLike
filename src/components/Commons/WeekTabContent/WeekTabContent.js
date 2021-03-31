@@ -8,7 +8,7 @@ import { WeekTabContentContainer } from '../../../pages/MainPage/MainPage.styles
 import styles from '../../../pages/MainPage/Helper.module.css';
 import { WeekTabContentList, WeekTabContentPlanning } from './WeekTabContent.styles';
 
-export default function WeekTabsContent({ week }, props) {
+export default function WeekTabsContent({ week, dayPositionInWeekFromZero }) {
 	function UseQuery() {
 		return new URLSearchParams(useLocation().search);
 	}
@@ -58,7 +58,7 @@ export default function WeekTabsContent({ week }, props) {
 
 			{todayTasks(daysQuery, tasks).length > 0 ? (
 				<WeekTabContentList>
-					{daysQuery && <CardList currentDay={daysQuery} today={today}></CardList>}
+					{daysQuery && <CardList currentDay={daysQuery} today={today} dayPositionInWeekFromZero={dayPositionInWeekFromZero}></CardList>}
 				</WeekTabContentList>
 			) : null}
 		</WeekTabContentContainer>

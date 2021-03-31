@@ -16,6 +16,10 @@ const giftsGettingSuccess = createAction('week/giftsGettingSuccess');
 const giftsOrderRequest = createAction('week/giftsOrderRequest');
 const giftsOrderSuccess = createAction('week/giftsOrderSuccess');
 
+const giftsToggle = createAction('week/giftsToggle');
+const giftsClearAllTogglers = createAction('week/giftsClearAllTogglers');
+
+
 export default {
     taskSwitcherRequest,
     taskSwitcherSuccess,
@@ -27,4 +31,6 @@ export default {
      giftsGettingSuccess,
      giftsOrderRequest,
      giftsOrderSuccess,
+     giftsToggle,
+     giftsClearAllTogglers
 };

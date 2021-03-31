@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 
 const startWeek = DateTime.local().startOf('week');
 export const daysOfWeek = ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС'];
-const nameOfdays = [
+export const nameOfdays = [
 	{ full: 'Понедельник', short: 'Пн', date: null },
 	{ full: 'Вторник', short: 'Вт', date: null },
 	{ full: 'Среда', short: 'Ср', date: null },

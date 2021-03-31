@@ -7,6 +7,7 @@ export const Container = styled.div`
 	flex-direction: column;
 	background-color: #fafafa;
 	font-family: 'Montserrat';
+	min-height: calc(100vh - 142px);
 `;
 
 export const MainText = styled.div`

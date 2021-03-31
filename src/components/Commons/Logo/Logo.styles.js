@@ -13,8 +13,8 @@ export const LogoImg = styled.img`
 export const NavLinkElem = styled(NavLink)`
 	display: flex;
 	align-items: center;
-	margin-left: 20px;
 	text-decoration: none;
+	
 `;
 export const HeaderLogoText = styled.h2`
 	padding-right: 9px;

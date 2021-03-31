@@ -7,7 +7,6 @@ import {
 	MobileMenu,
 	MobileMenuText,
 	MobileMenuLogo,
-
 	HeaderBlockRight,
 	MobileMenuAuthorized,
 	UserInfoWrapper,
@@ -25,145 +24,6 @@ import ModalBackDrop from 'components/Commons/ModalBackDrop/ModalBackDrop';
 import { todayIs } from '../../../utils/Helpers';
 import authOperations from '../../../redux/auth/authOperations';
 
-// const Navigation = () => {
-// 	const [menumob, setMenumob] = useState(false);
-// 	const { user } = useSelector(state => state.auth);
-// 	const dispatch = useDispatch();
-
-// 	const handleLogout = () => {
-// 		dispatch(authOperations.userSighOut());
-// 	};
-// 	const notAuthorizedLinks = [
-// 		{ nameLink: 'Авторизация', path: '/auth' },
-// 		{ nameLink: 'Контакты', path: '/contacts' },
-// 	];
-// 	const authorizedLinks = [
-// 		{ nameLink: 'Главная', path: todayIs() },
-// 		{ nameLink: 'Планирование', path: '/planning' },
-// 		{ nameLink: 'Награды', path: '/awards' },
-// 		{ nameLink: 'Контакты', path: '/contacts' },
-// 	];
-// 	const menuHeight = document.body.scrollHeight;
-
-// 	return (
-// 		<HeaderBlock>
-// 			{!user ? (
-// 				<>
-// 					<MobileMenuNotAuthorized>
-// 						<>
-// 							<MobileMenuLogo onClick={() => setMenumob(!menumob)}>
-// 								<MenuImg src="https://storage.googleapis.com/kidslikev2_bucket/df69c16c82b3710b3673ce34bcf49a3c.svg" />
-// 							</MobileMenuLogo>
-
-// 							{menumob && (
-// 								<ModalBackDrop>
-// 									<MobileMenuText menumob={menumob} user={user} menuHeight={menuHeight}>
-// 										<CloseSvgWrapper
-// 											onClick={() => {
-// 												setMenumob(!menumob);
-// 											}}
-// 											menumob
-// 										>
-// 											<CloseSvg stroke={'red'} />
-// 										</CloseSvgWrapper>
-// 										{notAuthorizedLinks.map(item => (
-// 											<LinkHeaderInform key={item.nameLink}>
-// 												<StyledNavLink exact to={item.path}>
-// 													{item.nameLink}
-// 												</StyledNavLink>
-// 											</LinkHeaderInform>
-// 										))}
-// 									</MobileMenuText>
-// 								</ModalBackDrop>
-// 							)}
-// 						</>
-// 					</MobileMenuNotAuthorized>
-// 					<HeaderInformUlNotAuthorized>
-// 						{notAuthorizedLinks.map(item => (
-// 							<LinkHeaderInform key={item.nameLink}>
-// 								<StyledNavLink user={user} exact to={item.path}>
-// 									{item.nameLink}
-// 								</StyledNavLink>
-// 							</LinkHeaderInform>
-// 						))}
-// 					</HeaderInformUlNotAuthorized>
-// 				</>
-// 			) : (
-// 				<>
-// 					<HeaderBlockLeftBlock>
-// 						<HeaderBalance>
-// 							<HeaderBalanceText>
-// 								Баланс <br /> баллов
-// 							</HeaderBalanceText>
-
-// 							<HeaderBalanceNumber>{user.balance}</HeaderBalanceNumber>
-// 						</HeaderBalance>
-// 					</HeaderBlockLeftBlock>
-
-// 					<HeaderBlockRight>
-// 						<HeaderInformUl>
-// 							{authorizedLinks.map(item => (
-// 								<LinkHeaderInform key={item.nameLink}>
-// 									<StyledNavLink exact to={item.path}>
-// 										{item.nameLink}
-// 									</StyledNavLink>
-// 								</LinkHeaderInform>
-// 							))}
-// 							<UserInfo />
-// 							<ExitLogoSvgWrapper onClick={() => handleLogout()} menumob user>
-// 								<ExitLogoSvg fill={'#858598'} />
-// 							</ExitLogoSvgWrapper>
-// 						</HeaderInformUl>
-// 					</HeaderBlockRight>
-// 					<MobileMenuAuthorized>
-// 						<MobileMenu>
-// 							<MobileMenuLogo onClick={() => setMenumob(!menumob)}>
-// 								<MenuImg src="https://storage.googleapis.com/kidslikev2_bucket/df69c16c82b3710b3673ce34bcf49a3c.svg" />
-// 							</MobileMenuLogo>
-// 							<UserInfoWrapper>
-// 								<UserInfo />
-// 							</UserInfoWrapper>
-// 							<ExitLogoSvgWrapper onClick={() => handleLogout()} menumob={menumob} user>
-// 								<ExitLogoSvg fill={'#858598'} />
-// 							</ExitLogoSvgWrapper>
-// 						</MobileMenu>
-// 						{menumob && (
-// 							<ModalBackDrop>
-// 								<MobileMenuText menuHeight={menuHeight}>
-// 									<UserInfoWrapper menumob>
-// 										<UserInfo menumob />
-// 										<ExitLogoSvgWrapper onClick={() => handleLogout()} menumob={menumob} user>
-// 											<ExitLogoSvg fill={'#FFFFFF'} />
-// 										</ExitLogoSvgWrapper>
-// 									</UserInfoWrapper>
-// 									<CloseSvgWrapper
-// 										onClick={() => {
-// 											setMenumob(!menumob);
-// 										}}
-// 										menumob
-// 									>
-// 										<CloseSvg stroke={'red'} />
-// 									</CloseSvgWrapper>
-
-// 									{authorizedLinks.map(item => (
-// 										<LinkHeaderInform key={item.nameLink}>
-// 											<StyledNavLink user={user} exact to={item.path}>
-// 												{item.nameLink}
-// 											</StyledNavLink>
-// 										</LinkHeaderInform>
-// 									))}
-// 								</MobileMenuText>
-// 							</ModalBackDrop>
-// 						)}
-// 					</MobileMenuAuthorized>
-// 				</>
-// 			)}
-// 		</HeaderBlock>
-// 	);
-// };
-
-// export default Navigation;
-
 const Navigation = () => {
 	const [menumob, setMenumob] = useState(false);
 	const { user } = useSelector(state => state.auth);
@@ -172,88 +32,66 @@ const Navigation = () => {
 	const handleLogout = () => {
 		dispatch(authOperations.userSighOut());
 	};
+
 	const links = [
-		{ nameLink: 'Авторизация', path: '/auth', restricted: true },
-		{ nameLink: 'Главная', path: todayIs(), restricted: false },
-		{ nameLink: 'Планирование', path: '/planning', restricted: false },
-		{ nameLink: 'Награды', path: '/awards', restricted: false },
-		{ nameLink: 'Контакты', path: '/contacts', restricted: user ? false : true },
+		{ nameLink: 'Авторизация', path: '/auth', restricted: !user },
+		{ nameLink: 'Главная', path: todayIs(), restricted: user },
+		{ nameLink: 'Планирование', path: '/planning', restricted: user },
+		{ nameLink: 'Награды', path: '/awards', restricted: user },
+		{ nameLink: 'Контакты', path: '/contacts', restricted: user || !user },
 	];
 
-	const menuHeight = document.body.scrollHeight;
-	const screenWidth =
-		window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-	console.log('screenWidth', screenWidth);
-
+	const linksFunction = links => {
+		return links.map(item => {
+			if (item.restricted) {
+				return (
+					<LinkHeaderInform key={item.nameLink}>
+						<StyledNavLink exact to={item.path} user={user}>
+							{item.nameLink}
+						</StyledNavLink>
+					</LinkHeaderInform>
+				);
+			}
+		});
+	};
+	// const menuHeight = document.body.scrollHeight;
+	const html = document.documentElement;
+	var menuHeight = Math.max(html.clientHeight, html.scrollHeight, html.offsetHeight);
+	
 	return (
 		<HeaderBlock>
 			{!user ? (
-				<HeaderInformUlNotAuthorized>
-					{screenWidth >= 768 ? (
-						links.map(item => {
-							if (item.restricted) {
-								return (
-									<LinkHeaderInform key={item.nameLink}>
-										<StyledNavLink exact to={item.path}>
-											{item.nameLink}
-										</StyledNavLink>
-									</LinkHeaderInform>
-								);
-							}
-						})
-					) : (
-						<MobileMenu>
-							<>
-								<MobileMenuLogo onClick={() => setMenumob(!menumob)}>
-									<MenuImg src="https://storage.googleapis.com/kidslikev2_bucket/df69c16c82b3710b3673ce34bcf49a3c.svg" />
-								</MobileMenuLogo>
+				<>
+					<MobileMenuNotAuthorized>
+						<>
+							<MobileMenuLogo onClick={() => setMenumob(!menumob)}>
+								<MenuImg src="https://storage.googleapis.com/kidslikev2_bucket/df69c16c82b3710b3673ce34bcf49a3c.svg" />
+							</MobileMenuLogo>
 
-								{menumob && (
-									<ModalBackDrop>
-										<MobileMenuText menumob={menumob} user={user} menuHeight={menuHeight}>
-											<CloseSvgWrapper
-												onClick={() => {
-													setMenumob(!menumob);
-												}}
-												menumob
-											>
-												<CloseSvg stroke={'red'} />
-											</CloseSvgWrapper>
-											{links.map(item => {
-												if (item.restricted) {
-													return (
-														<LinkHeaderInform key={item.nameLink}>
-															<StyledNavLink exact to={item.path}>
-																{item.nameLink}
-															</StyledNavLink>
-														</LinkHeaderInform>
-													);
-												}
-											})}
-										</MobileMenuText>
-									</ModalBackDrop>
-								)}
-							</>
-						</MobileMenu>
-					)}
-				</HeaderInformUlNotAuthorized>
+							{menumob && (
+								<ModalBackDrop>
+									<MobileMenuText menumob={menumob} user={user} menuHeight={menuHeight}>
+										<CloseSvgWrapper
+											onClick={() => {
+												setMenumob(!menumob);
+											}}
+											menumob
+										>
+											<CloseSvg />
+										</CloseSvgWrapper>
+										{linksFunction(links)}
+									</MobileMenuText>
+								</ModalBackDrop>
+							)}
+						</>
+					</MobileMenuNotAuthorized>
+					<HeaderInformUlNotAuthorized>{linksFunction(links)}</HeaderInformUlNotAuthorized>
+				</>
 			) : (
 				<>
-					
-
 					<HeaderBlockRight>
 						<HeaderInformUl>
-							{links.map(item => {
-								if (!item.restricted) {
-									return (
-										<LinkHeaderInform key={item.nameLink}>
-											<StyledNavLink exact to={item.path}>
-												{item.nameLink}
-											</StyledNavLink>
-										</LinkHeaderInform>
-									);
-								}
-							})}
+							{linksFunction(links)}
 							<UserInfo />
 							<ExitLogoSvgWrapper onClick={() => handleLogout()} menumob user>
 								<ExitLogoSvg fill={'#858598'} />
@@ -274,7 +112,7 @@ const Navigation = () => {
 						</MobileMenu>
 						{menumob && (
 							<ModalBackDrop>
-								<MobileMenuText menuHeight={menuHeight}>
+								<MobileMenuText menuHeight={menuHeight} user={user}>
 									<UserInfoWrapper menumob>
 										<UserInfo menumob />
 										<ExitLogoSvgWrapper onClick={() => handleLogout()} menumob={menumob} user>
@@ -287,20 +125,10 @@ const Navigation = () => {
 										}}
 										menumob
 									>
-										<CloseSvg stroke={'red'} />
+										<CloseSvg  />
 									</CloseSvgWrapper>
 
-									{links.map(item => {
-										if (!item.restricted) {
-											return (
-												<LinkHeaderInform key={item.nameLink}>
-													<StyledNavLink exact to={item.path}>
-														{item.nameLink}
-													</StyledNavLink>
-												</LinkHeaderInform>
-											);
-										}
-									})}
+									{linksFunction(links)}
 								</MobileMenuText>
 							</ModalBackDrop>
 						)}

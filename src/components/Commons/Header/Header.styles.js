@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { device } from '../../../index.styles';
 
 export const HeaderBlock = styled.div`
 	position: relative;
@@ -6,8 +7,12 @@ export const HeaderBlock = styled.div`
 	display: flex;
 	align-items: center;
 	height: 62px;
-	justify-content: space-evenly;
+	justify-content: space-around;
 	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+	@media ${device.desktop} {
+	padding-left: 50px;
+    padding-right: 50px;
+	justify-content: space-between;
 `;
 
 export const LeftSideWrapper = styled.div`

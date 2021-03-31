@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState, useMemo } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Switch from 'react-switch';
 import {
 	UncheckedIconWrapper,
@@ -8,14 +8,32 @@ import {
 	UnCheckedImg,
 } from './TaskToggle.styles';
 import weekOperation from '../../../redux/week/weekOperation';
+import weekActions from 'redux/week/weekActions';
+import selectors from 'redux/selectors';
 
 export default function TaskToggle({ item, currentDay, summNumber }) {
 	const [checked, setChecked] = useState(false);
 	const dispatch = useDispatch();
+	const gifts = useSelector(selectors.getGifts);
 
-	useEffect(() => {
+	useMemo(() => {
 		item.days && setChecked(item.days.find(day => day.date === currentDay).isCompleted);
 	}, [currentDay, item.days]);
+
+	useMemo(() => {
+		!item.days && setChecked(gifts.find(gift => gift._id===item._id).isSelected);
+	}, [gifts, item.days, item._id]);
+
+	// useMemo(() => {
+	// 	item.days
+	// 		? setChecked(item.days.find(day => day.date === currentDay).isCompleted)
+	// 		: setChecked(gifts.find(gift => gift._id === item._id).isSelected);
+	// }, [currentDay, item.days, gifts, item._id]);
+
+	const toggleGifts = itemId => {
+		summNumber(item, checked);
+		dispatch(weekActions.giftsToggle(itemId));
+	};
 
 	return (
 		<div>
@@ -27,7 +45,7 @@ export default function TaskToggle({ item, currentDay, summNumber }) {
 				onChange={() => {
 					item.days
 						? dispatch(weekOperation.taskSwitcher(item._id ? item._id : item.id, currentDay))
-						: summNumber(item, checked);
+						: toggleGifts(item._id);
 					setChecked(!checked);
 				}}
 				height={18}
